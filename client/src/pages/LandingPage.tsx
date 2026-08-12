@@ -6,14 +6,17 @@ import { Palette, Play, Sparkles } from 'lucide-react';
 export function LandingPage() {
   const navigate = useNavigate();
   const [joinCode, setJoinCode] = useState('');
+  const [playerName, setPlayerName] = useState(() => localStorage.getItem('chitrakari_name') || '');
 
   const handleCreateRoom = () => {
+    if (playerName.trim()) localStorage.setItem('chitrakari_name', playerName.trim());
     const code = generateRoomCode();
     navigate(`/room/${code}`);
   };
 
   const handleJoinRoom = (e: React.FormEvent) => {
     e.preventDefault();
+    if (playerName.trim()) localStorage.setItem('chitrakari_name', playerName.trim());
     if (joinCode.trim().length === 6) {
       navigate(`/room/${joinCode.toUpperCase()}`);
     }
@@ -38,6 +41,18 @@ export function LandingPage() {
         <p className="text-center text-slate-500 dark:text-slate-400 mb-10 font-medium">Draw, guess, and laugh together.</p>
 
         <div className="space-y-6">
+          <div className="space-y-2">
+            <label className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest pl-2">Your Name</label>
+            <input
+              type="text"
+              placeholder="Enter your nickname..."
+              maxLength={15}
+              value={playerName}
+              onChange={(e) => setPlayerName(e.target.value)}
+              className="w-full bg-slate-50 dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-700/50 rounded-2xl px-6 py-4 text-lg text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 transition-all font-medium"
+            />
+          </div>
+
           <button
             onClick={handleCreateRoom}
             className="w-full group bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-6 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 active:translate-y-0 transition-all flex items-center justify-center gap-3 text-lg"
