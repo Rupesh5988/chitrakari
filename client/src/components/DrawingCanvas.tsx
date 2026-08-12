@@ -413,11 +413,11 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
 
       {/* Sidebar Toolbar (Only visible to Drawer) */}
       {isDrawer ? (
-        <div className="flex flex-row md:flex-col gap-4 w-full md:w-20 lg:w-24 shrink-0 order-2 md:order-1 overflow-x-auto md:overflow-y-auto pb-2 md:pb-0">
-          <div className="bg-white dark:bg-paper-800 p-3 lg:p-4 rounded-3xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex md:flex-col gap-6 min-h-min items-center">
+        <div className="flex flex-row md:flex-col gap-2 w-full md:w-16 lg:w-20 shrink-0 order-2 md:order-1 overflow-x-auto md:overflow-y-auto pb-2 md:pb-0 scrollbar-hide">
+          <div className="bg-white dark:bg-paper-800 p-2 lg:p-3 rounded-3xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex md:flex-col gap-3 min-h-min items-center">
             
             {/* Tools */}
-            <div className="flex md:flex-col gap-2">
+            <div className="flex md:flex-col gap-1">
               {[
                 { id: 'pencil', icon: <IconPencil />, label: 'Pencil' },
                 { id: 'eraser', icon: <IconEraser />, label: 'Eraser' },
@@ -429,7 +429,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
                 <button
                   key={t.id}
                   onClick={() => setTool(t.id as ToolType)}
-                  className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all ${
+                  className={`flex flex-col items-center justify-center p-2 rounded-xl transition-all ${
                     tool === t.id 
                       ? 'bg-primary-50 dark:bg-primary-500/20 text-primary-500 shadow-sm border border-primary-200 dark:border-primary-500/50 scale-110' 
                       : 'bg-slate-50 dark:bg-paper-900/50 text-slate-400 border border-transparent hover:bg-slate-100 dark:hover:bg-paper-700 hover:text-slate-600 dark:hover:text-slate-200'
@@ -441,42 +441,42 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               ))}
             </div>
 
-            <div className="w-px h-12 md:w-12 md:h-px bg-slate-200 dark:bg-slate-700 flex-shrink-0" />
+            <div className="w-px h-8 md:w-8 md:h-px bg-slate-200 dark:bg-slate-700 flex-shrink-0" />
 
             {/* Size & Color */}
-            <div className="flex md:flex-col items-center gap-4">
+            <div className="flex md:flex-col items-center gap-2">
               <input 
                 type="range" 
                 min="2" max="100" 
                 value={size} 
                 onChange={e => setSize(parseInt(e.target.value))}
-                className="w-24 md:w-32 md:-rotate-90 accent-primary-500 h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer my-0 md:my-16"
+                className="w-20 md:w-24 md:-rotate-90 accent-primary-500 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer my-0 md:my-12"
               />
               <ColorPalette selectedColor={color} onColorSelect={setColor} />
             </div>
 
-            <div className="w-px h-12 md:w-12 md:h-px bg-slate-200 dark:bg-slate-700 flex-shrink-0" />
+            <div className="w-px h-8 md:w-8 md:h-px bg-slate-200 dark:bg-slate-700 flex-shrink-0" />
 
             {/* Actions */}
-            <div className="flex md:flex-col gap-2 pb-2">
+            <div className="flex md:flex-col gap-1 pb-1">
                <button 
                   onClick={handleUndo} 
                   disabled={historyIndex < 0}
-                  className="flex items-center justify-center p-3 rounded-2xl bg-slate-50 dark:bg-paper-900/50 text-slate-400 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                  className="flex items-center justify-center p-2 rounded-xl bg-slate-50 dark:bg-paper-900/50 text-slate-400 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                >
                   <IconUndo />
                </button>
                <button 
                   onClick={handleRedo}
                   disabled={historyIndex >= history.length - 1}
-                  className="flex items-center justify-center p-3 rounded-2xl bg-slate-50 dark:bg-paper-900/50 text-slate-400 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                  className="flex items-center justify-center p-2 rounded-xl bg-slate-50 dark:bg-paper-900/50 text-slate-400 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                >
                   <IconRedo />
                </button>
                <button 
                   onClick={handleClear}
                   onMouseLeave={() => setShowClearConfirm(false)}
-                  className={`flex items-center justify-center p-3 rounded-2xl transition-all ${showClearConfirm ? 'bg-rose-50 dark:bg-rose-500/20 text-rose-500 border border-rose-200 dark:border-rose-500/50' : 'bg-slate-50 dark:bg-paper-900/50 text-slate-400 hover:bg-slate-100 dark:hover:bg-paper-700'}`}
+                  className={`flex items-center justify-center p-2 rounded-xl transition-all ${showClearConfirm ? 'bg-rose-50 dark:bg-rose-500/20 text-rose-500 border border-rose-200 dark:border-rose-500/50' : 'bg-slate-50 dark:bg-paper-900/50 text-slate-400 hover:bg-slate-100 dark:hover:bg-paper-700'}`}
                >
                   {showClearConfirm ? <span className="text-xs font-bold">SURE?</span> : <IconTrash />}
                </button>

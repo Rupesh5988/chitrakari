@@ -99,6 +99,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
   const sortedPlayers = [...roomState.players].sort((a, b) => b.score - a.score);
   const isDrawer = roomState.currentDrawerId === me.id;
   const myPlayerState = roomState.players.find(p => p.id === me.id);
+  const isCrowded = sortedPlayers.length >= 5;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -135,27 +136,27 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
       )}
 
       {/* Scoreboard */}
-      <div className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700/50 rounded-3xl shadow-soft dark:shadow-soft-dark p-4 flex-shrink-0 flex flex-col max-h-[40%] transition-colors">
-         <h2 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3">Scoreboard</h2>
-         <div className="flex flex-col gap-2 overflow-y-auto pr-1 flex-1">
+      <div className={`bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700/50 rounded-3xl shadow-soft dark:shadow-soft-dark ${isCrowded ? 'p-3' : 'p-4'} flex-shrink-0 flex flex-col max-h-[50%] transition-colors`}>
+         <h2 className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Scoreboard</h2>
+         <div className={`flex flex-col ${isCrowded ? 'gap-1' : 'gap-2'} overflow-y-auto pr-1 flex-1`}>
             {sortedPlayers.map((p, idx) => (
-               <div key={p.id} className={`flex items-center gap-3 p-2 rounded-2xl transition-colors ${p.id === me.id ? 'bg-primary-50 dark:bg-primary-500/10 border border-primary-200 dark:border-primary-500/30' : 'bg-slate-50 dark:bg-paper-900/50'}`}>
-                  <div className="text-slate-400 dark:text-slate-500 font-mono text-xs w-3 text-right">#{idx + 1}</div>
+               <div key={p.id} className={`flex items-center gap-2 ${isCrowded ? 'p-1.5' : 'p-2'} rounded-2xl transition-colors ${p.id === me.id ? 'bg-primary-50 dark:bg-primary-500/10 border border-primary-200 dark:border-primary-500/30' : 'bg-slate-50 dark:bg-paper-900/50'}`}>
+                  <div className={`text-slate-400 dark:text-slate-500 font-mono ${isCrowded ? 'text-[10px] w-2' : 'text-xs w-3'} text-right`}>#{idx + 1}</div>
                   <div className="relative">
                      <div className={`transition-all duration-300 ${roomState.currentDrawerId === p.id ? 'scale-110 ring-2 ring-amber-400 ring-offset-2 dark:ring-offset-paper-800 rounded-full' : ''}`}>
-                        <Avatar seed={p.avatarSeed} size={36} />
+                        <Avatar seed={p.avatarSeed} size={isCrowded ? 24 : 36} />
                      </div>
                      {p.hasGuessedCorrectly && (
-                        <div className="absolute -bottom-1 -right-1 bg-emerald-500 rounded-full border-2 border-white dark:border-paper-800 z-10 animate-pop">
-                           <CheckCircle2 className="w-4 h-4 text-white" />
+                        <div className={`absolute -bottom-1 -right-1 bg-emerald-500 rounded-full border-2 border-white dark:border-paper-800 z-10 animate-pop`}>
+                           <CheckCircle2 className={`${isCrowded ? 'w-3 h-3' : 'w-4 h-4'} text-white`} />
                         </div>
                      )}
                   </div>
                   <div className="flex-1 min-w-0">
-                     <div className="text-sm font-bold text-slate-700 dark:text-slate-200 truncate flex items-center gap-2">
+                     <div className={`${isCrowded ? 'text-xs' : 'text-sm'} font-bold text-slate-700 dark:text-slate-200 truncate flex items-center gap-2`}>
                         {p.name}
                      </div>
-                     <div className="text-xs text-primary-500 font-mono font-bold">{p.score} pts</div>
+                     <div className={`text-[10px] text-primary-500 font-mono font-bold leading-tight`}>{p.score} pts</div>
                   </div>
                </div>
             ))}
