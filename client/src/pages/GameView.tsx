@@ -249,10 +249,10 @@ export function GameView() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-paper-100 dark:bg-paper-950 p-2 md:p-4 flex flex-col gap-4">
+    <div className="h-[100dvh] overflow-hidden bg-paper-100 dark:bg-paper-950 p-2 md:p-4 flex flex-col gap-4">
       <TopBar />
       
-      <div className="flex flex-col md:flex-row gap-2 md:gap-4 flex-1 h-0 min-h-[600px] relative">
+      <div className="flex flex-col md:flex-row gap-2 md:gap-4 flex-1 h-0 min-h-0 relative">
          <div className="flex-1 md:flex-[2] relative rounded-3xl overflow-hidden shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-paper-800">
             <DrawingCanvas isDrawer={isDrawer} drawerName={drawerName} roomId={roomState.id} />
             {renderPhaseOverlay()}
@@ -274,7 +274,7 @@ export function GameView() {
             </div>
          </div>
          
-         <div className="flex-1 md:flex-1 flex min-h-[300px] md:min-h-0 bg-paper-100/95 dark:bg-paper-950/95">
+         <div className="flex-1 md:flex-none md:w-80 flex min-h-0 bg-paper-100/95 dark:bg-paper-950/95 rounded-3xl">
              <ChatSidebar />
          </div>
       </div>
