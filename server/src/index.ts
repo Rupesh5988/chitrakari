@@ -69,7 +69,8 @@ io.on('connection', (socket) => {
       avatarSeed: data.avatarSeed,
       score: 0,
       hasGuessedCorrectly: false,
-      isHost: true
+      isHost: true,
+      hintTokens: 2
     };
 
     const newRoom: RoomState = {
