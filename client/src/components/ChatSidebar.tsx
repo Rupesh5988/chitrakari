@@ -212,6 +212,16 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   );
                }
 
+               if (msg.type === 'system_meaning') {
+                  return (
+                     <div key={msg.id} className="text-center my-2 animate-pop">
+                        <span className="inline-block bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800/50 text-indigo-700 dark:text-indigo-300 text-xs font-bold px-4 py-2.5 rounded-xl shadow-sm leading-tight max-w-[90%]">
+                           📖 {msg.text}
+                        </span>
+                     </div>
+                  );
+               }
+
                if (msg.type === 'guessed_chat') {
                   if (!isDrawer && !myPlayerState?.hasGuessedCorrectly) {
                      return null;

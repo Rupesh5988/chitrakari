@@ -179,6 +179,17 @@ export class GameManager {
     if (!room.usedWords) room.usedWords = [];
     room.usedWords.push(word);
 
+    const drawer = room.players.find(p => p.id === playerId);
+    if (drawer) {
+       this.io.to(drawer.socketId).emit('chat_message_received', {
+          id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
+          playerId: 'system',
+          text: `Your word is ${word}. Meaning: ${room.currentWordMeaning}`,
+          type: 'system_meaning',
+          timestamp: Date.now()
+       });
+    }
+
     this.emitRoomUpdate(roomId);
     this.startTimer(roomId, () => {
        this.endTurn(roomId);
@@ -328,6 +339,14 @@ export class GameManager {
       drawerPoints: drawerPts,
       guesserPoints
     };
+
+    this.io.to(roomId).emit('chat_message_received', {
+       id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
+       playerId: 'system',
+       text: `The word was ${room.currentWord}. Meaning: ${room.currentWordMeaning}`,
+       type: 'system_meaning',
+       timestamp: Date.now()
+    });
 
     this.emitRoomUpdate(roomId);
 
