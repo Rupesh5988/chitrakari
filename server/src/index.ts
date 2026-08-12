@@ -70,7 +70,8 @@ io.on('connection', (socket) => {
       score: 0,
       hasGuessedCorrectly: false,
       isHost: true,
-      hintTokens: 2
+      hintTokens: 2,
+      connected: true
     };
 
     const newRoom: RoomState = {
@@ -113,7 +114,8 @@ io.on('connection', (socket) => {
         score: 0,
         hasGuessedCorrectly: false,
         isHost: true,
-        hintTokens: 2
+        hintTokens: 2,
+        connected: true
       };
 
       const newRoom: RoomState = {
