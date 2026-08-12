@@ -371,7 +371,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
         <div 
           ref={containerRef}
           className={`w-full h-full relative overflow-hidden shadow-inner touch-none select-none border-2 border-slate-200 dark:border-slate-700 ${!isDrawer ? 'rounded-b-3xl pointer-events-none' : 'rounded-3xl cursor-none'}`}
-          style={{ backgroundColor: bgColor }}
+          style={{ backgroundColor: bgColor, touchAction: 'none' }}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
@@ -397,14 +397,15 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
 
           {isDrawer && cursorPos && (
             <div 
-              className="absolute pointer-events-none rounded-full border border-black/50 mix-blend-difference z-50 transition-transform duration-75"
+              className="absolute pointer-events-none rounded-full z-50 transition-transform duration-75 shadow-[0_0_8px_rgba(0,0,0,0.6)]"
               style={{
-                width: cursorSize,
-                height: cursorSize,
-                left: cursorPos.x - cursorSize / 2,
-                top: cursorPos.y - cursorSize / 2,
-                backgroundColor: tool === 'eraser' ? 'rgba(255,255,255,0.5)' : color,
-                opacity: 0.8
+                width: Math.max(12, cursorSize),
+                height: Math.max(12, cursorSize),
+                left: cursorPos.x - Math.max(12, cursorSize) / 2,
+                top: cursorPos.y - Math.max(12, cursorSize) / 2,
+                backgroundColor: tool === 'eraser' ? 'rgba(255,255,255,0.8)' : color,
+                border: '2px solid white',
+                opacity: 0.9
               }}
             />
           )}

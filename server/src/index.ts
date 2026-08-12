@@ -238,7 +238,43 @@ io.on('connection', (socket) => {
        targetSocket.leave(data.roomId);
        socketRoomMap.delete(target.socketId);
     }
+    gameManager.handleLeave(data.roomId, data.playerId);
+  });
+
+  socket.on('vote_kick', (data: { roomId: string; targetId: string }) => {
+    const room = rooms.get(data.roomId);
+    if (!room) return;
     
+    const voter = room.players.find(p => p.socketId === socket.id);
+    if (!voter) return;
+
+    if (!room.kickVotes) room.kickVotes = {};
+    if (!room.kickVotes[data.targetId]) room.kickVotes[data.targetId] = [];
+
+    const targetVotes = room.kickVotes[data.targetId];
+    if (!targetVotes.includes(voter.id)) {
+       targetVotes.push(voter.id);
+    }
+
+    const activePlayers = gameManager.getActiveConnectedPlayers(room);
+    const votesNeeded = Math.max(2, Math.ceil(activePlayers.length / 2));
+
+    if (targetVotes.length >= votesNeeded) {
+       const targetIndex = room.players.findIndex(p => p.id === data.targetId);
+       if (targetIndex !== -1 && !room.players[targetIndex].isHost) {
+          const target = room.players[targetIndex];
+          room.players.splice(targetIndex, 1);
+          io.to(target.socketId).emit('kicked');
+          const targetSocket = io.sockets.sockets.get(target.socketId);
+          if (targetSocket) {
+             targetSocket.leave(data.roomId);
+             socketRoomMap.delete(target.socketId);
+          }
+          delete room.kickVotes[data.targetId];
+          gameManager.handleLeave(data.roomId, data.targetId);
+          return; // handleLeave already emits room_updated
+       }
+    }
     io.to(data.roomId).emit('room_updated', room);
   });
 

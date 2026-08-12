@@ -54,6 +54,7 @@ export interface RoomState {
   timeRemaining: number;
   wordChoices?: string[];
   turnSummary?: TurnSummary;
+  kickVotes?: Record<string, string[]>;
 }
 
 export interface TurnSummary {

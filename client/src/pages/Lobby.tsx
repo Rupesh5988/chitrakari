@@ -18,8 +18,12 @@ export function Lobby() {
   };
 
   const handleKick = (playerId: string) => {
-    if (socket && isHost) {
-      socket.emit('kick_player', { roomId: roomState.id, playerId });
+    if (socket) {
+      if (isHost) {
+        socket.emit('kick_player', { roomId: roomState.id, playerId });
+      } else {
+        socket.emit('vote_kick', { roomId: roomState.id, targetId: playerId });
+      }
     }
   };
 
@@ -160,12 +164,15 @@ export function Lobby() {
                        <p className="text-xs text-slate-500">{player.id === me.id ? '(You)' : ''}</p>
                      </div>
 
-                     {isHost && player.id !== me.id && (
+                     {player.id !== me.id && !player.isHost && (
                        <button 
                          onClick={() => handleKick(player.id)}
-                         className="absolute top-2 right-2 p-1.5 bg-red-500/10 text-red-400 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-500 hover:text-white"
-                         title="Kick Player"
+                         className={`absolute top-2 right-2 flex items-center gap-1 p-1.5 rounded-lg transition-opacity ${roomState.kickVotes?.[player.id]?.includes(me.id) ? 'bg-red-500 text-white opacity-100' : 'bg-red-500/10 text-red-400 opacity-0 group-hover:opacity-100 hover:bg-red-500 hover:text-white'}`}
+                         title={isHost ? "Kick Player" : "Vote to Kick"}
                        >
+                         {roomState.kickVotes?.[player.id] && roomState.kickVotes[player.id].length > 0 && (
+                           <span className="text-xs font-bold pl-1">{roomState.kickVotes[player.id].length}</span>
+                         )}
                          <UserMinus className="w-4 h-4" />
                        </button>
                      )}

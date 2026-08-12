@@ -221,9 +221,8 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
          {/* Input / Actions Area */}
          <div className="p-3 bg-slate-50 dark:bg-paper-900/80 border-t border-slate-200 dark:border-slate-700/50 flex flex-col gap-3 transition-colors">
             
-            {/* Reaction Bar */}
             <div className="flex gap-4 justify-center py-1">
-               {['👍', '😂', '🔥', '❓'].map(emoji => (
+               {['👍', '👎', '😂', '😲', '❤️'].map(emoji => (
                   <button 
                     key={emoji}
                     onClick={() => handleReaction(emoji)}
