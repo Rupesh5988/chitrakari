@@ -6,7 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 import { audioEngine } from '../utils/AudioEngine';
 
 export function TopBar() {
-  const { roomState, socket } = useSocket();
+  const { roomState, socket, me } = useSocket();
   const [timer, setTimer] = useState(roomState?.timeRemaining || 0);
   const [hint, setHint] = useState(roomState?.hiddenWord || '');
   const { theme, toggleTheme } = useTheme();
@@ -83,7 +83,11 @@ export function TopBar() {
        </div>
 
        <div className="flex-1 flex justify-center text-3xl font-mono tracking-[0.2em] uppercase text-slate-800 dark:text-white">
-          {roomState.phase === 'choosing_word' ? 'Waiting for Drawer...' : formatWord(hint)}
+          {roomState.phase === 'choosing_word' 
+             ? 'Waiting for Drawer...' 
+             : (me?.id === roomState.currentDrawerId && roomState.currentWord 
+                 ? formatWord(roomState.currentWord) 
+                 : formatWord(hint))}
        </div>
 
        <div className="flex items-center justify-end gap-3 w-1/3">
