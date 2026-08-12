@@ -1,0 +1,30 @@
+{
+  "easy": [
+    "apple", "house", "sun", "tree", "car", "dog", "cat", "fish", "bird", "book",
+    "cup", "door", "eye", "face", "fire", "flower", "hand", "hat", "key", "leg",
+    "moon", "pen", "shoe", "star", "water", "bed", "box", "boy", "girl", "man",
+    "woman", "bus", "train", "plane", "boat", "chair", "table", "phone", "clock",
+    "pizza", "cake", "ice", "milk", "egg", "cheese", "bread", "banana", "grape",
+    "orange", "pear"
+  ],
+  "medium": [
+    "guitar", "camera", "robot", "castle", "dragon", "rocket", "pirate", "ghost",
+    "zombie", "vampire", "alien", "monster", "witch", "wizard", "knight", "king",
+    "queen", "princess", "prince", "mermaid", "unicorn", "dinosaur", "spider",
+    "snake", "turtle", "frog", "monkey", "elephant", "giraffe", "zebra", "lion",
+    "tiger", "bear", "wolf", "fox", "rabbit", "mouse", "squirrel", "hammer",
+    "wrench", "screwdriver", "saw", "drill", "paint", "brush", "canvas", "easel",
+    "palette", "sculpture", "museum"
+  ],
+  "hard": [
+    "electricity", "gravity", "magnetism", "radiation", "telescope", "microscope",
+    "thermometer", "barometer", "compass", "astrolabe", "sextant", "chronometer",
+    "pendulum", "gyroscope", "accelerometer", "spectrometer", "centrifuge",
+    "incubator", "autoclave", "defibrillator", "stethoscope", "sphygmomanometer",
+    "electrocardiogram", "electroencephalogram", "xray", "mri", "ultrasound",
+    "endoscope", "laparoscope", "scalpel", "forceps", "retractor", "suture",
+    "syringe", "catheter", "tourniquet", "splint", "cast", "crutch", "wheelchair",
+    "stretcher", "ambulance", "helicopter", "airplane", "submarine", "hovercraft",
+    "spaceship", "satellite", "spacestation", "astronaut"
+  ]
+}
