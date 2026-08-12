@@ -143,7 +143,6 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
 
     const handleUndo = (data: CanvasUndoPayload) => {
       setHistoryIndex(data.historyIndex);
-      setHistory(prev => prev.slice(0, data.historyIndex + 1));
     };
 
     const handleSync = (data: { strokeHistory: StrokeAction[], historyIndex: number }) => {
@@ -328,7 +327,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
       const newIndex = historyIndex + 1;
       setHistoryIndex(newIndex);
       if (socket && roomId) {
-         socket.emit('stroke_complete', { roomId, stroke: history[newIndex] });
+         socket.emit('canvas_undo', { roomId, historyIndex: newIndex });
       }
     }
   };

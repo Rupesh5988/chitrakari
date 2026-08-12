@@ -189,7 +189,7 @@ export class GameManager {
       id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
       playerId,
       text: safeText,
-      type: 'normal',
+      type: player.hasGuessedCorrectly ? 'guessed_chat' : 'normal',
       timestamp: now
     };
 
@@ -261,18 +261,8 @@ export class GameManager {
           }
         }
       } else {
-         // Player already guessed correctly. Block them from leaking it in future messages just in case
-         if (guess.includes(target)) {
-            const leakMsg: ChatMessage = {
-                 id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
-                 playerId,
-                 text: 'Don\'t spoil the word for others!',
-                 type: 'leak_blocked',
-                 timestamp: now
-             };
-             this.io.to(socketId).emit('chat_message_received', leakMsg);
-             return null;
-         }
+         // Player already guessed correctly. All their messages are now 'guessed_chat' 
+         // and will be isolated from unguessed players by the frontend.
       }
     }
 

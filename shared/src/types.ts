@@ -6,7 +6,7 @@ export interface Point {
 export type GamePhase = 'lobby' | 'choosing_word' | 'drawing' | 'turn_end' | 'game_end';
 export type WordDifficulty = 'easy' | 'medium' | 'hard' | 'mixed';
 export type ToolType = 'pencil' | 'eraser' | 'fill' | 'rect' | 'circle' | 'line';
-export type ChatMessageType = 'normal' | 'correct_guess' | 'close_guess' | 'system' | 'leak_blocked';
+export type ChatMessageType = 'normal' | 'correct_guess' | 'close_guess' | 'system' | 'leak_blocked' | 'guessed_chat';
 
 export interface StrokeAction {
   id: string;

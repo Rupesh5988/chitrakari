@@ -211,6 +211,20 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   );
                }
 
+               if (msg.type === 'guessed_chat') {
+                  if (!isDrawer && !myPlayerState?.hasGuessedCorrectly) {
+                     return null;
+                  }
+                  return (
+                     <div key={msg.id} className="text-sm break-words leading-relaxed flex flex-col">
+                        <span className="font-bold text-emerald-600 dark:text-emerald-400 text-[10px] uppercase tracking-wider">{p?.name}</span>
+                        <span className="text-emerald-800 dark:text-emerald-200 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-2 rounded-xl rounded-tl-sm self-start inline-block shadow-sm border border-emerald-100 dark:border-emerald-800/50">
+                           {msg.text}
+                        </span>
+                     </div>
+                  );
+               }
+
                return (
                   <div key={msg.id} className="text-sm break-words leading-relaxed flex flex-col">
                      <span className="font-bold text-slate-500 dark:text-slate-400 text-[10px] uppercase tracking-wider">{p?.name}</span>

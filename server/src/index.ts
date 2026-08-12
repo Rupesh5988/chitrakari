@@ -370,9 +370,6 @@ io.on('connection', (socket) => {
     if (!room || room.phase !== 'drawing') return;
 
     room.historyIndex = data.historyIndex;
-    if (room.historyIndex < room.strokeHistory.length - 1) {
-      room.strokeHistory = room.strokeHistory.slice(0, room.historyIndex + 1);
-    }
 
     socket.to(data.roomId).emit('undo_received', { historyIndex: room.historyIndex });
   });
