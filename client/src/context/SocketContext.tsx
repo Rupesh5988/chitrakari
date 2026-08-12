@@ -9,6 +9,7 @@ interface SocketContextType {
   setRoomState: React.Dispatch<React.SetStateAction<RoomState | null>>;
   me: Player | null;
   setMe: React.Dispatch<React.SetStateAction<Player | null>>;
+  error: string | null;
 }
 
 const SocketContext = createContext<SocketContextType>({
@@ -17,7 +18,8 @@ const SocketContext = createContext<SocketContextType>({
   roomState: null,
   setRoomState: () => {},
   me: null,
-  setMe: () => {}
+  setMe: () => {},
+  error: null
 });
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3001';
@@ -27,6 +29,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [connected, setConnected] = useState(false);
   const [roomState, setRoomState] = useState<RoomState | null>(null);
   const [me, setMe] = useState<Player | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const newSocket = io(SERVER_URL);
@@ -63,7 +66,7 @@ export const SocketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   }, []);
 
   return (
-    <SocketContext.Provider value={{ socket, connected, roomState, setRoomState, me, setMe }}>
+    <SocketContext.Provider value={{ socket, connected, roomState, setRoomState, me, setMe, error }}>
       {children}
     </SocketContext.Provider>
   );
