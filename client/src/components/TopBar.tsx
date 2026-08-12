@@ -44,14 +44,32 @@ export function TopBar() {
   const toggleMute = () => {
      audioEngine.isMuted = !audioEngine.isMuted;
      setIsMuted(audioEngine.isMuted);
+     
+     // Unlock TTS context immediately on user interaction
+     if (!audioEngine.isMuted && 'speechSynthesis' in window) {
+       const unlockUtterance = new SpeechSynthesisUtterance('');
+       unlockUtterance.volume = 0;
+       window.speechSynthesis.speak(unlockUtterance);
+     }
   };
 
   const formatWord = (word: string) => {
-    return word.split('').map((char, i) => (
+    const letters = word.split('').map((char, i) => (
       <span key={i} className={`mx-1 ${char === '_' ? 'opacity-30 dark:opacity-50' : 'text-primary-500 font-bold'}`}>
         {char}
       </span>
     ));
+    const wordLength = word.replace(/ /g, '').length;
+    return (
+      <div className="flex items-center">
+         {letters}
+         {wordLength > 0 && (
+            <span className="ml-3 text-lg text-slate-400 dark:text-slate-500 font-bold tracking-normal opacity-70">
+               ({wordLength})
+            </span>
+         )}
+      </div>
+    );
   };
 
   const totalTime = roomState.phase === 'choosing_word' ? 15 : roomState.settings.drawTime;

@@ -35,6 +35,8 @@ export class GameManager {
   private timers: Map<string, NodeJS.Timeout> = new Map();
   // Keep track of who has guessed correctly this turn
   private correctGuessers: Map<string, Set<string>> = new Map();
+  // Keep track of points earned in the current turn
+  private turnPoints: Map<string, Record<string, number>> = new Map();
   // Rate limiting map: playerId -> lastMessageTimestamp
   private rateLimits: Map<string, number> = new Map();
 
@@ -99,6 +101,7 @@ export class GameManager {
     room.hiddenWord = undefined;
     
     this.correctGuessers.set(roomId, new Set());
+    this.turnPoints.set(roomId, {});
     
     room.players.forEach(p => {
        p.hasGuessedCorrectly = false;
@@ -206,6 +209,9 @@ export class GameManager {
           const points = Math.floor(timeRatio * 400) + 100;
           player.score += points;
 
+          if (!this.turnPoints.has(roomId)) this.turnPoints.set(roomId, {});
+          this.turnPoints.get(roomId)![playerId] = points;
+
           outMsg.type = 'correct_guess';
           outMsg.text = 'guessed the word!';
 
@@ -306,7 +312,7 @@ export class GameManager {
       }
     }
 
-    const guesserPoints: Record<string, number> = {}; 
+    const guesserPoints: Record<string, number> = this.turnPoints.get(roomId) || {}; 
 
     room.turnSummary = {
       word: room.currentWord || '',
