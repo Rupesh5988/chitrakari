@@ -238,7 +238,13 @@ io.on('connection', (socket) => {
        targetSocket.leave(data.roomId);
        socketRoomMap.delete(target.socketId);
     }
-    gameManager.handleLeave(data.roomId, data.playerId);
+    const activeConnectedPlayers = room.players.filter(p => !p.isSpectator && p.connected);
+    if (activeConnectedPlayers.length <= 1 && room.phase !== 'lobby' && room.phase !== 'game_end') {
+       room.phase = 'game_end';
+    } else if (room.currentDrawerId === target.id && (room.phase === 'drawing' || room.phase === 'choosing_word')) {
+       gameManager.startTurn(data.roomId);
+    }
+    io.to(data.roomId).emit('room_updated', room);
   });
 
   socket.on('vote_kick', (data: { roomId: string; targetId: string }) => {
@@ -271,8 +277,14 @@ io.on('connection', (socket) => {
              socketRoomMap.delete(target.socketId);
           }
           delete room.kickVotes[data.targetId];
-          gameManager.handleLeave(data.roomId, data.targetId);
-          return; // handleLeave already emits room_updated
+          const activeConnectedPlayers = room.players.filter(p => !p.isSpectator && p.connected);
+          if (activeConnectedPlayers.length <= 1 && room.phase !== 'lobby' && room.phase !== 'game_end') {
+             room.phase = 'game_end';
+          } else if (room.currentDrawerId === target.id && (room.phase === 'drawing' || room.phase === 'choosing_word')) {
+             gameManager.startTurn(data.roomId);
+          }
+          io.to(data.roomId).emit('room_updated', room);
+          return;
        }
     }
     io.to(data.roomId).emit('room_updated', room);
