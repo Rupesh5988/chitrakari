@@ -413,8 +413,8 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
 
       {/* Sidebar Toolbar (Only visible to Drawer) */}
       {isDrawer ? (
-        <div className="flex flex-row md:flex-col gap-4 w-full md:w-20 lg:w-24 shrink-0 order-2 md:order-1 overflow-x-auto md:overflow-visible pb-2 md:pb-0">
-          <div className="bg-white dark:bg-paper-800 p-3 lg:p-4 rounded-3xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex md:flex-col gap-6 md:h-full items-center">
+        <div className="flex flex-row md:flex-col gap-4 w-full md:w-20 lg:w-24 shrink-0 order-2 md:order-1 overflow-x-auto md:overflow-y-auto pb-2 md:pb-0">
+          <div className="bg-white dark:bg-paper-800 p-3 lg:p-4 rounded-3xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex md:flex-col gap-6 min-h-min items-center">
             
             {/* Tools */}
             <div className="flex md:flex-col gap-2">
