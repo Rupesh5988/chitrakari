@@ -42,9 +42,9 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
          if (player) {
            audioEngine.speak(`${player.name} has guessed the word!`);
          }
-      } else if (msg.type === 'chat') {
+      } else if (msg.type === 'normal') {
          const player = roomStateRef.current?.players.find(p => p.id === msg.playerId);
-         if (player && player.id !== me.id) {
+         if (player && me && player.id !== me.id) {
            audioEngine.speak(`${player.name} says ${msg.text}`);
          }
       }
