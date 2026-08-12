@@ -14,6 +14,11 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputValue, setInputValue] = useState('');
   
+  const roomStateRef = useRef(roomState);
+  useEffect(() => {
+    roomStateRef.current = roomState;
+  }, [roomState]);
+  
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
   const [hasNewMessages, setHasNewMessages] = useState(false);
@@ -33,6 +38,15 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
       
       if (msg.type === 'correct_guess') {
          audioEngine.playCorrect();
+         const player = roomStateRef.current?.players.find(p => p.id === msg.playerId);
+         if (player) {
+           audioEngine.speak(`${player.name} has guessed the word!`);
+         }
+      } else if (msg.type === 'chat') {
+         const player = roomStateRef.current?.players.find(p => p.id === msg.playerId);
+         if (player && player.id !== me.id) {
+           audioEngine.speak(`${player.name} says ${msg.text}`);
+         }
       }
     };
 

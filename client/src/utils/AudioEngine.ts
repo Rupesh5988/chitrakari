@@ -116,6 +116,27 @@ class AudioEngine {
     playTone(523.25, 0.4, 0.2);  
     playTone(783.99, 0.6, 0.6);  
   }
+
+  public speak(text: string) {
+    if (this.isMuted) return;
+    if (!('speechSynthesis' in window)) return;
+    
+    // Cancel ongoing speech to avoid backlog
+    window.speechSynthesis.cancel();
+    
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 1.1; // Slightly faster for game pacing
+    utterance.pitch = 1.0;
+    
+    // Try to find a natural sounding English voice if available
+    const voices = window.speechSynthesis.getVoices();
+    const preferredVoice = voices.find(v => v.lang.startsWith('en-') && (v.name.includes('Google') || v.name.includes('Natural')));
+    if (preferredVoice) {
+       utterance.voice = preferredVoice;
+    }
+
+    window.speechSynthesis.speak(utterance);
+  }
 }
 
 export const audioEngine = new AudioEngine();
