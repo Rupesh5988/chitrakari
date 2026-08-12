@@ -108,7 +108,13 @@ export function GameView() {
                className="bg-white dark:bg-paper-800 p-8 rounded-3xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark max-w-lg w-full text-center"
              >
                <h2 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">The word was</h2>
-                <div className="text-5xl font-black text-secondary-500 uppercase tracking-widest mb-8">{roomState.turnSummary.word}</div>
+                <div className="text-5xl font-black text-secondary-500 uppercase tracking-widest mb-2">{roomState.turnSummary.word}</div>
+                {roomState.currentWordMeaning && (
+                   <div className="text-sm font-medium text-slate-600 dark:text-slate-300 max-w-lg mx-auto mb-8 bg-slate-100 dark:bg-paper-900/50 p-3 rounded-xl border border-slate-200 dark:border-slate-700">
+                      <span className="font-bold text-slate-400 dark:text-slate-500 mr-2">Meaning:</span>
+                      {roomState.currentWordMeaning}
+                   </div>
+                )}
                 
                 <div className="grid gap-3 mb-6 max-h-64 overflow-y-auto w-full max-w-md mx-auto">
                    {Object.entries(roomState.turnSummary.guesserPoints).length > 0 ? (

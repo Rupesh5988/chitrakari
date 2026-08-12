@@ -82,12 +82,19 @@ export function TopBar() {
           </div>
        </div>
 
-       <div className="flex-1 flex justify-center text-3xl font-mono tracking-[0.2em] uppercase text-slate-800 dark:text-white">
-          {roomState.phase === 'choosing_word' 
-             ? 'Waiting for Drawer...' 
-             : (me?.id === roomState.currentDrawerId && roomState.currentWord 
-                 ? formatWord(roomState.currentWord) 
-                 : formatWord(hint))}
+       <div className="flex-1 flex flex-col items-center justify-center">
+          <div className="text-3xl font-mono tracking-[0.2em] uppercase text-slate-800 dark:text-white">
+             {roomState.phase === 'choosing_word' 
+                ? 'Waiting for Drawer...' 
+                : (me?.id === roomState.currentDrawerId && roomState.currentWord 
+                    ? formatWord(roomState.currentWord) 
+                    : formatWord(hint))}
+          </div>
+          {me?.id === roomState.currentDrawerId && roomState.currentWordMeaning && roomState.phase === 'drawing' && (
+             <div className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1 max-w-lg text-center leading-tight">
+                {roomState.currentWordMeaning}
+             </div>
+          )}
        </div>
 
        <div className="flex items-center justify-end gap-3 w-1/3">

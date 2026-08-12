@@ -47,6 +47,7 @@ export interface RoomState {
   currentDrawerId?: string;
   currentPlayerIndex: number;
   currentWord?: string;
+  currentWordMeaning?: string;
   hiddenWord?: string;
   roundNumber: number;
   strokeHistory: StrokeAction[];
@@ -55,6 +56,7 @@ export interface RoomState {
   wordChoices?: string[];
   turnSummary?: TurnSummary;
   kickVotes?: Record<string, string[]>;
+  usedWords: string[];
 }
 
 export interface TurnSummary {

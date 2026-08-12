@@ -3,7 +3,7 @@ import { RoomState, Player, ChatMessage, TurnSummary } from '@chitrakari/shared'
 import wordsData from './words.json';
 import { logger } from './logger';
 
-const WORDS: Record<string, string[]> = wordsData;
+const WORDS: Record<string, {word: string, meaning: string}[]> = wordsData;
 
 // Helper to calculate Levenshtein distance for typos
 function levenshtein(a: string, b: string): number {
@@ -111,11 +111,20 @@ export class GameManager {
        }
     });
 
-    let wordPool = [...WORDS.medium];
-    if (room.settings.wordDifficulty === 'easy') wordPool = [...WORDS.easy];
-    if (room.settings.wordDifficulty === 'hard') wordPool = [...WORDS.hard];
+    let rawPool = [...WORDS.medium];
+    if (room.settings.wordDifficulty === 'easy') rawPool = [...WORDS.easy];
+    if (room.settings.wordDifficulty === 'hard') rawPool = [...WORDS.hard];
     if (room.settings.wordDifficulty === 'mixed') {
-       wordPool = [...WORDS.easy, ...WORDS.medium, ...WORDS.hard];
+       rawPool = [...WORDS.easy, ...WORDS.medium, ...WORDS.hard];
+    }
+    
+    // Filter out used words
+    let wordPool = rawPool.map(w => w.word).filter(w => !room.usedWords.includes(w));
+    
+    // Auto-reset if we run out of words
+    if (wordPool.length < 3) {
+       room.usedWords = [];
+       wordPool = rawPool.map(w => w.word);
     }
     
     const choices: string[] = [];
@@ -157,9 +166,18 @@ export class GameManager {
 
     room.phase = 'drawing';
     room.currentWord = word;
+    
+    // Look up meaning
+    const allWords = [...WORDS.easy, ...WORDS.medium, ...WORDS.hard];
+    const wordObj = allWords.find(w => w.word === word);
+    room.currentWordMeaning = wordObj ? wordObj.meaning : "A custom word chosen for this round.";
+    
     room.hiddenWord = word.replace(/[a-zA-Z]/g, '_');
     room.wordChoices = undefined;
     room.timeRemaining = room.settings.drawTime;
+    
+    if (!room.usedWords) room.usedWords = [];
+    room.usedWords.push(word);
 
     this.emitRoomUpdate(roomId);
     this.startTimer(roomId, () => {
