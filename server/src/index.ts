@@ -84,7 +84,8 @@ io.on('connection', (socket) => {
       currentPlayerIndex: 0,
       strokeHistory: [],
       historyIndex: -1,
-      timeRemaining: 0
+      timeRemaining: 0,
+      usedWords: []
     };
 
     rooms.set(roomId, newRoom);
