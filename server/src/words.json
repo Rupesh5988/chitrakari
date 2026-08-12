@@ -1,30 +1,44 @@
 {
   "easy": [
-    "apple", "house", "sun", "tree", "car", "dog", "cat", "fish", "bird", "book",
-    "cup", "door", "eye", "face", "fire", "flower", "hand", "hat", "key", "leg",
-    "moon", "pen", "shoe", "star", "water", "bed", "box", "boy", "girl", "man",
-    "woman", "bus", "train", "plane", "boat", "chair", "table", "phone", "clock",
-    "pizza", "cake", "ice", "milk", "egg", "cheese", "bread", "banana", "grape",
-    "orange", "pear"
+    "apple", "sun", "tree", "car", "dog", "cat", "book", "fish", "bird", "house",
+    "moon", "star", "cup", "shoe", "hat", "boat", "door", "window", "bed", "chair",
+    "table", "key", "box", "clock", "pen", "pencil", "bus", "train", "bike", "ring",
+    "flower", "cloud", "rain", "snow", "fire", "water", "ice", "hand", "foot", "eye",
+    "ear", "nose", "mouth", "smile", "sad", "happy", "angry", "sleep", "eat", "drink",
+    "run", "jump", "walk", "dance", "sing", "read", "write", "paint", "draw", "play",
+    "ball", "bat", "toy", "doll", "bear", "lion", "tiger", "pig", "cow", "horse",
+    "sheep", "goat", "duck", "hen", "egg", "milk", "cheese", "bread", "cake", "pie",
+    "pizza", "burger", "fries", "soup", "salad", "meat", "fish", "rice", "beans", "corn",
+    "potato", "tomato", "onion", "garlic", "carrot", "apple", "banana", "orange", "grape", "melon"
   ],
   "medium": [
-    "guitar", "camera", "robot", "castle", "dragon", "rocket", "pirate", "ghost",
-    "zombie", "vampire", "alien", "monster", "witch", "wizard", "knight", "king",
-    "queen", "princess", "prince", "mermaid", "unicorn", "dinosaur", "spider",
-    "snake", "turtle", "frog", "monkey", "elephant", "giraffe", "zebra", "lion",
-    "tiger", "bear", "wolf", "fox", "rabbit", "mouse", "squirrel", "hammer",
-    "wrench", "screwdriver", "saw", "drill", "paint", "brush", "canvas", "easel",
-    "palette", "sculpture", "museum"
+    "airplane", "airport", "guitar", "piano", "camera", "computer", "phone", "television", "radio", "speaker",
+    "headphones", "battery", "charger", "mouse", "keyboard", "screen", "button", "switch", "plug", "socket",
+    "hammer", "nail", "screw", "screwdriver", "wrench", "pliers", "saw", "drill", "tape", "glue",
+    "scissors", "paper", "cardboard", "plastic", "glass", "metal", "wood", "brick", "stone", "sand",
+    "dirt", "grass", "leaf", "branch", "root", "forest", "jungle", "desert", "ocean", "river",
+    "lake", "pond", "pool", "beach", "island", "mountain", "valley", "hill", "cave", "volcano",
+    "earthquake", "tornado", "hurricane", "storm", "lightning", "thunder", "rainbow", "sunset", "sunrise", "shadow",
+    "mirror", "window", "curtain", "carpet", "rug", "blanket", "pillow", "towel", "soap", "shampoo",
+    "toothbrush", "toothpaste", "comb", "brush", "razor", "perfume", "lotion", "makeup", "lipstick", "jewelry",
+    "necklace", "bracelet", "earring", "glasses", "sunglasses", "watch", "wallet", "purse", "backpack", "suitcase",
+    "hospital", "doctor", "nurse", "patient", "medicine", "pill", "bandage", "needle", "syringe", "blood",
+    "police", "officer", "thief", "prison", "gun", "knife", "sword", "shield", "armor", "helmet",
+    "soldier", "army", "navy", "airforce", "war", "peace", "flag", "country", "city", "village"
   ],
   "hard": [
-    "electricity", "gravity", "magnetism", "radiation", "telescope", "microscope",
-    "thermometer", "barometer", "compass", "astrolabe", "sextant", "chronometer",
-    "pendulum", "gyroscope", "accelerometer", "spectrometer", "centrifuge",
-    "incubator", "autoclave", "defibrillator", "stethoscope", "sphygmomanometer",
-    "electrocardiogram", "electroencephalogram", "xray", "mri", "ultrasound",
-    "endoscope", "laparoscope", "scalpel", "forceps", "retractor", "suture",
-    "syringe", "catheter", "tourniquet", "splint", "cast", "crutch", "wheelchair",
-    "stretcher", "ambulance", "helicopter", "airplane", "submarine", "hovercraft",
-    "spaceship", "satellite", "spacestation", "astronaut"
+    "astronaut", "microscope", "telescope", "satellite", "spaceship", "galaxy", "universe", "planet", "asteroid", "comet",
+    "dinosaur", "fossil", "skeleton", "museum", "sculpture", "painting", "artist", "canvas", "palette", "easel",
+    "orchestra", "conductor", "symphony", "concert", "stadium", "athlete", "champion", "trophy", "medal", "olympics",
+    "marathon", "gymnastics", "wrestling", "boxing", "fencing", "archery", "bowling", "billiards", "golf", "tennis",
+    "volleyball", "basketball", "baseball", "football", "soccer", "rugby", "cricket", "hockey", "skating", "skiing",
+    "snowboard", "surfing", "swimming", "diving", "sailing", "fishing", "hunting", "camping", "hiking", "climbing",
+    "parachute", "balloon", "helicopter", "submarine", "motorcycle", "bicycle", "scooter", "skateboard", "rollerblades", "wheelchair",
+    "ambulance", "firetruck", "policewagon", "taxi", "tractor", "bulldozer", "crane", "forklift", "excavator", "dumpster",
+    "garbage", "recycling", "pollution", "environment", "nature", "wildlife", "conservation", "ecology", "biology", "chemistry",
+    "physics", "mathematics", "geometry", "algebra", "calculus", "statistics", "probability", "logic", "philosophy", "psychology",
+    "sociology", "history", "geography", "politics", "economics", "finance", "business", "industry", "commerce", "trade",
+    "market", "stock", "investment", "currency", "money", "wealth", "poverty", "charity", "donation", "volunteer",
+    "community", "society", "culture", "tradition", "custom", "religion", "faith", "belief", "mythology", "legend"
   ]
 }

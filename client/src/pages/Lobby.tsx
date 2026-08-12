@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { Avatar } from '../components/Avatar';
-import { Crown, Copy, Check, UserMinus, Play } from 'lucide-react';
+import { Crown, Copy, Check, UserMinus, Play, Link } from 'lucide-react';
 
 export function Lobby() {
   const { socket, roomState, me } = useSocket();
   const [copied, setCopied] = useState(false);
+  const [copiedLink, setCopiedLink] = useState(false);
 
   if (!roomState || !me) return null;
 
@@ -15,6 +16,13 @@ export function Lobby() {
     navigator.clipboard.writeText(roomState.id);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleCopyLink = () => {
+    const url = `${window.location.origin}/?room=${roomState.id}`;
+    navigator.clipboard.writeText(url);
+    setCopiedLink(true);
+    setTimeout(() => setCopiedLink(false), 2000);
   };
 
   const handleKick = (playerId: string) => {
@@ -59,13 +67,22 @@ export function Lobby() {
                </span>
              </div>
              
-             <button 
-               onClick={handleCopyCode}
-               className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-slate-700/50 hover:bg-slate-700 text-slate-300 rounded-lg transition-colors border border-slate-600/50 w-full"
-             >
-               {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-               {copied ? 'Copied!' : 'Copy Code'}
-             </button>
+             <div className="flex gap-2">
+               <button 
+                 onClick={handleCopyCode}
+                 className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-slate-700/50 hover:bg-slate-700 text-slate-300 rounded-lg transition-colors border border-slate-600/50 text-sm font-medium"
+               >
+                 {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                 {copied ? 'Copied!' : 'Copy Code'}
+               </button>
+               <button 
+                 onClick={handleCopyLink}
+                 className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-primary-500/20 hover:bg-primary-500/30 text-primary-400 rounded-lg transition-colors border border-primary-500/30 text-sm font-medium"
+               >
+                 {copiedLink ? <Check className="w-4 h-4 text-emerald-400" /> : <Link className="w-4 h-4" />}
+                 {copiedLink ? 'Copied!' : 'Share Link'}
+               </button>
+             </div>
           </div>
 
           <div className="bg-slate-800 p-6 rounded-3xl border border-slate-700/50 shadow-xl">

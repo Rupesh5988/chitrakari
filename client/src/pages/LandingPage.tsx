@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { generateRoomCode } from '@chitrakari/shared';
 import { Palette, Play, Sparkles } from 'lucide-react';
 
 export function LandingPage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [joinCode, setJoinCode] = useState('');
   const [playerName, setPlayerName] = useState(() => localStorage.getItem('chitrakari_name') || '');
+
+  useEffect(() => {
+    const roomFromUrl = searchParams.get('room');
+    if (roomFromUrl && roomFromUrl.length === 6) {
+       setJoinCode(roomFromUrl.toUpperCase());
+    }
+  }, [searchParams]);
 
   const handleCreateRoom = () => {
     if (playerName.trim()) localStorage.setItem('chitrakari_name', playerName.trim());
@@ -79,7 +87,7 @@ export function LandingPage() {
             <button
               type="submit"
               disabled={joinCode.length !== 6}
-              className="w-full bg-slate-100 dark:bg-paper-700 hover:bg-slate-200 dark:hover:bg-paper-600 text-slate-700 dark:text-slate-200 font-bold py-4 px-6 rounded-2xl shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-all text-lg"
+              className="w-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-4 px-6 rounded-2xl shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-all text-lg"
             >
               Join Room
             </button>
