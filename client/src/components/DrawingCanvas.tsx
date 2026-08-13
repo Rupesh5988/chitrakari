@@ -413,11 +413,11 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
 
       {/* Sidebar Toolbar (Only visible to Drawer) */}
       {isDrawer ? (
-        <div className="flex flex-row md:flex-col gap-2 w-full md:w-16 lg:w-20 shrink-0 order-2 md:order-1 overflow-x-auto md:overflow-y-auto pb-2 md:pb-0 scrollbar-hide">
-          <div className="bg-white dark:bg-paper-800 p-2 lg:p-3 rounded-3xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex md:flex-col gap-3 min-h-min items-center">
+        <div className="w-full md:w-16 lg:w-20 shrink-0 order-2 md:order-1 z-10">
+          <div className="bg-white dark:bg-paper-800 p-2 lg:p-3 rounded-2xl md:rounded-3xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex flex-row flex-wrap md:flex-col gap-2 md:gap-3 justify-center items-center">
             
             {/* Tools */}
-            <div className="flex md:flex-col gap-1">
+            <div className="flex flex-row flex-wrap md:flex-col gap-1 justify-center">
               {[
                 { id: 'pencil', icon: <IconPencil />, label: 'Pencil' },
                 { id: 'eraser', icon: <IconEraser />, label: 'Eraser' },
@@ -441,24 +441,24 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               ))}
             </div>
 
-            <div className="w-px h-8 md:w-8 md:h-px bg-slate-200 dark:bg-slate-700 flex-shrink-0" />
+            <div className="hidden md:block w-px h-8 md:w-8 md:h-px bg-slate-200 dark:bg-slate-700 flex-shrink-0" />
 
             {/* Size & Color */}
-            <div className="flex md:flex-col items-center gap-2">
+            <div className="flex flex-row md:flex-col items-center gap-4 md:gap-2">
               <input 
                 type="range" 
                 min="2" max="100" 
                 value={size} 
                 onChange={e => setSize(parseInt(e.target.value))}
-                className="w-20 md:w-24 md:-rotate-90 accent-primary-500 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer my-0 md:my-12"
+                className="w-24 md:-rotate-90 accent-primary-500 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer my-0 md:my-12"
               />
               <ColorPalette selectedColor={color} onColorSelect={setColor} />
             </div>
 
-            <div className="w-px h-8 md:w-8 md:h-px bg-slate-200 dark:bg-slate-700 flex-shrink-0" />
+            <div className="hidden md:block w-px h-8 md:w-8 md:h-px bg-slate-200 dark:bg-slate-700 flex-shrink-0" />
 
             {/* Actions */}
-            <div className="flex md:flex-col gap-1 pb-1">
+            <div className="flex flex-row md:flex-col gap-1 justify-center">
                <button 
                   onClick={handleUndo} 
                   disabled={historyIndex < 0}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
-import { Volume2, VolumeX, Moon, Sun } from 'lucide-react';
+import { Volume2, VolumeX, Moon, Sun, LogOut } from 'lucide-react';
 import { CircularTimer } from './CircularTimer';
 import { useTheme } from '../context/ThemeContext';
 import { audioEngine } from '../utils/AudioEngine';
@@ -11,6 +11,12 @@ export function TopBar() {
   const [hint, setHint] = useState(roomState?.hiddenWord || '');
   const { theme, toggleTheme } = useTheme();
   const [isMuted, setIsMuted] = useState(audioEngine.isMuted);
+
+  const handleExit = () => {
+     if (window.confirm('Are you sure you want to leave the room?')) {
+        window.location.href = '/';
+     }
+  };
 
   useEffect(() => {
     if (!socket) return;
@@ -99,9 +105,16 @@ export function TopBar() {
           </button>
           <button 
              onClick={toggleTheme}
-             className="p-3 bg-slate-100 dark:bg-paper-900 text-slate-500 dark:text-slate-400 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors mr-2"
+             className="p-3 bg-slate-100 dark:bg-paper-900 text-slate-500 dark:text-slate-400 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
           >
              {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
+          <button 
+             onClick={handleExit}
+             title="Exit Room"
+             className="p-3 bg-rose-100 dark:bg-rose-900/30 text-rose-500 dark:text-rose-400 rounded-full hover:bg-rose-200 dark:hover:bg-rose-800/50 transition-colors mr-2"
+          >
+             <LogOut className="w-5 h-5" />
           </button>
           
           <CircularTimer timeRemaining={timer} totalTime={totalTime} size={56} strokeWidth={5} />

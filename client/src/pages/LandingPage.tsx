@@ -49,15 +49,17 @@ export function LandingPage() {
         <p className="text-center text-slate-500 dark:text-slate-400 mb-10 font-medium">Draw, guess, and laugh together.</p>
 
         <div className="space-y-6">
-          <div className="space-y-2">
-            <label className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest pl-2">Your Name</label>
+          <div className="space-y-3 bg-primary-50 dark:bg-primary-900/10 p-4 rounded-3xl border border-primary-100 dark:border-primary-800/30 shadow-inner">
+            <label className="flex items-center gap-2 text-sm font-black text-primary-600 dark:text-primary-400 uppercase tracking-widest pl-2">
+               <span>👤</span> Enter Your Nickname to Play
+            </label>
             <input
               type="text"
-              placeholder="Enter your nickname..."
+              placeholder="e.g. Picasso..."
               maxLength={15}
               value={playerName}
               onChange={(e) => setPlayerName(e.target.value)}
-              className="w-full bg-slate-50 dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-700/50 rounded-2xl px-6 py-4 text-lg text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 transition-all font-medium"
+              className="w-full bg-white dark:bg-slate-900 border-2 border-primary-200 dark:border-primary-700/50 rounded-2xl px-6 py-4 text-xl text-slate-800 dark:text-white placeholder-slate-300 focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-500/20 transition-all font-bold shadow-sm"
             />
           </div>
 
