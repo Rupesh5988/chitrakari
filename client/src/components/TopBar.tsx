@@ -89,7 +89,9 @@ export function TopBar() {
        </div>
 
        <div className="flex-1 flex justify-center text-3xl font-mono tracking-[0.2em] uppercase text-slate-800 dark:text-white">
-          {roomState.phase === 'choosing_word' 
+          {roomState.phase === 'lobby'
+             ? 'WAITING'
+             : roomState.phase === 'choosing_word' 
              ? 'Waiting for Drawer...' 
              : (me?.id === roomState.currentDrawerId && roomState.currentWord 
                  ? formatWord(roomState.currentWord) 

@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useSocket } from '../context/SocketContext';
 import { GameView } from './GameView';
 import { Users, Settings, Play, Copy, CheckCircle2 } from 'lucide-react';
+import { TopBar } from '../components/TopBar';
+import { ChatSidebar } from '../components/ChatSidebar';
 import { Avatar } from '../components/Avatar';
 import { toast } from 'sonner';
 
@@ -103,206 +105,178 @@ export function RoomManager() {
   };
 
   return (
-    <div className="min-h-[100dvh] flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <div className="h-[100dvh] overflow-hidden bg-paper-100 dark:bg-paper-950 p-2 md:p-4 flex flex-col gap-4">
+      <TopBar />
       
-      {/* Decorative Background Elements */}
-      <div className="absolute top-[10%] left-[10%] w-[40rem] h-[40rem] bg-secondary-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[10%] w-[40rem] h-[40rem] bg-primary-500/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-4xl w-full grid grid-cols-1 md:grid-cols-3 gap-6 z-10 relative">
-        
-        {/* Left Column: Room Info & Settings */}
-        <div className="md:col-span-1 space-y-6">
-          <div className="bg-white dark:bg-paper-800 rounded-3xl p-6 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50">
-            <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
-               <Settings className="w-4 h-4" />
-               Room Details
+      <div className="flex flex-col md:flex-row gap-2 md:gap-4 flex-1 h-0 min-h-0 relative max-w-[1600px] mx-auto w-full">
+         
+         {/* Left Column: Players List */}
+         <div className="w-full md:w-64 bg-white dark:bg-paper-800 rounded-3xl p-4 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex flex-col overflow-y-auto overflow-x-hidden">
+            <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2 mb-4 px-2">
+               <Users className="w-4 h-4" />
+               Players ({roomState.players.filter(p => !p.isSpectator).length}/{roomState.settings.maxPlayers})
             </h2>
-            
-            <div className="mb-6">
-               <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Room Code</label>
-               <button 
-                 onClick={copyRoomCode}
-                 className="w-full flex items-center justify-between bg-slate-50 dark:bg-paper-900 border border-slate-200 dark:border-slate-700 p-3 rounded-2xl hover:bg-slate-100 dark:hover:bg-paper-700 transition-colors group"
-               >
-                 <span className="text-2xl font-mono font-bold tracking-widest text-slate-800 dark:text-white">{roomState.id}</span>
-                 {copied ? <CheckCircle2 className="w-6 h-6 text-emerald-500" /> : <Copy className="w-6 h-6 text-slate-400 group-hover:text-primary-500 transition-colors" />}
-               </button>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Rounds</label>
-                 {isEditingSettings ? (
-                    <input 
-                      type="number" 
-                      min="1" max="10"
-                      value={editRounds}
-                      onChange={e => setEditRounds(parseInt(e.target.value) || 3)}
-                      className="w-full bg-slate-50 dark:bg-paper-900 border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-primary-500"
-                    />
-                 ) : (
-                    <div className="text-lg font-bold text-slate-700 dark:text-slate-200">{roomState.settings.rounds}</div>
-                 )}
-              </div>
-              <div>
-                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Draw Time</label>
-                 {isEditingSettings ? (
-                    <select
-                      value={editDrawTime}
-                      onChange={e => setEditDrawTime(parseInt(e.target.value))}
-                      className="w-full bg-slate-50 dark:bg-paper-900 border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-primary-500"
-                    >
-                      <option value="40">40 seconds</option>
-                      <option value="60">60 seconds</option>
-                      <option value="80">80 seconds</option>
-                      <option value="120">120 seconds</option>
-                    </select>
-                 ) : (
-                    <div className="text-lg font-bold text-slate-700 dark:text-slate-200">{roomState.settings.drawTime} seconds</div>
-                 )}
-              </div>
-              <div>
-                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Word Difficulty</label>
-                 {isEditingSettings ? (
-                    <select
-                      value={editWordDifficulty}
-                      onChange={e => setEditWordDifficulty(e.target.value as any)}
-                      className="w-full bg-slate-50 dark:bg-paper-900 border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-primary-500"
-                    >
-                      <option value="easy">Easy</option>
-                      <option value="medium">Medium</option>
-                      <option value="hard">Hard</option>
-                      <option value="mixed">Mixed</option>
-                    </select>
-                 ) : (
-                    <div className="text-lg font-bold text-slate-700 dark:text-slate-200 capitalize">{roomState.settings.wordDifficulty}</div>
-                 )}
-              </div>
-            </div>
-            
-            {me?.isHost && (
-               <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700/50">
-                  {!isEditingSettings ? (
-                    <button 
-                      onClick={() => {
-                        setCustomWordsStr(roomState.settings.customWords?.join(', ') || '');
-                        setEditRounds(roomState.settings.rounds);
-                        setEditDrawTime(roomState.settings.drawTime);
-                        setEditWordDifficulty(roomState.settings.wordDifficulty);
-                        setIsEditingSettings(true);
-                      }}
-                      className="text-sm font-bold text-primary-500 hover:text-primary-600 transition-colors flex items-center gap-2"
-                    >
-                       <Settings className="w-4 h-4" /> Edit Settings
-                    </button>
-                  ) : (
-                    <div className="space-y-4">
-                       <div>
-                         <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Custom Words (comma-separated)</label>
-                         <textarea
-                            value={customWordsStr}
-                            onChange={(e) => setCustomWordsStr(e.target.value)}
-                            placeholder="e.g. inside joke, my dog, local cafe"
-                            className="w-full bg-slate-50 dark:bg-paper-900 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-primary-500 min-h-[80px]"
-                         />
-                       </div>
-                       <div className="flex gap-2">
-                         <button 
-                           onClick={handleSaveSettings}
-                           className="flex-1 bg-primary-500 text-white font-bold py-2 rounded-xl text-sm hover:bg-primary-600 transition-colors"
-                         >
-                           Save
-                         </button>
-                         <button 
-                           onClick={() => setIsEditingSettings(false)}
-                           className="flex-1 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold py-2 rounded-xl text-sm hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
-                         >
-                           Cancel
-                         </button>
-                       </div>
-                    </div>
-                  )}
-               </div>
-            )}
-          </div>
-        </div>
-
-        {/* Right Column: Players & Actions */}
-        <div className="md:col-span-2 flex flex-col gap-6">
-          <div className="bg-white dark:bg-paper-800 rounded-3xl p-6 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex-1">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2">
-                 <Users className="w-4 h-4" />
-                 Players ({roomState.players.filter(p => !p.isSpectator).length}/{roomState.settings.maxPlayers})
-              </h2>
-            </div>
-            
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {roomState.players.filter(p => !p.isSpectator).map(p => (
-                <div key={p.id} className={`flex flex-col items-center justify-center p-4 rounded-2xl border transition-all ${p.connected === false ? 'opacity-50 grayscale' : ''} ${p.id === me?.id ? 'bg-primary-50/50 dark:bg-primary-500/10 border-primary-200 dark:border-primary-500/30' : 'bg-slate-50 dark:bg-paper-900 border-slate-200 dark:border-slate-700/50'}`}>
-                  <Avatar seed={p.avatarSeed} size={64} />
-                  <div className="mt-3 font-bold text-slate-700 dark:text-slate-200 text-center w-full truncate px-2">{p.name}</div>
-                  {p.isHost && (
-                     <div className="mt-1 text-[10px] font-bold uppercase tracking-widest text-amber-500 bg-amber-50 dark:bg-amber-500/10 px-2 py-0.5 rounded-full">Host</div>
-                  )}
-                  {p.connected === false && (
-                     <div className="mt-1 text-[10px] font-bold uppercase tracking-widest text-slate-500 bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded-full">Offline</div>
-                  )}
-                </div>
-              ))}
-              
-              {/* Empty slots */}
-              {Array.from({ length: Math.max(0, roomState.settings.maxPlayers - roomState.players.filter(p => !p.isSpectator).length) }).map((_, i) => (
-                 <div key={`empty-${i}`} className="flex flex-col items-center justify-center p-4 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50/50 dark:bg-paper-900/50 opacity-50">
-                    <div className="w-16 h-16 rounded-full bg-slate-200 dark:bg-paper-800 mb-3" />
-                    <div className="h-4 w-16 bg-slate-200 dark:bg-paper-800 rounded-full" />
-                 </div>
-              ))}
+            <div className="flex flex-col gap-2">
+               {roomState.players.filter(p => !p.isSpectator).map((p, index) => (
+                  <div key={p.id} className={`flex items-center gap-3 p-3 rounded-2xl transition-all ${p.id === me?.id ? 'bg-primary-50 dark:bg-primary-500/10' : 'bg-slate-50 dark:bg-paper-900'} ${p.connected === false ? 'opacity-50 grayscale' : ''}`}>
+                     <div className="text-xs font-bold text-slate-400 w-4 text-center">#{index + 1}</div>
+                     <Avatar seed={p.avatarSeed} size={40} />
+                     <div className="flex-1 min-w-0">
+                        <div className="font-bold text-sm text-slate-700 dark:text-slate-200 truncate flex items-center gap-1">
+                           {p.name}
+                        </div>
+                        <div className="text-xs text-slate-500">{p.score} points</div>
+                     </div>
+                     <div className="flex flex-col gap-1 items-end">
+                        {p.isHost && <div className="text-[10px] font-bold uppercase tracking-widest text-amber-500 bg-amber-50 dark:bg-amber-500/10 px-1.5 py-0.5 rounded-md leading-none">Host</div>}
+                        {p.id === me?.id && <div className="text-[10px] font-bold uppercase tracking-widest text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-1.5 py-0.5 rounded-md leading-none">You</div>}
+                        {p.connected === false && <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 bg-slate-200 dark:bg-slate-700 px-1.5 py-0.5 rounded-md leading-none">Offline</div>}
+                     </div>
+                  </div>
+               ))}
+               
+               {/* Empty slots */}
+               {Array.from({ length: Math.max(0, roomState.settings.maxPlayers - roomState.players.filter(p => !p.isSpectator).length) }).map((_, i) => (
+                  <div key={`empty-${i}`} className="flex items-center gap-3 p-3 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-paper-900/50 opacity-50">
+                     <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-paper-800" />
+                     <div className="flex-1">
+                        <div className="h-3 w-16 bg-slate-200 dark:bg-paper-800 rounded-full mb-1.5" />
+                        <div className="h-2 w-10 bg-slate-200 dark:bg-paper-800 rounded-full" />
+                     </div>
+                  </div>
+               ))}
             </div>
 
             {roomState.players.some(p => p.isSpectator) && (
-               <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700/50">
-                 <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2 mb-4">
-                    Spectators
-                 </h2>
-                 <div className="flex flex-wrap gap-3">
+               <div className="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700/50">
+                 <h2 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3 px-2">Spectators</h2>
+                 <div className="flex flex-wrap gap-2 px-2">
                    {roomState.players.filter(p => p.isSpectator).map(p => (
-                      <div key={p.id} className={`flex items-center gap-2 bg-slate-50 dark:bg-paper-900 border border-slate-200 dark:border-slate-700/50 px-3 py-2 rounded-xl ${p.connected === false ? 'opacity-50 grayscale' : ''}`}>
-                        <Avatar seed={p.avatarSeed} size={24} />
-                        <span className="text-sm font-bold text-slate-700 dark:text-slate-200">{p.name}</span>
+                      <div key={p.id} className={`flex items-center gap-2 bg-slate-50 dark:bg-paper-900 px-2 py-1.5 rounded-lg ${p.connected === false ? 'opacity-50 grayscale' : ''}`}>
+                        <Avatar seed={p.avatarSeed} size={20} />
+                        <span className="text-xs font-bold text-slate-700 dark:text-slate-200">{p.name}</span>
                       </div>
                    ))}
                  </div>
                </div>
             )}
-          </div>
-          
-          {/* Host Action Bar */}
-          {me?.isHost ? (
-             <div className="bg-white dark:bg-paper-800 rounded-3xl p-6 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p className="text-slate-500 dark:text-slate-400 font-medium text-center sm:text-left">
-                   Waiting for everyone to join?
-                   {roomState.players.length < 2 && <span className="block text-rose-500 text-sm mt-1">Need at least 2 players to start.</span>}
-                </p>
-                <button
+         </div>
+
+         {/* Center Column: Settings & Actions */}
+         <div className="flex-1 bg-white dark:bg-paper-800 rounded-3xl p-4 sm:p-6 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex flex-col overflow-y-auto">
+            <div className="flex items-center justify-between mb-6">
+               <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                  <Settings className="w-4 h-4" /> Settings
+               </h2>
+               {me?.isHost && (
+                  <button
+                     onClick={() => {
+                        if (isEditingSettings) handleSaveSettings();
+                        else {
+                           setCustomWordsStr(roomState.settings.customWords?.join(', ') || '');
+                           setEditRounds(roomState.settings.rounds);
+                           setEditDrawTime(roomState.settings.drawTime);
+                           setEditWordDifficulty(roomState.settings.wordDifficulty);
+                           setIsEditingSettings(true);
+                        }
+                     }}
+                     className="text-sm font-bold text-primary-500 hover:text-primary-600 bg-primary-50 hover:bg-primary-100 dark:bg-primary-900/20 dark:hover:bg-primary-900/40 px-4 py-2 rounded-xl transition-colors"
+                  >
+                     {isEditingSettings ? 'Save Settings' : 'Edit'}
+                  </button>
+               )}
+            </div>
+            
+            <div className="bg-slate-50 dark:bg-paper-900 rounded-2xl p-4 mb-6 border border-slate-200 dark:border-slate-700/50 space-y-3">
+               <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                     <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">⏱️</div>
+                     <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Draw Time</span>
+                  </div>
+                  {isEditingSettings ? (
+                     <select value={editDrawTime} onChange={e => setEditDrawTime(parseInt(e.target.value))} className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-sm font-bold w-40">
+                        <option value="40">40 seconds</option>
+                        <option value="60">60 seconds</option>
+                        <option value="80">80 seconds</option>
+                        <option value="120">120 seconds</option>
+                     </select>
+                  ) : (
+                     <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center">{roomState.settings.drawTime}</span>
+                  )}
+               </div>
+
+               <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                     <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">🔄</div>
+                     <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Rounds</span>
+                  </div>
+                  {isEditingSettings ? (
+                     <input type="number" min="1" max="10" value={editRounds} onChange={e => setEditRounds(parseInt(e.target.value) || 3)} className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-sm font-bold w-40" />
+                  ) : (
+                     <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center">{roomState.settings.rounds}</span>
+                  )}
+               </div>
+
+               <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                     <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">📝</div>
+                     <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Difficulty</span>
+                  </div>
+                  {isEditingSettings ? (
+                     <select value={editWordDifficulty} onChange={e => setEditWordDifficulty(e.target.value as any)} className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-sm font-bold w-40 capitalize">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                        <option value="mixed">Mixed</option>
+                     </select>
+                  ) : (
+                     <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center capitalize">{roomState.settings.wordDifficulty}</span>
+                  )}
+               </div>
+            </div>
+
+            <div className="flex-1 flex flex-col bg-slate-50 dark:bg-paper-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-700/50">
+               <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                     <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">✏️</div>
+                     <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Custom words</span>
+                  </div>
+               </div>
+               <textarea
+                  readOnly={!isEditingSettings}
+                  value={isEditingSettings ? customWordsStr : (roomState.settings.customWords?.join(', ') || '')}
+                  onChange={(e) => setCustomWordsStr(e.target.value)}
+                  placeholder="Minimum of 10 words. Separated by a , (comma)"
+                  className="flex-1 bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-primary-500 resize-none min-h-[120px]"
+               />
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 mt-6">
+               <button
                   onClick={handleStart}
-                  disabled={roomState.players.length < 2}
-                  className="w-full sm:w-auto bg-primary-500 hover:bg-primary-600 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white font-bold py-4 px-10 rounded-2xl shadow-md hover:-translate-y-1 active:translate-y-0 transition-all flex items-center justify-center gap-3 text-xl disabled:transform-none disabled:shadow-none"
-                >
-                  <Play className="w-6 h-6 fill-current" />
-                  Start Game
-                </button>
-             </div>
-          ) : (
-             <div className="bg-white dark:bg-paper-800 rounded-3xl p-6 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex items-center justify-center">
-                <div className="flex items-center gap-3 text-slate-500 dark:text-slate-400 font-medium">
-                   <div className="w-6 h-6 border-2 border-primary-500 border-t-transparent rounded-full animate-spin" />
-                   Waiting for host to start...
-                </div>
-             </div>
-          )}
-        </div>
+                  disabled={!me?.isHost || roomState.players.length < 2}
+                  className="flex-[2] bg-emerald-500 hover:bg-emerald-600 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white font-black text-xl py-4 rounded-2xl shadow-sm transition-all disabled:transform-none disabled:shadow-none"
+               >
+                  {me?.isHost ? 'Start!' : 'Waiting for Host...'}
+               </button>
+               <button
+                  onClick={copyRoomCode}
+                  className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 rounded-2xl shadow-sm transition-all flex items-center justify-center gap-2"
+               >
+                  <Copy className="w-5 h-5" />
+                  {copied ? 'Copied!' : 'Invite'}
+               </button>
+            </div>
+            
+            {me?.isHost && roomState.players.length < 2 && (
+               <p className="text-rose-500 text-xs font-bold text-center mt-3">Need at least 2 players to start.</p>
+            )}
+         </div>
+
+         {/* Right Column: Chat */}
+         <div className="w-full md:w-80 bg-paper-100/95 dark:bg-paper-950/95 rounded-3xl flex flex-col overflow-hidden">
+            <ChatSidebar />
+         </div>
 
       </div>
     </div>
