@@ -3,7 +3,7 @@ import { useSocket } from '../context/SocketContext';
 import { DrawingCanvas } from '../components/DrawingCanvas';
 import { TopBar } from '../components/TopBar';
 import { ChatSidebar } from '../components/ChatSidebar';
-import { Trophy, ArrowRight, MessageSquare, Home, CheckCircle2, Pencil } from 'lucide-react';
+import { Trophy, ArrowRight, MessageSquare, Home, CheckCircle2, Pencil, Ban } from 'lucide-react';
 import { Avatar } from '../components/Avatar';
 import { ReactionPayload } from '@chitrakari/shared';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -157,7 +157,7 @@ export function GameView() {
                      className="bg-white dark:bg-paper-800 p-5 sm:p-8 rounded-3xl border-2 border-slate-300 dark:border-slate-700 shadow-2xl max-w-lg w-full text-center"
                   >
                      <h2 className="text-xs sm:text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">The word was</h2>
-                     <div className="text-3xl sm:text-5xl font-black text-secondary-500 uppercase tracking-widest mb-4 sm:mb-6">{roomState.turnSummary.word}</div>
+                     <div className="text-3xl sm:text-5xl font-black text-secondary-500 uppercase tracking-widest mb-4 sm:mb-6 animate-squiggly inline-block">{roomState.turnSummary.word}</div>
 
                      <div className="grid gap-2 mb-4 max-h-48 sm:max-h-60 overflow-y-auto w-full scrollbar-thin">
                         {Object.entries(roomState.turnSummary.guesserPoints).length > 0 ? (
@@ -186,6 +186,31 @@ export function GameView() {
                               <span className="text-amber-600 dark:text-amber-400 font-bold">+{roomState.turnSummary.drawerPoints}</span>
                            </div>
                         )}
+                        {/* Zero scorers */}
+                        {roomState.players.filter(p => !roomState.turnSummary?.guesserPoints[p.id] && p.id !== roomState.turnSummary?.drawerId && p.connected).map(p => (
+                           <div key={p.id} className="flex items-center justify-between bg-white dark:bg-paper-800 p-3 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 opacity-60">
+                              <div className="flex items-center gap-3">
+                                 <Avatar seed={p.avatarSeed} size={32} />
+                                 <span className="font-bold text-slate-500 dark:text-slate-400">{p.name}</span>
+                              </div>
+                              <span className="text-slate-400 font-bold">+0</span>
+                           </div>
+                        ))}
+                     </div>
+
+                     <div className="flex items-center gap-4 justify-center mb-6">
+                        <button
+                           onClick={() => socket?.emit('rate_drawing', { roomId: roomState.id, like: true })}
+                           className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 ${roomState.turnSummary.likes?.includes(me?.id || '') ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20' : 'bg-slate-100 dark:bg-paper-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-paper-600'}`}
+                        >
+                           <span className="text-xl">👍</span> {roomState.turnSummary.likes?.length || 0}
+                        </button>
+                        <button
+                           onClick={() => socket?.emit('rate_drawing', { roomId: roomState.id, like: false })}
+                           className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 ${roomState.turnSummary.dislikes?.includes(me?.id || '') ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-slate-100 dark:bg-paper-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-paper-600'}`}
+                        >
+                           <span className="text-xl">👎</span> {roomState.turnSummary.dislikes?.length || 0}
+                        </button>
                      </div>
 
                      <div className="flex items-center justify-center gap-4 text-slate-600 dark:text-slate-300 font-bold animate-pulse">
@@ -312,7 +337,7 @@ export function GameView() {
    // --- Mobile horizontal player strip ---
    const renderMobilePlayerStrip = () => (
       <div className="flex lg:hidden gap-2 overflow-x-auto scrollbar-none px-1 py-1 bg-white dark:bg-paper-800 rounded-2xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex-shrink-0">
-         {sortedPlayers.filter(p => !p.isSpectator).map((p, idx) => (
+         {sortedPlayers.map((p, idx) => (
             <div
                key={p.id}
                className={`flex items-center gap-1.5 px-2 py-1.5 rounded-xl flex-shrink-0 transition-colors ${p.id === me.id ? 'bg-primary-50 dark:bg-primary-500/10' : 'bg-slate-50 dark:bg-paper-900/50'
@@ -349,12 +374,12 @@ export function GameView() {
             </h2>
          </div>
          <div className="flex-1 overflow-y-auto scrollbar-thin p-2 space-y-1">
-            {sortedPlayers.filter(p => !p.isSpectator).map((p, idx) => {
+            {sortedPlayers.map((p, idx) => {
                const isCurrentDrawer = roomState.currentDrawerId === p.id;
                return (
                   <div
                      key={p.id}
-                     className={`flex items-center gap-2 p-2 rounded-2xl transition-all ${p.id === me.id
+                     className={`group flex items-center gap-2 p-2 rounded-2xl transition-all ${p.id === me.id
                            ? 'bg-primary-50 dark:bg-primary-500/10 border border-primary-200 dark:border-primary-500/30'
                            : isCurrentDrawer
                               ? 'bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/30'
@@ -392,25 +417,19 @@ export function GameView() {
                      {p.connected === false && (
                         <div className="text-[8px] font-bold text-slate-400 bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded leading-none">OFF</div>
                      )}
+                     {p.id !== me.id && !p.isHost && (
+                        <button
+                           onClick={() => socket?.emit('vote_kick', { roomId: roomState.id, targetId: p.id })}
+                           className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 hover:bg-red-100 dark:hover:bg-red-500/20 text-red-500 rounded-lg flex items-center justify-center"
+                           title={roomState.kickVotes?.[p.id]?.includes(me.id) ? "Voted to kick" : "Vote to kick"}
+                        >
+                           <Ban className={`w-3.5 h-3.5 ${roomState.kickVotes?.[p.id]?.includes(me.id) ? 'fill-red-500/20' : ''}`} />
+                        </button>
+                     )}
                   </div>
                );
             })}
          </div>
-
-         {/* Spectators */}
-         {roomState.players.some(p => p.isSpectator) && (
-            <div className="p-2 border-t border-slate-100 dark:border-slate-700/50">
-               <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1 px-1">Spectators</div>
-               <div className="flex flex-wrap gap-1">
-                  {roomState.players.filter(p => p.isSpectator).map(p => (
-                     <div key={p.id} className="flex items-center gap-1 bg-slate-50 dark:bg-paper-900 px-1.5 py-1 rounded-lg">
-                        <Avatar seed={p.avatarSeed} size={16} />
-                        <span className="text-[10px] font-bold text-slate-600 dark:text-slate-300">{p.name}</span>
-                     </div>
-                  ))}
-               </div>
-            </div>
-         )}
       </div>
    );
 
@@ -440,13 +459,15 @@ export function GameView() {
                   {activeReactions.map((r) => (
                      <div
                         key={r.id}
-                        className="absolute bottom-0 animate-float text-3xl sm:text-4xl drop-shadow-lg"
+                        className="absolute bottom-0 animate-float z-50 pointer-events-none"
                         style={{
                            left: `${Math.random() * 40 - 20}px`,
                            animationDelay: `${Math.random() * 0.2}s`
                         }}
                      >
-                        {r.emoji}
+                        <div className="animate-squiggly text-4xl sm:text-5xl drop-shadow-lg">
+                           {r.emoji}
+                        </div>
                      </div>
                   ))}
                </div>

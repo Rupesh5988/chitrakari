@@ -40,6 +40,18 @@
   .font-display {
     font-family: 'Fredoka', ui-sans-serif, system-ui, sans-serif;
   }
+
+  @keyframes squiggly {
+    0% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-2px) rotate(2deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(2px) rotate(-2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+  .animate-squiggly {
+    display: inline-block;
+    animation: squiggly 2s ease-in-out infinite;
+  }
   
   /* Custom scrollbar */
   .scrollbar-thin {

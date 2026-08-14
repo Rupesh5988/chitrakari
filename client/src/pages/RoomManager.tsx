@@ -122,10 +122,10 @@ export function RoomManager() {
             <div className="w-full lg:w-72 bg-white dark:bg-paper-800 rounded-3xl p-4 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex flex-col overflow-y-auto overflow-x-hidden">
                <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2 mb-4 px-2">
                   <Users className="w-4 h-4" />
-                  Players ({roomState.players.filter(p => !p.isSpectator).length}/{roomState.settings.maxPlayers})
+                  Players ({roomState.players.length}/{roomState.settings.maxPlayers})
                </h2>
                <div className="flex flex-col gap-2">
-                  {roomState.players.filter(p => !p.isSpectator).map((p, index) => (
+                  {roomState.players.map((p, index) => (
                      <div key={p.id} className={`flex items-center gap-3 p-3 rounded-2xl transition-all ${p.id === me?.id ? 'bg-primary-50 dark:bg-primary-500/10' : 'bg-slate-50 dark:bg-paper-900'} ${p.connected === false ? 'opacity-50 grayscale' : ''}`}>
                         <div className="text-xs font-bold text-slate-400 w-4 text-center">#{index + 1}</div>
                         <Avatar seed={p.avatarSeed} size={40} />
@@ -144,7 +144,7 @@ export function RoomManager() {
                   ))}
 
                   {/* Empty slots */}
-                  {Array.from({ length: Math.max(0, roomState.settings.maxPlayers - roomState.players.filter(p => !p.isSpectator).length) }).map((_, i) => (
+                  {Array.from({ length: Math.max(0, roomState.settings.maxPlayers - roomState.players.length) }).map((_, i) => (
                      <div key={`empty-${i}`} className="flex items-center gap-3 p-3 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-paper-900/50 opacity-50">
                         <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-paper-800" />
                         <div className="flex-1">
@@ -155,19 +155,6 @@ export function RoomManager() {
                   ))}
                </div>
 
-               {roomState.players.some(p => p.isSpectator) && (
-                  <div className="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700/50">
-                     <h2 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3 px-2">Spectators</h2>
-                     <div className="flex flex-wrap gap-2 px-2">
-                        {roomState.players.filter(p => p.isSpectator).map(p => (
-                           <div key={p.id} className={`flex items-center gap-2 bg-slate-50 dark:bg-paper-900 px-2 py-1.5 rounded-lg ${p.connected === false ? 'opacity-50 grayscale' : ''}`}>
-                              <Avatar seed={p.avatarSeed} size={20} />
-                              <span className="text-xs font-bold text-slate-700 dark:text-slate-200">{p.name}</span>
-                           </div>
-                        ))}
-                     </div>
-                  </div>
-               )}
             </div>
 
             {/* Center Column: Settings & Actions */}

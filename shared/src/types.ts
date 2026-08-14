@@ -35,7 +35,6 @@ export interface Player {
   isHost: boolean;
   hintTokens: number;
   connected?: boolean;
-  isSpectator?: boolean;
 }
 
 export interface RoomState {
@@ -64,6 +63,8 @@ export interface TurnSummary {
   drawerId: string;
   drawerPoints: number;
   guesserPoints: Record<string, number>;
+  likes?: string[];
+  dislikes?: string[];
 }
 
 export interface ChatMessage {

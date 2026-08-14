@@ -47,7 +47,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
   const pointsQueue = useRef<Point[]>([]);
   const throttleTimer = useRef<NodeJS.Timeout | null>(null);
 
-  const [guesserDraftStroke, setGuesserDraftStroke] = useState<StrokeAction | null>(null);
+  const guesserDraftStrokeRef = useRef<StrokeAction | null>(null);
 
   useEffect(() => {
     if (roomState && roomState.strokeHistory) {
@@ -127,24 +127,26 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
     if (!socket || !roomId) return;
 
     const handleDrawProgress = (data: DrawProgressPayload) => {
-      setGuesserDraftStroke(prev => {
-        const stroke = prev?.id === data.strokeId ? { ...prev } : {
+      let stroke = guesserDraftStrokeRef.current;
+      if (stroke?.id === data.strokeId) {
+        stroke.points.push(...data.newPoints);
+      } else {
+        stroke = {
           id: data.strokeId,
           tool: data.tool,
           color: data.color,
           size: data.size,
-          points: [],
+          points: [...data.newPoints],
           timestamp: Date.now()
         };
-        stroke.points = [...stroke.points, ...data.newPoints];
+        guesserDraftStrokeRef.current = stroke;
+      }
 
-        const ctx = draftCanvasRef.current?.getContext('2d');
-        if (ctx) {
-          ctx.clearRect(0, 0, INTERNAL_WIDTH, INTERNAL_HEIGHT);
-          drawAction(ctx, stroke, false);
-        }
-        return stroke;
-      });
+      const ctx = draftCanvasRef.current?.getContext('2d');
+      if (ctx && stroke) {
+        ctx.clearRect(0, 0, INTERNAL_WIDTH, INTERNAL_HEIGHT);
+        drawAction(ctx, stroke, false);
+      }
     };
 
     const handleStrokeCompleted = (data: { stroke: StrokeAction, serverStrokeCount: number }) => {
@@ -157,7 +159,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
       });
       setHistoryIndex(prev => prev + 1);
 
-      setGuesserDraftStroke(null);
+      guesserDraftStrokeRef.current = null;
       const ctx = draftCanvasRef.current?.getContext('2d');
       ctx?.clearRect(0, 0, INTERNAL_WIDTH, INTERNAL_HEIGHT);
     };
@@ -172,16 +174,28 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
       redrawHistory(data.historyIndex, data.strokeHistory);
     };
 
+    const handleCanvasCleared = () => {
+      setHistory([]);
+      setHistoryIndex(0);
+      setGuesserDraftStroke(null);
+      const mainCtx = mainCanvasRef.current?.getContext('2d');
+      const draftCtx = draftCanvasRef.current?.getContext('2d');
+      mainCtx?.clearRect(0, 0, INTERNAL_WIDTH, INTERNAL_HEIGHT);
+      draftCtx?.clearRect(0, 0, INTERNAL_WIDTH, INTERNAL_HEIGHT);
+    };
+
     socket.on('draw_progress_received', handleDrawProgress);
     socket.on('stroke_completed', handleStrokeCompleted);
     socket.on('undo_received', handleUndo);
     socket.on('canvas_state_sync', handleSync);
+    socket.on('canvas_cleared', handleCanvasCleared);
 
     return () => {
       socket.off('draw_progress_received', handleDrawProgress);
       socket.off('stroke_completed', handleStrokeCompleted);
       socket.off('undo_received', handleUndo);
       socket.off('canvas_state_sync', handleSync);
+      socket.off('canvas_cleared', handleCanvasCleared);
     };
   }, [socket, roomId, drawAction, redrawHistory]);
 
@@ -364,17 +378,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
     }
 
     if (socket && roomId) {
-      socket.emit('canvas_clear', { roomId, bgColor });
-    } else {
-      const fillStroke: StrokeAction = {
-        id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
-        tool: 'fill',
-        color: bgColor,
-        size: 1,
-        points: [{ x: 0, y: 0 }],
-        timestamp: Date.now()
-      };
-      commitStroke(fillStroke);
+      socket.emit('canvas_clear', { roomId });
     }
     setShowClearConfirm(false);
   };
@@ -480,6 +484,20 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
                   {t.icon}
                 </button>
               ))}
+            </div>
+
+            {/* Clear Canvas */}
+            <div className="flex-1 flex justify-end">
+              <button
+                onClick={handleClear}
+                className={`flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl font-bold transition-all shadow-sm ${showClearConfirm
+                    ? 'bg-red-500 hover:bg-red-600 text-white animate-pulse shadow-red-500/20'
+                    : 'bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 text-slate-500 hover:text-red-500 hover:border-red-200 dark:hover:border-red-500/30'
+                  }`}
+              >
+                <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="hidden sm:inline text-sm">{showClearConfirm ? 'Sure?' : 'Clear'}</span>
+              </button>
             </div>
 
             {/* Brush Size Presets (S, M, L, XL dots) */}

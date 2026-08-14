@@ -53,7 +53,7 @@ export class GameManager {
   }
 
   public getActiveConnectedPlayers(room: RoomState): Player[] {
-    return room.players.filter(p => !p.isSpectator && p.connected);
+    return room.players.filter(p => p.connected);
   }
 
   public startGame(roomId: string) {
@@ -76,17 +76,21 @@ export class GameManager {
     const room = this.rooms.get(roomId);
     if (!room || room.players.length === 0) return;
 
-    // Skip spectators
+    // Skip players who are not connected (or any other conditions if added later)
+    // Here we just loop through to find the next player
     let attempts = 0;
-    while (room.players[room.currentPlayerIndex]?.isSpectator && attempts < room.players.length) {
-       room.currentPlayerIndex = (room.currentPlayerIndex + 1) % room.players.length;
-       attempts++;
+    while (attempts < room.players.length) {
+      if (room.players[room.currentPlayerIndex]?.connected) {
+        break;
+      }
+      room.currentPlayerIndex = (room.currentPlayerIndex + 1) % room.players.length;
+      attempts++;
     }
     
     const activeConnected = this.getActiveConnectedPlayers(room);
     
     if (attempts >= room.players.length || activeConnected.length <= 1) {
-       // Everyone is a spectator or only 1 player left, end game
+       // Only 1 player left, end game
        room.phase = 'game_end';
        this.emitRoomUpdate(roomId);
        return;
@@ -96,6 +100,7 @@ export class GameManager {
     room.currentDrawerId = room.players[room.currentPlayerIndex].id;
     room.strokeHistory = [];
     room.historyIndex = -1;
+    this.io.to(roomId).emit('canvas_cleared');
     room.timeRemaining = 15; // 15 seconds to choose
     room.currentWord = undefined;
     room.hiddenWord = undefined;
@@ -222,7 +227,7 @@ export class GameManager {
       timestamp: now
     };
 
-    if (room.phase === 'drawing' && !isDrawer && !player.isSpectator && room.currentWord) {
+    if (room.phase === 'drawing' && !isDrawer && room.currentWord) {
       const guess = safeText.trim().toLowerCase();
       const target = room.currentWord.toLowerCase();
       

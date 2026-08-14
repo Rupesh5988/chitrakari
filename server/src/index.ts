@@ -149,14 +149,13 @@ io.on('connection', (socket) => {
       return;
     }
 
-    const activePlayersCount = room.players.filter(p => !p.isSpectator).length;
+    const activePlayersCount = room.players.length;
     const isFull = activePlayersCount >= room.settings.maxPlayers;
     const isReturningPlayer = room.players.find(p => p.id === data.playerId);
-    let forceSpectator = false;
     
     if (isFull && !isReturningPlayer) {
-      // Room is full, let them join as a spectator instead of rejecting
-      forceSpectator = true;
+      if (callback) callback({ success: false, error: 'Room is full' });
+      return;
     }
 
     if (roomTimeouts.has(roomId)) {
@@ -187,7 +186,6 @@ io.on('connection', (socket) => {
         hasGuessedCorrectly: false,
         isHost: room.players.length === 0,
         connected: true,
-        isSpectator: forceSpectator,
         hintTokens: 2
       };
       room.players.push(player);
@@ -240,7 +238,7 @@ io.on('connection', (socket) => {
        targetSocket.leave(data.roomId);
        socketRoomMap.delete(target.socketId);
     }
-    const activeConnectedPlayers = room.players.filter(p => !p.isSpectator && p.connected);
+    const activeConnectedPlayers = room.players.filter(p => p.connected);
     if (activeConnectedPlayers.length <= 1 && room.phase !== 'lobby' && room.phase !== 'game_end') {
        room.phase = 'game_end';
     } else if (room.currentDrawerId === target.id && (room.phase === 'drawing' || room.phase === 'choosing_word')) {
@@ -279,7 +277,7 @@ io.on('connection', (socket) => {
              socketRoomMap.delete(target.socketId);
           }
           delete room.kickVotes[data.targetId];
-          const activeConnectedPlayers = room.players.filter(p => !p.isSpectator && p.connected);
+          const activeConnectedPlayers = room.players.filter(p => p.connected);
           if (activeConnectedPlayers.length <= 1 && room.phase !== 'lobby' && room.phase !== 'game_end') {
              room.phase = 'game_end';
           } else if (room.currentDrawerId === target.id && (room.phase === 'drawing' || room.phase === 'choosing_word')) {
@@ -349,6 +347,28 @@ io.on('connection', (socket) => {
     io.to(data.roomId).emit('reaction_received', { roomId: data.roomId, playerId: player.id, emoji: data.emoji });
   });
 
+
+
+  socket.on('rate_drawing', (data: { roomId: string; like: boolean }) => {
+    const room = rooms.get(data.roomId);
+    if (!room || room.phase !== 'turn_end' || !room.turnSummary) return;
+    const player = room.players.find(p => p.socketId === socket.id);
+    if (!player) return;
+
+    if (!room.turnSummary.likes) room.turnSummary.likes = [];
+    if (!room.turnSummary.dislikes) room.turnSummary.dislikes = [];
+
+    room.turnSummary.likes = room.turnSummary.likes.filter(id => id !== player.id);
+    room.turnSummary.dislikes = room.turnSummary.dislikes.filter(id => id !== player.id);
+
+    if (data.like) {
+       room.turnSummary.likes.push(player.id);
+    } else {
+       room.turnSummary.dislikes.push(player.id);
+    }
+    io.to(data.roomId).emit('room_updated', room);
+  });
+
   socket.on('spend_hint', (data: { roomId: string }) => {
     const room = rooms.get(data.roomId);
     if (!room) return;
@@ -392,30 +412,15 @@ io.on('connection', (socket) => {
     socket.to(data.roomId).emit('undo_received', { historyIndex: room.historyIndex });
   });
 
-  socket.on('canvas_clear', (data: { roomId: string; bgColor: string }) => {
+  socket.on('canvas_clear', (data: { roomId: string }) => {
     const room = rooms.get(data.roomId);
     if (!room || room.phase !== 'drawing') return;
+    const caller = room.players.find(p => p.socketId === socket.id);
+    if (!caller || caller.id !== room.currentDrawerId) return;
 
-    const fillStroke = {
-      id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
-      tool: 'fill' as any,
-      color: data.bgColor,
-      size: 1,
-      points: [{x: 0, y: 0}],
-      timestamp: Date.now()
-    };
-
-    if (room.historyIndex < room.strokeHistory.length - 1) {
-      room.strokeHistory = room.strokeHistory.slice(0, room.historyIndex + 1);
-    }
-
-    room.strokeHistory.push(fillStroke);
-    room.historyIndex = room.strokeHistory.length - 1;
-
-    socket.to(data.roomId).emit('stroke_completed', { 
-      stroke: fillStroke, 
-      serverStrokeCount: room.strokeHistory.length 
-    });
+    room.strokeHistory = [];
+    room.historyIndex = 0;
+    io.to(data.roomId).emit('canvas_cleared');
   });
 
   socket.on('request_sync', (data: { roomId: string }) => {
@@ -446,8 +451,8 @@ function handleLeave(socket: any) {
     const player = room.players[playerIndex];
     player.connected = false;
     
-    // Check if we have enough active players left
-    const activeConnectedPlayers = room.players.filter(p => !p.isSpectator && p.connected);
+    // Check if we have enough active players    
+    const activeConnectedPlayers = room.players.filter(p => p.connected);
     if (activeConnectedPlayers.length <= 1 && room.phase !== 'lobby' && room.phase !== 'game_end') {
        room.phase = 'game_end';
     } else if (room.currentDrawerId === player.id && (room.phase === 'drawing' || room.phase === 'choosing_word')) {
