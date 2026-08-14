@@ -20,9 +20,8 @@ export function floodFill(
   fillColorHex: string
 ) {
   const canvasWidth = ctx.canvas.width;
-  const canvasHeight = ctx.canvas.width; // using width twice? No, use canvas.height
   const height = ctx.canvas.height;
-  
+
   const startX = Math.floor(startPoint.x);
   const startY = Math.floor(startPoint.y);
 
@@ -30,18 +29,18 @@ export function floodFill(
 
   const imageData = ctx.getImageData(0, 0, canvasWidth, height);
   const data = imageData.data;
-  
+
   const targetColor = getPixel(data, startX, startY, canvasWidth);
   const fillColor = hexToRgba(fillColorHex);
 
   if (colorsMatch(targetColor, fillColor)) return;
 
   const pixelsToCheck = [startX, startY];
-  
+
   while (pixelsToCheck.length > 0) {
     const y = pixelsToCheck.pop()!;
     const x = pixelsToCheck.pop()!;
-    
+
     let currentY = y;
     while (currentY >= 0 && matchStartColor(data, x, currentY, canvasWidth, targetColor)) {
       currentY--;
@@ -50,10 +49,10 @@ export function floodFill(
 
     let reachLeft = false;
     let reachRight = false;
-    
+
     while (currentY < height && matchStartColor(data, x, currentY, canvasWidth, targetColor)) {
       setPixel(data, x, currentY, canvasWidth, fillColor);
-      
+
       if (x > 0) {
         if (matchStartColor(data, x - 1, currentY, canvasWidth, targetColor)) {
           if (!reachLeft) {
@@ -64,7 +63,7 @@ export function floodFill(
           reachLeft = false;
         }
       }
-      
+
       if (x < canvasWidth - 1) {
         if (matchStartColor(data, x + 1, currentY, canvasWidth, targetColor)) {
           if (!reachRight) {
@@ -75,7 +74,7 @@ export function floodFill(
           reachRight = false;
         }
       }
-      
+
       currentY++;
     }
   }

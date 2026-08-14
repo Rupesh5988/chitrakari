@@ -6,121 +6,128 @@ import { useTheme } from '../context/ThemeContext';
 import { audioEngine } from '../utils/AudioEngine';
 
 export function TopBar() {
-  const { roomState, socket, me } = useSocket();
-  const [timer, setTimer] = useState(roomState?.timeRemaining || 0);
-  const [hint, setHint] = useState(roomState?.hiddenWord || '');
-  const { theme, toggleTheme } = useTheme();
-  const [isMuted, setIsMuted] = useState(audioEngine.isMuted);
+   const { roomState, socket, me } = useSocket();
+   const [timer, setTimer] = useState(roomState?.timeRemaining || 0);
+   const [hint, setHint] = useState(roomState?.hiddenWord || '');
+   const { theme, toggleTheme } = useTheme();
+   const [isMuted, setIsMuted] = useState(audioEngine.isMuted);
 
-  const handleExit = () => {
-     if (window.confirm('Are you sure you want to leave the room?')) {
-        window.location.href = '/';
-     }
-  };
-
-  useEffect(() => {
-    if (!socket) return;
-    
-    const handleTick = (timeRemaining: number) => {
-      setTimer(timeRemaining);
-      if (timeRemaining <= 5 && timeRemaining > 0 && roomState?.phase === 'drawing') {
-         audioEngine.playTick();
+   const handleExit = () => {
+      if (window.confirm('Are you sure you want to leave the room?')) {
+         window.location.href = '/';
       }
-    };
+   };
 
-    const handleHint = (hiddenWord: string) => {
-      setHint(hiddenWord);
-    };
+   useEffect(() => {
+      if (!socket) return;
 
-    socket.on('timer_tick', handleTick);
-    socket.on('hint_update', handleHint);
+      const handleTick = (timeRemaining: number) => {
+         setTimer(timeRemaining);
+         if (timeRemaining <= 5 && timeRemaining > 0 && roomState?.phase === 'drawing') {
+            audioEngine.playTick();
+         }
+      };
 
-    return () => {
-      socket.off('timer_tick', handleTick);
-      socket.off('hint_update', handleHint);
-    };
-  }, [socket, roomState?.phase]);
+      const handleHint = (hiddenWord: string) => {
+         setHint(hiddenWord);
+      };
 
-  useEffect(() => {
-     if (roomState?.hiddenWord) setHint(roomState.hiddenWord);
-  }, [roomState?.hiddenWord]);
+      socket.on('timer_tick', handleTick);
+      socket.on('hint_update', handleHint);
 
-  if (!roomState) return null;
+      return () => {
+         socket.off('timer_tick', handleTick);
+         socket.off('hint_update', handleHint);
+      };
+   }, [socket, roomState?.phase]);
 
-  const toggleMute = () => {
-     audioEngine.isMuted = !audioEngine.isMuted;
-     setIsMuted(audioEngine.isMuted);
-     
-     // Unlock TTS context immediately on user interaction
-     if (!audioEngine.isMuted && 'speechSynthesis' in window) {
-       const unlockUtterance = new SpeechSynthesisUtterance('');
-       unlockUtterance.volume = 0;
-       window.speechSynthesis.speak(unlockUtterance);
-     }
-  };
+   useEffect(() => {
+      if (roomState?.hiddenWord) setHint(roomState.hiddenWord);
+   }, [roomState?.hiddenWord]);
 
-  const formatWord = (word: string) => {
-    const letters = word.split('').map((char, i) => (
-      <span key={i} className={`mx-1 ${char === '_' ? 'opacity-30 dark:opacity-50' : 'text-primary-500 font-bold'}`}>
-        {char}
-      </span>
-    ));
-    const wordLength = word.replace(/ /g, '').length;
-    return (
-      <div className="flex items-center">
-         {letters}
-         {wordLength > 0 && (
-            <span className="ml-3 text-lg text-slate-400 dark:text-slate-500 font-bold tracking-normal opacity-70">
-               ({wordLength})
-            </span>
-         )}
+   if (!roomState) return null;
+
+   const toggleMute = () => {
+      audioEngine.isMuted = !audioEngine.isMuted;
+      setIsMuted(audioEngine.isMuted);
+
+      if (!audioEngine.isMuted && 'speechSynthesis' in window) {
+         const unlockUtterance = new SpeechSynthesisUtterance('');
+         unlockUtterance.volume = 0;
+         window.speechSynthesis.speak(unlockUtterance);
+      }
+   };
+
+   const formatWord = (word: string) => {
+      const letters = word.split('').map((char, i) => (
+         <span key={i} className={`mx-0.5 sm:mx-1 ${char === '_' ? 'opacity-30 dark:opacity-50' : 'text-primary-500 font-bold'}`}>
+            {char}
+         </span>
+      ));
+      const wordLength = word.replace(/ /g, '').length;
+      return (
+         <div className="flex items-center flex-wrap justify-center">
+            {letters}
+            {wordLength > 0 && (
+               <span className="ml-2 sm:ml-3 text-sm sm:text-lg text-slate-400 dark:text-slate-500 font-bold tracking-normal opacity-70">
+                  ({wordLength})
+               </span>
+            )}
+         </div>
+      );
+   };
+
+   const totalTime = roomState.phase === 'choosing_word' ? 15 : roomState.settings.drawTime;
+
+   const isDrawer = me?.id === roomState.currentDrawerId;
+   const showWord = roomState.phase === 'lobby'
+      ? 'WAITING'
+      : roomState.phase === 'choosing_word'
+         ? (isDrawer ? 'Pick a word...' : 'Waiting for Drawer...')
+         : (isDrawer && roomState.currentWord
+            ? formatWord(roomState.currentWord)
+            : formatWord(hint));
+
+   return (
+      <div className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700/50 rounded-2xl sm:rounded-3xl shadow-soft dark:shadow-soft-dark p-2 sm:p-3 md:p-4 flex items-center justify-between transition-colors gap-2">
+         {/* Left: Round info */}
+         <div className="flex items-center gap-2 flex-shrink-0">
+            <div className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-sm font-bold tracking-widest uppercase bg-slate-100 dark:bg-paper-900 px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl whitespace-nowrap">
+               R{roomState.roundNumber}/{roomState.settings.rounds}
+            </div>
+         </div>
+
+         {/* Center: Word hint */}
+         <div className="flex-1 flex justify-center text-lg sm:text-2xl md:text-3xl font-mono tracking-[0.1em] sm:tracking-[0.2em] uppercase text-slate-800 dark:text-white min-w-0 overflow-hidden">
+            {typeof showWord === 'string' ? (
+               <span className="text-sm sm:text-xl truncate">{showWord}</span>
+            ) : showWord}
+         </div>
+
+         {/* Right: Controls + Timer */}
+         <div className="flex items-center gap-1 sm:gap-2 md:gap-3 flex-shrink-0">
+            <button
+               onClick={toggleMute}
+               className="p-1.5 sm:p-2 md:p-3 bg-slate-100 dark:bg-paper-900 text-slate-500 dark:text-slate-400 rounded-xl sm:rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+            >
+               {isMuted ? <VolumeX className="w-4 h-4 sm:w-5 sm:h-5" /> : <Volume2 className="w-4 h-4 sm:w-5 sm:h-5" />}
+            </button>
+            <button
+               onClick={toggleTheme}
+               className="hidden sm:block p-2 md:p-3 bg-slate-100 dark:bg-paper-900 text-slate-500 dark:text-slate-400 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+            >
+               {theme === 'dark' ? <Sun className="w-4 h-4 sm:w-5 sm:h-5" /> : <Moon className="w-4 h-4 sm:w-5 sm:h-5" />}
+            </button>
+            <button
+               onClick={handleExit}
+               title="Exit Room"
+               className="hidden sm:block p-2 md:p-3 bg-rose-100 dark:bg-rose-900/30 text-rose-500 dark:text-rose-400 rounded-full hover:bg-rose-200 dark:hover:bg-rose-800/50 transition-colors"
+            >
+               <LogOut className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+
+            <CircularTimer timeRemaining={timer} totalTime={totalTime} size={40} strokeWidth={4} />
+         </div>
       </div>
-    );
-  };
-
-  const totalTime = roomState.phase === 'choosing_word' ? 15 : roomState.settings.drawTime;
-
-  return (
-    <div className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700/50 rounded-3xl shadow-soft dark:shadow-soft-dark p-4 flex items-center justify-between transition-colors">
-       <div className="flex items-center gap-4 w-1/3">
-          <div className="text-slate-500 dark:text-slate-400 text-sm font-bold tracking-widest uppercase bg-slate-100 dark:bg-paper-900 px-4 py-2 rounded-2xl">
-             Round {roomState.roundNumber} of {roomState.settings.rounds}
-          </div>
-       </div>
-
-       <div className="flex-1 flex justify-center text-3xl font-mono tracking-[0.2em] uppercase text-slate-800 dark:text-white">
-          {roomState.phase === 'lobby'
-             ? 'WAITING'
-             : roomState.phase === 'choosing_word' 
-             ? 'Waiting for Drawer...' 
-             : (me?.id === roomState.currentDrawerId && roomState.currentWord 
-                 ? formatWord(roomState.currentWord) 
-                 : formatWord(hint))}
-       </div>
-
-       <div className="flex items-center justify-end gap-3 w-1/3">
-          <button 
-             onClick={toggleMute}
-             className="p-3 bg-slate-100 dark:bg-paper-900 text-slate-500 dark:text-slate-400 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-          >
-             {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-          </button>
-          <button 
-             onClick={toggleTheme}
-             className="p-3 bg-slate-100 dark:bg-paper-900 text-slate-500 dark:text-slate-400 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-          >
-             {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </button>
-          <button 
-             onClick={handleExit}
-             title="Exit Room"
-             className="p-3 bg-rose-100 dark:bg-rose-900/30 text-rose-500 dark:text-rose-400 rounded-full hover:bg-rose-200 dark:hover:bg-rose-800/50 transition-colors mr-2"
-          >
-             <LogOut className="w-5 h-5" />
-          </button>
-          
-          <CircularTimer timeRemaining={timer} totalTime={totalTime} size={56} strokeWidth={5} />
-       </div>
-    </div>
-  );
+   );
 }
