@@ -8,6 +8,7 @@ import { Avatar } from '../components/Avatar';
 import { ReactionPayload } from '@chitrakari/shared';
 import { motion, AnimatePresence } from 'framer-motion';
 import { audioEngine } from '../utils/AudioEngine';
+import { Confetti } from '../components/Confetti';
 
 export function GameView() {
    const { roomState, socket, me } = useSocket();
@@ -52,8 +53,11 @@ export function GameView() {
       if (roomState?.phase === 'drawing') {
          audioEngine.playTurnStart();
       }
+      if (roomState?.phase === 'turn_end') {
+         audioEngine.playRoundEnd();
+      }
       if (roomState?.phase === 'game_end') {
-         audioEngine.playFanfare();
+         audioEngine.playGameEnd();
       }
    }, [roomState?.phase]);
 
@@ -61,7 +65,9 @@ export function GameView() {
 
    const isDrawer = roomState.currentDrawerId === me.id;
    const drawerName = roomState.players.find(p => p.id === roomState.currentDrawerId)?.name || 'Someone';
-   const sortedPlayers = [...roomState.players].sort((a, b) => b.score - a.score);
+   const sortedPlayers = React.useMemo(() => {
+      return [...roomState.players].sort((a, b) => b.score - a.score);
+   }, [roomState.roundNumber, roomState.players.length]);
 
    const handleWordSelect = (word: string) => {
       if (socket) {
@@ -196,6 +202,7 @@ export function GameView() {
                   animate={{ opacity: 1 }}
                   className="fixed inset-0 z-[100] bg-paper-950/95 backdrop-blur-lg flex items-center justify-center p-4 sm:p-6"
                >
+                  <Confetti />
                   <div className="max-w-2xl w-full text-center">
                      <motion.div
                         initial={{ scale: 0 }}
@@ -267,7 +274,7 @@ export function GameView() {
                      >
                         {me.isHost && (
                            <button
-                              onClick={() => socket?.emit('start_game', { roomId: roomState.id })}
+                              onClick={() => socket?.emit('return_to_lobby', { roomId: roomState.id })}
                               className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-primary-500 text-white font-bold rounded-2xl shadow-lg hover:bg-primary-600 hover:scale-105 active:scale-95 transition-all text-lg sm:text-xl"
                            >
                               Play Again
@@ -308,9 +315,12 @@ export function GameView() {
                      </div>
                   )}
                </div>
-               <div className="min-w-0">
-                  <div className="text-[10px] font-bold text-slate-700 dark:text-slate-200 truncate max-w-[60px]">{p.name}</div>
-                  <div className="text-[9px] text-primary-500 font-mono font-bold">{p.score}</div>
+               <div className="min-w-0 flex items-center gap-1">
+                  <div className="flex flex-col">
+                     <div className="text-[10px] font-bold text-slate-700 dark:text-slate-200 truncate max-w-[60px]">{p.name}</div>
+                     <div className="text-[9px] text-primary-500 font-mono font-bold">{p.score}</div>
+                  </div>
+                  {roomState.currentDrawerId === p.id && <Pencil className="w-3 h-3 text-amber-500 ml-0.5 flex-shrink-0" />}
                </div>
             </div>
          ))}
@@ -354,13 +364,14 @@ export function GameView() {
                      <div className="flex-1 min-w-0">
                         <div className="text-xs font-bold text-slate-700 dark:text-slate-200 truncate flex items-center gap-1">
                            {p.name}
+                           {isCurrentDrawer && <Pencil className="w-3.5 h-3.5 text-amber-500" />}
                            {p.id === me.id && <span className="text-[8px] text-primary-500 font-black">(YOU)</span>}
                         </div>
                         <div className="flex items-center gap-1">
                            <span className="text-[10px] text-primary-500 font-mono font-bold">{p.score} pts</span>
                            {isCurrentDrawer && (
                               <span className="text-[8px] font-bold uppercase text-amber-500 flex items-center gap-0.5">
-                                 <Pencil className="w-2.5 h-2.5" /> Drawing
+                                 Drawing
                               </span>
                            )}
                         </div>

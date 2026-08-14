@@ -302,6 +302,15 @@ io.on('connection', (socket) => {
     gameManager.startGame(data.roomId);
   });
 
+  socket.on('return_to_lobby', (data: { roomId: string }) => {
+    const room = rooms.get(data.roomId);
+    if (!room) return;
+    const caller = room.players.find(p => p.socketId === socket.id);
+    if (!caller || !caller.isHost) return;
+
+    gameManager.returnToLobby(data.roomId);
+  });
+
   // GAME LOOP EVENTS
   socket.on('choose_word', (data: { roomId: string; word: string }) => {
     const room = rooms.get(data.roomId);
@@ -323,11 +332,18 @@ io.on('connection', (socket) => {
     }
   });
 
+  const reactionRateLimits = new Map<string, number>();
+
   socket.on('send_reaction', (data: { roomId: string; emoji: string }) => {
     const room = rooms.get(data.roomId);
     if (!room) return;
     const player = room.players.find(p => p.socketId === socket.id);
     if (!player) return;
+
+    const now = Date.now();
+    const lastReaction = reactionRateLimits.get(player.id) || 0;
+    if (now - lastReaction < 2000) return; // 2 seconds limit
+    reactionRateLimits.set(player.id, now);
 
     // Broadcast reaction to room
     io.to(data.roomId).emit('reaction_received', { roomId: data.roomId, playerId: player.id, emoji: data.emoji });

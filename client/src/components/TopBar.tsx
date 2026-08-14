@@ -5,6 +5,7 @@ import { CircularTimer } from './CircularTimer';
 import { useTheme } from '../context/ThemeContext';
 import { audioEngine } from '../utils/AudioEngine';
 import { toast } from 'sonner';
+import { HelpModal } from './HelpModal';
 
 export function TopBar() {
    const { roomState, socket, me } = useSocket();
@@ -13,6 +14,7 @@ export function TopBar() {
    const { theme, toggleTheme } = useTheme();
    const [isMuted, setIsMuted] = useState(audioEngine.isMuted);
    const [copied, setCopied] = useState(false);
+   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
    const copyCode = () => {
       if (!roomState?.id) return;
@@ -91,7 +93,7 @@ export function TopBar() {
 
    const isDrawer = me?.id === roomState.currentDrawerId;
    const showWord = roomState.phase === 'lobby'
-      ? 'WAITING'
+      ? 'Chai break while we wait?'
       : roomState.phase === 'choosing_word'
          ? (isDrawer ? 'Pick a word...' : 'Waiting for Drawer...')
          : (isDrawer && roomState.currentWord
@@ -121,7 +123,7 @@ export function TopBar() {
          </div>
 
          {/* Center: Word hint */}
-         <div className="flex-1 flex justify-center text-lg sm:text-2xl md:text-3xl font-mono tracking-[0.1em] sm:tracking-[0.2em] uppercase text-slate-800 dark:text-white min-w-0 overflow-hidden">
+         <div className="flex-1 flex justify-center text-lg sm:text-2xl md:text-3xl font-display tracking-widest uppercase text-slate-800 dark:text-white min-w-0 overflow-hidden text-center">
             {typeof showWord === 'string' ? (
                <span className="text-sm sm:text-xl truncate">{showWord}</span>
             ) : showWord}
@@ -129,6 +131,13 @@ export function TopBar() {
 
          {/* Right: Controls + Timer */}
          <div className="flex items-center gap-1 sm:gap-2 md:gap-3 flex-shrink-0">
+            <button
+               onClick={() => setIsHelpOpen(true)}
+               title="How to play"
+               className="p-1.5 sm:p-2 md:p-3 bg-slate-100 dark:bg-paper-900 text-slate-500 dark:text-slate-400 rounded-xl sm:rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors font-black text-lg"
+            >
+               ?
+            </button>
             <button
                onClick={toggleMute}
                className="p-1.5 sm:p-2 md:p-3 bg-slate-100 dark:bg-paper-900 text-slate-500 dark:text-slate-400 rounded-xl sm:rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
@@ -151,6 +160,8 @@ export function TopBar() {
 
             <CircularTimer timeRemaining={timer} totalTime={totalTime} size={40} strokeWidth={4} />
          </div>
+
+         <HelpModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} />
       </div>
    );
 }

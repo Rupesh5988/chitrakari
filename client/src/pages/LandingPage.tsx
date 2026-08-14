@@ -81,14 +81,17 @@ export function LandingPage() {
   return (
     <div className="min-h-[100dvh] bg-[#1a3a6b] dark:bg-[#0c1a33] text-white flex flex-col items-center justify-between p-2.5 sm:p-6 select-none relative overflow-x-hidden">
       
-      {/* Background doodles subtle overlay */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
+      {/* Rangoli / Block print subtle background */}
+      <div 
+        className="absolute inset-0 opacity-[0.04] pointer-events-none" 
+        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0C40 22.0914 22.0914 40 0 40C22.0914 40 40 57.9086 40 80C40 57.9086 57.9086 40 80 40C57.9086 40 40 22.0914 40 0Z' fill='%23ffffff' fill-rule='evenodd'/%3E%3Cpath d='M40 20C40 31.0457 31.0457 40 20 40C31.0457 40 40 48.9543 40 60C40 48.9543 48.9543 40 60 40C48.9543 40 40 31.0457 40 20Z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")` }} 
+      />
 
       <div className="max-w-4xl w-full flex flex-col items-center z-10 flex-1 justify-center py-2 sm:py-4">
 
         {/* Skribbl Style Colorful Logo */}
         <div className="flex flex-col items-center mb-3 sm:mb-6 text-center">
-          <div className="flex items-center justify-center flex-wrap text-3xl sm:text-6xl md:text-7xl font-black tracking-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)] font-mono">
+          <div className="flex items-center justify-center flex-wrap text-4xl sm:text-7xl md:text-8xl font-black tracking-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)] font-display">
             {logoTitle.map((letter, i) => (
               <span 
                 key={i} 

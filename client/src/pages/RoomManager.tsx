@@ -107,10 +107,16 @@ export function RoomManager() {
    };
 
    return (
-      <div className="h-[100dvh] overflow-hidden bg-paper-100 dark:bg-paper-950 p-2 md:p-4 flex flex-col gap-4">
-         <TopBar />
+      <div className="h-[100dvh] overflow-hidden bg-paper-100 dark:bg-paper-950 p-2 md:p-4 flex flex-col gap-4 relative">
+         {/* Rangoli / Block print subtle background */}
+         <div 
+           className="absolute inset-0 opacity-[0.04] pointer-events-none" 
+           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0C40 22.0914 22.0914 40 0 40C22.0914 40 40 57.9086 40 80C40 57.9086 57.9086 40 80 40C57.9086 40 40 22.0914 40 0Z' fill='%231e293b' fill-rule='evenodd'/%3E%3Cpath d='M40 20C40 31.0457 31.0457 40 20 40C31.0457 40 40 48.9543 40 60C40 48.9543 48.9543 40 60 40C48.9543 40 40 31.0457 40 20Z' fill='%231e293b' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")` }} 
+         />
 
-         <div className="flex flex-col md:flex-row gap-2 md:gap-4 flex-1 h-0 min-h-0 relative max-w-[1600px] mx-auto w-full">
+         <div className="z-10 w-full"><TopBar /></div>
+
+         <div className="flex flex-col md:flex-row gap-2 md:gap-4 flex-1 h-0 min-h-0 relative max-w-[1600px] mx-auto w-full z-10">
 
             {/* Left Column: Players List */}
             <div className="w-full md:w-64 bg-white dark:bg-paper-800 rounded-3xl p-4 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex flex-col overflow-y-auto overflow-x-hidden">

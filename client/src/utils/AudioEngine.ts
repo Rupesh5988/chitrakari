@@ -89,7 +89,36 @@ class AudioEngine {
     osc.stop(ctx.currentTime + 0.2);
   }
 
-  public playFanfare() {
+  public playRoundEnd() {
+    const ctx = this.getCtx();
+    if (!ctx) return;
+
+    const playTone = (freq: number, delay: number, duration: number, type: OscillatorType = 'sine') => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      
+      osc.type = type;
+      osc.frequency.value = freq;
+      
+      gain.gain.setValueAtTime(0, ctx.currentTime + delay);
+      gain.gain.linearRampToValueAtTime(0.15, ctx.currentTime + delay + 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + delay + duration);
+      
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      
+      osc.start(ctx.currentTime + delay);
+      osc.stop(ctx.currentTime + delay + duration);
+    };
+
+    // Pleasant chime: A4, C5, E5, A5
+    playTone(440.00, 0, 0.4);
+    playTone(523.25, 0.1, 0.4);
+    playTone(659.25, 0.2, 0.4);
+    playTone(880.00, 0.3, 0.8);
+  }
+
+  public playGameEnd() {
     const ctx = this.getCtx();
     if (!ctx) return;
 
@@ -111,10 +140,13 @@ class AudioEngine {
       osc.stop(ctx.currentTime + delay + duration);
     };
 
+    // Big fanfare
     playTone(523.25, 0, 0.2);    
     playTone(523.25, 0.2, 0.2);  
     playTone(523.25, 0.4, 0.2);  
-    playTone(783.99, 0.6, 0.6);  
+    playTone(783.99, 0.6, 0.8);  
+    playTone(659.25, 0.8, 0.4);
+    playTone(1046.50, 1.2, 1.2); 
   }
 
   public speak(text: string) {

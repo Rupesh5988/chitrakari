@@ -426,4 +426,34 @@ export class GameManager {
         this.io.to(room.id).emit('hint_update', room.hiddenWord);
      }
   }
+
+  public returnToLobby(roomId: string) {
+    const room = this.rooms.get(roomId);
+    if (!room) return;
+    
+    this.clearTimer(roomId);
+    room.phase = 'lobby';
+    room.roundNumber = 0;
+    room.currentPlayerIndex = 0;
+    room.currentDrawerId = undefined;
+    room.currentWord = undefined;
+    room.currentWordMeaning = undefined;
+    room.hiddenWord = undefined;
+    room.wordChoices = undefined;
+    room.strokeHistory = [];
+    room.historyIndex = -1;
+    room.turnSummary = undefined;
+    room.usedWords = [];
+    
+    room.players.forEach(p => {
+       p.score = 0;
+       p.hasGuessedCorrectly = false;
+       p.hintTokens = 0;
+    });
+    
+    this.correctGuessers.set(roomId, new Set());
+    this.turnPoints.set(roomId, {});
+    
+    this.emitRoomUpdate(roomId);
+  }
 }
