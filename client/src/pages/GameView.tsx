@@ -298,7 +298,7 @@ export function GameView() {
 
    // --- Mobile horizontal player strip ---
    const renderMobilePlayerStrip = () => (
-      <div className="flex md:hidden gap-2 overflow-x-auto scrollbar-none px-1 py-1 bg-white dark:bg-paper-800 rounded-2xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex-shrink-0">
+      <div className="flex lg:hidden gap-2 overflow-x-auto scrollbar-none px-1 py-1 bg-white dark:bg-paper-800 rounded-2xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex-shrink-0">
          {sortedPlayers.filter(p => !p.isSpectator).map((p, idx) => (
             <div
                key={p.id}
@@ -329,7 +329,7 @@ export function GameView() {
 
    // --- Desktop player sidebar ---
    const renderPlayerSidebar = () => (
-      <div className="hidden md:flex w-56 lg:w-64 flex-col bg-white dark:bg-paper-800 rounded-3xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex-shrink-0 overflow-hidden">
+      <div className="hidden lg:flex lg:w-64 flex-col bg-white dark:bg-paper-800 rounded-3xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex-shrink-0 overflow-hidden">
          <div className="p-3 border-b border-slate-100 dark:border-slate-700/50">
             <h2 className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center gap-1.5">
                <span>👥</span> Players · R{roomState.roundNumber}/{roomState.settings.rounds}
@@ -402,14 +402,14 @@ export function GameView() {
    );
 
    return (
-      <div className="h-[100dvh] overflow-hidden bg-paper-100 dark:bg-paper-950 flex flex-col">
+      <div className="h-[100dvh] overflow-hidden bg-paper-100 dark:bg-paper-950 flex flex-col pb-[max(env(safe-area-inset-bottom),0.5rem)] sm:pb-[max(env(safe-area-inset-bottom),1rem)]">
          {/* TopBar: fixed, never scrolls away */}
          <div className="flex-shrink-0 p-1.5 sm:p-2 md:p-3 pb-0">
             <TopBar />
          </div>
 
          {/* Main content area */}
-         <div className="flex-1 flex flex-col md:flex-row gap-2 md:gap-3 p-1.5 sm:p-2 md:p-3 min-h-0 max-w-[1800px] mx-auto w-full">
+         <div className="flex-1 flex flex-col lg:flex-row gap-2 lg:gap-3 p-1.5 sm:p-2 lg:p-3 min-h-0 max-w-[1800px] mx-auto w-full">
 
             {/* Mobile: horizontal player strip */}
             {renderMobilePlayerStrip()}
@@ -418,12 +418,12 @@ export function GameView() {
             {renderPlayerSidebar()}
 
             {/* Center: Canvas area */}
-            <div className={`flex flex-col relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-paper-800 ${!isDrawer ? 'flex-1 md:flex-[2] min-h-[180px]' : 'flex-1'} min-h-0`}>
+            <div className={`flex flex-col relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-paper-800 ${!isDrawer ? 'flex-1 lg:flex-[2] min-h-[180px]' : 'flex-1'} min-h-0`}>
                <DrawingCanvas isDrawer={isDrawer} drawerName={drawerName} roomId={roomState.id} />
                {renderPhaseOverlay()}
 
                {/* Floating Reactions Layer */}
-               <div className="absolute bottom-0 right-4 md:right-10 pointer-events-none z-40 w-16 h-full overflow-visible">
+               <div className="absolute bottom-0 right-4 lg:right-10 pointer-events-none z-40 w-16 h-full overflow-visible">
                   {activeReactions.map((r) => (
                      <div
                         key={r.id}
@@ -441,13 +441,13 @@ export function GameView() {
 
             {/* Guesser Mobile Chat & Guess Box docked beneath Canvas */}
             {!isDrawer && (
-               <div className="flex md:hidden h-44 sm:h-52 flex-shrink-0 flex-col min-h-0 bg-white dark:bg-paper-800 rounded-2xl border border-slate-200 dark:border-slate-700/50 shadow-soft overflow-hidden">
+               <div className="flex lg:hidden h-44 sm:h-52 flex-shrink-0 flex-col min-h-0 bg-white dark:bg-paper-800 rounded-2xl border border-slate-200 dark:border-slate-700/50 shadow-soft overflow-hidden">
                   <ChatSidebar />
                </div>
             )}
 
             {/* Desktop: right chat sidebar */}
-            <div className="hidden md:flex md:w-72 lg:w-80 min-h-0">
+            <div className="hidden lg:flex lg:w-80 min-h-0">
                <ChatSidebar />
             </div>
 
@@ -459,7 +459,7 @@ export function GameView() {
                      animate={{ y: 0 }}
                      exit={{ y: '100%' }}
                      transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                     className="md:hidden fixed inset-0 z-[90] bg-paper-100/95 dark:bg-paper-950/95 backdrop-blur-md flex flex-col pt-2"
+                     className="lg:hidden fixed inset-0 z-[90] bg-paper-100/95 dark:bg-paper-950/95 backdrop-blur-md flex flex-col pt-2"
                   >
                      <div className="flex items-center justify-between px-4 py-2 flex-shrink-0">
                         <h2 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Chat & Guesses</h2>
@@ -481,8 +481,8 @@ export function GameView() {
             {isDrawer && !showMobileChat && (
                <button
                   onClick={() => setShowMobileChat(true)}
-                  className="md:hidden fixed bottom-16 right-4 z-[80] bg-primary-500 hover:bg-primary-600 text-white p-3.5 rounded-full shadow-lg active:scale-95 transition-all"
-                  title="View Chat"
+                  className="lg:hidden fixed bottom-[max(env(safe-area-inset-bottom),1.5rem)] right-4 z-50 p-4 bg-primary-500 text-white rounded-full shadow-lg hover:scale-110 active:scale-95 transition-transform"
+                  title="Open Chat"
                >
                   <MessageSquare className="w-5 h-5" />
                   {unreadCount > 0 && (

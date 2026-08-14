@@ -107,7 +107,7 @@ export function RoomManager() {
    };
 
    return (
-      <div className="h-[100dvh] overflow-hidden bg-paper-100 dark:bg-paper-950 p-2 md:p-4 flex flex-col gap-4 relative">
+      <div className="h-[100dvh] overflow-hidden bg-paper-100 dark:bg-paper-950 p-2 lg:p-4 pb-[max(env(safe-area-inset-bottom),0.5rem)] lg:pb-[max(env(safe-area-inset-bottom),1rem)] flex flex-col gap-3 lg:gap-4 relative">
          {/* Rangoli / Block print subtle background */}
          <div 
            className="absolute inset-0 opacity-[0.04] pointer-events-none" 
@@ -116,10 +116,10 @@ export function RoomManager() {
 
          <div className="z-10 w-full"><TopBar /></div>
 
-         <div className="flex flex-col md:flex-row gap-2 md:gap-4 flex-1 h-0 min-h-0 relative max-w-[1600px] mx-auto w-full z-10">
+         <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 flex-1 h-0 min-h-0 relative max-w-[1600px] mx-auto w-full z-10">
 
             {/* Left Column: Players List */}
-            <div className="w-full md:w-64 bg-white dark:bg-paper-800 rounded-3xl p-4 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex flex-col overflow-y-auto overflow-x-hidden">
+            <div className="w-full lg:w-72 bg-white dark:bg-paper-800 rounded-3xl p-4 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex flex-col overflow-y-auto overflow-x-hidden">
                <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2 mb-4 px-2">
                   <Users className="w-4 h-4" />
                   Players ({roomState.players.filter(p => !p.isSpectator).length}/{roomState.settings.maxPlayers})

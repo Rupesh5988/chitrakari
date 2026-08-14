@@ -79,7 +79,7 @@ export function LandingPage() {
   const logoTitle = "chitrakari.io!".split('');
 
   return (
-    <div className="min-h-[100dvh] bg-[#1a3a6b] dark:bg-[#0c1a33] text-white flex flex-col items-center justify-between p-2.5 sm:p-6 select-none relative overflow-x-hidden">
+    <div className="h-[100dvh] overflow-y-auto overflow-x-hidden bg-[#1a3a6b] dark:bg-[#0c1a33] text-white flex flex-col items-center justify-between p-2.5 sm:p-6 pb-[max(env(safe-area-inset-bottom),1rem)] select-none relative">
       
       {/* Rangoli / Block print subtle background */}
       <div 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Palette, MessageSquare, Trophy, MousePointer2 } from 'lucide-react';
 
@@ -8,6 +8,15 @@ interface HelpModalProps {
 }
 
 export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
+   useEffect(() => {
+      if (!isOpen) return;
+      const handleKeyDown = (e: KeyboardEvent) => {
+         if (e.key === 'Escape') onClose();
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+   }, [isOpen, onClose]);
+
    return (
       <AnimatePresence>
          {isOpen && (
