@@ -1,0 +1,20 @@
+[
+  "house", "home", "apartment", "flat", "condo", "mansion", "villa", "castle", "palace", "fort",
+  "fortress", "tower", "skyscraper", "building", "structure", "shed", "hut", "cabin", "cottage", "shack",
+  "tent", "igloo", "teepee", "yurt", "barn", "farm", "ranch", "stable", "greenhouse", "conservatory",
+  "garage", "carport", "driveway", "yard", "garden", "lawn", "patio", "deck", "porch", "balcony",
+  "terrace", "roof", "chimney", "door", "window", "wall", "floor", "ceiling", "room", "hall",
+  "corridor", "stairs", "staircase", "elevator", "lift", "escalator", "kitchen", "bathroom", "bedroom", "living room",
+  "dining room", "basement", "cellar", "attic", "loft", "office", "study", "library", "school", "college",
+  "university", "campus", "classroom", "laboratory", "hospital", "clinic", "pharmacy", "dentist", "doctor", "vet",
+  "shop", "store", "market", "supermarket", "grocery", "bakery", "butcher", "mall", "boutique", "restaurant",
+  "cafe", "bar", "pub", "club", "hotel", "motel", "inn", "hostel", "resort", "spa",
+  "gym", "pool", "stadium", "arena", "theater", "cinema", "museum", "gallery", "bank", "post office",
+  "police station", "fire station", "prison", "jail", "court", "church", "cathedral", "mosque", "temple", "shrine",
+  "synagogue", "cemetery", "graveyard", "tomb", "pyramid", "monument", "statue", "bridge", "tunnel", "dam",
+  "canal", "road", "street", "avenue", "boulevard", "highway", "freeway", "motorway", "path", "trail",
+  "sidewalk", "pavement", "crosswalk", "intersection", "roundabout", "square", "plaza", "park", "playground", "zoo",
+  "aquarium", "theme park", "amusement park", "circus", "fair", "carnival", "festival", "camp", "village", "town",
+  "city", "capital", "state", "province", "country", "nation", "continent", "world", "globe", "earth",
+  "north", "south", "east", "west", "equator", "pole", "hemisphere", "latitude", "longitude", "map"
+]

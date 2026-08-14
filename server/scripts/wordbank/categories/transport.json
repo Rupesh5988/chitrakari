@@ -1,0 +1,19 @@
+[
+  "car", "auto", "automobile", "truck", "lorry", "van", "bus", "coach", "taxi", "cab",
+  "motorcycle", "motorbike", "scooter", "moped", "bicycle", "bike", "tricycle", "unicycle", "skateboard", "rollerblades",
+  "rollerskates", "hoverboard", "segway", "wheelchair", "stroller", "pram", "cart", "wagon", "carriage", "buggy",
+  "sled", "sleigh", "snowmobile", "train", "locomotive", "subway", "metro", "underground", "tube", "tram",
+  "trolley", "cable car", "monorail", "bullet train", "airplane", "aeroplane", "plane", "jet", "helicopter", "chopper",
+  "glider", "blimp", "zeppelin", "balloon", "hot air balloon", "rocket", "spaceship", "spacecraft", "shuttle", "satellite",
+  "drone", "boat", "ship", "vessel", "yacht", "sailboat", "speedboat", "motorboat", "canoe", "kayak",
+  "raft", "ferry", "cruise ship", "liner", "tanker", "cargo ship", "container ship", "submarine", "sub", "hovercraft",
+  "tractor", "bulldozer", "excavator", "crane", "forklift", "dump truck", "garbage truck", "fire engine", "fire truck", "ambulance",
+  "police car", "patrol car", "tow truck", "tank", "jeep", "suv", "minivan", "convertible", "sports car", "limousine",
+  "limo", "hearse", "rv", "camper", "motorhome", "trailer", "caravan", "engine", "motor", "wheel",
+  "tire", "tyre", "brake", "pedal", "steering wheel", "handlebar", "gear", "clutch", "accelerator", "throttle",
+  "exhaust", "muffler", "tailpipe", "hood", "bonnet", "trunk", "boot", "door", "window", "windshield",
+  "windscreen", "wiper", "mirror", "seat", "belt", "dashboard", "speedometer", "odometer", "fuel gauge", "headlight",
+  "taillight", "indicator", "turn signal", "blinker", "horn", "siren", "bumper", "fender", "chassis", "frame",
+  "axle", "suspension", "shock absorber", "spring", "strut", "battery", "alternator", "spark plug", "radiator", "fan",
+  "pump", "filter", "hose", "pipe", "valve", "piston", "cylinder", "crankshaft", "camshaft", "transmission"
+]

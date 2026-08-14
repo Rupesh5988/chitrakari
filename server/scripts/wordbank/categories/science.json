@@ -1,0 +1,20 @@
+[
+  "science", "physics", "chemistry", "biology", "astronomy", "geology", "ecology", "botany", "zoology", "genetics",
+  "atom", "molecule", "element", "compound", "mixture", "solution", "acid", "base", "ph", "reaction",
+  "catalyst", "enzyme", "protein", "carbohydrate", "lipid", "fat", "vitamin", "mineral", "nutrient", "cell",
+  "nucleus", "membrane", "cytoplasm", "mitochondria", "ribosome", "chromosome", "dna", "rna", "gene", "mutation",
+  "evolution", "natural selection", "species", "genus", "family", "order", "class", "phylum", "kingdom", "domain",
+  "bacteria", "virus", "fungus", "protist", "plant", "animal", "mammal", "bird", "reptile", "amphibian",
+  "fish", "insect", "arachnid", "crustacean", "mollusk", "echinoderm", "sponge", "cnidarian", "worm", "parasite",
+  "host", "symbiosis", "mutualism", "commensalism", "predator", "prey", "food chain", "food web", "ecosystem", "biome",
+  "habitat", "niche", "population", "community", "biosphere", "atmosphere", "lithosphere", "hydrosphere", "climate", "weather",
+  "temperature", "pressure", "humidity", "precipitation", "wind", "cloud", "storm", "front", "mass", "volume",
+  "density", "weight", "force", "gravity", "friction", "inertia", "momentum", "energy", "work", "power",
+  "kinetic", "potential", "thermal", "chemical", "electrical", "magnetic", "nuclear", "light", "sound", "wave",
+  "frequency", "wavelength", "amplitude", "speed", "velocity", "acceleration", "distance", "displacement", "time", "space",
+  "dimension", "universe", "galaxy", "solar system", "star", "planet", "moon", "asteroid", "comet", "meteor",
+  "black hole", "nebula", "supernova", "telescope", "microscope", "thermometer", "barometer", "balance", "scale", "ruler",
+  "beaker", "flask", "test tube", "pipette", "burette", "funnel", "filter", "bunsen burner", "crucible", "mortar",
+  "pestle", "magnet", "prism", "lens", "mirror", "laser", "battery", "circuit", "wire", "switch",
+  "resistor", "capacitor", "inductor", "diode", "transistor", "chip", "processor", "memory", "storage", "software"
+]

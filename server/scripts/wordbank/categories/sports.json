@@ -1,0 +1,19 @@
+[
+  "soccer", "football", "basketball", "baseball", "tennis", "volleyball", "rugby", "cricket", "golf", "hockey",
+  "ice hockey", "field hockey", "lacrosse", "badminton", "table tennis", "ping pong", "squash", "racquetball", "handball", "water polo",
+  "swimming", "diving", "surfing", "sailing", "rowing", "canoeing", "kayaking", "skiing", "snowboarding", "skating",
+  "ice skating", "roller skating", "skateboarding", "cycling", "biking", "running", "jogging", "sprinting", "marathon", "triathlon",
+  "gymnastics", "trampoline", "weightlifting", "powerlifting", "bodybuilding", "wrestling", "boxing", "martial arts", "karate", "judo",
+  "taekwondo", "fencing", "archery", "shooting", "equestrian", "horse racing", "polo", "auto racing", "motorcycle racing", "karting",
+  "bowling", "billiards", "pool", "snooker", "darts", "chess", "checkers", "poker", "cards", "dice",
+  "dominoes", "board game", "puzzle", "crossword", "sudoku", "video game", "esports", "tag", "hide and seek", "hopscotch",
+  "jump rope", "tug of war", "dodgeball", "kickball", "frisbee", "ultimate frisbee", "disc golf", "bocce", "croquet", "horseshoes",
+  "ball", "bat", "glove", "mitt", "racket", "racquet", "net", "goal", "hoop", "basket",
+  "helmet", "pad", "guard", "cleat", "spike", "shoe", "boot", "skate", "board", "ski",
+  "pole", "stick", "club", "putter", "driver", "iron", "wedge", "tee", "hole", "bunker",
+  "green", "fairway", "rough", "court", "field", "pitch", "diamond", "track", "lane", "pool",
+  "ring", "mat", "arena", "stadium", "gym", "gymnasium", "medal", "trophy", "cup", "ribbon",
+  "award", "prize", "champion", "winner", "loser", "runner up", "score", "point", "goal", "run",
+  "home run", "touchdown", "basket", "ace", "fault", "foul", "penalty", "free throw", "corner kick", "offside",
+  "referee", "umpire", "judge", "coach", "manager", "captain", "player", "athlete", "team", "squad"
+]

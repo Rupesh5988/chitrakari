@@ -1,83 +1,11172 @@
 {
   "easy": [
-    { "word": "sun", "meaning": "The star around which the earth orbits." },
-    { "word": "tree", "meaning": "A woody perennial plant with a trunk and branches." },
-    { "word": "car", "meaning": "A four-wheeled road vehicle powered by an engine." },
-    { "word": "house", "meaning": "A building for human habitation." },
-    { "word": "book", "meaning": "A written or printed work consisting of pages glued or sewn together." },
-    { "word": "chair", "meaning": "A separate seat for one person, typically with a back and four legs." },
-    { "word": "apple", "meaning": "A round fruit with red or green skin and a whitish interior." },
-    { "word": "clock", "meaning": "A mechanical or electrical device for measuring time." },
-    { "word": "shoe", "meaning": "A covering for the foot, typically made of leather." },
-    { "word": "bird", "meaning": "A warm-blooded egg-laying vertebrate with feathers and wings." },
-    { "word": "pizza", "meaning": "A dish of Italian origin consisting of a flat, round base of dough baked with a topping of tomato sauce and cheese." },
-    { "word": "smile", "meaning": "Form one's features into a pleased, kind, or amused expression." },
-    { "word": "water", "meaning": "A colorless, transparent, odorless liquid that forms the seas, lakes, rivers, and rain." },
-    { "word": "train", "meaning": "A series of connected railway carriages or wagons moved by a locomotive." },
-    { "word": "flower", "meaning": "The seed-bearing part of a plant, consisting of reproductive organs." },
-    { "word": "phone", "meaning": "A device for transmitting voices over a distance using wire or radio." },
-    { "word": "moon", "meaning": "The natural satellite of the earth, visible (chiefly at night) by reflected light from the sun." },
-    { "word": "fire", "meaning": "Combustion or burning, in which substances combine chemically with oxygen from the air and typically give out bright light, heat, and smoke." },
-    { "word": "door", "meaning": "A hinged, sliding, or revolving barrier at the entrance to a building, room, or vehicle." },
-    { "word": "rain", "meaning": "Moisture condensed from the atmosphere that falls visibly in separate drops." },
-    { "word": "cat", "meaning": "A small domesticated carnivorous mammal with soft fur, a short snout, and retractile claws." },
-    { "word": "dog", "meaning": "A domesticated carnivorous mammal that typically has a long snout, an acute sense of smell, and a barking, howling, or whining voice." },
-    { "word": "bed", "meaning": "A piece of furniture for sleep or rest, typically a framework with a mattress and coverings." },
-    { "word": "pen", "meaning": "An instrument for writing or drawing with ink." },
-    { "word": "bus", "meaning": "A large motor vehicle carrying passengers by road." }
+    {
+      "word": "ace",
+      "meaning": ""
+    },
+    {
+      "word": "ache",
+      "meaning": ""
+    },
+    {
+      "word": "act",
+      "meaning": ""
+    },
+    {
+      "word": "alarm",
+      "meaning": ""
+    },
+    {
+      "word": "algae",
+      "meaning": ""
+    },
+    {
+      "word": "alien",
+      "meaning": ""
+    },
+    {
+      "word": "almond",
+      "meaning": ""
+    },
+    {
+      "word": "aloe",
+      "meaning": ""
+    },
+    {
+      "word": "amber",
+      "meaning": ""
+    },
+    {
+      "word": "amount",
+      "meaning": ""
+    },
+    {
+      "word": "ankle",
+      "meaning": ""
+    },
+    {
+      "word": "ant",
+      "meaning": ""
+    },
+    {
+      "word": "anvil",
+      "meaning": ""
+    },
+    {
+      "word": "ape",
+      "meaning": ""
+    },
+    {
+      "word": "apple",
+      "meaning": ""
+    },
+    {
+      "word": "arch",
+      "meaning": ""
+    },
+    {
+      "word": "arm",
+      "meaning": ""
+    },
+    {
+      "word": "art",
+      "meaning": ""
+    },
+    {
+      "word": "ash",
+      "meaning": ""
+    },
+    {
+      "word": "atlas",
+      "meaning": ""
+    },
+    {
+      "word": "attic",
+      "meaning": ""
+    },
+    {
+      "word": "attire",
+      "meaning": ""
+    },
+    {
+      "word": "auto",
+      "meaning": ""
+    },
+    {
+      "word": "award",
+      "meaning": ""
+    },
+    {
+      "word": "axe",
+      "meaning": ""
+    },
+    {
+      "word": "axle",
+      "meaning": ""
+    },
+    {
+      "word": "baboon",
+      "meaning": ""
+    },
+    {
+      "word": "back",
+      "meaning": ""
+    },
+    {
+      "word": "bacon",
+      "meaning": ""
+    },
+    {
+      "word": "bad",
+      "meaning": ""
+    },
+    {
+      "word": "badge",
+      "meaning": ""
+    },
+    {
+      "word": "badger",
+      "meaning": ""
+    },
+    {
+      "word": "bag",
+      "meaning": ""
+    },
+    {
+      "word": "bagel",
+      "meaning": ""
+    },
+    {
+      "word": "balance",
+      "meaning": ""
+    },
+    {
+      "word": "ball",
+      "meaning": ""
+    },
+    {
+      "word": "bamboo",
+      "meaning": ""
+    },
+    {
+      "word": "band",
+      "meaning": ""
+    },
+    {
+      "word": "bandage",
+      "meaning": ""
+    },
+    {
+      "word": "bangle",
+      "meaning": ""
+    },
+    {
+      "word": "bank",
+      "meaning": ""
+    },
+    {
+      "word": "banner",
+      "meaning": ""
+    },
+    {
+      "word": "banyan",
+      "meaning": ""
+    },
+    {
+      "word": "bao",
+      "meaning": ""
+    },
+    {
+      "word": "baobab",
+      "meaning": ""
+    },
+    {
+      "word": "bar",
+      "meaning": ""
+    },
+    {
+      "word": "bark",
+      "meaning": ""
+    },
+    {
+      "word": "barn",
+      "meaning": ""
+    },
+    {
+      "word": "barrel",
+      "meaning": ""
+    },
+    {
+      "word": "basil",
+      "meaning": ""
+    },
+    {
+      "word": "basin",
+      "meaning": ""
+    },
+    {
+      "word": "basket",
+      "meaning": ""
+    },
+    {
+      "word": "bass",
+      "meaning": ""
+    },
+    {
+      "word": "bat",
+      "meaning": ""
+    },
+    {
+      "word": "bathtub",
+      "meaning": ""
+    },
+    {
+      "word": "battle",
+      "meaning": ""
+    },
+    {
+      "word": "bay",
+      "meaning": ""
+    },
+    {
+      "word": "beach",
+      "meaning": ""
+    },
+    {
+      "word": "bean",
+      "meaning": ""
+    },
+    {
+      "word": "beanie",
+      "meaning": ""
+    },
+    {
+      "word": "bear",
+      "meaning": ""
+    },
+    {
+      "word": "beard",
+      "meaning": ""
+    },
+    {
+      "word": "bearing",
+      "meaning": ""
+    },
+    {
+      "word": "beat",
+      "meaning": ""
+    },
+    {
+      "word": "beaver",
+      "meaning": ""
+    },
+    {
+      "word": "bed",
+      "meaning": ""
+    },
+    {
+      "word": "bedroom",
+      "meaning": ""
+    },
+    {
+      "word": "bee",
+      "meaning": ""
+    },
+    {
+      "word": "beef",
+      "meaning": ""
+    },
+    {
+      "word": "beer",
+      "meaning": ""
+    },
+    {
+      "word": "beetle",
+      "meaning": ""
+    },
+    {
+      "word": "belief",
+      "meaning": ""
+    },
+    {
+      "word": "belly",
+      "meaning": ""
+    },
+    {
+      "word": "belt",
+      "meaning": ""
+    },
+    {
+      "word": "beret",
+      "meaning": ""
+    },
+    {
+      "word": "bike",
+      "meaning": ""
+    },
+    {
+      "word": "biking",
+      "meaning": ""
+    },
+    {
+      "word": "bill",
+      "meaning": ""
+    },
+    {
+      "word": "bin",
+      "meaning": ""
+    },
+    {
+      "word": "bind",
+      "meaning": ""
+    },
+    {
+      "word": "binder",
+      "meaning": ""
+    },
+    {
+      "word": "birch",
+      "meaning": ""
+    },
+    {
+      "word": "birth",
+      "meaning": ""
+    },
+    {
+      "word": "biscuit",
+      "meaning": ""
+    },
+    {
+      "word": "bison",
+      "meaning": ""
+    },
+    {
+      "word": "blanket",
+      "meaning": ""
+    },
+    {
+      "word": "blenny",
+      "meaning": ""
+    },
+    {
+      "word": "blimp",
+      "meaning": ""
+    },
+    {
+      "word": "blind",
+      "meaning": ""
+    },
+    {
+      "word": "blinker",
+      "meaning": ""
+    },
+    {
+      "word": "blister",
+      "meaning": ""
+    },
+    {
+      "word": "blood",
+      "meaning": ""
+    },
+    {
+      "word": "blossom",
+      "meaning": ""
+    },
+    {
+      "word": "blouse",
+      "meaning": ""
+    },
+    {
+      "word": "blower",
+      "meaning": ""
+    },
+    {
+      "word": "boar",
+      "meaning": ""
+    },
+    {
+      "word": "board",
+      "meaning": ""
+    },
+    {
+      "word": "boat",
+      "meaning": ""
+    },
+    {
+      "word": "bobcat",
+      "meaning": ""
+    },
+    {
+      "word": "bocce",
+      "meaning": ""
+    },
+    {
+      "word": "body",
+      "meaning": ""
+    },
+    {
+      "word": "bog",
+      "meaning": ""
+    },
+    {
+      "word": "bolt",
+      "meaning": ""
+    },
+    {
+      "word": "bone",
+      "meaning": ""
+    },
+    {
+      "word": "bonnet",
+      "meaning": ""
+    },
+    {
+      "word": "book",
+      "meaning": ""
+    },
+    {
+      "word": "boot",
+      "meaning": ""
+    },
+    {
+      "word": "boss",
+      "meaning": ""
+    },
+    {
+      "word": "bottle",
+      "meaning": ""
+    },
+    {
+      "word": "bottom",
+      "meaning": ""
+    },
+    {
+      "word": "boulder",
+      "meaning": ""
+    },
+    {
+      "word": "bowl",
+      "meaning": ""
+    },
+    {
+      "word": "bowling",
+      "meaning": ""
+    },
+    {
+      "word": "bowtie",
+      "meaning": ""
+    },
+    {
+      "word": "box",
+      "meaning": ""
+    },
+    {
+      "word": "boxers",
+      "meaning": ""
+    },
+    {
+      "word": "boxing",
+      "meaning": ""
+    },
+    {
+      "word": "bra",
+      "meaning": ""
+    },
+    {
+      "word": "braces",
+      "meaning": ""
+    },
+    {
+      "word": "brain",
+      "meaning": ""
+    },
+    {
+      "word": "brake",
+      "meaning": ""
+    },
+    {
+      "word": "branch",
+      "meaning": ""
+    },
+    {
+      "word": "brandy",
+      "meaning": ""
+    },
+    {
+      "word": "bread",
+      "meaning": ""
+    },
+    {
+      "word": "breaker",
+      "meaning": ""
+    },
+    {
+      "word": "breast",
+      "meaning": ""
+    },
+    {
+      "word": "breath",
+      "meaning": ""
+    },
+    {
+      "word": "breeze",
+      "meaning": ""
+    },
+    {
+      "word": "bridge",
+      "meaning": ""
+    },
+    {
+      "word": "briefs",
+      "meaning": ""
+    },
+    {
+      "word": "brooch",
+      "meaning": ""
+    },
+    {
+      "word": "brook",
+      "meaning": ""
+    },
+    {
+      "word": "broom",
+      "meaning": ""
+    },
+    {
+      "word": "broth",
+      "meaning": ""
+    },
+    {
+      "word": "brownie",
+      "meaning": ""
+    },
+    {
+      "word": "bruise",
+      "meaning": ""
+    },
+    {
+      "word": "brush",
+      "meaning": ""
+    },
+    {
+      "word": "bucket",
+      "meaning": ""
+    },
+    {
+      "word": "buckle",
+      "meaning": ""
+    },
+    {
+      "word": "buggy",
+      "meaning": ""
+    },
+    {
+      "word": "bulb",
+      "meaning": ""
+    },
+    {
+      "word": "bull",
+      "meaning": ""
+    },
+    {
+      "word": "bumper",
+      "meaning": ""
+    },
+    {
+      "word": "bunker",
+      "meaning": ""
+    },
+    {
+      "word": "burger",
+      "meaning": ""
+    },
+    {
+      "word": "burn",
+      "meaning": ""
+    },
+    {
+      "word": "burp",
+      "meaning": ""
+    },
+    {
+      "word": "bus",
+      "meaning": ""
+    },
+    {
+      "word": "bush",
+      "meaning": ""
+    },
+    {
+      "word": "butcher",
+      "meaning": ""
+    },
+    {
+      "word": "butt",
+      "meaning": ""
+    },
+    {
+      "word": "butter",
+      "meaning": ""
+    },
+    {
+      "word": "button",
+      "meaning": ""
+    },
+    {
+      "word": "cab",
+      "meaning": ""
+    },
+    {
+      "word": "cabbage",
+      "meaning": ""
+    },
+    {
+      "word": "cabin",
+      "meaning": ""
+    },
+    {
+      "word": "cable",
+      "meaning": ""
+    },
+    {
+      "word": "cactus",
+      "meaning": ""
+    },
+    {
+      "word": "cafe",
+      "meaning": ""
+    },
+    {
+      "word": "cake",
+      "meaning": ""
+    },
+    {
+      "word": "calf",
+      "meaning": ""
+    },
+    {
+      "word": "camel",
+      "meaning": ""
+    },
+    {
+      "word": "camp",
+      "meaning": ""
+    },
+    {
+      "word": "camper",
+      "meaning": ""
+    },
+    {
+      "word": "campus",
+      "meaning": ""
+    },
+    {
+      "word": "can",
+      "meaning": ""
+    },
+    {
+      "word": "canal",
+      "meaning": ""
+    },
+    {
+      "word": "candle",
+      "meaning": ""
+    },
+    {
+      "word": "candy",
+      "meaning": ""
+    },
+    {
+      "word": "cane",
+      "meaning": ""
+    },
+    {
+      "word": "canoe",
+      "meaning": ""
+    },
+    {
+      "word": "canvas",
+      "meaning": ""
+    },
+    {
+      "word": "canyon",
+      "meaning": ""
+    },
+    {
+      "word": "cap",
+      "meaning": ""
+    },
+    {
+      "word": "cape",
+      "meaning": ""
+    },
+    {
+      "word": "car",
+      "meaning": ""
+    },
+    {
+      "word": "carafe",
+      "meaning": ""
+    },
+    {
+      "word": "card",
+      "meaning": ""
+    },
+    {
+      "word": "cards",
+      "meaning": ""
+    },
+    {
+      "word": "career",
+      "meaning": ""
+    },
+    {
+      "word": "carp",
+      "meaning": ""
+    },
+    {
+      "word": "carpet",
+      "meaning": ""
+    },
+    {
+      "word": "carport",
+      "meaning": ""
+    },
+    {
+      "word": "carrot",
+      "meaning": ""
+    },
+    {
+      "word": "cart",
+      "meaning": ""
+    },
+    {
+      "word": "carton",
+      "meaning": ""
+    },
+    {
+      "word": "cash",
+      "meaning": ""
+    },
+    {
+      "word": "cashew",
+      "meaning": ""
+    },
+    {
+      "word": "cast",
+      "meaning": ""
+    },
+    {
+      "word": "castle",
+      "meaning": ""
+    },
+    {
+      "word": "cat",
+      "meaning": ""
+    },
+    {
+      "word": "catfish",
+      "meaning": ""
+    },
+    {
+      "word": "cd",
+      "meaning": ""
+    },
+    {
+      "word": "cedar",
+      "meaning": ""
+    },
+    {
+      "word": "ceiling",
+      "meaning": ""
+    },
+    {
+      "word": "cellar",
+      "meaning": ""
+    },
+    {
+      "word": "ceo",
+      "meaning": ""
+    },
+    {
+      "word": "cereal",
+      "meaning": ""
+    },
+    {
+      "word": "chain",
+      "meaning": ""
+    },
+    {
+      "word": "chair",
+      "meaning": ""
+    },
+    {
+      "word": "chalice",
+      "meaning": ""
+    },
+    {
+      "word": "chalk",
+      "meaning": ""
+    },
+    {
+      "word": "change",
+      "meaning": ""
+    },
+    {
+      "word": "chaos",
+      "meaning": ""
+    },
+    {
+      "word": "charger",
+      "meaning": ""
+    },
+    {
+      "word": "charm",
+      "meaning": ""
+    },
+    {
+      "word": "chassis",
+      "meaning": ""
+    },
+    {
+      "word": "check",
+      "meaning": ""
+    },
+    {
+      "word": "cheek",
+      "meaning": ""
+    },
+    {
+      "word": "cheese",
+      "meaning": ""
+    },
+    {
+      "word": "cheetah",
+      "meaning": ""
+    },
+    {
+      "word": "chef",
+      "meaning": ""
+    },
+    {
+      "word": "cheque",
+      "meaning": ""
+    },
+    {
+      "word": "cherry",
+      "meaning": ""
+    },
+    {
+      "word": "chess",
+      "meaning": ""
+    },
+    {
+      "word": "chest",
+      "meaning": ""
+    },
+    {
+      "word": "chicken",
+      "meaning": ""
+    },
+    {
+      "word": "chili",
+      "meaning": ""
+    },
+    {
+      "word": "chimney",
+      "meaning": ""
+    },
+    {
+      "word": "chin",
+      "meaning": ""
+    },
+    {
+      "word": "chisel",
+      "meaning": ""
+    },
+    {
+      "word": "choker",
+      "meaning": ""
+    },
+    {
+      "word": "chop",
+      "meaning": ""
+    },
+    {
+      "word": "chopper",
+      "meaning": ""
+    },
+    {
+      "word": "church",
+      "meaning": ""
+    },
+    {
+      "word": "cider",
+      "meaning": ""
+    },
+    {
+      "word": "city",
+      "meaning": ""
+    },
+    {
+      "word": "clam",
+      "meaning": ""
+    },
+    {
+      "word": "clamp",
+      "meaning": ""
+    },
+    {
+      "word": "clay",
+      "meaning": ""
+    },
+    {
+      "word": "cleat",
+      "meaning": ""
+    },
+    {
+      "word": "cliff",
+      "meaning": ""
+    },
+    {
+      "word": "climate",
+      "meaning": ""
+    },
+    {
+      "word": "clinic",
+      "meaning": ""
+    },
+    {
+      "word": "cloak",
+      "meaning": ""
+    },
+    {
+      "word": "clock",
+      "meaning": ""
+    },
+    {
+      "word": "clog",
+      "meaning": ""
+    },
+    {
+      "word": "closet",
+      "meaning": ""
+    },
+    {
+      "word": "cloth",
+      "meaning": ""
+    },
+    {
+      "word": "clothes",
+      "meaning": ""
+    },
+    {
+      "word": "cloud",
+      "meaning": ""
+    },
+    {
+      "word": "clover",
+      "meaning": ""
+    },
+    {
+      "word": "club",
+      "meaning": ""
+    },
+    {
+      "word": "coast",
+      "meaning": ""
+    },
+    {
+      "word": "coat",
+      "meaning": ""
+    },
+    {
+      "word": "cod",
+      "meaning": ""
+    },
+    {
+      "word": "coffee",
+      "meaning": ""
+    },
+    {
+      "word": "cognac",
+      "meaning": ""
+    },
+    {
+      "word": "coin",
+      "meaning": ""
+    },
+    {
+      "word": "cola",
+      "meaning": ""
+    },
+    {
+      "word": "cold",
+      "meaning": ""
+    },
+    {
+      "word": "college",
+      "meaning": ""
+    },
+    {
+      "word": "color",
+      "meaning": ""
+    },
+    {
+      "word": "combine",
+      "meaning": ""
+    },
+    {
+      "word": "comet",
+      "meaning": ""
+    },
+    {
+      "word": "compass",
+      "meaning": ""
+    },
+    {
+      "word": "compost",
+      "meaning": ""
+    },
+    {
+      "word": "concept",
+      "meaning": ""
+    },
+    {
+      "word": "condo",
+      "meaning": ""
+    },
+    {
+      "word": "cook",
+      "meaning": ""
+    },
+    {
+      "word": "cookie",
+      "meaning": ""
+    },
+    {
+      "word": "cop",
+      "meaning": ""
+    },
+    {
+      "word": "coral",
+      "meaning": ""
+    },
+    {
+      "word": "corn",
+      "meaning": ""
+    },
+    {
+      "word": "corset",
+      "meaning": ""
+    },
+    {
+      "word": "cost",
+      "meaning": ""
+    },
+    {
+      "word": "costume",
+      "meaning": ""
+    },
+    {
+      "word": "cottage",
+      "meaning": ""
+    },
+    {
+      "word": "cotton",
+      "meaning": ""
+    },
+    {
+      "word": "couch",
+      "meaning": ""
+    },
+    {
+      "word": "cougar",
+      "meaning": ""
+    },
+    {
+      "word": "cough",
+      "meaning": ""
+    },
+    {
+      "word": "country",
+      "meaning": ""
+    },
+    {
+      "word": "coupon",
+      "meaning": ""
+    },
+    {
+      "word": "court",
+      "meaning": ""
+    },
+    {
+      "word": "cove",
+      "meaning": ""
+    },
+    {
+      "word": "cow",
+      "meaning": ""
+    },
+    {
+      "word": "coyote",
+      "meaning": ""
+    },
+    {
+      "word": "crab",
+      "meaning": ""
+    },
+    {
+      "word": "crane",
+      "meaning": ""
+    },
+    {
+      "word": "crate",
+      "meaning": ""
+    },
+    {
+      "word": "crater",
+      "meaning": ""
+    },
+    {
+      "word": "cravat",
+      "meaning": ""
+    },
+    {
+      "word": "crayon",
+      "meaning": ""
+    },
+    {
+      "word": "cream",
+      "meaning": ""
+    },
+    {
+      "word": "creek",
+      "meaning": ""
+    },
+    {
+      "word": "crepe",
+      "meaning": ""
+    },
+    {
+      "word": "cricket",
+      "meaning": ""
+    },
+    {
+      "word": "croquet",
+      "meaning": ""
+    },
+    {
+      "word": "crow",
+      "meaning": ""
+    },
+    {
+      "word": "crowbar",
+      "meaning": ""
+    },
+    {
+      "word": "crown",
+      "meaning": ""
+    },
+    {
+      "word": "crutch",
+      "meaning": ""
+    },
+    {
+      "word": "cup",
+      "meaning": ""
+    },
+    {
+      "word": "cure",
+      "meaning": ""
+    },
+    {
+      "word": "curry",
+      "meaning": ""
+    },
+    {
+      "word": "curtain",
+      "meaning": ""
+    },
+    {
+      "word": "cut",
+      "meaning": ""
+    },
+    {
+      "word": "cycling",
+      "meaning": ""
+    },
+    {
+      "word": "cyclone",
+      "meaning": ""
+    },
+    {
+      "word": "daisy",
+      "meaning": ""
+    },
+    {
+      "word": "dam",
+      "meaning": ""
+    },
+    {
+      "word": "dark",
+      "meaning": ""
+    },
+    {
+      "word": "darts",
+      "meaning": ""
+    },
+    {
+      "word": "data",
+      "meaning": ""
+    },
+    {
+      "word": "date",
+      "meaning": ""
+    },
+    {
+      "word": "deaf",
+      "meaning": ""
+    },
+    {
+      "word": "death",
+      "meaning": ""
+    },
+    {
+      "word": "deck",
+      "meaning": ""
+    },
+    {
+      "word": "deer",
+      "meaning": ""
+    },
+    {
+      "word": "defeat",
+      "meaning": ""
+    },
+    {
+      "word": "degree",
+      "meaning": ""
+    },
+    {
+      "word": "denim",
+      "meaning": ""
+    },
+    {
+      "word": "dentist",
+      "meaning": ""
+    },
+    {
+      "word": "desert",
+      "meaning": ""
+    },
+    {
+      "word": "design",
+      "meaning": ""
+    },
+    {
+      "word": "desk",
+      "meaning": ""
+    },
+    {
+      "word": "diadem",
+      "meaning": ""
+    },
+    {
+      "word": "dial",
+      "meaning": ""
+    },
+    {
+      "word": "diamond",
+      "meaning": ""
+    },
+    {
+      "word": "diary",
+      "meaning": ""
+    },
+    {
+      "word": "dice",
+      "meaning": ""
+    },
+    {
+      "word": "dingo",
+      "meaning": ""
+    },
+    {
+      "word": "dirt",
+      "meaning": ""
+    },
+    {
+      "word": "disease",
+      "meaning": ""
+    },
+    {
+      "word": "dish",
+      "meaning": ""
+    },
+    {
+      "word": "display",
+      "meaning": ""
+    },
+    {
+      "word": "dive",
+      "meaning": ""
+    },
+    {
+      "word": "diving",
+      "meaning": ""
+    },
+    {
+      "word": "dj",
+      "meaning": ""
+    },
+    {
+      "word": "doctor",
+      "meaning": ""
+    },
+    {
+      "word": "dog",
+      "meaning": ""
+    },
+    {
+      "word": "doll",
+      "meaning": ""
+    },
+    {
+      "word": "dolphin",
+      "meaning": ""
+    },
+    {
+      "word": "donkey",
+      "meaning": ""
+    },
+    {
+      "word": "donut",
+      "meaning": ""
+    },
+    {
+      "word": "door",
+      "meaning": ""
+    },
+    {
+      "word": "doubt",
+      "meaning": ""
+    },
+    {
+      "word": "dough",
+      "meaning": ""
+    },
+    {
+      "word": "dove",
+      "meaning": ""
+    },
+    {
+      "word": "drag",
+      "meaning": ""
+    },
+    {
+      "word": "drawer",
+      "meaning": ""
+    },
+    {
+      "word": "dream",
+      "meaning": ""
+    },
+    {
+      "word": "dress",
+      "meaning": ""
+    },
+    {
+      "word": "dresser",
+      "meaning": ""
+    },
+    {
+      "word": "drill",
+      "meaning": ""
+    },
+    {
+      "word": "drone",
+      "meaning": ""
+    },
+    {
+      "word": "drop",
+      "meaning": ""
+    },
+    {
+      "word": "drought",
+      "meaning": ""
+    },
+    {
+      "word": "drum",
+      "meaning": ""
+    },
+    {
+      "word": "duck",
+      "meaning": ""
+    },
+    {
+      "word": "duke",
+      "meaning": ""
+    },
+    {
+      "word": "dumb",
+      "meaning": ""
+    },
+    {
+      "word": "dune",
+      "meaning": ""
+    },
+    {
+      "word": "dust",
+      "meaning": ""
+    },
+    {
+      "word": "duster",
+      "meaning": ""
+    },
+    {
+      "word": "dustpan",
+      "meaning": ""
+    },
+    {
+      "word": "dvd",
+      "meaning": ""
+    },
+    {
+      "word": "eagle",
+      "meaning": ""
+    },
+    {
+      "word": "ear",
+      "meaning": ""
+    },
+    {
+      "word": "earring",
+      "meaning": ""
+    },
+    {
+      "word": "earth",
+      "meaning": ""
+    },
+    {
+      "word": "easel",
+      "meaning": ""
+    },
+    {
+      "word": "east",
+      "meaning": ""
+    },
+    {
+      "word": "echo",
+      "meaning": ""
+    },
+    {
+      "word": "eclipse",
+      "meaning": ""
+    },
+    {
+      "word": "egg",
+      "meaning": ""
+    },
+    {
+      "word": "elbow",
+      "meaning": ""
+    },
+    {
+      "word": "elk",
+      "meaning": ""
+    },
+    {
+      "word": "emu",
+      "meaning": ""
+    },
+    {
+      "word": "engine",
+      "meaning": ""
+    },
+    {
+      "word": "ermine",
+      "meaning": ""
+    },
+    {
+      "word": "esports",
+      "meaning": ""
+    },
+    {
+      "word": "ethic",
+      "meaning": ""
+    },
+    {
+      "word": "evil",
+      "meaning": ""
+    },
+    {
+      "word": "exhaust",
+      "meaning": ""
+    },
+    {
+      "word": "eye",
+      "meaning": ""
+    },
+    {
+      "word": "fabric",
+      "meaning": ""
+    },
+    {
+      "word": "face",
+      "meaning": ""
+    },
+    {
+      "word": "fact",
+      "meaning": ""
+    },
+    {
+      "word": "failure",
+      "meaning": ""
+    },
+    {
+      "word": "fair",
+      "meaning": ""
+    },
+    {
+      "word": "fairway",
+      "meaning": ""
+    },
+    {
+      "word": "faith",
+      "meaning": ""
+    },
+    {
+      "word": "falcon",
+      "meaning": ""
+    },
+    {
+      "word": "fall",
+      "meaning": ""
+    },
+    {
+      "word": "fan",
+      "meaning": ""
+    },
+    {
+      "word": "farm",
+      "meaning": ""
+    },
+    {
+      "word": "fart",
+      "meaning": ""
+    },
+    {
+      "word": "faucet",
+      "meaning": ""
+    },
+    {
+      "word": "fault",
+      "meaning": ""
+    },
+    {
+      "word": "fencing",
+      "meaning": ""
+    },
+    {
+      "word": "fender",
+      "meaning": ""
+    },
+    {
+      "word": "fern",
+      "meaning": ""
+    },
+    {
+      "word": "ferret",
+      "meaning": ""
+    },
+    {
+      "word": "ferry",
+      "meaning": ""
+    },
+    {
+      "word": "fever",
+      "meaning": ""
+    },
+    {
+      "word": "fiction",
+      "meaning": ""
+    },
+    {
+      "word": "field",
+      "meaning": ""
+    },
+    {
+      "word": "fig",
+      "meaning": ""
+    },
+    {
+      "word": "fight",
+      "meaning": ""
+    },
+    {
+      "word": "file",
+      "meaning": ""
+    },
+    {
+      "word": "film",
+      "meaning": ""
+    },
+    {
+      "word": "find",
+      "meaning": ""
+    },
+    {
+      "word": "finger",
+      "meaning": ""
+    },
+    {
+      "word": "fire",
+      "meaning": ""
+    },
+    {
+      "word": "fish",
+      "meaning": ""
+    },
+    {
+      "word": "fisher",
+      "meaning": ""
+    },
+    {
+      "word": "fit",
+      "meaning": ""
+    },
+    {
+      "word": "fitting",
+      "meaning": ""
+    },
+    {
+      "word": "fjord",
+      "meaning": ""
+    },
+    {
+      "word": "flag",
+      "meaning": ""
+    },
+    {
+      "word": "flame",
+      "meaning": ""
+    },
+    {
+      "word": "flannel",
+      "meaning": ""
+    },
+    {
+      "word": "flash",
+      "meaning": ""
+    },
+    {
+      "word": "flask",
+      "meaning": ""
+    },
+    {
+      "word": "flat",
+      "meaning": ""
+    },
+    {
+      "word": "flea",
+      "meaning": ""
+    },
+    {
+      "word": "fleece",
+      "meaning": ""
+    },
+    {
+      "word": "flood",
+      "meaning": ""
+    },
+    {
+      "word": "floor",
+      "meaning": ""
+    },
+    {
+      "word": "floral",
+      "meaning": ""
+    },
+    {
+      "word": "flower",
+      "meaning": ""
+    },
+    {
+      "word": "flu",
+      "meaning": ""
+    },
+    {
+      "word": "fly",
+      "meaning": ""
+    },
+    {
+      "word": "flyer",
+      "meaning": ""
+    },
+    {
+      "word": "fog",
+      "meaning": ""
+    },
+    {
+      "word": "folder",
+      "meaning": ""
+    },
+    {
+      "word": "foot",
+      "meaning": ""
+    },
+    {
+      "word": "force",
+      "meaning": ""
+    },
+    {
+      "word": "forearm",
+      "meaning": ""
+    },
+    {
+      "word": "forest",
+      "meaning": ""
+    },
+    {
+      "word": "fork",
+      "meaning": ""
+    },
+    {
+      "word": "form",
+      "meaning": ""
+    },
+    {
+      "word": "fort",
+      "meaning": ""
+    },
+    {
+      "word": "foul",
+      "meaning": ""
+    },
+    {
+      "word": "fox",
+      "meaning": ""
+    },
+    {
+      "word": "frail",
+      "meaning": ""
+    },
+    {
+      "word": "frame",
+      "meaning": ""
+    },
+    {
+      "word": "freckle",
+      "meaning": ""
+    },
+    {
+      "word": "freeway",
+      "meaning": ""
+    },
+    {
+      "word": "freezer",
+      "meaning": ""
+    },
+    {
+      "word": "fridge",
+      "meaning": ""
+    },
+    {
+      "word": "frisbee",
+      "meaning": ""
+    },
+    {
+      "word": "frog",
+      "meaning": ""
+    },
+    {
+      "word": "frost",
+      "meaning": ""
+    },
+    {
+      "word": "fungus",
+      "meaning": ""
+    },
+    {
+      "word": "funnel",
+      "meaning": ""
+    },
+    {
+      "word": "fur",
+      "meaning": ""
+    },
+    {
+      "word": "fuse",
+      "meaning": ""
+    },
+    {
+      "word": "future",
+      "meaning": ""
+    },
+    {
+      "word": "gale",
+      "meaning": ""
+    },
+    {
+      "word": "galosh",
+      "meaning": ""
+    },
+    {
+      "word": "game",
+      "meaning": ""
+    },
+    {
+      "word": "garage",
+      "meaning": ""
+    },
+    {
+      "word": "garbage",
+      "meaning": ""
+    },
+    {
+      "word": "garden",
+      "meaning": ""
+    },
+    {
+      "word": "garlic",
+      "meaning": ""
+    },
+    {
+      "word": "garment",
+      "meaning": ""
+    },
+    {
+      "word": "gas",
+      "meaning": ""
+    },
+    {
+      "word": "gasket",
+      "meaning": ""
+    },
+    {
+      "word": "gauge",
+      "meaning": ""
+    },
+    {
+      "word": "gear",
+      "meaning": ""
+    },
+    {
+      "word": "gerbil",
+      "meaning": ""
+    },
+    {
+      "word": "germ",
+      "meaning": ""
+    },
+    {
+      "word": "get",
+      "meaning": ""
+    },
+    {
+      "word": "geyser",
+      "meaning": ""
+    },
+    {
+      "word": "ghost",
+      "meaning": ""
+    },
+    {
+      "word": "gibbon",
+      "meaning": ""
+    },
+    {
+      "word": "gig",
+      "meaning": ""
+    },
+    {
+      "word": "gin",
+      "meaning": ""
+    },
+    {
+      "word": "ginger",
+      "meaning": ""
+    },
+    {
+      "word": "giraffe",
+      "meaning": ""
+    },
+    {
+      "word": "give",
+      "meaning": ""
+    },
+    {
+      "word": "glacier",
+      "meaning": ""
+    },
+    {
+      "word": "glass",
+      "meaning": ""
+    },
+    {
+      "word": "glasses",
+      "meaning": ""
+    },
+    {
+      "word": "glider",
+      "meaning": ""
+    },
+    {
+      "word": "globe",
+      "meaning": ""
+    },
+    {
+      "word": "glove",
+      "meaning": ""
+    },
+    {
+      "word": "glue",
+      "meaning": ""
+    },
+    {
+      "word": "gnat",
+      "meaning": ""
+    },
+    {
+      "word": "goal",
+      "meaning": ""
+    },
+    {
+      "word": "goat",
+      "meaning": ""
+    },
+    {
+      "word": "goblet",
+      "meaning": ""
+    },
+    {
+      "word": "goby",
+      "meaning": ""
+    },
+    {
+      "word": "goggles",
+      "meaning": ""
+    },
+    {
+      "word": "golf",
+      "meaning": ""
+    },
+    {
+      "word": "good",
+      "meaning": ""
+    },
+    {
+      "word": "goose",
+      "meaning": ""
+    },
+    {
+      "word": "gorge",
+      "meaning": ""
+    },
+    {
+      "word": "gown",
+      "meaning": ""
+    },
+    {
+      "word": "gps",
+      "meaning": ""
+    },
+    {
+      "word": "grab",
+      "meaning": ""
+    },
+    {
+      "word": "grape",
+      "meaning": ""
+    },
+    {
+      "word": "grass",
+      "meaning": ""
+    },
+    {
+      "word": "grater",
+      "meaning": ""
+    },
+    {
+      "word": "gravel",
+      "meaning": ""
+    },
+    {
+      "word": "gravy",
+      "meaning": ""
+    },
+    {
+      "word": "green",
+      "meaning": ""
+    },
+    {
+      "word": "grip",
+      "meaning": ""
+    },
+    {
+      "word": "growth",
+      "meaning": ""
+    },
+    {
+      "word": "guava",
+      "meaning": ""
+    },
+    {
+      "word": "gulf",
+      "meaning": ""
+    },
+    {
+      "word": "gum",
+      "meaning": ""
+    },
+    {
+      "word": "gummy",
+      "meaning": ""
+    },
+    {
+      "word": "guppy",
+      "meaning": ""
+    },
+    {
+      "word": "gym",
+      "meaning": ""
+    },
+    {
+      "word": "hack",
+      "meaning": ""
+    },
+    {
+      "word": "hail",
+      "meaning": ""
+    },
+    {
+      "word": "hair",
+      "meaning": ""
+    },
+    {
+      "word": "hall",
+      "meaning": ""
+    },
+    {
+      "word": "ham",
+      "meaning": ""
+    },
+    {
+      "word": "hammer",
+      "meaning": ""
+    },
+    {
+      "word": "hamper",
+      "meaning": ""
+    },
+    {
+      "word": "hamster",
+      "meaning": ""
+    },
+    {
+      "word": "hand",
+      "meaning": ""
+    },
+    {
+      "word": "handle",
+      "meaning": ""
+    },
+    {
+      "word": "hanger",
+      "meaning": ""
+    },
+    {
+      "word": "harp",
+      "meaning": ""
+    },
+    {
+      "word": "hat",
+      "meaning": ""
+    },
+    {
+      "word": "haul",
+      "meaning": ""
+    },
+    {
+      "word": "hawk",
+      "meaning": ""
+    },
+    {
+      "word": "head",
+      "meaning": ""
+    },
+    {
+      "word": "heal",
+      "meaning": ""
+    },
+    {
+      "word": "healing",
+      "meaning": ""
+    },
+    {
+      "word": "health",
+      "meaning": ""
+    },
+    {
+      "word": "healthy",
+      "meaning": ""
+    },
+    {
+      "word": "heap",
+      "meaning": ""
+    },
+    {
+      "word": "hearse",
+      "meaning": ""
+    },
+    {
+      "word": "heart",
+      "meaning": ""
+    },
+    {
+      "word": "heater",
+      "meaning": ""
+    },
+    {
+      "word": "hedge",
+      "meaning": ""
+    },
+    {
+      "word": "heel",
+      "meaning": ""
+    },
+    {
+      "word": "helmet",
+      "meaning": ""
+    },
+    {
+      "word": "herb",
+      "meaning": ""
+    },
+    {
+      "word": "hero",
+      "meaning": ""
+    },
+    {
+      "word": "hiccup",
+      "meaning": ""
+    },
+    {
+      "word": "highway",
+      "meaning": ""
+    },
+    {
+      "word": "hill",
+      "meaning": ""
+    },
+    {
+      "word": "hinge",
+      "meaning": ""
+    },
+    {
+      "word": "hip",
+      "meaning": ""
+    },
+    {
+      "word": "hit",
+      "meaning": ""
+    },
+    {
+      "word": "hockey",
+      "meaning": ""
+    },
+    {
+      "word": "hoe",
+      "meaning": ""
+    },
+    {
+      "word": "hold",
+      "meaning": ""
+    },
+    {
+      "word": "hole",
+      "meaning": ""
+    },
+    {
+      "word": "home",
+      "meaning": ""
+    },
+    {
+      "word": "honey",
+      "meaning": ""
+    },
+    {
+      "word": "hood",
+      "meaning": ""
+    },
+    {
+      "word": "hoodie",
+      "meaning": ""
+    },
+    {
+      "word": "hook",
+      "meaning": ""
+    },
+    {
+      "word": "hoop",
+      "meaning": ""
+    },
+    {
+      "word": "hop",
+      "meaning": ""
+    },
+    {
+      "word": "horn",
+      "meaning": ""
+    },
+    {
+      "word": "hornet",
+      "meaning": ""
+    },
+    {
+      "word": "horse",
+      "meaning": ""
+    },
+    {
+      "word": "hose",
+      "meaning": ""
+    },
+    {
+      "word": "hostel",
+      "meaning": ""
+    },
+    {
+      "word": "hot dog",
+      "meaning": ""
+    },
+    {
+      "word": "hotel",
+      "meaning": ""
+    },
+    {
+      "word": "house",
+      "meaning": ""
+    },
+    {
+      "word": "hug",
+      "meaning": ""
+    },
+    {
+      "word": "hummus",
+      "meaning": ""
+    },
+    {
+      "word": "hunt",
+      "meaning": ""
+    },
+    {
+      "word": "hurl",
+      "meaning": ""
+    },
+    {
+      "word": "hut",
+      "meaning": ""
+    },
+    {
+      "word": "hyena",
+      "meaning": ""
+    },
+    {
+      "word": "ice",
+      "meaning": ""
+    },
+    {
+      "word": "id card",
+      "meaning": ""
+    },
+    {
+      "word": "idea",
+      "meaning": ""
+    },
+    {
+      "word": "igloo",
+      "meaning": ""
+    },
+    {
+      "word": "illness",
+      "meaning": ""
+    },
+    {
+      "word": "imam",
+      "meaning": ""
+    },
+    {
+      "word": "inlet",
+      "meaning": ""
+    },
+    {
+      "word": "inn",
+      "meaning": ""
+    },
+    {
+      "word": "invoice",
+      "meaning": ""
+    },
+    {
+      "word": "iris",
+      "meaning": ""
+    },
+    {
+      "word": "iron",
+      "meaning": ""
+    },
+    {
+      "word": "island",
+      "meaning": ""
+    },
+    {
+      "word": "itch",
+      "meaning": ""
+    },
+    {
+      "word": "ivy",
+      "meaning": ""
+    },
+    {
+      "word": "jab",
+      "meaning": ""
+    },
+    {
+      "word": "jackal",
+      "meaning": ""
+    },
+    {
+      "word": "jacket",
+      "meaning": ""
+    },
+    {
+      "word": "jaguar",
+      "meaning": ""
+    },
+    {
+      "word": "jail",
+      "meaning": ""
+    },
+    {
+      "word": "jam",
+      "meaning": ""
+    },
+    {
+      "word": "jar",
+      "meaning": ""
+    },
+    {
+      "word": "jaw",
+      "meaning": ""
+    },
+    {
+      "word": "jeans",
+      "meaning": ""
+    },
+    {
+      "word": "jeep",
+      "meaning": ""
+    },
+    {
+      "word": "jelly",
+      "meaning": ""
+    },
+    {
+      "word": "jet",
+      "meaning": ""
+    },
+    {
+      "word": "job",
+      "meaning": ""
+    },
+    {
+      "word": "jog",
+      "meaning": ""
+    },
+    {
+      "word": "jogging",
+      "meaning": ""
+    },
+    {
+      "word": "joint",
+      "meaning": ""
+    },
+    {
+      "word": "joke",
+      "meaning": ""
+    },
+    {
+      "word": "journal",
+      "meaning": ""
+    },
+    {
+      "word": "judo",
+      "meaning": ""
+    },
+    {
+      "word": "jug",
+      "meaning": ""
+    },
+    {
+      "word": "juice",
+      "meaning": ""
+    },
+    {
+      "word": "jump",
+      "meaning": ""
+    },
+    {
+      "word": "jumper",
+      "meaning": ""
+    },
+    {
+      "word": "jungle",
+      "meaning": ""
+    },
+    {
+      "word": "justice",
+      "meaning": ""
+    },
+    {
+      "word": "kale",
+      "meaning": ""
+    },
+    {
+      "word": "karate",
+      "meaning": ""
+    },
+    {
+      "word": "karting",
+      "meaning": ""
+    },
+    {
+      "word": "kayak",
+      "meaning": ""
+    },
+    {
+      "word": "kelp",
+      "meaning": ""
+    },
+    {
+      "word": "ketchup",
+      "meaning": ""
+    },
+    {
+      "word": "kettle",
+      "meaning": ""
+    },
+    {
+      "word": "key",
+      "meaning": ""
+    },
+    {
+      "word": "kick",
+      "meaning": ""
+    },
+    {
+      "word": "kidney",
+      "meaning": ""
+    },
+    {
+      "word": "kilt",
+      "meaning": ""
+    },
+    {
+      "word": "king",
+      "meaning": ""
+    },
+    {
+      "word": "kitchen",
+      "meaning": ""
+    },
+    {
+      "word": "kite",
+      "meaning": ""
+    },
+    {
+      "word": "kiwi",
+      "meaning": ""
+    },
+    {
+      "word": "knee",
+      "meaning": ""
+    },
+    {
+      "word": "knife",
+      "meaning": ""
+    },
+    {
+      "word": "knob",
+      "meaning": ""
+    },
+    {
+      "word": "knot",
+      "meaning": ""
+    },
+    {
+      "word": "knuckle",
+      "meaning": ""
+    },
+    {
+      "word": "koala",
+      "meaning": ""
+    },
+    {
+      "word": "koi",
+      "meaning": ""
+    },
+    {
+      "word": "label",
+      "meaning": ""
+    },
+    {
+      "word": "lace",
+      "meaning": ""
+    },
+    {
+      "word": "ladder",
+      "meaning": ""
+    },
+    {
+      "word": "ladle",
+      "meaning": ""
+    },
+    {
+      "word": "lady",
+      "meaning": ""
+    },
+    {
+      "word": "lake",
+      "meaning": ""
+    },
+    {
+      "word": "lame",
+      "meaning": ""
+    },
+    {
+      "word": "lamp",
+      "meaning": ""
+    },
+    {
+      "word": "lane",
+      "meaning": ""
+    },
+    {
+      "word": "lantern",
+      "meaning": ""
+    },
+    {
+      "word": "laptop",
+      "meaning": ""
+    },
+    {
+      "word": "latch",
+      "meaning": ""
+    },
+    {
+      "word": "latte",
+      "meaning": ""
+    },
+    {
+      "word": "lava",
+      "meaning": ""
+    },
+    {
+      "word": "law",
+      "meaning": ""
+    },
+    {
+      "word": "lawn",
+      "meaning": ""
+    },
+    {
+      "word": "lay",
+      "meaning": ""
+    },
+    {
+      "word": "leaf",
+      "meaning": ""
+    },
+    {
+      "word": "leaflet",
+      "meaning": ""
+    },
+    {
+      "word": "leap",
+      "meaning": ""
+    },
+    {
+      "word": "leather",
+      "meaning": ""
+    },
+    {
+      "word": "leech",
+      "meaning": ""
+    },
+    {
+      "word": "leg",
+      "meaning": ""
+    },
+    {
+      "word": "legend",
+      "meaning": ""
+    },
+    {
+      "word": "lego",
+      "meaning": ""
+    },
+    {
+      "word": "lemon",
+      "meaning": ""
+    },
+    {
+      "word": "lemur",
+      "meaning": ""
+    },
+    {
+      "word": "lens",
+      "meaning": ""
+    },
+    {
+      "word": "lentil",
+      "meaning": ""
+    },
+    {
+      "word": "leopard",
+      "meaning": ""
+    },
+    {
+      "word": "letter",
+      "meaning": ""
+    },
+    {
+      "word": "lettuce",
+      "meaning": ""
+    },
+    {
+      "word": "lever",
+      "meaning": ""
+    },
+    {
+      "word": "license",
+      "meaning": ""
+    },
+    {
+      "word": "lichen",
+      "meaning": ""
+    },
+    {
+      "word": "lie",
+      "meaning": ""
+    },
+    {
+      "word": "life",
+      "meaning": ""
+    },
+    {
+      "word": "lift",
+      "meaning": ""
+    },
+    {
+      "word": "light",
+      "meaning": ""
+    },
+    {
+      "word": "lighter",
+      "meaning": ""
+    },
+    {
+      "word": "lily",
+      "meaning": ""
+    },
+    {
+      "word": "lime",
+      "meaning": ""
+    },
+    {
+      "word": "limo",
+      "meaning": ""
+    },
+    {
+      "word": "linen",
+      "meaning": ""
+    },
+    {
+      "word": "liner",
+      "meaning": ""
+    },
+    {
+      "word": "lion",
+      "meaning": ""
+    },
+    {
+      "word": "lip",
+      "meaning": ""
+    },
+    {
+      "word": "liquid",
+      "meaning": ""
+    },
+    {
+      "word": "liquor",
+      "meaning": ""
+    },
+    {
+      "word": "live",
+      "meaning": ""
+    },
+    {
+      "word": "liver",
+      "meaning": ""
+    },
+    {
+      "word": "lizard",
+      "meaning": ""
+    },
+    {
+      "word": "llama",
+      "meaning": ""
+    },
+    {
+      "word": "loafer",
+      "meaning": ""
+    },
+    {
+      "word": "lob",
+      "meaning": ""
+    },
+    {
+      "word": "lobster",
+      "meaning": ""
+    },
+    {
+      "word": "lock",
+      "meaning": ""
+    },
+    {
+      "word": "locust",
+      "meaning": ""
+    },
+    {
+      "word": "loft",
+      "meaning": ""
+    },
+    {
+      "word": "log",
+      "meaning": ""
+    },
+    {
+      "word": "logic",
+      "meaning": ""
+    },
+    {
+      "word": "lord",
+      "meaning": ""
+    },
+    {
+      "word": "lorry",
+      "meaning": ""
+    },
+    {
+      "word": "loser",
+      "meaning": ""
+    },
+    {
+      "word": "loud",
+      "meaning": ""
+    },
+    {
+      "word": "luggage",
+      "meaning": ""
+    },
+    {
+      "word": "lung",
+      "meaning": ""
+    },
+    {
+      "word": "lycra",
+      "meaning": ""
+    },
+    {
+      "word": "lynx",
+      "meaning": ""
+    },
+    {
+      "word": "machine",
+      "meaning": ""
+    },
+    {
+      "word": "magma",
+      "meaning": ""
+    },
+    {
+      "word": "maid",
+      "meaning": ""
+    },
+    {
+      "word": "mail",
+      "meaning": ""
+    },
+    {
+      "word": "mall",
+      "meaning": ""
+    },
+    {
+      "word": "mallet",
+      "meaning": ""
+    },
+    {
+      "word": "mango",
+      "meaning": ""
+    },
+    {
+      "word": "mansion",
+      "meaning": ""
+    },
+    {
+      "word": "mantis",
+      "meaning": ""
+    },
+    {
+      "word": "map",
+      "meaning": ""
+    },
+    {
+      "word": "maple",
+      "meaning": ""
+    },
+    {
+      "word": "marker",
+      "meaning": ""
+    },
+    {
+      "word": "market",
+      "meaning": ""
+    },
+    {
+      "word": "marsh",
+      "meaning": ""
+    },
+    {
+      "word": "marten",
+      "meaning": ""
+    },
+    {
+      "word": "mash",
+      "meaning": ""
+    },
+    {
+      "word": "mask",
+      "meaning": ""
+    },
+    {
+      "word": "mass",
+      "meaning": ""
+    },
+    {
+      "word": "mat",
+      "meaning": ""
+    },
+    {
+      "word": "match",
+      "meaning": ""
+    },
+    {
+      "word": "math",
+      "meaning": ""
+    },
+    {
+      "word": "mead",
+      "meaning": ""
+    },
+    {
+      "word": "meadow",
+      "meaning": ""
+    },
+    {
+      "word": "meaning",
+      "meaning": ""
+    },
+    {
+      "word": "measure",
+      "meaning": ""
+    },
+    {
+      "word": "medal",
+      "meaning": ""
+    },
+    {
+      "word": "meerkat",
+      "meaning": ""
+    },
+    {
+      "word": "melon",
+      "meaning": ""
+    },
+    {
+      "word": "mesa",
+      "meaning": ""
+    },
+    {
+      "word": "message",
+      "meaning": ""
+    },
+    {
+      "word": "meteor",
+      "meaning": ""
+    },
+    {
+      "word": "meter",
+      "meaning": ""
+    },
+    {
+      "word": "metro",
+      "meaning": ""
+    },
+    {
+      "word": "mildew",
+      "meaning": ""
+    },
+    {
+      "word": "milk",
+      "meaning": ""
+    },
+    {
+      "word": "mind",
+      "meaning": ""
+    },
+    {
+      "word": "mink",
+      "meaning": ""
+    },
+    {
+      "word": "mint",
+      "meaning": ""
+    },
+    {
+      "word": "mirror",
+      "meaning": ""
+    },
+    {
+      "word": "mist",
+      "meaning": ""
+    },
+    {
+      "word": "mitt",
+      "meaning": ""
+    },
+    {
+      "word": "mitten",
+      "meaning": ""
+    },
+    {
+      "word": "mixture",
+      "meaning": ""
+    },
+    {
+      "word": "mocha",
+      "meaning": ""
+    },
+    {
+      "word": "modem",
+      "meaning": ""
+    },
+    {
+      "word": "mold",
+      "meaning": ""
+    },
+    {
+      "word": "mole",
+      "meaning": ""
+    },
+    {
+      "word": "money",
+      "meaning": ""
+    },
+    {
+      "word": "monk",
+      "meaning": ""
+    },
+    {
+      "word": "monkey",
+      "meaning": ""
+    },
+    {
+      "word": "monsoon",
+      "meaning": ""
+    },
+    {
+      "word": "monster",
+      "meaning": ""
+    },
+    {
+      "word": "moon",
+      "meaning": ""
+    },
+    {
+      "word": "moose",
+      "meaning": ""
+    },
+    {
+      "word": "mop",
+      "meaning": ""
+    },
+    {
+      "word": "moped",
+      "meaning": ""
+    },
+    {
+      "word": "moral",
+      "meaning": ""
+    },
+    {
+      "word": "mosque",
+      "meaning": ""
+    },
+    {
+      "word": "moss",
+      "meaning": ""
+    },
+    {
+      "word": "motel",
+      "meaning": ""
+    },
+    {
+      "word": "moth",
+      "meaning": ""
+    },
+    {
+      "word": "motion",
+      "meaning": ""
+    },
+    {
+      "word": "motor",
+      "meaning": ""
+    },
+    {
+      "word": "mouse",
+      "meaning": ""
+    },
+    {
+      "word": "mouth",
+      "meaning": ""
+    },
+    {
+      "word": "move",
+      "meaning": ""
+    },
+    {
+      "word": "mower",
+      "meaning": ""
+    },
+    {
+      "word": "mri",
+      "meaning": ""
+    },
+    {
+      "word": "mud",
+      "meaning": ""
+    },
+    {
+      "word": "muffin",
+      "meaning": ""
+    },
+    {
+      "word": "muffler",
+      "meaning": ""
+    },
+    {
+      "word": "mug",
+      "meaning": ""
+    },
+    {
+      "word": "mule",
+      "meaning": ""
+    },
+    {
+      "word": "muscle",
+      "meaning": ""
+    },
+    {
+      "word": "museum",
+      "meaning": ""
+    },
+    {
+      "word": "music",
+      "meaning": ""
+    },
+    {
+      "word": "muskrat",
+      "meaning": ""
+    },
+    {
+      "word": "mussel",
+      "meaning": ""
+    },
+    {
+      "word": "mustard",
+      "meaning": ""
+    },
+    {
+      "word": "mute",
+      "meaning": ""
+    },
+    {
+      "word": "myth",
+      "meaning": ""
+    },
+    {
+      "word": "nachos",
+      "meaning": ""
+    },
+    {
+      "word": "nail",
+      "meaning": ""
+    },
+    {
+      "word": "nation",
+      "meaning": ""
+    },
+    {
+      "word": "nature",
+      "meaning": ""
+    },
+    {
+      "word": "navel",
+      "meaning": ""
+    },
+    {
+      "word": "neck",
+      "meaning": ""
+    },
+    {
+      "word": "necktie",
+      "meaning": ""
+    },
+    {
+      "word": "nectar",
+      "meaning": ""
+    },
+    {
+      "word": "needle",
+      "meaning": ""
+    },
+    {
+      "word": "nerve",
+      "meaning": ""
+    },
+    {
+      "word": "net",
+      "meaning": ""
+    },
+    {
+      "word": "network",
+      "meaning": ""
+    },
+    {
+      "word": "news",
+      "meaning": ""
+    },
+    {
+      "word": "newt",
+      "meaning": ""
+    },
+    {
+      "word": "noise",
+      "meaning": ""
+    },
+    {
+      "word": "noodle",
+      "meaning": ""
+    },
+    {
+      "word": "north",
+      "meaning": ""
+    },
+    {
+      "word": "nose",
+      "meaning": ""
+    },
+    {
+      "word": "nostril",
+      "meaning": ""
+    },
+    {
+      "word": "note",
+      "meaning": ""
+    },
+    {
+      "word": "number",
+      "meaning": ""
+    },
+    {
+      "word": "nun",
+      "meaning": ""
+    },
+    {
+      "word": "nurse",
+      "meaning": ""
+    },
+    {
+      "word": "nut",
+      "meaning": ""
+    },
+    {
+      "word": "nutmeg",
+      "meaning": ""
+    },
+    {
+      "word": "nutria",
+      "meaning": ""
+    },
+    {
+      "word": "nylon",
+      "meaning": ""
+    },
+    {
+      "word": "oak",
+      "meaning": ""
+    },
+    {
+      "word": "oasis",
+      "meaning": ""
+    },
+    {
+      "word": "oatmeal",
+      "meaning": ""
+    },
+    {
+      "word": "ocean",
+      "meaning": ""
+    },
+    {
+      "word": "office",
+      "meaning": ""
+    },
+    {
+      "word": "offside",
+      "meaning": ""
+    },
+    {
+      "word": "oil",
+      "meaning": ""
+    },
+    {
+      "word": "onion",
+      "meaning": ""
+    },
+    {
+      "word": "orange",
+      "meaning": ""
+    },
+    {
+      "word": "orbit",
+      "meaning": ""
+    },
+    {
+      "word": "orchid",
+      "meaning": ""
+    },
+    {
+      "word": "order",
+      "meaning": ""
+    },
+    {
+      "word": "ostrich",
+      "meaning": ""
+    },
+    {
+      "word": "otter",
+      "meaning": ""
+    },
+    {
+      "word": "outfit",
+      "meaning": ""
+    },
+    {
+      "word": "oven",
+      "meaning": ""
+    },
+    {
+      "word": "owl",
+      "meaning": ""
+    },
+    {
+      "word": "ox",
+      "meaning": ""
+    },
+    {
+      "word": "oyster",
+      "meaning": ""
+    },
+    {
+      "word": "pad",
+      "meaning": ""
+    },
+    {
+      "word": "padlock",
+      "meaning": ""
+    },
+    {
+      "word": "page",
+      "meaning": ""
+    },
+    {
+      "word": "pail",
+      "meaning": ""
+    },
+    {
+      "word": "pain",
+      "meaning": ""
+    },
+    {
+      "word": "paint",
+      "meaning": ""
+    },
+    {
+      "word": "paisley",
+      "meaning": ""
+    },
+    {
+      "word": "palace",
+      "meaning": ""
+    },
+    {
+      "word": "palette",
+      "meaning": ""
+    },
+    {
+      "word": "palm",
+      "meaning": ""
+    },
+    {
+      "word": "pan",
+      "meaning": ""
+    },
+    {
+      "word": "pancake",
+      "meaning": ""
+    },
+    {
+      "word": "panda",
+      "meaning": ""
+    },
+    {
+      "word": "panel",
+      "meaning": ""
+    },
+    {
+      "word": "panther",
+      "meaning": ""
+    },
+    {
+      "word": "panties",
+      "meaning": ""
+    },
+    {
+      "word": "pants",
+      "meaning": ""
+    },
+    {
+      "word": "paper",
+      "meaning": ""
+    },
+    {
+      "word": "park",
+      "meaning": ""
+    },
+    {
+      "word": "parrot",
+      "meaning": ""
+    },
+    {
+      "word": "parsley",
+      "meaning": ""
+    },
+    {
+      "word": "pass",
+      "meaning": ""
+    },
+    {
+      "word": "past",
+      "meaning": ""
+    },
+    {
+      "word": "pasta",
+      "meaning": ""
+    },
+    {
+      "word": "pasture",
+      "meaning": ""
+    },
+    {
+      "word": "path",
+      "meaning": ""
+    },
+    {
+      "word": "patient",
+      "meaning": ""
+    },
+    {
+      "word": "patio",
+      "meaning": ""
+    },
+    {
+      "word": "pattern",
+      "meaning": ""
+    },
+    {
+      "word": "pea",
+      "meaning": ""
+    },
+    {
+      "word": "peace",
+      "meaning": ""
+    },
+    {
+      "word": "peach",
+      "meaning": ""
+    },
+    {
+      "word": "peacock",
+      "meaning": ""
+    },
+    {
+      "word": "peanut",
+      "meaning": ""
+    },
+    {
+      "word": "pear",
+      "meaning": ""
+    },
+    {
+      "word": "pebble",
+      "meaning": ""
+    },
+    {
+      "word": "pecan",
+      "meaning": ""
+    },
+    {
+      "word": "pedal",
+      "meaning": ""
+    },
+    {
+      "word": "peeler",
+      "meaning": ""
+    },
+    {
+      "word": "pelvis",
+      "meaning": ""
+    },
+    {
+      "word": "pen",
+      "meaning": ""
+    },
+    {
+      "word": "pencil",
+      "meaning": ""
+    },
+    {
+      "word": "pendant",
+      "meaning": ""
+    },
+    {
+      "word": "penguin",
+      "meaning": ""
+    },
+    {
+      "word": "pennant",
+      "meaning": ""
+    },
+    {
+      "word": "pepper",
+      "meaning": ""
+    },
+    {
+      "word": "permit",
+      "meaning": ""
+    },
+    {
+      "word": "pesto",
+      "meaning": ""
+    },
+    {
+      "word": "petal",
+      "meaning": ""
+    },
+    {
+      "word": "phone",
+      "meaning": ""
+    },
+    {
+      "word": "pickaxe",
+      "meaning": ""
+    },
+    {
+      "word": "picture",
+      "meaning": ""
+    },
+    {
+      "word": "pie",
+      "meaning": ""
+    },
+    {
+      "word": "pig",
+      "meaning": ""
+    },
+    {
+      "word": "pigeon",
+      "meaning": ""
+    },
+    {
+      "word": "pile",
+      "meaning": ""
+    },
+    {
+      "word": "pill",
+      "meaning": ""
+    },
+    {
+      "word": "pillow",
+      "meaning": ""
+    },
+    {
+      "word": "pin",
+      "meaning": ""
+    },
+    {
+      "word": "pine",
+      "meaning": ""
+    },
+    {
+      "word": "pipe",
+      "meaning": ""
+    },
+    {
+      "word": "piston",
+      "meaning": ""
+    },
+    {
+      "word": "pitcher",
+      "meaning": ""
+    },
+    {
+      "word": "pizza",
+      "meaning": ""
+    },
+    {
+      "word": "placard",
+      "meaning": ""
+    },
+    {
+      "word": "plaid",
+      "meaning": ""
+    },
+    {
+      "word": "plain",
+      "meaning": ""
+    },
+    {
+      "word": "plane",
+      "meaning": ""
+    },
+    {
+      "word": "planet",
+      "meaning": ""
+    },
+    {
+      "word": "planter",
+      "meaning": ""
+    },
+    {
+      "word": "plasma",
+      "meaning": ""
+    },
+    {
+      "word": "plaster",
+      "meaning": ""
+    },
+    {
+      "word": "plate",
+      "meaning": ""
+    },
+    {
+      "word": "platter",
+      "meaning": ""
+    },
+    {
+      "word": "play",
+      "meaning": ""
+    },
+    {
+      "word": "plaza",
+      "meaning": ""
+    },
+    {
+      "word": "pliers",
+      "meaning": ""
+    },
+    {
+      "word": "plow",
+      "meaning": ""
+    },
+    {
+      "word": "plug",
+      "meaning": ""
+    },
+    {
+      "word": "plum",
+      "meaning": ""
+    },
+    {
+      "word": "pocket",
+      "meaning": ""
+    },
+    {
+      "word": "poem",
+      "meaning": ""
+    },
+    {
+      "word": "poet",
+      "meaning": ""
+    },
+    {
+      "word": "point",
+      "meaning": ""
+    },
+    {
+      "word": "poke",
+      "meaning": ""
+    },
+    {
+      "word": "poker",
+      "meaning": ""
+    },
+    {
+      "word": "pole",
+      "meaning": ""
+    },
+    {
+      "word": "pollen",
+      "meaning": ""
+    },
+    {
+      "word": "polo",
+      "meaning": ""
+    },
+    {
+      "word": "poncho",
+      "meaning": ""
+    },
+    {
+      "word": "pond",
+      "meaning": ""
+    },
+    {
+      "word": "pool",
+      "meaning": ""
+    },
+    {
+      "word": "poor",
+      "meaning": ""
+    },
+    {
+      "word": "pope",
+      "meaning": ""
+    },
+    {
+      "word": "poppy",
+      "meaning": ""
+    },
+    {
+      "word": "porch",
+      "meaning": ""
+    },
+    {
+      "word": "pork",
+      "meaning": ""
+    },
+    {
+      "word": "poster",
+      "meaning": ""
+    },
+    {
+      "word": "pot",
+      "meaning": ""
+    },
+    {
+      "word": "pouch",
+      "meaning": ""
+    },
+    {
+      "word": "power",
+      "meaning": ""
+    },
+    {
+      "word": "prairie",
+      "meaning": ""
+    },
+    {
+      "word": "pram",
+      "meaning": ""
+    },
+    {
+      "word": "present",
+      "meaning": ""
+    },
+    {
+      "word": "price",
+      "meaning": ""
+    },
+    {
+      "word": "printer",
+      "meaning": ""
+    },
+    {
+      "word": "prison",
+      "meaning": ""
+    },
+    {
+      "word": "prize",
+      "meaning": ""
+    },
+    {
+      "word": "process",
+      "meaning": ""
+    },
+    {
+      "word": "prod",
+      "meaning": ""
+    },
+    {
+      "word": "pub",
+      "meaning": ""
+    },
+    {
+      "word": "puddle",
+      "meaning": ""
+    },
+    {
+      "word": "pull",
+      "meaning": ""
+    },
+    {
+      "word": "pulley",
+      "meaning": ""
+    },
+    {
+      "word": "puma",
+      "meaning": ""
+    },
+    {
+      "word": "pump",
+      "meaning": ""
+    },
+    {
+      "word": "purpose",
+      "meaning": ""
+    },
+    {
+      "word": "purse",
+      "meaning": ""
+    },
+    {
+      "word": "push",
+      "meaning": ""
+    },
+    {
+      "word": "put",
+      "meaning": ""
+    },
+    {
+      "word": "putter",
+      "meaning": ""
+    },
+    {
+      "word": "quilt",
+      "meaning": ""
+    },
+    {
+      "word": "quinoa",
+      "meaning": ""
+    },
+    {
+      "word": "rabbit",
+      "meaning": ""
+    },
+    {
+      "word": "raccoon",
+      "meaning": ""
+    },
+    {
+      "word": "racket",
+      "meaning": ""
+    },
+    {
+      "word": "racquet",
+      "meaning": ""
+    },
+    {
+      "word": "raft",
+      "meaning": ""
+    },
+    {
+      "word": "rag",
+      "meaning": ""
+    },
+    {
+      "word": "rain",
+      "meaning": ""
+    },
+    {
+      "word": "rainbow",
+      "meaning": ""
+    },
+    {
+      "word": "rake",
+      "meaning": ""
+    },
+    {
+      "word": "ram",
+      "meaning": ""
+    },
+    {
+      "word": "ramen",
+      "meaning": ""
+    },
+    {
+      "word": "ranch",
+      "meaning": ""
+    },
+    {
+      "word": "rash",
+      "meaning": ""
+    },
+    {
+      "word": "rasp",
+      "meaning": ""
+    },
+    {
+      "word": "rat",
+      "meaning": ""
+    },
+    {
+      "word": "raven",
+      "meaning": ""
+    },
+    {
+      "word": "ray",
+      "meaning": ""
+    },
+    {
+      "word": "reason",
+      "meaning": ""
+    },
+    {
+      "word": "receipt",
+      "meaning": ""
+    },
+    {
+      "word": "redwood",
+      "meaning": ""
+    },
+    {
+      "word": "relish",
+      "meaning": ""
+    },
+    {
+      "word": "remote",
+      "meaning": ""
+    },
+    {
+      "word": "resin",
+      "meaning": ""
+    },
+    {
+      "word": "resort",
+      "meaning": ""
+    },
+    {
+      "word": "rest",
+      "meaning": ""
+    },
+    {
+      "word": "rhythm",
+      "meaning": ""
+    },
+    {
+      "word": "rib",
+      "meaning": ""
+    },
+    {
+      "word": "ribbon",
+      "meaning": ""
+    },
+    {
+      "word": "rice",
+      "meaning": ""
+    },
+    {
+      "word": "rich",
+      "meaning": ""
+    },
+    {
+      "word": "ride",
+      "meaning": ""
+    },
+    {
+      "word": "right",
+      "meaning": ""
+    },
+    {
+      "word": "ring",
+      "meaning": ""
+    },
+    {
+      "word": "rip",
+      "meaning": ""
+    },
+    {
+      "word": "river",
+      "meaning": ""
+    },
+    {
+      "word": "road",
+      "meaning": ""
+    },
+    {
+      "word": "robe",
+      "meaning": ""
+    },
+    {
+      "word": "robin",
+      "meaning": ""
+    },
+    {
+      "word": "robot",
+      "meaning": ""
+    },
+    {
+      "word": "rock",
+      "meaning": ""
+    },
+    {
+      "word": "rocket",
+      "meaning": ""
+    },
+    {
+      "word": "roll",
+      "meaning": ""
+    },
+    {
+      "word": "roller",
+      "meaning": ""
+    },
+    {
+      "word": "roof",
+      "meaning": ""
+    },
+    {
+      "word": "room",
+      "meaning": ""
+    },
+    {
+      "word": "rooster",
+      "meaning": ""
+    },
+    {
+      "word": "root",
+      "meaning": ""
+    },
+    {
+      "word": "rope",
+      "meaning": ""
+    },
+    {
+      "word": "rose",
+      "meaning": ""
+    },
+    {
+      "word": "rough",
+      "meaning": ""
+    },
+    {
+      "word": "router",
+      "meaning": ""
+    },
+    {
+      "word": "row",
+      "meaning": ""
+    },
+    {
+      "word": "rowing",
+      "meaning": ""
+    },
+    {
+      "word": "rug",
+      "meaning": ""
+    },
+    {
+      "word": "rugby",
+      "meaning": ""
+    },
+    {
+      "word": "rule",
+      "meaning": ""
+    },
+    {
+      "word": "ruler",
+      "meaning": ""
+    },
+    {
+      "word": "rum",
+      "meaning": ""
+    },
+    {
+      "word": "run",
+      "meaning": ""
+    },
+    {
+      "word": "running",
+      "meaning": ""
+    },
+    {
+      "word": "rv",
+      "meaning": ""
+    },
+    {
+      "word": "sack",
+      "meaning": ""
+    },
+    {
+      "word": "sail",
+      "meaning": ""
+    },
+    {
+      "word": "sailing",
+      "meaning": ""
+    },
+    {
+      "word": "salad",
+      "meaning": ""
+    },
+    {
+      "word": "salmon",
+      "meaning": ""
+    },
+    {
+      "word": "salsa",
+      "meaning": ""
+    },
+    {
+      "word": "salt",
+      "meaning": ""
+    },
+    {
+      "word": "sand",
+      "meaning": ""
+    },
+    {
+      "word": "sandal",
+      "meaning": ""
+    },
+    {
+      "word": "sap",
+      "meaning": ""
+    },
+    {
+      "word": "satchel",
+      "meaning": ""
+    },
+    {
+      "word": "sauce",
+      "meaning": ""
+    },
+    {
+      "word": "saucer",
+      "meaning": ""
+    },
+    {
+      "word": "sausage",
+      "meaning": ""
+    },
+    {
+      "word": "saw",
+      "meaning": ""
+    },
+    {
+      "word": "scale",
+      "meaning": ""
+    },
+    {
+      "word": "scallop",
+      "meaning": ""
+    },
+    {
+      "word": "scan",
+      "meaning": ""
+    },
+    {
+      "word": "scanner",
+      "meaning": ""
+    },
+    {
+      "word": "scar",
+      "meaning": ""
+    },
+    {
+      "word": "scarf",
+      "meaning": ""
+    },
+    {
+      "word": "school",
+      "meaning": ""
+    },
+    {
+      "word": "science",
+      "meaning": ""
+    },
+    {
+      "word": "scooter",
+      "meaning": ""
+    },
+    {
+      "word": "score",
+      "meaning": ""
+    },
+    {
+      "word": "scrape",
+      "meaning": ""
+    },
+    {
+      "word": "screw",
+      "meaning": ""
+    },
+    {
+      "word": "sea",
+      "meaning": ""
+    },
+    {
+      "word": "seagull",
+      "meaning": ""
+    },
+    {
+      "word": "seal",
+      "meaning": ""
+    },
+    {
+      "word": "seat",
+      "meaning": ""
+    },
+    {
+      "word": "seaweed",
+      "meaning": ""
+    },
+    {
+      "word": "seed",
+      "meaning": ""
+    },
+    {
+      "word": "seek",
+      "meaning": ""
+    },
+    {
+      "word": "segway",
+      "meaning": ""
+    },
+    {
+      "word": "send",
+      "meaning": ""
+    },
+    {
+      "word": "set",
+      "meaning": ""
+    },
+    {
+      "word": "sew",
+      "meaning": ""
+    },
+    {
+      "word": "shack",
+      "meaning": ""
+    },
+    {
+      "word": "shape",
+      "meaning": ""
+    },
+    {
+      "word": "shark",
+      "meaning": ""
+    },
+    {
+      "word": "shawl",
+      "meaning": ""
+    },
+    {
+      "word": "shed",
+      "meaning": ""
+    },
+    {
+      "word": "sheep",
+      "meaning": ""
+    },
+    {
+      "word": "sheet",
+      "meaning": ""
+    },
+    {
+      "word": "shelf",
+      "meaning": ""
+    },
+    {
+      "word": "shin",
+      "meaning": ""
+    },
+    {
+      "word": "ship",
+      "meaning": ""
+    },
+    {
+      "word": "shirt",
+      "meaning": ""
+    },
+    {
+      "word": "shoe",
+      "meaning": ""
+    },
+    {
+      "word": "shop",
+      "meaning": ""
+    },
+    {
+      "word": "shore",
+      "meaning": ""
+    },
+    {
+      "word": "shorts",
+      "meaning": ""
+    },
+    {
+      "word": "shot",
+      "meaning": ""
+    },
+    {
+      "word": "shovel",
+      "meaning": ""
+    },
+    {
+      "word": "show",
+      "meaning": ""
+    },
+    {
+      "word": "shower",
+      "meaning": ""
+    },
+    {
+      "word": "shrimp",
+      "meaning": ""
+    },
+    {
+      "word": "shrine",
+      "meaning": ""
+    },
+    {
+      "word": "shrub",
+      "meaning": ""
+    },
+    {
+      "word": "shuttle",
+      "meaning": ""
+    },
+    {
+      "word": "sign",
+      "meaning": ""
+    },
+    {
+      "word": "signal",
+      "meaning": ""
+    },
+    {
+      "word": "silence",
+      "meaning": ""
+    },
+    {
+      "word": "silk",
+      "meaning": ""
+    },
+    {
+      "word": "sink",
+      "meaning": ""
+    },
+    {
+      "word": "siren",
+      "meaning": ""
+    },
+    {
+      "word": "size",
+      "meaning": ""
+    },
+    {
+      "word": "skating",
+      "meaning": ""
+    },
+    {
+      "word": "ski",
+      "meaning": ""
+    },
+    {
+      "word": "skiing",
+      "meaning": ""
+    },
+    {
+      "word": "skill",
+      "meaning": ""
+    },
+    {
+      "word": "skillet",
+      "meaning": ""
+    },
+    {
+      "word": "skin",
+      "meaning": ""
+    },
+    {
+      "word": "skip",
+      "meaning": ""
+    },
+    {
+      "word": "skirt",
+      "meaning": ""
+    },
+    {
+      "word": "skull",
+      "meaning": ""
+    },
+    {
+      "word": "skunk",
+      "meaning": ""
+    },
+    {
+      "word": "sky",
+      "meaning": ""
+    },
+    {
+      "word": "slap",
+      "meaning": ""
+    },
+    {
+      "word": "sled",
+      "meaning": ""
+    },
+    {
+      "word": "sleep",
+      "meaning": ""
+    },
+    {
+      "word": "sleet",
+      "meaning": ""
+    },
+    {
+      "word": "sleigh",
+      "meaning": ""
+    },
+    {
+      "word": "slider",
+      "meaning": ""
+    },
+    {
+      "word": "slip",
+      "meaning": ""
+    },
+    {
+      "word": "slipper",
+      "meaning": ""
+    },
+    {
+      "word": "sloth",
+      "meaning": ""
+    },
+    {
+      "word": "slug",
+      "meaning": ""
+    },
+    {
+      "word": "smog",
+      "meaning": ""
+    },
+    {
+      "word": "smoke",
+      "meaning": ""
+    },
+    {
+      "word": "snail",
+      "meaning": ""
+    },
+    {
+      "word": "snake",
+      "meaning": ""
+    },
+    {
+      "word": "snap",
+      "meaning": ""
+    },
+    {
+      "word": "sneaker",
+      "meaning": ""
+    },
+    {
+      "word": "sneeze",
+      "meaning": ""
+    },
+    {
+      "word": "snooker",
+      "meaning": ""
+    },
+    {
+      "word": "snore",
+      "meaning": ""
+    },
+    {
+      "word": "snow",
+      "meaning": ""
+    },
+    {
+      "word": "soar",
+      "meaning": ""
+    },
+    {
+      "word": "soba",
+      "meaning": ""
+    },
+    {
+      "word": "soccer",
+      "meaning": ""
+    },
+    {
+      "word": "sock",
+      "meaning": ""
+    },
+    {
+      "word": "socket",
+      "meaning": ""
+    },
+    {
+      "word": "soda",
+      "meaning": ""
+    },
+    {
+      "word": "sofa",
+      "meaning": ""
+    },
+    {
+      "word": "soil",
+      "meaning": ""
+    },
+    {
+      "word": "solid",
+      "meaning": ""
+    },
+    {
+      "word": "song",
+      "meaning": ""
+    },
+    {
+      "word": "sorbet",
+      "meaning": ""
+    },
+    {
+      "word": "sore",
+      "meaning": ""
+    },
+    {
+      "word": "sort",
+      "meaning": ""
+    },
+    {
+      "word": "soul",
+      "meaning": ""
+    },
+    {
+      "word": "sound",
+      "meaning": ""
+    },
+    {
+      "word": "soup",
+      "meaning": ""
+    },
+    {
+      "word": "south",
+      "meaning": ""
+    },
+    {
+      "word": "soybean",
+      "meaning": ""
+    },
+    {
+      "word": "spa",
+      "meaning": ""
+    },
+    {
+      "word": "space",
+      "meaning": ""
+    },
+    {
+      "word": "spade",
+      "meaning": ""
+    },
+    {
+      "word": "spandex",
+      "meaning": ""
+    },
+    {
+      "word": "spark",
+      "meaning": ""
+    },
+    {
+      "word": "sparrow",
+      "meaning": ""
+    },
+    {
+      "word": "speaker",
+      "meaning": ""
+    },
+    {
+      "word": "speed",
+      "meaning": ""
+    },
+    {
+      "word": "spice",
+      "meaning": ""
+    },
+    {
+      "word": "spider",
+      "meaning": ""
+    },
+    {
+      "word": "spike",
+      "meaning": ""
+    },
+    {
+      "word": "spin",
+      "meaning": ""
+    },
+    {
+      "word": "spinach",
+      "meaning": ""
+    },
+    {
+      "word": "spine",
+      "meaning": ""
+    },
+    {
+      "word": "spirit",
+      "meaning": ""
+    },
+    {
+      "word": "spit",
+      "meaning": ""
+    },
+    {
+      "word": "sponge",
+      "meaning": ""
+    },
+    {
+      "word": "spoon",
+      "meaning": ""
+    },
+    {
+      "word": "spore",
+      "meaning": ""
+    },
+    {
+      "word": "spring",
+      "meaning": ""
+    },
+    {
+      "word": "spy",
+      "meaning": ""
+    },
+    {
+      "word": "squad",
+      "meaning": ""
+    },
+    {
+      "word": "square",
+      "meaning": ""
+    },
+    {
+      "word": "squid",
+      "meaning": ""
+    },
+    {
+      "word": "stab",
+      "meaning": ""
+    },
+    {
+      "word": "stable",
+      "meaning": ""
+    },
+    {
+      "word": "stadium",
+      "meaning": ""
+    },
+    {
+      "word": "stairs",
+      "meaning": ""
+    },
+    {
+      "word": "stamp",
+      "meaning": ""
+    },
+    {
+      "word": "stapler",
+      "meaning": ""
+    },
+    {
+      "word": "star",
+      "meaning": ""
+    },
+    {
+      "word": "state",
+      "meaning": ""
+    },
+    {
+      "word": "statue",
+      "meaning": ""
+    },
+    {
+      "word": "steak",
+      "meaning": ""
+    },
+    {
+      "word": "stem",
+      "meaning": ""
+    },
+    {
+      "word": "stereo",
+      "meaning": ""
+    },
+    {
+      "word": "stew",
+      "meaning": ""
+    },
+    {
+      "word": "stick",
+      "meaning": ""
+    },
+    {
+      "word": "sticker",
+      "meaning": ""
+    },
+    {
+      "word": "stoat",
+      "meaning": ""
+    },
+    {
+      "word": "stomach",
+      "meaning": ""
+    },
+    {
+      "word": "stone",
+      "meaning": ""
+    },
+    {
+      "word": "store",
+      "meaning": ""
+    },
+    {
+      "word": "stork",
+      "meaning": ""
+    },
+    {
+      "word": "storm",
+      "meaning": ""
+    },
+    {
+      "word": "story",
+      "meaning": ""
+    },
+    {
+      "word": "stove",
+      "meaning": ""
+    },
+    {
+      "word": "strait",
+      "meaning": ""
+    },
+    {
+      "word": "street",
+      "meaning": ""
+    },
+    {
+      "word": "string",
+      "meaning": ""
+    },
+    {
+      "word": "stripe",
+      "meaning": ""
+    },
+    {
+      "word": "strong",
+      "meaning": ""
+    },
+    {
+      "word": "strut",
+      "meaning": ""
+    },
+    {
+      "word": "study",
+      "meaning": ""
+    },
+    {
+      "word": "stump",
+      "meaning": ""
+    },
+    {
+      "word": "style",
+      "meaning": ""
+    },
+    {
+      "word": "sub",
+      "meaning": ""
+    },
+    {
+      "word": "subway",
+      "meaning": ""
+    },
+    {
+      "word": "success",
+      "meaning": ""
+    },
+    {
+      "word": "suede",
+      "meaning": ""
+    },
+    {
+      "word": "sugar",
+      "meaning": ""
+    },
+    {
+      "word": "suit",
+      "meaning": ""
+    },
+    {
+      "word": "sun",
+      "meaning": ""
+    },
+    {
+      "word": "surf",
+      "meaning": ""
+    },
+    {
+      "word": "surfing",
+      "meaning": ""
+    },
+    {
+      "word": "surgeon",
+      "meaning": ""
+    },
+    {
+      "word": "sushi",
+      "meaning": ""
+    },
+    {
+      "word": "suv",
+      "meaning": ""
+    },
+    {
+      "word": "swamp",
+      "meaning": ""
+    },
+    {
+      "word": "swan",
+      "meaning": ""
+    },
+    {
+      "word": "sway",
+      "meaning": ""
+    },
+    {
+      "word": "sweat",
+      "meaning": ""
+    },
+    {
+      "word": "sweater",
+      "meaning": ""
+    },
+    {
+      "word": "swim",
+      "meaning": ""
+    },
+    {
+      "word": "switch",
+      "meaning": ""
+    },
+    {
+      "word": "symbol",
+      "meaning": ""
+    },
+    {
+      "word": "syrup",
+      "meaning": ""
+    },
+    {
+      "word": "system",
+      "meaning": ""
+    },
+    {
+      "word": "table",
+      "meaning": ""
+    },
+    {
+      "word": "tablet",
+      "meaning": ""
+    },
+    {
+      "word": "taco",
+      "meaning": ""
+    },
+    {
+      "word": "tag",
+      "meaning": ""
+    },
+    {
+      "word": "take",
+      "meaning": ""
+    },
+    {
+      "word": "tale",
+      "meaning": ""
+    },
+    {
+      "word": "talent",
+      "meaning": ""
+    },
+    {
+      "word": "tang",
+      "meaning": ""
+    },
+    {
+      "word": "tank",
+      "meaning": ""
+    },
+    {
+      "word": "tanker",
+      "meaning": ""
+    },
+    {
+      "word": "tap",
+      "meaning": ""
+    },
+    {
+      "word": "tape",
+      "meaning": ""
+    },
+    {
+      "word": "tapir",
+      "meaning": ""
+    },
+    {
+      "word": "tarsier",
+      "meaning": ""
+    },
+    {
+      "word": "tart",
+      "meaning": ""
+    },
+    {
+      "word": "tartan",
+      "meaning": ""
+    },
+    {
+      "word": "tattoo",
+      "meaning": ""
+    },
+    {
+      "word": "taxi",
+      "meaning": ""
+    },
+    {
+      "word": "tea",
+      "meaning": ""
+    },
+    {
+      "word": "teak",
+      "meaning": ""
+    },
+    {
+      "word": "team",
+      "meaning": ""
+    },
+    {
+      "word": "teapot",
+      "meaning": ""
+    },
+    {
+      "word": "tear",
+      "meaning": ""
+    },
+    {
+      "word": "tee",
+      "meaning": ""
+    },
+    {
+      "word": "teepee",
+      "meaning": ""
+    },
+    {
+      "word": "teeth",
+      "meaning": ""
+    },
+    {
+      "word": "temple",
+      "meaning": ""
+    },
+    {
+      "word": "tennis",
+      "meaning": ""
+    },
+    {
+      "word": "tent",
+      "meaning": ""
+    },
+    {
+      "word": "termite",
+      "meaning": ""
+    },
+    {
+      "word": "terrace",
+      "meaning": ""
+    },
+    {
+      "word": "tetra",
+      "meaning": ""
+    },
+    {
+      "word": "thigh",
+      "meaning": ""
+    },
+    {
+      "word": "thinner",
+      "meaning": ""
+    },
+    {
+      "word": "thistle",
+      "meaning": ""
+    },
+    {
+      "word": "thorn",
+      "meaning": ""
+    },
+    {
+      "word": "thought",
+      "meaning": ""
+    },
+    {
+      "word": "thread",
+      "meaning": ""
+    },
+    {
+      "word": "throat",
+      "meaning": ""
+    },
+    {
+      "word": "thumb",
+      "meaning": ""
+    },
+    {
+      "word": "thunder",
+      "meaning": ""
+    },
+    {
+      "word": "thyme",
+      "meaning": ""
+    },
+    {
+      "word": "tiara",
+      "meaning": ""
+    },
+    {
+      "word": "tick",
+      "meaning": ""
+    },
+    {
+      "word": "ticket",
+      "meaning": ""
+    },
+    {
+      "word": "tie",
+      "meaning": ""
+    },
+    {
+      "word": "tiger",
+      "meaning": ""
+    },
+    {
+      "word": "tights",
+      "meaning": ""
+    },
+    {
+      "word": "time",
+      "meaning": ""
+    },
+    {
+      "word": "timer",
+      "meaning": ""
+    },
+    {
+      "word": "tin",
+      "meaning": ""
+    },
+    {
+      "word": "tire",
+      "meaning": ""
+    },
+    {
+      "word": "tired",
+      "meaning": ""
+    },
+    {
+      "word": "toad",
+      "meaning": ""
+    },
+    {
+      "word": "toe",
+      "meaning": ""
+    },
+    {
+      "word": "toilet",
+      "meaning": ""
+    },
+    {
+      "word": "tomb",
+      "meaning": ""
+    },
+    {
+      "word": "tome",
+      "meaning": ""
+    },
+    {
+      "word": "tongs",
+      "meaning": ""
+    },
+    {
+      "word": "tongue",
+      "meaning": ""
+    },
+    {
+      "word": "tool",
+      "meaning": ""
+    },
+    {
+      "word": "tooth",
+      "meaning": ""
+    },
+    {
+      "word": "top",
+      "meaning": ""
+    },
+    {
+      "word": "top hat",
+      "meaning": ""
+    },
+    {
+      "word": "torch",
+      "meaning": ""
+    },
+    {
+      "word": "torso",
+      "meaning": ""
+    },
+    {
+      "word": "toss",
+      "meaning": ""
+    },
+    {
+      "word": "towel",
+      "meaning": ""
+    },
+    {
+      "word": "tower",
+      "meaning": ""
+    },
+    {
+      "word": "town",
+      "meaning": ""
+    },
+    {
+      "word": "toy",
+      "meaning": ""
+    },
+    {
+      "word": "tractor",
+      "meaning": ""
+    },
+    {
+      "word": "trade",
+      "meaning": ""
+    },
+    {
+      "word": "trail",
+      "meaning": ""
+    },
+    {
+      "word": "trailer",
+      "meaning": ""
+    },
+    {
+      "word": "train",
+      "meaning": ""
+    },
+    {
+      "word": "trainer",
+      "meaning": ""
+    },
+    {
+      "word": "tram",
+      "meaning": ""
+    },
+    {
+      "word": "trap",
+      "meaning": ""
+    },
+    {
+      "word": "trash",
+      "meaning": ""
+    },
+    {
+      "word": "tray",
+      "meaning": ""
+    },
+    {
+      "word": "tree",
+      "meaning": ""
+    },
+    {
+      "word": "trimmer",
+      "meaning": ""
+    },
+    {
+      "word": "trip",
+      "meaning": ""
+    },
+    {
+      "word": "tripod",
+      "meaning": ""
+    },
+    {
+      "word": "trolley",
+      "meaning": ""
+    },
+    {
+      "word": "trophy",
+      "meaning": ""
+    },
+    {
+      "word": "trout",
+      "meaning": ""
+    },
+    {
+      "word": "trowel",
+      "meaning": ""
+    },
+    {
+      "word": "truck",
+      "meaning": ""
+    },
+    {
+      "word": "trunk",
+      "meaning": ""
+    },
+    {
+      "word": "trunks",
+      "meaning": ""
+    },
+    {
+      "word": "truth",
+      "meaning": ""
+    },
+    {
+      "word": "tshirt",
+      "meaning": ""
+    },
+    {
+      "word": "tub",
+      "meaning": ""
+    },
+    {
+      "word": "tuba",
+      "meaning": ""
+    },
+    {
+      "word": "tube",
+      "meaning": ""
+    },
+    {
+      "word": "tug",
+      "meaning": ""
+    },
+    {
+      "word": "tulip",
+      "meaning": ""
+    },
+    {
+      "word": "tumbler",
+      "meaning": ""
+    },
+    {
+      "word": "tuna",
+      "meaning": ""
+    },
+    {
+      "word": "tundra",
+      "meaning": ""
+    },
+    {
+      "word": "tunnel",
+      "meaning": ""
+    },
+    {
+      "word": "turban",
+      "meaning": ""
+    },
+    {
+      "word": "turkey",
+      "meaning": ""
+    },
+    {
+      "word": "turn",
+      "meaning": ""
+    },
+    {
+      "word": "turtle",
+      "meaning": ""
+    },
+    {
+      "word": "tv",
+      "meaning": ""
+    },
+    {
+      "word": "tweed",
+      "meaning": ""
+    },
+    {
+      "word": "twig",
+      "meaning": ""
+    },
+    {
+      "word": "typhoon",
+      "meaning": ""
+    },
+    {
+      "word": "tyre",
+      "meaning": ""
+    },
+    {
+      "word": "udon",
+      "meaning": ""
+    },
+    {
+      "word": "urchin",
+      "meaning": ""
+    },
+    {
+      "word": "urn",
+      "meaning": ""
+    },
+    {
+      "word": "vaccine",
+      "meaning": ""
+    },
+    {
+      "word": "vacuum",
+      "meaning": ""
+    },
+    {
+      "word": "valley",
+      "meaning": ""
+    },
+    {
+      "word": "value",
+      "meaning": ""
+    },
+    {
+      "word": "valve",
+      "meaning": ""
+    },
+    {
+      "word": "van",
+      "meaning": ""
+    },
+    {
+      "word": "varnish",
+      "meaning": ""
+    },
+    {
+      "word": "vase",
+      "meaning": ""
+    },
+    {
+      "word": "veil",
+      "meaning": ""
+    },
+    {
+      "word": "vein",
+      "meaning": ""
+    },
+    {
+      "word": "velvet",
+      "meaning": ""
+    },
+    {
+      "word": "vessel",
+      "meaning": ""
+    },
+    {
+      "word": "vest",
+      "meaning": ""
+    },
+    {
+      "word": "vet",
+      "meaning": ""
+    },
+    {
+      "word": "villa",
+      "meaning": ""
+    },
+    {
+      "word": "village",
+      "meaning": ""
+    },
+    {
+      "word": "vine",
+      "meaning": ""
+    },
+    {
+      "word": "violet",
+      "meaning": ""
+    },
+    {
+      "word": "virus",
+      "meaning": ""
+    },
+    {
+      "word": "visa",
+      "meaning": ""
+    },
+    {
+      "word": "vise",
+      "meaning": ""
+    },
+    {
+      "word": "vision",
+      "meaning": ""
+    },
+    {
+      "word": "vodka",
+      "meaning": ""
+    },
+    {
+      "word": "voice",
+      "meaning": ""
+    },
+    {
+      "word": "volume",
+      "meaning": ""
+    },
+    {
+      "word": "voucher",
+      "meaning": ""
+    },
+    {
+      "word": "waffle",
+      "meaning": ""
+    },
+    {
+      "word": "wagon",
+      "meaning": ""
+    },
+    {
+      "word": "waist",
+      "meaning": ""
+    },
+    {
+      "word": "wake",
+      "meaning": ""
+    },
+    {
+      "word": "walk",
+      "meaning": ""
+    },
+    {
+      "word": "wall",
+      "meaning": ""
+    },
+    {
+      "word": "wallet",
+      "meaning": ""
+    },
+    {
+      "word": "walnut",
+      "meaning": ""
+    },
+    {
+      "word": "walrus",
+      "meaning": ""
+    },
+    {
+      "word": "war",
+      "meaning": ""
+    },
+    {
+      "word": "washer",
+      "meaning": ""
+    },
+    {
+      "word": "wasp",
+      "meaning": ""
+    },
+    {
+      "word": "waste",
+      "meaning": ""
+    },
+    {
+      "word": "watch",
+      "meaning": ""
+    },
+    {
+      "word": "water",
+      "meaning": ""
+    },
+    {
+      "word": "weak",
+      "meaning": ""
+    },
+    {
+      "word": "wealth",
+      "meaning": ""
+    },
+    {
+      "word": "weasel",
+      "meaning": ""
+    },
+    {
+      "word": "weather",
+      "meaning": ""
+    },
+    {
+      "word": "web",
+      "meaning": ""
+    },
+    {
+      "word": "wedge",
+      "meaning": ""
+    },
+    {
+      "word": "weed",
+      "meaning": ""
+    },
+    {
+      "word": "weight",
+      "meaning": ""
+    },
+    {
+      "word": "west",
+      "meaning": ""
+    },
+    {
+      "word": "whale",
+      "meaning": ""
+    },
+    {
+      "word": "wheel",
+      "meaning": ""
+    },
+    {
+      "word": "whisk",
+      "meaning": ""
+    },
+    {
+      "word": "whiskey",
+      "meaning": ""
+    },
+    {
+      "word": "willow",
+      "meaning": ""
+    },
+    {
+      "word": "wind",
+      "meaning": ""
+    },
+    {
+      "word": "window",
+      "meaning": ""
+    },
+    {
+      "word": "wine",
+      "meaning": ""
+    },
+    {
+      "word": "winner",
+      "meaning": ""
+    },
+    {
+      "word": "wiper",
+      "meaning": ""
+    },
+    {
+      "word": "wire",
+      "meaning": ""
+    },
+    {
+      "word": "wisdom",
+      "meaning": ""
+    },
+    {
+      "word": "wok",
+      "meaning": ""
+    },
+    {
+      "word": "wolf",
+      "meaning": ""
+    },
+    {
+      "word": "wombat",
+      "meaning": ""
+    },
+    {
+      "word": "woods",
+      "meaning": ""
+    },
+    {
+      "word": "wool",
+      "meaning": ""
+    },
+    {
+      "word": "word",
+      "meaning": ""
+    },
+    {
+      "word": "work",
+      "meaning": ""
+    },
+    {
+      "word": "world",
+      "meaning": ""
+    },
+    {
+      "word": "worm",
+      "meaning": ""
+    },
+    {
+      "word": "worth",
+      "meaning": ""
+    },
+    {
+      "word": "wound",
+      "meaning": ""
+    },
+    {
+      "word": "wrasse",
+      "meaning": ""
+    },
+    {
+      "word": "wrench",
+      "meaning": ""
+    },
+    {
+      "word": "wrinkle",
+      "meaning": ""
+    },
+    {
+      "word": "wrist",
+      "meaning": ""
+    },
+    {
+      "word": "wrong",
+      "meaning": ""
+    },
+    {
+      "word": "xray",
+      "meaning": ""
+    },
+    {
+      "word": "yacht",
+      "meaning": ""
+    },
+    {
+      "word": "yak",
+      "meaning": ""
+    },
+    {
+      "word": "yank",
+      "meaning": ""
+    },
+    {
+      "word": "yard",
+      "meaning": ""
+    },
+    {
+      "word": "yarn",
+      "meaning": ""
+    },
+    {
+      "word": "yawn",
+      "meaning": ""
+    },
+    {
+      "word": "yogurt",
+      "meaning": ""
+    },
+    {
+      "word": "yoyo",
+      "meaning": ""
+    },
+    {
+      "word": "yurt",
+      "meaning": ""
+    },
+    {
+      "word": "zebra",
+      "meaning": ""
+    },
+    {
+      "word": "zip",
+      "meaning": ""
+    },
+    {
+      "word": "zipper",
+      "meaning": ""
+    },
+    {
+      "word": "zoo",
+      "meaning": ""
+    }
   ],
   "medium": [
-    { "word": "strategy", "meaning": "A plan of action designed to achieve a long-term or overall aim." },
-    { "word": "logistics", "meaning": "The detailed coordination of a complex operation involving many people, facilities, or supplies." },
-    { "word": "infrastructure", "meaning": "The basic physical and organizational structures and facilities needed for the operation of a society or enterprise." },
-    { "word": "innovation", "meaning": "The action or process of innovating; a new method, idea, or product." },
-    { "word": "efficiency", "meaning": "The state or quality of being efficient; achieving maximum productivity with minimum wasted effort." },
-    { "word": "database", "meaning": "A structured set of data held in a computer, especially one that is accessible in various ways." },
-    { "word": "network", "meaning": "A group or system of interconnected people or things." },
-    { "word": "portfolio", "meaning": "A range of investments held by a person or organization, or a collection of works." },
-    { "word": "revenue", "meaning": "Income, especially when of a company or organization and of a substantial nature." },
-    { "word": "marketing", "meaning": "The action or business of promoting and selling products or services." },
-    { "word": "algorithm", "meaning": "A process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer." },
-    { "word": "synergy", "meaning": "The interaction or cooperation of two or more organizations, substances, or other agents to produce a combined effect greater than the sum of their separate effects." },
-    { "word": "quarterly", "meaning": "Produced or occurring once every quarter of a year." },
-    { "word": "bandwidth", "meaning": "The energy or mental capacity required to deal with a situation." },
-    { "word": "brainstorm", "meaning": "Produce an idea or way of solving a problem by holding a spontaneous group discussion." },
-    { "word": "camera", "meaning": "A device for recording visual images in the form of photographs, film, or video signals." },
-    { "word": "guitar", "meaning": "A stringed musical instrument with a fretted fingerboard, typically incurved sides, and six or twelve strings." },
-    { "word": "battery", "meaning": "A container consisting of one or more cells, in which chemical energy is converted into electricity and used as a source of power." },
-    { "word": "keyboard", "meaning": "A panel of keys that operate a computer or typewriter." },
-    { "word": "screen", "meaning": "A flat panel or area on an electronic device such as a television, computer, or smartphone, on which images and data are displayed." },
-    { "word": "scissors", "meaning": "An instrument used for cutting cloth, paper, and other thin material, consisting of two blades laid one on top of the other." },
-    { "word": "plastic", "meaning": "A synthetic material made from a wide range of organic polymers." },
-    { "word": "volcano", "meaning": "A mountain or hill, typically conical, having a crater or vent through which lava, rock fragments, hot vapor, and gas are being or have been erupted from the earth's crust." },
-    { "word": "ocean", "meaning": "A very large expanse of sea, in particular, each of the main areas into which the sea is divided geographically." },
-    { "word": "jungle", "meaning": "An area of land overgrown with dense forest and tangled vegetation, typically in the tropics." }
+    {
+      "word": "aardvark",
+      "meaning": ""
+    },
+    {
+      "word": "ability",
+      "meaning": ""
+    },
+    {
+      "word": "abstract",
+      "meaning": ""
+    },
+    {
+      "word": "acacia",
+      "meaning": ""
+    },
+    {
+      "word": "accept",
+      "meaning": ""
+    },
+    {
+      "word": "accuse",
+      "meaning": ""
+    },
+    {
+      "word": "acid",
+      "meaning": ""
+    },
+    {
+      "word": "acquire",
+      "meaning": ""
+    },
+    {
+      "word": "acrobat",
+      "meaning": ""
+    },
+    {
+      "word": "action",
+      "meaning": ""
+    },
+    {
+      "word": "actor",
+      "meaning": ""
+    },
+    {
+      "word": "actress",
+      "meaning": ""
+    },
+    {
+      "word": "admiral",
+      "meaning": ""
+    },
+    {
+      "word": "adore",
+      "meaning": ""
+    },
+    {
+      "word": "aeroplane",
+      "meaning": ""
+    },
+    {
+      "word": "again",
+      "meaning": ""
+    },
+    {
+      "word": "age",
+      "meaning": ""
+    },
+    {
+      "word": "agent",
+      "meaning": ""
+    },
+    {
+      "word": "airplane",
+      "meaning": ""
+    },
+    {
+      "word": "album",
+      "meaning": ""
+    },
+    {
+      "word": "alert",
+      "meaning": ""
+    },
+    {
+      "word": "allergy",
+      "meaning": ""
+    },
+    {
+      "word": "alligator",
+      "meaning": ""
+    },
+    {
+      "word": "alpaca",
+      "meaning": ""
+    },
+    {
+      "word": "alternator",
+      "meaning": ""
+    },
+    {
+      "word": "always",
+      "meaning": ""
+    },
+    {
+      "word": "amaze",
+      "meaning": ""
+    },
+    {
+      "word": "ambulance",
+      "meaning": ""
+    },
+    {
+      "word": "ancient",
+      "meaning": ""
+    },
+    {
+      "word": "anemone",
+      "meaning": ""
+    },
+    {
+      "word": "angelfish",
+      "meaning": ""
+    },
+    {
+      "word": "angry",
+      "meaning": ""
+    },
+    {
+      "word": "anime",
+      "meaning": ""
+    },
+    {
+      "word": "anteater",
+      "meaning": ""
+    },
+    {
+      "word": "antelope",
+      "meaning": ""
+    },
+    {
+      "word": "apartment",
+      "meaning": ""
+    },
+    {
+      "word": "apparel",
+      "meaning": ""
+    },
+    {
+      "word": "apricot",
+      "meaning": ""
+    },
+    {
+      "word": "april",
+      "meaning": ""
+    },
+    {
+      "word": "aquarium",
+      "meaning": ""
+    },
+    {
+      "word": "arcade",
+      "meaning": ""
+    },
+    {
+      "word": "archery",
+      "meaning": ""
+    },
+    {
+      "word": "arena",
+      "meaning": ""
+    },
+    {
+      "word": "armadillo",
+      "meaning": ""
+    },
+    {
+      "word": "armor",
+      "meaning": ""
+    },
+    {
+      "word": "arrange",
+      "meaning": ""
+    },
+    {
+      "word": "artery",
+      "meaning": ""
+    },
+    {
+      "word": "artichoke",
+      "meaning": ""
+    },
+    {
+      "word": "artist",
+      "meaning": ""
+    },
+    {
+      "word": "arugula",
+      "meaning": ""
+    },
+    {
+      "word": "asparagus",
+      "meaning": ""
+    },
+    {
+      "word": "assault",
+      "meaning": ""
+    },
+    {
+      "word": "athlete",
+      "meaning": ""
+    },
+    {
+      "word": "atom",
+      "meaning": ""
+    },
+    {
+      "word": "attack",
+      "meaning": ""
+    },
+    {
+      "word": "august",
+      "meaning": ""
+    },
+    {
+      "word": "aurora",
+      "meaning": ""
+    },
+    {
+      "word": "author",
+      "meaning": ""
+    },
+    {
+      "word": "autumn",
+      "meaning": ""
+    },
+    {
+      "word": "avatar",
+      "meaning": ""
+    },
+    {
+      "word": "avenue",
+      "meaning": ""
+    },
+    {
+      "word": "avocado",
+      "meaning": ""
+    },
+    {
+      "word": "awake",
+      "meaning": ""
+    },
+    {
+      "word": "backpack",
+      "meaning": ""
+    },
+    {
+      "word": "bacteria",
+      "meaning": ""
+    },
+    {
+      "word": "baffle",
+      "meaning": ""
+    },
+    {
+      "word": "bake",
+      "meaning": ""
+    },
+    {
+      "word": "baker",
+      "meaning": ""
+    },
+    {
+      "word": "bakery",
+      "meaning": ""
+    },
+    {
+      "word": "balcony",
+      "meaning": ""
+    },
+    {
+      "word": "ballet",
+      "meaning": ""
+    },
+    {
+      "word": "balloon",
+      "meaning": ""
+    },
+    {
+      "word": "banana",
+      "meaning": ""
+    },
+    {
+      "word": "bandana",
+      "meaning": ""
+    },
+    {
+      "word": "banknote",
+      "meaning": ""
+    },
+    {
+      "word": "barber",
+      "meaning": ""
+    },
+    {
+      "word": "barista",
+      "meaning": ""
+    },
+    {
+      "word": "barometer",
+      "meaning": ""
+    },
+    {
+      "word": "base",
+      "meaning": ""
+    },
+    {
+      "word": "basement",
+      "meaning": ""
+    },
+    {
+      "word": "bathrobe",
+      "meaning": ""
+    },
+    {
+      "word": "bathroom",
+      "meaning": ""
+    },
+    {
+      "word": "battery",
+      "meaning": ""
+    },
+    {
+      "word": "beaker",
+      "meaning": ""
+    },
+    {
+      "word": "begin",
+      "meaning": ""
+    },
+    {
+      "word": "bicycle",
+      "meaning": ""
+    },
+    {
+      "word": "bikini",
+      "meaning": ""
+    },
+    {
+      "word": "billboard",
+      "meaning": ""
+    },
+    {
+      "word": "billiards",
+      "meaning": ""
+    },
+    {
+      "word": "binoculars",
+      "meaning": ""
+    },
+    {
+      "word": "biome",
+      "meaning": ""
+    },
+    {
+      "word": "bird",
+      "meaning": ""
+    },
+    {
+      "word": "bishop",
+      "meaning": ""
+    },
+    {
+      "word": "bitter",
+      "meaning": ""
+    },
+    {
+      "word": "black bear",
+      "meaning": ""
+    },
+    {
+      "word": "blackberry",
+      "meaning": ""
+    },
+    {
+      "word": "blacksmith",
+      "meaning": ""
+    },
+    {
+      "word": "blame",
+      "meaning": ""
+    },
+    {
+      "word": "blink",
+      "meaning": ""
+    },
+    {
+      "word": "block",
+      "meaning": ""
+    },
+    {
+      "word": "blood test",
+      "meaning": ""
+    },
+    {
+      "word": "blueberry",
+      "meaning": ""
+    },
+    {
+      "word": "blush",
+      "meaning": ""
+    },
+    {
+      "word": "board game",
+      "meaning": ""
+    },
+    {
+      "word": "boil",
+      "meaning": ""
+    },
+    {
+      "word": "bold",
+      "meaning": ""
+    },
+    {
+      "word": "bookcase",
+      "meaning": ""
+    },
+    {
+      "word": "bored",
+      "meaning": ""
+    },
+    {
+      "word": "boulevard",
+      "meaning": ""
+    },
+    {
+      "word": "bounce",
+      "meaning": ""
+    },
+    {
+      "word": "bound",
+      "meaning": ""
+    },
+    {
+      "word": "boutique",
+      "meaning": ""
+    },
+    {
+      "word": "bracelet",
+      "meaning": ""
+    },
+    {
+      "word": "brave",
+      "meaning": ""
+    },
+    {
+      "word": "break",
+      "meaning": ""
+    },
+    {
+      "word": "breathe",
+      "meaning": ""
+    },
+    {
+      "word": "brief",
+      "meaning": ""
+    },
+    {
+      "word": "briefcase",
+      "meaning": ""
+    },
+    {
+      "word": "bring",
+      "meaning": ""
+    },
+    {
+      "word": "broadcast",
+      "meaning": ""
+    },
+    {
+      "word": "broccoli",
+      "meaning": ""
+    },
+    {
+      "word": "brochure",
+      "meaning": ""
+    },
+    {
+      "word": "brown bear",
+      "meaning": ""
+    },
+    {
+      "word": "bubble",
+      "meaning": ""
+    },
+    {
+      "word": "buffalo",
+      "meaning": ""
+    },
+    {
+      "word": "builder",
+      "meaning": ""
+    },
+    {
+      "word": "building",
+      "meaning": ""
+    },
+    {
+      "word": "bulldozer",
+      "meaning": ""
+    },
+    {
+      "word": "burette",
+      "meaning": ""
+    },
+    {
+      "word": "burglar",
+      "meaning": ""
+    },
+    {
+      "word": "burrito",
+      "meaning": ""
+    },
+    {
+      "word": "business",
+      "meaning": ""
+    },
+    {
+      "word": "butterfly",
+      "meaning": ""
+    },
+    {
+      "word": "cabinet",
+      "meaning": ""
+    },
+    {
+      "word": "cable car",
+      "meaning": ""
+    },
+    {
+      "word": "calculator",
+      "meaning": ""
+    },
+    {
+      "word": "calendar",
+      "meaning": ""
+    },
+    {
+      "word": "caliper",
+      "meaning": ""
+    },
+    {
+      "word": "calm",
+      "meaning": ""
+    },
+    {
+      "word": "camera",
+      "meaning": ""
+    },
+    {
+      "word": "camisole",
+      "meaning": ""
+    },
+    {
+      "word": "camshaft",
+      "meaning": ""
+    },
+    {
+      "word": "cantaloupe",
+      "meaning": ""
+    },
+    {
+      "word": "capital",
+      "meaning": ""
+    },
+    {
+      "word": "cappuccino",
+      "meaning": ""
+    },
+    {
+      "word": "capsule",
+      "meaning": ""
+    },
+    {
+      "word": "captain",
+      "meaning": ""
+    },
+    {
+      "word": "capture",
+      "meaning": ""
+    },
+    {
+      "word": "capybara",
+      "meaning": ""
+    },
+    {
+      "word": "caramel",
+      "meaning": ""
+    },
+    {
+      "word": "caravan",
+      "meaning": ""
+    },
+    {
+      "word": "card game",
+      "meaning": ""
+    },
+    {
+      "word": "cardigan",
+      "meaning": ""
+    },
+    {
+      "word": "cargo ship",
+      "meaning": ""
+    },
+    {
+      "word": "caribou",
+      "meaning": ""
+    },
+    {
+      "word": "carriage",
+      "meaning": ""
+    },
+    {
+      "word": "carry",
+      "meaning": ""
+    },
+    {
+      "word": "cartoon",
+      "meaning": ""
+    },
+    {
+      "word": "carve",
+      "meaning": ""
+    },
+    {
+      "word": "cashier",
+      "meaning": ""
+    },
+    {
+      "word": "cashmere",
+      "meaning": ""
+    },
+    {
+      "word": "cassette",
+      "meaning": ""
+    },
+    {
+      "word": "catch",
+      "meaning": ""
+    },
+    {
+      "word": "cathedral",
+      "meaning": ""
+    },
+    {
+      "word": "cauldron",
+      "meaning": ""
+    },
+    {
+      "word": "celery",
+      "meaning": ""
+    },
+    {
+      "word": "cell",
+      "meaning": ""
+    },
+    {
+      "word": "cello",
+      "meaning": ""
+    },
+    {
+      "word": "cellphone",
+      "meaning": ""
+    },
+    {
+      "word": "cemetery",
+      "meaning": ""
+    },
+    {
+      "word": "centipede",
+      "meaning": ""
+    },
+    {
+      "word": "chainsaw",
+      "meaning": ""
+    },
+    {
+      "word": "chameleon",
+      "meaning": ""
+    },
+    {
+      "word": "champagne",
+      "meaning": ""
+    },
+    {
+      "word": "champion",
+      "meaning": ""
+    },
+    {
+      "word": "chandelier",
+      "meaning": ""
+    },
+    {
+      "word": "channel",
+      "meaning": ""
+    },
+    {
+      "word": "chase",
+      "meaning": ""
+    },
+    {
+      "word": "checkers",
+      "meaning": ""
+    },
+    {
+      "word": "chestnut",
+      "meaning": ""
+    },
+    {
+      "word": "chickpea",
+      "meaning": ""
+    },
+    {
+      "word": "chill",
+      "meaning": ""
+    },
+    {
+      "word": "chimpanzee",
+      "meaning": ""
+    },
+    {
+      "word": "chinchilla",
+      "meaning": ""
+    },
+    {
+      "word": "chip",
+      "meaning": ""
+    },
+    {
+      "word": "chocolate",
+      "meaning": ""
+    },
+    {
+      "word": "choir",
+      "meaning": ""
+    },
+    {
+      "word": "choke",
+      "meaning": ""
+    },
+    {
+      "word": "chord",
+      "meaning": ""
+    },
+    {
+      "word": "chuck",
+      "meaning": ""
+    },
+    {
+      "word": "cilantro",
+      "meaning": ""
+    },
+    {
+      "word": "cinema",
+      "meaning": ""
+    },
+    {
+      "word": "cinnamon",
+      "meaning": ""
+    },
+    {
+      "word": "circuit",
+      "meaning": ""
+    },
+    {
+      "word": "circus",
+      "meaning": ""
+    },
+    {
+      "word": "class",
+      "meaning": ""
+    },
+    {
+      "word": "classroom",
+      "meaning": ""
+    },
+    {
+      "word": "cleaner",
+      "meaning": ""
+    },
+    {
+      "word": "clementine",
+      "meaning": ""
+    },
+    {
+      "word": "clerk",
+      "meaning": ""
+    },
+    {
+      "word": "climb",
+      "meaning": ""
+    },
+    {
+      "word": "clothing",
+      "meaning": ""
+    },
+    {
+      "word": "clown",
+      "meaning": ""
+    },
+    {
+      "word": "clownfish",
+      "meaning": ""
+    },
+    {
+      "word": "clutch",
+      "meaning": ""
+    },
+    {
+      "word": "coach",
+      "meaning": ""
+    },
+    {
+      "word": "cobbler",
+      "meaning": ""
+    },
+    {
+      "word": "cockroach",
+      "meaning": ""
+    },
+    {
+      "word": "cocktail",
+      "meaning": ""
+    },
+    {
+      "word": "coconut",
+      "meaning": ""
+    },
+    {
+      "word": "colander",
+      "meaning": ""
+    },
+    {
+      "word": "comedy",
+      "meaning": ""
+    },
+    {
+      "word": "comic",
+      "meaning": ""
+    },
+    {
+      "word": "compound",
+      "meaning": ""
+    },
+    {
+      "word": "computer",
+      "meaning": ""
+    },
+    {
+      "word": "concert",
+      "meaning": ""
+    },
+    {
+      "word": "conflict",
+      "meaning": ""
+    },
+    {
+      "word": "confuse",
+      "meaning": ""
+    },
+    {
+      "word": "console",
+      "meaning": ""
+    },
+    {
+      "word": "content",
+      "meaning": ""
+    },
+    {
+      "word": "continent",
+      "meaning": ""
+    },
+    {
+      "word": "cool",
+      "meaning": ""
+    },
+    {
+      "word": "corduroy",
+      "meaning": ""
+    },
+    {
+      "word": "corridor",
+      "meaning": ""
+    },
+    {
+      "word": "courage",
+      "meaning": ""
+    },
+    {
+      "word": "couscous",
+      "meaning": ""
+    },
+    {
+      "word": "coward",
+      "meaning": ""
+    },
+    {
+      "word": "cowboy hat",
+      "meaning": ""
+    },
+    {
+      "word": "crack",
+      "meaning": ""
+    },
+    {
+      "word": "cranberry",
+      "meaning": ""
+    },
+    {
+      "word": "crankshaft",
+      "meaning": ""
+    },
+    {
+      "word": "crawl",
+      "meaning": ""
+    },
+    {
+      "word": "creativity",
+      "meaning": ""
+    },
+    {
+      "word": "creep",
+      "meaning": ""
+    },
+    {
+      "word": "crocodile",
+      "meaning": ""
+    },
+    {
+      "word": "croissant",
+      "meaning": ""
+    },
+    {
+      "word": "crosswalk",
+      "meaning": ""
+    },
+    {
+      "word": "crossword",
+      "meaning": ""
+    },
+    {
+      "word": "cruel",
+      "meaning": ""
+    },
+    {
+      "word": "crush",
+      "meaning": ""
+    },
+    {
+      "word": "cry",
+      "meaning": ""
+    },
+    {
+      "word": "cucumber",
+      "meaning": ""
+    },
+    {
+      "word": "cuddle",
+      "meaning": ""
+    },
+    {
+      "word": "cufflink",
+      "meaning": ""
+    },
+    {
+      "word": "cupboard",
+      "meaning": ""
+    },
+    {
+      "word": "currency",
+      "meaning": ""
+    },
+    {
+      "word": "current",
+      "meaning": ""
+    },
+    {
+      "word": "cuttlefish",
+      "meaning": ""
+    },
+    {
+      "word": "cyclist",
+      "meaning": ""
+    },
+    {
+      "word": "cylinder",
+      "meaning": ""
+    },
+    {
+      "word": "cymbal",
+      "meaning": ""
+    },
+    {
+      "word": "daiquiri",
+      "meaning": ""
+    },
+    {
+      "word": "dance",
+      "meaning": ""
+    },
+    {
+      "word": "dancer",
+      "meaning": ""
+    },
+    {
+      "word": "dashboard",
+      "meaning": ""
+    },
+    {
+      "word": "dawn",
+      "meaning": ""
+    },
+    {
+      "word": "day",
+      "meaning": ""
+    },
+    {
+      "word": "debit card",
+      "meaning": ""
+    },
+    {
+      "word": "decade",
+      "meaning": ""
+    },
+    {
+      "word": "defend",
+      "meaning": ""
+    },
+    {
+      "word": "delay",
+      "meaning": ""
+    },
+    {
+      "word": "deliver",
+      "meaning": ""
+    },
+    {
+      "word": "density",
+      "meaning": ""
+    },
+    {
+      "word": "descend",
+      "meaning": ""
+    },
+    {
+      "word": "desire",
+      "meaning": ""
+    },
+    {
+      "word": "despair",
+      "meaning": ""
+    },
+    {
+      "word": "despise",
+      "meaning": ""
+    },
+    {
+      "word": "dictionary",
+      "meaning": ""
+    },
+    {
+      "word": "dimension",
+      "meaning": ""
+    },
+    {
+      "word": "diode",
+      "meaning": ""
+    },
+    {
+      "word": "diploma",
+      "meaning": ""
+    },
+    {
+      "word": "disabled",
+      "meaning": ""
+    },
+    {
+      "word": "disc golf",
+      "meaning": ""
+    },
+    {
+      "word": "disguise",
+      "meaning": ""
+    },
+    {
+      "word": "dishwasher",
+      "meaning": ""
+    },
+    {
+      "word": "dislike",
+      "meaning": ""
+    },
+    {
+      "word": "dispense",
+      "meaning": ""
+    },
+    {
+      "word": "dizzy",
+      "meaning": ""
+    },
+    {
+      "word": "dna",
+      "meaning": ""
+    },
+    {
+      "word": "domain",
+      "meaning": ""
+    },
+    {
+      "word": "double",
+      "meaning": ""
+    },
+    {
+      "word": "drama",
+      "meaning": ""
+    },
+    {
+      "word": "dressing",
+      "meaning": ""
+    },
+    {
+      "word": "drift",
+      "meaning": ""
+    },
+    {
+      "word": "drive",
+      "meaning": ""
+    },
+    {
+      "word": "driver",
+      "meaning": ""
+    },
+    {
+      "word": "driveway",
+      "meaning": ""
+    },
+    {
+      "word": "drown",
+      "meaning": ""
+    },
+    {
+      "word": "drowsy",
+      "meaning": ""
+    },
+    {
+      "word": "duchess",
+      "meaning": ""
+    },
+    {
+      "word": "dump truck",
+      "meaning": ""
+    },
+    {
+      "word": "dumpling",
+      "meaning": ""
+    },
+    {
+      "word": "dusk",
+      "meaning": ""
+    },
+    {
+      "word": "eager",
+      "meaning": ""
+    },
+    {
+      "word": "early",
+      "meaning": ""
+    },
+    {
+      "word": "earphone",
+      "meaning": ""
+    },
+    {
+      "word": "earthquake",
+      "meaning": ""
+    },
+    {
+      "word": "ebony",
+      "meaning": ""
+    },
+    {
+      "word": "echidna",
+      "meaning": ""
+    },
+    {
+      "word": "ecology",
+      "meaning": ""
+    },
+    {
+      "word": "economy",
+      "meaning": ""
+    },
+    {
+      "word": "editor",
+      "meaning": ""
+    },
+    {
+      "word": "egg roll",
+      "meaning": ""
+    },
+    {
+      "word": "eggplant",
+      "meaning": ""
+    },
+    {
+      "word": "element",
+      "meaning": ""
+    },
+    {
+      "word": "elephant",
+      "meaning": ""
+    },
+    {
+      "word": "elevator",
+      "meaning": ""
+    },
+    {
+      "word": "embrace",
+      "meaning": ""
+    },
+    {
+      "word": "emperor",
+      "meaning": ""
+    },
+    {
+      "word": "empress",
+      "meaning": ""
+    },
+    {
+      "word": "enchilada",
+      "meaning": ""
+    },
+    {
+      "word": "end",
+      "meaning": ""
+    },
+    {
+      "word": "endless",
+      "meaning": ""
+    },
+    {
+      "word": "enemy",
+      "meaning": ""
+    },
+    {
+      "word": "energy",
+      "meaning": ""
+    },
+    {
+      "word": "envelope",
+      "meaning": ""
+    },
+    {
+      "word": "envy",
+      "meaning": ""
+    },
+    {
+      "word": "enzyme",
+      "meaning": ""
+    },
+    {
+      "word": "episode",
+      "meaning": ""
+    },
+    {
+      "word": "epoch",
+      "meaning": ""
+    },
+    {
+      "word": "equator",
+      "meaning": ""
+    },
+    {
+      "word": "era",
+      "meaning": ""
+    },
+    {
+      "word": "eraser",
+      "meaning": ""
+    },
+    {
+      "word": "escalator",
+      "meaning": ""
+    },
+    {
+      "word": "espresso",
+      "meaning": ""
+    },
+    {
+      "word": "evolution",
+      "meaning": ""
+    },
+    {
+      "word": "excavator",
+      "meaning": ""
+    },
+    {
+      "word": "excuse",
+      "meaning": ""
+    },
+    {
+      "word": "exhaustion",
+      "meaning": ""
+    },
+    {
+      "word": "eyebrow",
+      "meaning": ""
+    },
+    {
+      "word": "eyelash",
+      "meaning": ""
+    },
+    {
+      "word": "faint",
+      "meaning": ""
+    },
+    {
+      "word": "fantasy",
+      "meaning": ""
+    },
+    {
+      "word": "farmer",
+      "meaning": ""
+    },
+    {
+      "word": "fast",
+      "meaning": ""
+    },
+    {
+      "word": "fasten",
+      "meaning": ""
+    },
+    {
+      "word": "fat",
+      "meaning": ""
+    },
+    {
+      "word": "fatigue",
+      "meaning": ""
+    },
+    {
+      "word": "fear",
+      "meaning": ""
+    },
+    {
+      "word": "fedora",
+      "meaning": ""
+    },
+    {
+      "word": "fetch",
+      "meaning": ""
+    },
+    {
+      "word": "filter",
+      "meaning": ""
+    },
+    {
+      "word": "finish",
+      "meaning": ""
+    },
+    {
+      "word": "fire truck",
+      "meaning": ""
+    },
+    {
+      "word": "firefly",
+      "meaning": ""
+    },
+    {
+      "word": "fireplace",
+      "meaning": ""
+    },
+    {
+      "word": "flamingo",
+      "meaning": ""
+    },
+    {
+      "word": "flashlight",
+      "meaning": ""
+    },
+    {
+      "word": "fling",
+      "meaning": ""
+    },
+    {
+      "word": "float",
+      "meaning": ""
+    },
+    {
+      "word": "florist",
+      "meaning": ""
+    },
+    {
+      "word": "flowerpot",
+      "meaning": ""
+    },
+    {
+      "word": "flush",
+      "meaning": ""
+    },
+    {
+      "word": "flute",
+      "meaning": ""
+    },
+    {
+      "word": "follow",
+      "meaning": ""
+    },
+    {
+      "word": "fond",
+      "meaning": ""
+    },
+    {
+      "word": "football",
+      "meaning": ""
+    },
+    {
+      "word": "forehead",
+      "meaning": ""
+    },
+    {
+      "word": "forgive",
+      "meaning": ""
+    },
+    {
+      "word": "forklift",
+      "meaning": ""
+    },
+    {
+      "word": "fortress",
+      "meaning": ""
+    },
+    {
+      "word": "free throw",
+      "meaning": ""
+    },
+    {
+      "word": "freeze",
+      "meaning": ""
+    },
+    {
+      "word": "friction",
+      "meaning": ""
+    },
+    {
+      "word": "friday",
+      "meaning": ""
+    },
+    {
+      "word": "front",
+      "meaning": ""
+    },
+    {
+      "word": "frown",
+      "meaning": ""
+    },
+    {
+      "word": "fry",
+      "meaning": ""
+    },
+    {
+      "word": "fuel gauge",
+      "meaning": ""
+    },
+    {
+      "word": "fury",
+      "meaning": ""
+    },
+    {
+      "word": "galaxy",
+      "meaning": ""
+    },
+    {
+      "word": "gallery",
+      "meaning": ""
+    },
+    {
+      "word": "gasp",
+      "meaning": ""
+    },
+    {
+      "word": "gazelle",
+      "meaning": ""
+    },
+    {
+      "word": "gelato",
+      "meaning": ""
+    },
+    {
+      "word": "gene",
+      "meaning": ""
+    },
+    {
+      "word": "general",
+      "meaning": ""
+    },
+    {
+      "word": "genus",
+      "meaning": ""
+    },
+    {
+      "word": "glad",
+      "meaning": ""
+    },
+    {
+      "word": "glare",
+      "meaning": ""
+    },
+    {
+      "word": "glide",
+      "meaning": ""
+    },
+    {
+      "word": "goldfish",
+      "meaning": ""
+    },
+    {
+      "word": "goldsmith",
+      "meaning": ""
+    },
+    {
+      "word": "gorilla",
+      "meaning": ""
+    },
+    {
+      "word": "grapefruit",
+      "meaning": ""
+    },
+    {
+      "word": "graphic",
+      "meaning": ""
+    },
+    {
+      "word": "grasp",
+      "meaning": ""
+    },
+    {
+      "word": "graveyard",
+      "meaning": ""
+    },
+    {
+      "word": "gravity",
+      "meaning": ""
+    },
+    {
+      "word": "greed",
+      "meaning": ""
+    },
+    {
+      "word": "greenhouse",
+      "meaning": ""
+    },
+    {
+      "word": "grief",
+      "meaning": ""
+    },
+    {
+      "word": "grill",
+      "meaning": ""
+    },
+    {
+      "word": "groan",
+      "meaning": ""
+    },
+    {
+      "word": "grocery",
+      "meaning": ""
+    },
+    {
+      "word": "group",
+      "meaning": ""
+    },
+    {
+      "word": "guacamole",
+      "meaning": ""
+    },
+    {
+      "word": "guard",
+      "meaning": ""
+    },
+    {
+      "word": "guide",
+      "meaning": ""
+    },
+    {
+      "word": "guilt",
+      "meaning": ""
+    },
+    {
+      "word": "guinea pig",
+      "meaning": ""
+    },
+    {
+      "word": "guitar",
+      "meaning": ""
+    },
+    {
+      "word": "gymnast",
+      "meaning": ""
+    },
+    {
+      "word": "half",
+      "meaning": ""
+    },
+    {
+      "word": "halt",
+      "meaning": ""
+    },
+    {
+      "word": "handball",
+      "meaning": ""
+    },
+    {
+      "word": "handlebar",
+      "meaning": ""
+    },
+    {
+      "word": "happy",
+      "meaning": ""
+    },
+    {
+      "word": "harmony",
+      "meaning": ""
+    },
+    {
+      "word": "harvester",
+      "meaning": ""
+    },
+    {
+      "word": "hate",
+      "meaning": ""
+    },
+    {
+      "word": "hazelnut",
+      "meaning": ""
+    },
+    {
+      "word": "headband",
+      "meaning": ""
+    },
+    {
+      "word": "headlight",
+      "meaning": ""
+    },
+    {
+      "word": "headphone",
+      "meaning": ""
+    },
+    {
+      "word": "heat",
+      "meaning": ""
+    },
+    {
+      "word": "heave",
+      "meaning": ""
+    },
+    {
+      "word": "hedgehog",
+      "meaning": ""
+    },
+    {
+      "word": "helicopter",
+      "meaning": ""
+    },
+    {
+      "word": "hemisphere",
+      "meaning": ""
+    },
+    {
+      "word": "history",
+      "meaning": ""
+    },
+    {
+      "word": "hoist",
+      "meaning": ""
+    },
+    {
+      "word": "honeydew",
+      "meaning": ""
+    },
+    {
+      "word": "hope",
+      "meaning": ""
+    },
+    {
+      "word": "hopscotch",
+      "meaning": ""
+    },
+    {
+      "word": "horror",
+      "meaning": ""
+    },
+    {
+      "word": "hospital",
+      "meaning": ""
+    },
+    {
+      "word": "host",
+      "meaning": ""
+    },
+    {
+      "word": "hour",
+      "meaning": ""
+    },
+    {
+      "word": "hover",
+      "meaning": ""
+    },
+    {
+      "word": "hoverboard",
+      "meaning": ""
+    },
+    {
+      "word": "hovercraft",
+      "meaning": ""
+    },
+    {
+      "word": "hunter",
+      "meaning": ""
+    },
+    {
+      "word": "hurry",
+      "meaning": ""
+    },
+    {
+      "word": "hurt",
+      "meaning": ""
+    },
+    {
+      "word": "ice cream",
+      "meaning": ""
+    },
+    {
+      "word": "iceberg",
+      "meaning": ""
+    },
+    {
+      "word": "iguana",
+      "meaning": ""
+    },
+    {
+      "word": "ill",
+      "meaning": ""
+    },
+    {
+      "word": "indicator",
+      "meaning": ""
+    },
+    {
+      "word": "industry",
+      "meaning": ""
+    },
+    {
+      "word": "inertia",
+      "meaning": ""
+    },
+    {
+      "word": "infection",
+      "meaning": ""
+    },
+    {
+      "word": "injection",
+      "meaning": ""
+    },
+    {
+      "word": "injury",
+      "meaning": ""
+    },
+    {
+      "word": "inmate",
+      "meaning": ""
+    },
+    {
+      "word": "insect",
+      "meaning": ""
+    },
+    {
+      "word": "instant",
+      "meaning": ""
+    },
+    {
+      "word": "internet",
+      "meaning": ""
+    },
+    {
+      "word": "jackhammer",
+      "meaning": ""
+    },
+    {
+      "word": "jailer",
+      "meaning": ""
+    },
+    {
+      "word": "jalapeno",
+      "meaning": ""
+    },
+    {
+      "word": "janitor",
+      "meaning": ""
+    },
+    {
+      "word": "jealous",
+      "meaning": ""
+    },
+    {
+      "word": "jellyfish",
+      "meaning": ""
+    },
+    {
+      "word": "jester",
+      "meaning": ""
+    },
+    {
+      "word": "jewelry",
+      "meaning": ""
+    },
+    {
+      "word": "joy",
+      "meaning": ""
+    },
+    {
+      "word": "joystick",
+      "meaning": ""
+    },
+    {
+      "word": "judge",
+      "meaning": ""
+    },
+    {
+      "word": "juggler",
+      "meaning": ""
+    },
+    {
+      "word": "july",
+      "meaning": ""
+    },
+    {
+      "word": "jump rope",
+      "meaning": ""
+    },
+    {
+      "word": "june",
+      "meaning": ""
+    },
+    {
+      "word": "kangaroo",
+      "meaning": ""
+    },
+    {
+      "word": "keen",
+      "meaning": ""
+    },
+    {
+      "word": "keyboard",
+      "meaning": ""
+    },
+    {
+      "word": "kickball",
+      "meaning": ""
+    },
+    {
+      "word": "kind",
+      "meaning": ""
+    },
+    {
+      "word": "kingdom",
+      "meaning": ""
+    },
+    {
+      "word": "knight",
+      "meaning": ""
+    },
+    {
+      "word": "knowledge",
+      "meaning": ""
+    },
+    {
+      "word": "koala bear",
+      "meaning": ""
+    },
+    {
+      "word": "lacrosse",
+      "meaning": ""
+    },
+    {
+      "word": "ladybug",
+      "meaning": ""
+    },
+    {
+      "word": "language",
+      "meaning": ""
+    },
+    {
+      "word": "laser",
+      "meaning": ""
+    },
+    {
+      "word": "lasso",
+      "meaning": ""
+    },
+    {
+      "word": "late",
+      "meaning": ""
+    },
+    {
+      "word": "later",
+      "meaning": ""
+    },
+    {
+      "word": "latitude",
+      "meaning": ""
+    },
+    {
+      "word": "laugh",
+      "meaning": ""
+    },
+    {
+      "word": "lawyer",
+      "meaning": ""
+    },
+    {
+      "word": "leggings",
+      "meaning": ""
+    },
+    {
+      "word": "lemonade",
+      "meaning": ""
+    },
+    {
+      "word": "level",
+      "meaning": ""
+    },
+    {
+      "word": "library",
+      "meaning": ""
+    },
+    {
+      "word": "lightning",
+      "meaning": ""
+    },
+    {
+      "word": "like",
+      "meaning": ""
+    },
+    {
+      "word": "limousine",
+      "meaning": ""
+    },
+    {
+      "word": "lingerie",
+      "meaning": ""
+    },
+    {
+      "word": "lipid",
+      "meaning": ""
+    },
+    {
+      "word": "liqueur",
+      "meaning": ""
+    },
+    {
+      "word": "locate",
+      "meaning": ""
+    },
+    {
+      "word": "locomotive",
+      "meaning": ""
+    },
+    {
+      "word": "logger",
+      "meaning": ""
+    },
+    {
+      "word": "lollipop",
+      "meaning": ""
+    },
+    {
+      "word": "long",
+      "meaning": ""
+    },
+    {
+      "word": "longitude",
+      "meaning": ""
+    },
+    {
+      "word": "love",
+      "meaning": ""
+    },
+    {
+      "word": "lower",
+      "meaning": ""
+    },
+    {
+      "word": "lust",
+      "meaning": ""
+    },
+    {
+      "word": "macadamia",
+      "meaning": ""
+    },
+    {
+      "word": "macaque",
+      "meaning": ""
+    },
+    {
+      "word": "macaroni",
+      "meaning": ""
+    },
+    {
+      "word": "macchiato",
+      "meaning": ""
+    },
+    {
+      "word": "mad",
+      "meaning": ""
+    },
+    {
+      "word": "magazine",
+      "meaning": ""
+    },
+    {
+      "word": "magic",
+      "meaning": ""
+    },
+    {
+      "word": "magnet",
+      "meaning": ""
+    },
+    {
+      "word": "mammal",
+      "meaning": ""
+    },
+    {
+      "word": "manager",
+      "meaning": ""
+    },
+    {
+      "word": "mandarin",
+      "meaning": ""
+    },
+    {
+      "word": "mandrill",
+      "meaning": ""
+    },
+    {
+      "word": "manga",
+      "meaning": ""
+    },
+    {
+      "word": "mangrove",
+      "meaning": ""
+    },
+    {
+      "word": "marbles",
+      "meaning": ""
+    },
+    {
+      "word": "march",
+      "meaning": ""
+    },
+    {
+      "word": "margarita",
+      "meaning": ""
+    },
+    {
+      "word": "marmalade",
+      "meaning": ""
+    },
+    {
+      "word": "martini",
+      "meaning": ""
+    },
+    {
+      "word": "mason",
+      "meaning": ""
+    },
+    {
+      "word": "masseuse",
+      "meaning": ""
+    },
+    {
+      "word": "material",
+      "meaning": ""
+    },
+    {
+      "word": "mattress",
+      "meaning": ""
+    },
+    {
+      "word": "may",
+      "meaning": ""
+    },
+    {
+      "word": "mayonnaise",
+      "meaning": ""
+    },
+    {
+      "word": "mayor",
+      "meaning": ""
+    },
+    {
+      "word": "mean",
+      "meaning": ""
+    },
+    {
+      "word": "medicine",
+      "meaning": ""
+    },
+    {
+      "word": "meeting",
+      "meaning": ""
+    },
+    {
+      "word": "melody",
+      "meaning": ""
+    },
+    {
+      "word": "melt",
+      "meaning": ""
+    },
+    {
+      "word": "memory",
+      "meaning": ""
+    },
+    {
+      "word": "microphone",
+      "meaning": ""
+    },
+    {
+      "word": "microscope",
+      "meaning": ""
+    },
+    {
+      "word": "microwave",
+      "meaning": ""
+    },
+    {
+      "word": "midday",
+      "meaning": ""
+    },
+    {
+      "word": "milkshake",
+      "meaning": ""
+    },
+    {
+      "word": "millipede",
+      "meaning": ""
+    },
+    {
+      "word": "mince",
+      "meaning": ""
+    },
+    {
+      "word": "miner",
+      "meaning": ""
+    },
+    {
+      "word": "minivan",
+      "meaning": ""
+    },
+    {
+      "word": "minute",
+      "meaning": ""
+    },
+    {
+      "word": "mission",
+      "meaning": ""
+    },
+    {
+      "word": "moan",
+      "meaning": ""
+    },
+    {
+      "word": "moccasin",
+      "meaning": ""
+    },
+    {
+      "word": "modern",
+      "meaning": ""
+    },
+    {
+      "word": "mojito",
+      "meaning": ""
+    },
+    {
+      "word": "mollusk",
+      "meaning": ""
+    },
+    {
+      "word": "moment",
+      "meaning": ""
+    },
+    {
+      "word": "monday",
+      "meaning": ""
+    },
+    {
+      "word": "mongoose",
+      "meaning": ""
+    },
+    {
+      "word": "monitor",
+      "meaning": ""
+    },
+    {
+      "word": "monocle",
+      "meaning": ""
+    },
+    {
+      "word": "monorail",
+      "meaning": ""
+    },
+    {
+      "word": "month",
+      "meaning": ""
+    },
+    {
+      "word": "monument",
+      "meaning": ""
+    },
+    {
+      "word": "morning",
+      "meaning": ""
+    },
+    {
+      "word": "mortar",
+      "meaning": ""
+    },
+    {
+      "word": "mosquito",
+      "meaning": ""
+    },
+    {
+      "word": "motorbike",
+      "meaning": ""
+    },
+    {
+      "word": "motorboat",
+      "meaning": ""
+    },
+    {
+      "word": "motorcycle",
+      "meaning": ""
+    },
+    {
+      "word": "motorhome",
+      "meaning": ""
+    },
+    {
+      "word": "motorway",
+      "meaning": ""
+    },
+    {
+      "word": "mount",
+      "meaning": ""
+    },
+    {
+      "word": "mountain",
+      "meaning": ""
+    },
+    {
+      "word": "movie",
+      "meaning": ""
+    },
+    {
+      "word": "mushroom",
+      "meaning": ""
+    },
+    {
+      "word": "musical",
+      "meaning": ""
+    },
+    {
+      "word": "mustache",
+      "meaning": ""
+    },
+    {
+      "word": "nasty",
+      "meaning": ""
+    },
+    {
+      "word": "nausea",
+      "meaning": ""
+    },
+    {
+      "word": "nautilus",
+      "meaning": ""
+    },
+    {
+      "word": "necklace",
+      "meaning": ""
+    },
+    {
+      "word": "nectarine",
+      "meaning": ""
+    },
+    {
+      "word": "nervous",
+      "meaning": ""
+    },
+    {
+      "word": "never",
+      "meaning": ""
+    },
+    {
+      "word": "new",
+      "meaning": ""
+    },
+    {
+      "word": "newspaper",
+      "meaning": ""
+    },
+    {
+      "word": "nice",
+      "meaning": ""
+    },
+    {
+      "word": "niche",
+      "meaning": ""
+    },
+    {
+      "word": "night",
+      "meaning": ""
+    },
+    {
+      "word": "nightgown",
+      "meaning": ""
+    },
+    {
+      "word": "nod",
+      "meaning": ""
+    },
+    {
+      "word": "noon",
+      "meaning": ""
+    },
+    {
+      "word": "nosy",
+      "meaning": ""
+    },
+    {
+      "word": "notebook",
+      "meaning": ""
+    },
+    {
+      "word": "notepad",
+      "meaning": ""
+    },
+    {
+      "word": "novel",
+      "meaning": ""
+    },
+    {
+      "word": "now",
+      "meaning": ""
+    },
+    {
+      "word": "nuclear",
+      "meaning": ""
+    },
+    {
+      "word": "nucleus",
+      "meaning": ""
+    },
+    {
+      "word": "numb",
+      "meaning": ""
+    },
+    {
+      "word": "obtain",
+      "meaning": ""
+    },
+    {
+      "word": "octopus",
+      "meaning": ""
+    },
+    {
+      "word": "odometer",
+      "meaning": ""
+    },
+    {
+      "word": "officer",
+      "meaning": ""
+    },
+    {
+      "word": "often",
+      "meaning": ""
+    },
+    {
+      "word": "old",
+      "meaning": ""
+    },
+    {
+      "word": "once",
+      "meaning": ""
+    },
+    {
+      "word": "opera",
+      "meaning": ""
+    },
+    {
+      "word": "operation",
+      "meaning": ""
+    },
+    {
+      "word": "orangutan",
+      "meaning": ""
+    },
+    {
+      "word": "oregano",
+      "meaning": ""
+    },
+    {
+      "word": "overcoat",
+      "meaning": ""
+    },
+    {
+      "word": "pace",
+      "meaning": ""
+    },
+    {
+      "word": "paddle",
+      "meaning": ""
+    },
+    {
+      "word": "painter",
+      "meaning": ""
+    },
+    {
+      "word": "painting",
+      "meaning": ""
+    },
+    {
+      "word": "pajamas",
+      "meaning": ""
+    },
+    {
+      "word": "pale",
+      "meaning": ""
+    },
+    {
+      "word": "pamphlet",
+      "meaning": ""
+    },
+    {
+      "word": "pangolin",
+      "meaning": ""
+    },
+    {
+      "word": "panic",
+      "meaning": ""
+    },
+    {
+      "word": "pant",
+      "meaning": ""
+    },
+    {
+      "word": "papaya",
+      "meaning": ""
+    },
+    {
+      "word": "paperclip",
+      "meaning": ""
+    },
+    {
+      "word": "paralyzed",
+      "meaning": ""
+    },
+    {
+      "word": "pardon",
+      "meaning": ""
+    },
+    {
+      "word": "part",
+      "meaning": ""
+    },
+    {
+      "word": "party",
+      "meaning": ""
+    },
+    {
+      "word": "passing",
+      "meaning": ""
+    },
+    {
+      "word": "passport",
+      "meaning": ""
+    },
+    {
+      "word": "pastor",
+      "meaning": ""
+    },
+    {
+      "word": "patrol car",
+      "meaning": ""
+    },
+    {
+      "word": "pause",
+      "meaning": ""
+    },
+    {
+      "word": "pavement",
+      "meaning": ""
+    },
+    {
+      "word": "peccary",
+      "meaning": ""
+    },
+    {
+      "word": "pelican",
+      "meaning": ""
+    },
+    {
+      "word": "penalty",
+      "meaning": ""
+    },
+    {
+      "word": "period",
+      "meaning": ""
+    },
+    {
+      "word": "perplex",
+      "meaning": ""
+    },
+    {
+      "word": "pestle",
+      "meaning": ""
+    },
+    {
+      "word": "ph",
+      "meaning": ""
+    },
+    {
+      "word": "pharmacy",
+      "meaning": ""
+    },
+    {
+      "word": "phase",
+      "meaning": ""
+    },
+    {
+      "word": "philosophy",
+      "meaning": ""
+    },
+    {
+      "word": "photograph",
+      "meaning": ""
+    },
+    {
+      "word": "phylum",
+      "meaning": ""
+    },
+    {
+      "word": "physics",
+      "meaning": ""
+    },
+    {
+      "word": "piano",
+      "meaning": ""
+    },
+    {
+      "word": "pierce",
+      "meaning": ""
+    },
+    {
+      "word": "piercing",
+      "meaning": ""
+    },
+    {
+      "word": "pilot",
+      "meaning": ""
+    },
+    {
+      "word": "pineapple",
+      "meaning": ""
+    },
+    {
+      "word": "ping pong",
+      "meaning": ""
+    },
+    {
+      "word": "pipette",
+      "meaning": ""
+    },
+    {
+      "word": "pirate",
+      "meaning": ""
+    },
+    {
+      "word": "pistachio",
+      "meaning": ""
+    },
+    {
+      "word": "pitch",
+      "meaning": ""
+    },
+    {
+      "word": "pivot",
+      "meaning": ""
+    },
+    {
+      "word": "pixel",
+      "meaning": ""
+    },
+    {
+      "word": "place",
+      "meaning": ""
+    },
+    {
+      "word": "plankton",
+      "meaning": ""
+    },
+    {
+      "word": "planner",
+      "meaning": ""
+    },
+    {
+      "word": "plant",
+      "meaning": ""
+    },
+    {
+      "word": "plateau",
+      "meaning": ""
+    },
+    {
+      "word": "platypus",
+      "meaning": ""
+    },
+    {
+      "word": "player",
+      "meaning": ""
+    },
+    {
+      "word": "playground",
+      "meaning": ""
+    },
+    {
+      "word": "plumb bob",
+      "meaning": ""
+    },
+    {
+      "word": "plumber",
+      "meaning": ""
+    },
+    {
+      "word": "plummet",
+      "meaning": ""
+    },
+    {
+      "word": "podcast",
+      "meaning": ""
+    },
+    {
+      "word": "poetry",
+      "meaning": ""
+    },
+    {
+      "word": "polar bear",
+      "meaning": ""
+    },
+    {
+      "word": "police",
+      "meaning": ""
+    },
+    {
+      "word": "police car",
+      "meaning": ""
+    },
+    {
+      "word": "polka dot",
+      "meaning": ""
+    },
+    {
+      "word": "polyester",
+      "meaning": ""
+    },
+    {
+      "word": "pomelo",
+      "meaning": ""
+    },
+    {
+      "word": "porcupine",
+      "meaning": ""
+    },
+    {
+      "word": "porridge",
+      "meaning": ""
+    },
+    {
+      "word": "potato",
+      "meaning": ""
+    },
+    {
+      "word": "potion",
+      "meaning": ""
+    },
+    {
+      "word": "poverty",
+      "meaning": ""
+    },
+    {
+      "word": "prank",
+      "meaning": ""
+    },
+    {
+      "word": "pregnant",
+      "meaning": ""
+    },
+    {
+      "word": "pressure",
+      "meaning": ""
+    },
+    {
+      "word": "prey",
+      "meaning": ""
+    },
+    {
+      "word": "priest",
+      "meaning": ""
+    },
+    {
+      "word": "prince",
+      "meaning": ""
+    },
+    {
+      "word": "princess",
+      "meaning": ""
+    },
+    {
+      "word": "prism",
+      "meaning": ""
+    },
+    {
+      "word": "profession",
+      "meaning": ""
+    },
+    {
+      "word": "projector",
+      "meaning": ""
+    },
+    {
+      "word": "proportion",
+      "meaning": ""
+    },
+    {
+      "word": "protect",
+      "meaning": ""
+    },
+    {
+      "word": "protein",
+      "meaning": ""
+    },
+    {
+      "word": "protist",
+      "meaning": ""
+    },
+    {
+      "word": "protractor",
+      "meaning": ""
+    },
+    {
+      "word": "proud",
+      "meaning": ""
+    },
+    {
+      "word": "province",
+      "meaning": ""
+    },
+    {
+      "word": "punch",
+      "meaning": ""
+    },
+    {
+      "word": "pursue",
+      "meaning": ""
+    },
+    {
+      "word": "puzzle",
+      "meaning": ""
+    },
+    {
+      "word": "pyramid",
+      "meaning": ""
+    },
+    {
+      "word": "quality",
+      "meaning": ""
+    },
+    {
+      "word": "quantity",
+      "meaning": ""
+    },
+    {
+      "word": "quarter",
+      "meaning": ""
+    },
+    {
+      "word": "queen",
+      "meaning": ""
+    },
+    {
+      "word": "quesadilla",
+      "meaning": ""
+    },
+    {
+      "word": "quest",
+      "meaning": ""
+    },
+    {
+      "word": "quick",
+      "meaning": ""
+    },
+    {
+      "word": "quiet",
+      "meaning": ""
+    },
+    {
+      "word": "quiver",
+      "meaning": ""
+    },
+    {
+      "word": "rabbi",
+      "meaning": ""
+    },
+    {
+      "word": "radiator",
+      "meaning": ""
+    },
+    {
+      "word": "radio",
+      "meaning": ""
+    },
+    {
+      "word": "rage",
+      "meaning": ""
+    },
+    {
+      "word": "raincoat",
+      "meaning": ""
+    },
+    {
+      "word": "raise",
+      "meaning": ""
+    },
+    {
+      "word": "ranger",
+      "meaning": ""
+    },
+    {
+      "word": "rapid",
+      "meaning": ""
+    },
+    {
+      "word": "rapper",
+      "meaning": ""
+    },
+    {
+      "word": "raspberry",
+      "meaning": ""
+    },
+    {
+      "word": "rate",
+      "meaning": ""
+    },
+    {
+      "word": "reaction",
+      "meaning": ""
+    },
+    {
+      "word": "rebound",
+      "meaning": ""
+    },
+    {
+      "word": "receive",
+      "meaning": ""
+    },
+    {
+      "word": "recent",
+      "meaning": ""
+    },
+    {
+      "word": "record",
+      "meaning": ""
+    },
+    {
+      "word": "recover",
+      "meaning": ""
+    },
+    {
+      "word": "recycle",
+      "meaning": ""
+    },
+    {
+      "word": "red panda",
+      "meaning": ""
+    },
+    {
+      "word": "referee",
+      "meaning": ""
+    },
+    {
+      "word": "reindeer",
+      "meaning": ""
+    },
+    {
+      "word": "relax",
+      "meaning": ""
+    },
+    {
+      "word": "religion",
+      "meaning": ""
+    },
+    {
+      "word": "repeat",
+      "meaning": ""
+    },
+    {
+      "word": "resent",
+      "meaning": ""
+    },
+    {
+      "word": "restaurant",
+      "meaning": ""
+    },
+    {
+      "word": "resume",
+      "meaning": ""
+    },
+    {
+      "word": "reverb",
+      "meaning": ""
+    },
+    {
+      "word": "revolve",
+      "meaning": ""
+    },
+    {
+      "word": "rhinoceros",
+      "meaning": ""
+    },
+    {
+      "word": "riddle",
+      "meaning": ""
+    },
+    {
+      "word": "ritual",
+      "meaning": ""
+    },
+    {
+      "word": "rna",
+      "meaning": ""
+    },
+    {
+      "word": "roast",
+      "meaning": ""
+    },
+    {
+      "word": "robber",
+      "meaning": ""
+    },
+    {
+      "word": "romance",
+      "meaning": ""
+    },
+    {
+      "word": "roofer",
+      "meaning": ""
+    },
+    {
+      "word": "rosemary",
+      "meaning": ""
+    },
+    {
+      "word": "rotate",
+      "meaning": ""
+    },
+    {
+      "word": "roundabout",
+      "meaning": ""
+    },
+    {
+      "word": "runner",
+      "meaning": ""
+    },
+    {
+      "word": "rush",
+      "meaning": ""
+    },
+    {
+      "word": "sad",
+      "meaning": ""
+    },
+    {
+      "word": "sailboat",
+      "meaning": ""
+    },
+    {
+      "word": "sailor",
+      "meaning": ""
+    },
+    {
+      "word": "salamander",
+      "meaning": ""
+    },
+    {
+      "word": "saliva",
+      "meaning": ""
+    },
+    {
+      "word": "sandbox",
+      "meaning": ""
+    },
+    {
+      "word": "sandwich",
+      "meaning": ""
+    },
+    {
+      "word": "sashimi",
+      "meaning": ""
+    },
+    {
+      "word": "satellite",
+      "meaning": ""
+    },
+    {
+      "word": "scaffold",
+      "meaning": ""
+    },
+    {
+      "word": "scared",
+      "meaning": ""
+    },
+    {
+      "word": "scatter",
+      "meaning": ""
+    },
+    {
+      "word": "scene",
+      "meaning": ""
+    },
+    {
+      "word": "scientist",
+      "meaning": ""
+    },
+    {
+      "word": "scifi",
+      "meaning": ""
+    },
+    {
+      "word": "scissors",
+      "meaning": ""
+    },
+    {
+      "word": "scorpion",
+      "meaning": ""
+    },
+    {
+      "word": "scout",
+      "meaning": ""
+    },
+    {
+      "word": "scowl",
+      "meaning": ""
+    },
+    {
+      "word": "scratch",
+      "meaning": ""
+    },
+    {
+      "word": "screen",
+      "meaning": ""
+    },
+    {
+      "word": "screenplay",
+      "meaning": ""
+    },
+    {
+      "word": "script",
+      "meaning": ""
+    },
+    {
+      "word": "sculptor",
+      "meaning": ""
+    },
+    {
+      "word": "seahorse",
+      "meaning": ""
+    },
+    {
+      "word": "seamstress",
+      "meaning": ""
+    },
+    {
+      "word": "search",
+      "meaning": ""
+    },
+    {
+      "word": "season",
+      "meaning": ""
+    },
+    {
+      "word": "second",
+      "meaning": ""
+    },
+    {
+      "word": "secure",
+      "meaning": ""
+    },
+    {
+      "word": "seesaw",
+      "meaning": ""
+    },
+    {
+      "word": "seize",
+      "meaning": ""
+    },
+    {
+      "word": "seldom",
+      "meaning": ""
+    },
+    {
+      "word": "senator",
+      "meaning": ""
+    },
+    {
+      "word": "sequoia",
+      "meaning": ""
+    },
+    {
+      "word": "series",
+      "meaning": ""
+    },
+    {
+      "word": "shake",
+      "meaning": ""
+    },
+    {
+      "word": "shame",
+      "meaning": ""
+    },
+    {
+      "word": "shield",
+      "meaning": ""
+    },
+    {
+      "word": "shift",
+      "meaning": ""
+    },
+    {
+      "word": "shiver",
+      "meaning": ""
+    },
+    {
+      "word": "shock",
+      "meaning": ""
+    },
+    {
+      "word": "shooting",
+      "meaning": ""
+    },
+    {
+      "word": "short",
+      "meaning": ""
+    },
+    {
+      "word": "shoulder",
+      "meaning": ""
+    },
+    {
+      "word": "shove",
+      "meaning": ""
+    },
+    {
+      "word": "shred",
+      "meaning": ""
+    },
+    {
+      "word": "shrug",
+      "meaning": ""
+    },
+    {
+      "word": "shy",
+      "meaning": ""
+    },
+    {
+      "word": "sick",
+      "meaning": ""
+    },
+    {
+      "word": "sickness",
+      "meaning": ""
+    },
+    {
+      "word": "sidewalk",
+      "meaning": ""
+    },
+    {
+      "word": "sigh",
+      "meaning": ""
+    },
+    {
+      "word": "silent",
+      "meaning": ""
+    },
+    {
+      "word": "simmer",
+      "meaning": ""
+    },
+    {
+      "word": "singer",
+      "meaning": ""
+    },
+    {
+      "word": "single",
+      "meaning": ""
+    },
+    {
+      "word": "skate",
+      "meaning": ""
+    },
+    {
+      "word": "skateboard",
+      "meaning": ""
+    },
+    {
+      "word": "skeleton",
+      "meaning": ""
+    },
+    {
+      "word": "skyscraper",
+      "meaning": ""
+    },
+    {
+      "word": "slash",
+      "meaning": ""
+    },
+    {
+      "word": "sleepy",
+      "meaning": ""
+    },
+    {
+      "word": "slice",
+      "meaning": ""
+    },
+    {
+      "word": "slide",
+      "meaning": ""
+    },
+    {
+      "word": "slither",
+      "meaning": ""
+    },
+    {
+      "word": "sloth bear",
+      "meaning": ""
+    },
+    {
+      "word": "slow",
+      "meaning": ""
+    },
+    {
+      "word": "smack",
+      "meaning": ""
+    },
+    {
+      "word": "smartphone",
+      "meaning": ""
+    },
+    {
+      "word": "smash",
+      "meaning": ""
+    },
+    {
+      "word": "smile",
+      "meaning": ""
+    },
+    {
+      "word": "smoothie",
+      "meaning": ""
+    },
+    {
+      "word": "smother",
+      "meaning": ""
+    },
+    {
+      "word": "smuggler",
+      "meaning": ""
+    },
+    {
+      "word": "snare",
+      "meaning": ""
+    },
+    {
+      "word": "snatch",
+      "meaning": ""
+    },
+    {
+      "word": "snowboard",
+      "meaning": ""
+    },
+    {
+      "word": "snowmobile",
+      "meaning": ""
+    },
+    {
+      "word": "sob",
+      "meaning": ""
+    },
+    {
+      "word": "soldier",
+      "meaning": ""
+    },
+    {
+      "word": "solution",
+      "meaning": ""
+    },
+    {
+      "word": "sombrero",
+      "meaning": ""
+    },
+    {
+      "word": "soon",
+      "meaning": ""
+    },
+    {
+      "word": "sorrow",
+      "meaning": ""
+    },
+    {
+      "word": "sour",
+      "meaning": ""
+    },
+    {
+      "word": "spacecraft",
+      "meaning": ""
+    },
+    {
+      "word": "spaceship",
+      "meaning": ""
+    },
+    {
+      "word": "spaghetti",
+      "meaning": ""
+    },
+    {
+      "word": "spank",
+      "meaning": ""
+    },
+    {
+      "word": "spark plug",
+      "meaning": ""
+    },
+    {
+      "word": "spatula",
+      "meaning": ""
+    },
+    {
+      "word": "species",
+      "meaning": ""
+    },
+    {
+      "word": "spectacles",
+      "meaning": ""
+    },
+    {
+      "word": "speedboat",
+      "meaning": ""
+    },
+    {
+      "word": "spell",
+      "meaning": ""
+    },
+    {
+      "word": "split",
+      "meaning": ""
+    },
+    {
+      "word": "sports car",
+      "meaning": ""
+    },
+    {
+      "word": "spread",
+      "meaning": ""
+    },
+    {
+      "word": "spring roll",
+      "meaning": ""
+    },
+    {
+      "word": "sprinkler",
+      "meaning": ""
+    },
+    {
+      "word": "sprint",
+      "meaning": ""
+    },
+    {
+      "word": "sprinting",
+      "meaning": ""
+    },
+    {
+      "word": "sprocket",
+      "meaning": ""
+    },
+    {
+      "word": "squash",
+      "meaning": ""
+    },
+    {
+      "word": "squeeze",
+      "meaning": ""
+    },
+    {
+      "word": "squire",
+      "meaning": ""
+    },
+    {
+      "word": "squirrel",
+      "meaning": ""
+    },
+    {
+      "word": "stack",
+      "meaning": ""
+    },
+    {
+      "word": "stage",
+      "meaning": ""
+    },
+    {
+      "word": "staircase",
+      "meaning": ""
+    },
+    {
+      "word": "stare",
+      "meaning": ""
+    },
+    {
+      "word": "starfish",
+      "meaning": ""
+    },
+    {
+      "word": "start",
+      "meaning": ""
+    },
+    {
+      "word": "steer",
+      "meaning": ""
+    },
+    {
+      "word": "stocking",
+      "meaning": ""
+    },
+    {
+      "word": "stomp",
+      "meaning": ""
+    },
+    {
+      "word": "stop",
+      "meaning": ""
+    },
+    {
+      "word": "stopwatch",
+      "meaning": ""
+    },
+    {
+      "word": "storage",
+      "meaning": ""
+    },
+    {
+      "word": "strainer",
+      "meaning": ""
+    },
+    {
+      "word": "strawberry",
+      "meaning": ""
+    },
+    {
+      "word": "stream",
+      "meaning": ""
+    },
+    {
+      "word": "strength",
+      "meaning": ""
+    },
+    {
+      "word": "stress",
+      "meaning": ""
+    },
+    {
+      "word": "strike",
+      "meaning": ""
+    },
+    {
+      "word": "stroller",
+      "meaning": ""
+    },
+    {
+      "word": "structure",
+      "meaning": ""
+    },
+    {
+      "word": "struggle",
+      "meaning": ""
+    },
+    {
+      "word": "student",
+      "meaning": ""
+    },
+    {
+      "word": "stumble",
+      "meaning": ""
+    },
+    {
+      "word": "stun",
+      "meaning": ""
+    },
+    {
+      "word": "stylist",
+      "meaning": ""
+    },
+    {
+      "word": "submarine",
+      "meaning": ""
+    },
+    {
+      "word": "sudoku",
+      "meaning": ""
+    },
+    {
+      "word": "suitcase",
+      "meaning": ""
+    },
+    {
+      "word": "summer",
+      "meaning": ""
+    },
+    {
+      "word": "sun bear",
+      "meaning": ""
+    },
+    {
+      "word": "sunday",
+      "meaning": ""
+    },
+    {
+      "word": "sundial",
+      "meaning": ""
+    },
+    {
+      "word": "sunglasses",
+      "meaning": ""
+    },
+    {
+      "word": "sunrise",
+      "meaning": ""
+    },
+    {
+      "word": "sunset",
+      "meaning": ""
+    },
+    {
+      "word": "surgery",
+      "meaning": ""
+    },
+    {
+      "word": "suspenders",
+      "meaning": ""
+    },
+    {
+      "word": "suspension",
+      "meaning": ""
+    },
+    {
+      "word": "sweatpants",
+      "meaning": ""
+    },
+    {
+      "word": "sweatshirt",
+      "meaning": ""
+    },
+    {
+      "word": "sweet",
+      "meaning": ""
+    },
+    {
+      "word": "swift",
+      "meaning": ""
+    },
+    {
+      "word": "swimmer",
+      "meaning": ""
+    },
+    {
+      "word": "swimming",
+      "meaning": ""
+    },
+    {
+      "word": "swimsuit",
+      "meaning": ""
+    },
+    {
+      "word": "swing",
+      "meaning": ""
+    },
+    {
+      "word": "sword",
+      "meaning": ""
+    },
+    {
+      "word": "symmetry",
+      "meaning": ""
+    },
+    {
+      "word": "synagogue",
+      "meaning": ""
+    },
+    {
+      "word": "taillight",
+      "meaning": ""
+    },
+    {
+      "word": "tailor",
+      "meaning": ""
+    },
+    {
+      "word": "tailpipe",
+      "meaning": ""
+    },
+    {
+      "word": "tangerine",
+      "meaning": ""
+    },
+    {
+      "word": "tarantula",
+      "meaning": ""
+    },
+    {
+      "word": "teacher",
+      "meaning": ""
+    },
+    {
+      "word": "technology",
+      "meaning": ""
+    },
+    {
+      "word": "telephone",
+      "meaning": ""
+    },
+    {
+      "word": "telescope",
+      "meaning": ""
+    },
+    {
+      "word": "tempo",
+      "meaning": ""
+    },
+    {
+      "word": "tender",
+      "meaning": ""
+    },
+    {
+      "word": "tequila",
+      "meaning": ""
+    },
+    {
+      "word": "textile",
+      "meaning": ""
+    },
+    {
+      "word": "thaw",
+      "meaning": ""
+    },
+    {
+      "word": "theater",
+      "meaning": ""
+    },
+    {
+      "word": "theme park",
+      "meaning": ""
+    },
+    {
+      "word": "then",
+      "meaning": ""
+    },
+    {
+      "word": "therapy",
+      "meaning": ""
+    },
+    {
+      "word": "thermal",
+      "meaning": ""
+    },
+    {
+      "word": "thermostat",
+      "meaning": ""
+    },
+    {
+      "word": "thief",
+      "meaning": ""
+    },
+    {
+      "word": "thrice",
+      "meaning": ""
+    },
+    {
+      "word": "thriller",
+      "meaning": ""
+    },
+    {
+      "word": "throttle",
+      "meaning": ""
+    },
+    {
+      "word": "throw",
+      "meaning": ""
+    },
+    {
+      "word": "thrust",
+      "meaning": ""
+    },
+    {
+      "word": "tickle",
+      "meaning": ""
+    },
+    {
+      "word": "timid",
+      "meaning": ""
+    },
+    {
+      "word": "toadstool",
+      "meaning": ""
+    },
+    {
+      "word": "toast",
+      "meaning": ""
+    },
+    {
+      "word": "tock",
+      "meaning": ""
+    },
+    {
+      "word": "today",
+      "meaning": ""
+    },
+    {
+      "word": "tomato",
+      "meaning": ""
+    },
+    {
+      "word": "tornado",
+      "meaning": ""
+    },
+    {
+      "word": "tortoise",
+      "meaning": ""
+    },
+    {
+      "word": "total",
+      "meaning": ""
+    },
+    {
+      "word": "touchdown",
+      "meaning": ""
+    },
+    {
+      "word": "tow truck",
+      "meaning": ""
+    },
+    {
+      "word": "trace",
+      "meaning": ""
+    },
+    {
+      "word": "track",
+      "meaning": ""
+    },
+    {
+      "word": "tracksuit",
+      "meaning": ""
+    },
+    {
+      "word": "trample",
+      "meaning": ""
+    },
+    {
+      "word": "transfer",
+      "meaning": ""
+    },
+    {
+      "word": "transport",
+      "meaning": ""
+    },
+    {
+      "word": "trapper",
+      "meaning": ""
+    },
+    {
+      "word": "tread",
+      "meaning": ""
+    },
+    {
+      "word": "treatment",
+      "meaning": ""
+    },
+    {
+      "word": "tremble",
+      "meaning": ""
+    },
+    {
+      "word": "triathlon",
+      "meaning": ""
+    },
+    {
+      "word": "trick",
+      "meaning": ""
+    },
+    {
+      "word": "tricycle",
+      "meaning": ""
+    },
+    {
+      "word": "triple",
+      "meaning": ""
+    },
+    {
+      "word": "trombone",
+      "meaning": ""
+    },
+    {
+      "word": "trousers",
+      "meaning": ""
+    },
+    {
+      "word": "trumpet",
+      "meaning": ""
+    },
+    {
+      "word": "trust",
+      "meaning": ""
+    },
+    {
+      "word": "tsunami",
+      "meaning": ""
+    },
+    {
+      "word": "tuesday",
+      "meaning": ""
+    },
+    {
+      "word": "tumble",
+      "meaning": ""
+    },
+    {
+      "word": "tutor",
+      "meaning": ""
+    },
+    {
+      "word": "tuxedo",
+      "meaning": ""
+    },
+    {
+      "word": "twice",
+      "meaning": ""
+    },
+    {
+      "word": "twirl",
+      "meaning": ""
+    },
+    {
+      "word": "umbrella",
+      "meaning": ""
+    },
+    {
+      "word": "umpire",
+      "meaning": ""
+    },
+    {
+      "word": "underwear",
+      "meaning": ""
+    },
+    {
+      "word": "unicycle",
+      "meaning": ""
+    },
+    {
+      "word": "uniform",
+      "meaning": ""
+    },
+    {
+      "word": "universe",
+      "meaning": ""
+    },
+    {
+      "word": "vanilla",
+      "meaning": ""
+    },
+    {
+      "word": "velocity",
+      "meaning": ""
+    },
+    {
+      "word": "vibrate",
+      "meaning": ""
+    },
+    {
+      "word": "victory",
+      "meaning": ""
+    },
+    {
+      "word": "video",
+      "meaning": ""
+    },
+    {
+      "word": "villain",
+      "meaning": ""
+    },
+    {
+      "word": "vinegar",
+      "meaning": ""
+    },
+    {
+      "word": "vinyl",
+      "meaning": ""
+    },
+    {
+      "word": "violin",
+      "meaning": ""
+    },
+    {
+      "word": "volcano",
+      "meaning": ""
+    },
+    {
+      "word": "vomit",
+      "meaning": ""
+    },
+    {
+      "word": "waistcoat",
+      "meaning": ""
+    },
+    {
+      "word": "wait",
+      "meaning": ""
+    },
+    {
+      "word": "waiter",
+      "meaning": ""
+    },
+    {
+      "word": "waitress",
+      "meaning": ""
+    },
+    {
+      "word": "wallaby",
+      "meaning": ""
+    },
+    {
+      "word": "warden",
+      "meaning": ""
+    },
+    {
+      "word": "wardrobe",
+      "meaning": ""
+    },
+    {
+      "word": "warm",
+      "meaning": ""
+    },
+    {
+      "word": "watermelon",
+      "meaning": ""
+    },
+    {
+      "word": "wave",
+      "meaning": ""
+    },
+    {
+      "word": "weakness",
+      "meaning": ""
+    },
+    {
+      "word": "weary",
+      "meaning": ""
+    },
+    {
+      "word": "wedding",
+      "meaning": ""
+    },
+    {
+      "word": "week",
+      "meaning": ""
+    },
+    {
+      "word": "weekday",
+      "meaning": ""
+    },
+    {
+      "word": "weekend",
+      "meaning": ""
+    },
+    {
+      "word": "weep",
+      "meaning": ""
+    },
+    {
+      "word": "welder",
+      "meaning": ""
+    },
+    {
+      "word": "wellington",
+      "meaning": ""
+    },
+    {
+      "word": "wheelchair",
+      "meaning": ""
+    },
+    {
+      "word": "whirl",
+      "meaning": ""
+    },
+    {
+      "word": "whittle",
+      "meaning": ""
+    },
+    {
+      "word": "whole",
+      "meaning": ""
+    },
+    {
+      "word": "wildfire",
+      "meaning": ""
+    },
+    {
+      "word": "willing",
+      "meaning": ""
+    },
+    {
+      "word": "windscreen",
+      "meaning": ""
+    },
+    {
+      "word": "windshield",
+      "meaning": ""
+    },
+    {
+      "word": "wink",
+      "meaning": ""
+    },
+    {
+      "word": "winter",
+      "meaning": ""
+    },
+    {
+      "word": "witch",
+      "meaning": ""
+    },
+    {
+      "word": "wizard",
+      "meaning": ""
+    },
+    {
+      "word": "wolverine",
+      "meaning": ""
+    },
+    {
+      "word": "woodpecker",
+      "meaning": ""
+    },
+    {
+      "word": "worry",
+      "meaning": ""
+    },
+    {
+      "word": "wrestling",
+      "meaning": ""
+    },
+    {
+      "word": "writer",
+      "meaning": ""
+    },
+    {
+      "word": "year",
+      "meaning": ""
+    },
+    {
+      "word": "young",
+      "meaning": ""
+    },
+    {
+      "word": "zeppelin",
+      "meaning": ""
+    },
+    {
+      "word": "zucchini",
+      "meaning": ""
+    }
   ],
   "hard": [
-    { "word": "serendipity", "meaning": "The occurrence and development of events by chance in a happy or beneficial way." },
-    { "word": "ephemeral", "meaning": "Lasting for a very short time." },
-    { "word": "ubiquitous", "meaning": "Present, appearing, or found everywhere." },
-    { "word": "paradigm", "meaning": "A typical example or pattern of something; a model." },
-    { "word": "esoteric", "meaning": "Intended for or likely to be understood by only a small number of people with a specialized knowledge or interest." },
-    { "word": "cacophony", "meaning": "A harsh, discordant mixture of sounds." },
-    { "word": "idiosyncrasy", "meaning": "A mode of behavior or way of thought peculiar to an individual." },
-    { "word": "mellifluous", "meaning": "Sweet or musical; pleasant to hear." },
-    { "word": "quintessential", "meaning": "Representing the most perfect or typical example of a quality or class." },
-    { "word": "sycophant", "meaning": "A person who acts obsequiously toward someone important in order to gain advantage." },
-    { "word": "chassis", "meaning": "The base frame of a motor vehicle or other wheeled conveyance." },
-    { "word": "monopoly", "meaning": "The exclusive possession or control of the supply or trade in a commodity or service." },
-    { "word": "fluctuate", "meaning": "Rise and fall irregularly in number or amount." },
-    { "word": "depreciation", "meaning": "A reduction in the value of an asset with the passage of time, due in particular to wear and tear." },
-    { "word": "liability", "meaning": "The state of being responsible for something, especially by law." },
-    { "word": "equity", "meaning": "The value of the shares issued by a company." },
-    { "word": "dividend", "meaning": "A sum of money paid regularly by a company to shareholders out of its profits." },
-    { "word": "franchise", "meaning": "An authorization granted by a government or company to an individual or group enabling them to carry out specified commercial activities." },
-    { "word": "liquidity", "meaning": "The availability of liquid assets to a market or company." },
-    { "word": "inflation", "meaning": "A general increase in prices and fall in the purchasing value of money." },
-    { "word": "cryptocurrency", "meaning": "A digital currency in which transactions are verified and records maintained by a decentralized system using cryptography." },
-    { "word": "blockchain", "meaning": "A system in which a record of transactions made in a cryptocurrency are maintained across several computers." },
-    { "word": "phishing", "meaning": "The fraudulent practice of sending emails purporting to be from reputable companies to induce individuals to reveal personal information." },
-    { "word": "firewall", "meaning": "A part of a computer system or network that is designed to block unauthorized access while permitting outward communication." },
-    { "word": "malware", "meaning": "Software that is specifically designed to disrupt, damage, or gain unauthorized access to a computer system." }
+    {
+      "word": "acceleration",
+      "meaning": ""
+    },
+    {
+      "word": "accelerator",
+      "meaning": ""
+    },
+    {
+      "word": "action figure",
+      "meaning": ""
+    },
+    {
+      "word": "adaptable",
+      "meaning": ""
+    },
+    {
+      "word": "adventurer",
+      "meaning": ""
+    },
+    {
+      "word": "afternoon",
+      "meaning": ""
+    },
+    {
+      "word": "agony",
+      "meaning": ""
+    },
+    {
+      "word": "ambassador",
+      "meaning": ""
+    },
+    {
+      "word": "americano",
+      "meaning": ""
+    },
+    {
+      "word": "amphibian",
+      "meaning": ""
+    },
+    {
+      "word": "amplitude",
+      "meaning": ""
+    },
+    {
+      "word": "amusement park",
+      "meaning": ""
+    },
+    {
+      "word": "animal",
+      "meaning": ""
+    },
+    {
+      "word": "animation",
+      "meaning": ""
+    },
+    {
+      "word": "anniversary",
+      "meaning": ""
+    },
+    {
+      "word": "anxious",
+      "meaning": ""
+    },
+    {
+      "word": "apathy",
+      "meaning": ""
+    },
+    {
+      "word": "appointment",
+      "meaning": ""
+    },
+    {
+      "word": "arachnid",
+      "meaning": ""
+    },
+    {
+      "word": "architect",
+      "meaning": ""
+    },
+    {
+      "word": "assassin",
+      "meaning": ""
+    },
+    {
+      "word": "asteroid",
+      "meaning": ""
+    },
+    {
+      "word": "astonish",
+      "meaning": ""
+    },
+    {
+      "word": "astronaut",
+      "meaning": ""
+    },
+    {
+      "word": "astronomy",
+      "meaning": ""
+    },
+    {
+      "word": "atmosphere",
+      "meaning": ""
+    },
+    {
+      "word": "attorney",
+      "meaning": ""
+    },
+    {
+      "word": "auto racing",
+      "meaning": ""
+    },
+    {
+      "word": "automobile",
+      "meaning": ""
+    },
+    {
+      "word": "badminton",
+      "meaning": ""
+    },
+    {
+      "word": "bartender",
+      "meaning": ""
+    },
+    {
+      "word": "baseball",
+      "meaning": ""
+    },
+    {
+      "word": "basketball",
+      "meaning": ""
+    },
+    {
+      "word": "beautician",
+      "meaning": ""
+    },
+    {
+      "word": "bewilder",
+      "meaning": ""
+    },
+    {
+      "word": "biology",
+      "meaning": ""
+    },
+    {
+      "word": "biosphere",
+      "meaning": ""
+    },
+    {
+      "word": "birthday",
+      "meaning": ""
+    },
+    {
+      "word": "black hole",
+      "meaning": ""
+    },
+    {
+      "word": "bodybuilding",
+      "meaning": ""
+    },
+    {
+      "word": "botany",
+      "meaning": ""
+    },
+    {
+      "word": "boundless",
+      "meaning": ""
+    },
+    {
+      "word": "bullet train",
+      "meaning": ""
+    },
+    {
+      "word": "bumper car",
+      "meaning": ""
+    },
+    {
+      "word": "bunsen burner",
+      "meaning": ""
+    },
+    {
+      "word": "canoeing",
+      "meaning": ""
+    },
+    {
+      "word": "capacitor",
+      "meaning": ""
+    },
+    {
+      "word": "carbohydrate",
+      "meaning": ""
+    },
+    {
+      "word": "cardinal",
+      "meaning": ""
+    },
+    {
+      "word": "carnival",
+      "meaning": ""
+    },
+    {
+      "word": "carousel",
+      "meaning": ""
+    },
+    {
+      "word": "carpenter",
+      "meaning": ""
+    },
+    {
+      "word": "catalyst",
+      "meaning": ""
+    },
+    {
+      "word": "cauliflower",
+      "meaning": ""
+    },
+    {
+      "word": "celebration",
+      "meaning": ""
+    },
+    {
+      "word": "century",
+      "meaning": ""
+    },
+    {
+      "word": "ceremony",
+      "meaning": ""
+    },
+    {
+      "word": "certificate",
+      "meaning": ""
+    },
+    {
+      "word": "character",
+      "meaning": ""
+    },
+    {
+      "word": "chemical",
+      "meaning": ""
+    },
+    {
+      "word": "chemistry",
+      "meaning": ""
+    },
+    {
+      "word": "chromosome",
+      "meaning": ""
+    },
+    {
+      "word": "clarinet",
+      "meaning": ""
+    },
+    {
+      "word": "classify",
+      "meaning": ""
+    },
+    {
+      "word": "cnidarian",
+      "meaning": ""
+    },
+    {
+      "word": "commander",
+      "meaning": ""
+    },
+    {
+      "word": "commensalism",
+      "meaning": ""
+    },
+    {
+      "word": "community",
+      "meaning": ""
+    },
+    {
+      "word": "complete",
+      "meaning": ""
+    },
+    {
+      "word": "composer",
+      "meaning": ""
+    },
+    {
+      "word": "computer game",
+      "meaning": ""
+    },
+    {
+      "word": "conductor",
+      "meaning": ""
+    },
+    {
+      "word": "conservatory",
+      "meaning": ""
+    },
+    {
+      "word": "container ship",
+      "meaning": ""
+    },
+    {
+      "word": "continue",
+      "meaning": ""
+    },
+    {
+      "word": "controller",
+      "meaning": ""
+    },
+    {
+      "word": "convertible",
+      "meaning": ""
+    },
+    {
+      "word": "corner kick",
+      "meaning": ""
+    },
+    {
+      "word": "cosmonaut",
+      "meaning": ""
+    },
+    {
+      "word": "credit card",
+      "meaning": ""
+    },
+    {
+      "word": "criminal",
+      "meaning": ""
+    },
+    {
+      "word": "crucible",
+      "meaning": ""
+    },
+    {
+      "word": "cruise ship",
+      "meaning": ""
+    },
+    {
+      "word": "crustacean",
+      "meaning": ""
+    },
+    {
+      "word": "curious",
+      "meaning": ""
+    },
+    {
+      "word": "cutting board",
+      "meaning": ""
+    },
+    {
+      "word": "cytoplasm",
+      "meaning": ""
+    },
+    {
+      "word": "dandelion",
+      "meaning": ""
+    },
+    {
+      "word": "deadline",
+      "meaning": ""
+    },
+    {
+      "word": "december",
+      "meaning": ""
+    },
+    {
+      "word": "decorator",
+      "meaning": ""
+    },
+    {
+      "word": "designer",
+      "meaning": ""
+    },
+    {
+      "word": "detective",
+      "meaning": ""
+    },
+    {
+      "word": "dialogue",
+      "meaning": ""
+    },
+    {
+      "word": "dining room",
+      "meaning": ""
+    },
+    {
+      "word": "diplomat",
+      "meaning": ""
+    },
+    {
+      "word": "director",
+      "meaning": ""
+    },
+    {
+      "word": "discover",
+      "meaning": ""
+    },
+    {
+      "word": "displacement",
+      "meaning": ""
+    },
+    {
+      "word": "distance",
+      "meaning": ""
+    },
+    {
+      "word": "distribute",
+      "meaning": ""
+    },
+    {
+      "word": "documentary",
+      "meaning": ""
+    },
+    {
+      "word": "dodgeball",
+      "meaning": ""
+    },
+    {
+      "word": "dominoes",
+      "meaning": ""
+    },
+    {
+      "word": "duration",
+      "meaning": ""
+    },
+    {
+      "word": "echinoderm",
+      "meaning": ""
+    },
+    {
+      "word": "ecosystem",
+      "meaning": ""
+    },
+    {
+      "word": "electrical",
+      "meaning": ""
+    },
+    {
+      "word": "electrician",
+      "meaning": ""
+    },
+    {
+      "word": "embarrassed",
+      "meaning": ""
+    },
+    {
+      "word": "encyclopedia",
+      "meaning": ""
+    },
+    {
+      "word": "energetic",
+      "meaning": ""
+    },
+    {
+      "word": "engineer",
+      "meaning": ""
+    },
+    {
+      "word": "enthusiasm",
+      "meaning": ""
+    },
+    {
+      "word": "environment",
+      "meaning": ""
+    },
+    {
+      "word": "ephemeral",
+      "meaning": ""
+    },
+    {
+      "word": "equestrian",
+      "meaning": ""
+    },
+    {
+      "word": "eternity",
+      "meaning": ""
+    },
+    {
+      "word": "eucalyptus",
+      "meaning": ""
+    },
+    {
+      "word": "evening",
+      "meaning": ""
+    },
+    {
+      "word": "executive",
+      "meaning": ""
+    },
+    {
+      "word": "exhausted",
+      "meaning": ""
+    },
+    {
+      "word": "explorer",
+      "meaning": ""
+    },
+    {
+      "word": "extended",
+      "meaning": ""
+    },
+    {
+      "word": "family",
+      "meaning": ""
+    },
+    {
+      "word": "february",
+      "meaning": ""
+    },
+    {
+      "word": "ferris wheel",
+      "meaning": ""
+    },
+    {
+      "word": "festival",
+      "meaning": ""
+    },
+    {
+      "word": "field hockey",
+      "meaning": ""
+    },
+    {
+      "word": "fire engine",
+      "meaning": ""
+    },
+    {
+      "word": "fire station",
+      "meaning": ""
+    },
+    {
+      "word": "firefighter",
+      "meaning": ""
+    },
+    {
+      "word": "fisherman",
+      "meaning": ""
+    },
+    {
+      "word": "fleeting",
+      "meaning": ""
+    },
+    {
+      "word": "flexible",
+      "meaning": ""
+    },
+    {
+      "word": "food chain",
+      "meaning": ""
+    },
+    {
+      "word": "food web",
+      "meaning": ""
+    },
+    {
+      "word": "forever",
+      "meaning": ""
+    },
+    {
+      "word": "fraction",
+      "meaning": ""
+    },
+    {
+      "word": "frequency",
+      "meaning": ""
+    },
+    {
+      "word": "frequent",
+      "meaning": ""
+    },
+    {
+      "word": "friendly",
+      "meaning": ""
+    },
+    {
+      "word": "funeral",
+      "meaning": ""
+    },
+    {
+      "word": "garbage truck",
+      "meaning": ""
+    },
+    {
+      "word": "gardener",
+      "meaning": ""
+    },
+    {
+      "word": "genetics",
+      "meaning": ""
+    },
+    {
+      "word": "geology",
+      "meaning": ""
+    },
+    {
+      "word": "governor",
+      "meaning": ""
+    },
+    {
+      "word": "graduation",
+      "meaning": ""
+    },
+    {
+      "word": "grasshopper",
+      "meaning": ""
+    },
+    {
+      "word": "grizzly bear",
+      "meaning": ""
+    },
+    {
+      "word": "gymnasium",
+      "meaning": ""
+    },
+    {
+      "word": "gymnastics",
+      "meaning": ""
+    },
+    {
+      "word": "habitat",
+      "meaning": ""
+    },
+    {
+      "word": "hairdresser",
+      "meaning": ""
+    },
+    {
+      "word": "handicapped",
+      "meaning": ""
+    },
+    {
+      "word": "hesitant",
+      "meaning": ""
+    },
+    {
+      "word": "hide and seek",
+      "meaning": ""
+    },
+    {
+      "word": "hippopotamus",
+      "meaning": ""
+    },
+    {
+      "word": "holiday",
+      "meaning": ""
+    },
+    {
+      "word": "home run",
+      "meaning": ""
+    },
+    {
+      "word": "honey badger",
+      "meaning": ""
+    },
+    {
+      "word": "horse racing",
+      "meaning": ""
+    },
+    {
+      "word": "horseshoes",
+      "meaning": ""
+    },
+    {
+      "word": "hostile",
+      "meaning": ""
+    },
+    {
+      "word": "hot air balloon",
+      "meaning": ""
+    },
+    {
+      "word": "hourglass",
+      "meaning": ""
+    },
+    {
+      "word": "humidity",
+      "meaning": ""
+    },
+    {
+      "word": "hummingbird",
+      "meaning": ""
+    },
+    {
+      "word": "hurricane",
+      "meaning": ""
+    },
+    {
+      "word": "hydrosphere",
+      "meaning": ""
+    },
+    {
+      "word": "ice hockey",
+      "meaning": ""
+    },
+    {
+      "word": "ice skating",
+      "meaning": ""
+    },
+    {
+      "word": "illusion",
+      "meaning": ""
+    },
+    {
+      "word": "illusionist",
+      "meaning": ""
+    },
+    {
+      "word": "imagination",
+      "meaning": ""
+    },
+    {
+      "word": "inclined plane",
+      "meaning": ""
+    },
+    {
+      "word": "indifferent",
+      "meaning": ""
+    },
+    {
+      "word": "inductor",
+      "meaning": ""
+    },
+    {
+      "word": "infinite",
+      "meaning": ""
+    },
+    {
+      "word": "information",
+      "meaning": ""
+    },
+    {
+      "word": "inquisitive",
+      "meaning": ""
+    },
+    {
+      "word": "inspector",
+      "meaning": ""
+    },
+    {
+      "word": "instantaneous",
+      "meaning": ""
+    },
+    {
+      "word": "instrument",
+      "meaning": ""
+    },
+    {
+      "word": "intersection",
+      "meaning": ""
+    },
+    {
+      "word": "january",
+      "meaning": ""
+    },
+    {
+      "word": "journalist",
+      "meaning": ""
+    },
+    {
+      "word": "kayaking",
+      "meaning": ""
+    },
+    {
+      "word": "kinetic",
+      "meaning": ""
+    },
+    {
+      "word": "laboratory",
+      "meaning": ""
+    },
+    {
+      "word": "landscaper",
+      "meaning": ""
+    },
+    {
+      "word": "librarian",
+      "meaning": ""
+    },
+    {
+      "word": "limitless",
+      "meaning": ""
+    },
+    {
+      "word": "lithosphere",
+      "meaning": ""
+    },
+    {
+      "word": "lively",
+      "meaning": ""
+    },
+    {
+      "word": "living room",
+      "meaning": ""
+    },
+    {
+      "word": "lumberjack",
+      "meaning": ""
+    },
+    {
+      "word": "magician",
+      "meaning": ""
+    },
+    {
+      "word": "magnetic",
+      "meaning": ""
+    },
+    {
+      "word": "magnifying glass",
+      "meaning": ""
+    },
+    {
+      "word": "mahogany",
+      "meaning": ""
+    },
+    {
+      "word": "manicurist",
+      "meaning": ""
+    },
+    {
+      "word": "marathon",
+      "meaning": ""
+    },
+    {
+      "word": "marshmallow",
+      "meaning": ""
+    },
+    {
+      "word": "martial arts",
+      "meaning": ""
+    },
+    {
+      "word": "measuring cup",
+      "meaning": ""
+    },
+    {
+      "word": "mechanic",
+      "meaning": ""
+    },
+    {
+      "word": "membrane",
+      "meaning": ""
+    },
+    {
+      "word": "merry go round",
+      "meaning": ""
+    },
+    {
+      "word": "midnight",
+      "meaning": ""
+    },
+    {
+      "word": "millennium",
+      "meaning": ""
+    },
+    {
+      "word": "mineral",
+      "meaning": ""
+    },
+    {
+      "word": "minister",
+      "meaning": ""
+    },
+    {
+      "word": "mitochondria",
+      "meaning": ""
+    },
+    {
+      "word": "molecule",
+      "meaning": ""
+    },
+    {
+      "word": "momentary",
+      "meaning": ""
+    },
+    {
+      "word": "momentum",
+      "meaning": ""
+    },
+    {
+      "word": "monologue",
+      "meaning": ""
+    },
+    {
+      "word": "multiple",
+      "meaning": ""
+    },
+    {
+      "word": "musician",
+      "meaning": ""
+    },
+    {
+      "word": "mutation",
+      "meaning": ""
+    },
+    {
+      "word": "mutualism",
+      "meaning": ""
+    },
+    {
+      "word": "navigate",
+      "meaning": ""
+    },
+    {
+      "word": "nebula",
+      "meaning": ""
+    },
+    {
+      "word": "november",
+      "meaning": ""
+    },
+    {
+      "word": "nutrient",
+      "meaning": ""
+    },
+    {
+      "word": "obstinate",
+      "meaning": ""
+    },
+    {
+      "word": "occasional",
+      "meaning": ""
+    },
+    {
+      "word": "october",
+      "meaning": ""
+    },
+    {
+      "word": "optimism",
+      "meaning": ""
+    },
+    {
+      "word": "orchestra",
+      "meaning": ""
+    },
+    {
+      "word": "organize",
+      "meaning": ""
+    },
+    {
+      "word": "paramedic",
+      "meaning": ""
+    },
+    {
+      "word": "parasite",
+      "meaning": ""
+    },
+    {
+      "word": "peanut butter",
+      "meaning": ""
+    },
+    {
+      "word": "pendulum",
+      "meaning": ""
+    },
+    {
+      "word": "peninsula",
+      "meaning": ""
+    },
+    {
+      "word": "permanent",
+      "meaning": ""
+    },
+    {
+      "word": "pessimism",
+      "meaning": ""
+    },
+    {
+      "word": "pharmacist",
+      "meaning": ""
+    },
+    {
+      "word": "photographer",
+      "meaning": ""
+    },
+    {
+      "word": "pinecone",
+      "meaning": ""
+    },
+    {
+      "word": "pocket watch",
+      "meaning": ""
+    },
+    {
+      "word": "police station",
+      "meaning": ""
+    },
+    {
+      "word": "politician",
+      "meaning": ""
+    },
+    {
+      "word": "pomegranate",
+      "meaning": ""
+    },
+    {
+      "word": "population",
+      "meaning": ""
+    },
+    {
+      "word": "position",
+      "meaning": ""
+    },
+    {
+      "word": "post office",
+      "meaning": ""
+    },
+    {
+      "word": "potential",
+      "meaning": ""
+    },
+    {
+      "word": "powerlifting",
+      "meaning": ""
+    },
+    {
+      "word": "precipitation",
+      "meaning": ""
+    },
+    {
+      "word": "predator",
+      "meaning": ""
+    },
+    {
+      "word": "president",
+      "meaning": ""
+    },
+    {
+      "word": "principal",
+      "meaning": ""
+    },
+    {
+      "word": "prisoner",
+      "meaning": ""
+    },
+    {
+      "word": "processor",
+      "meaning": ""
+    },
+    {
+      "word": "producer",
+      "meaning": ""
+    },
+    {
+      "word": "professor",
+      "meaning": ""
+    },
+    {
+      "word": "prolonged",
+      "meaning": ""
+    },
+    {
+      "word": "psychologist",
+      "meaning": ""
+    },
+    {
+      "word": "publisher",
+      "meaning": ""
+    },
+    {
+      "word": "quadruple",
+      "meaning": ""
+    },
+    {
+      "word": "racquetball",
+      "meaning": ""
+    },
+    {
+      "word": "rainforest",
+      "meaning": ""
+    },
+    {
+      "word": "rarely",
+      "meaning": ""
+    },
+    {
+      "word": "refrigerator",
+      "meaning": ""
+    },
+    {
+      "word": "relocate",
+      "meaning": ""
+    },
+    {
+      "word": "reluctant",
+      "meaning": ""
+    },
+    {
+      "word": "reporter",
+      "meaning": ""
+    },
+    {
+      "word": "reptile",
+      "meaning": ""
+    },
+    {
+      "word": "researcher",
+      "meaning": ""
+    },
+    {
+      "word": "resistor",
+      "meaning": ""
+    },
+    {
+      "word": "ribosome",
+      "meaning": ""
+    },
+    {
+      "word": "ricochet",
+      "meaning": ""
+    },
+    {
+      "word": "roller skating",
+      "meaning": ""
+    },
+    {
+      "word": "rollerblades",
+      "meaning": ""
+    },
+    {
+      "word": "rollercoaster",
+      "meaning": ""
+    },
+    {
+      "word": "rollerskates",
+      "meaning": ""
+    },
+    {
+      "word": "rubber band",
+      "meaning": ""
+    },
+    {
+      "word": "runner up",
+      "meaning": ""
+    },
+    {
+      "word": "salesperson",
+      "meaning": ""
+    },
+    {
+      "word": "satisfied",
+      "meaning": ""
+    },
+    {
+      "word": "saturday",
+      "meaning": ""
+    },
+    {
+      "word": "saxophone",
+      "meaning": ""
+    },
+    {
+      "word": "schedule",
+      "meaning": ""
+    },
+    {
+      "word": "screwdriver",
+      "meaning": ""
+    },
+    {
+      "word": "security",
+      "meaning": ""
+    },
+    {
+      "word": "sensitive",
+      "meaning": ""
+    },
+    {
+      "word": "september",
+      "meaning": ""
+    },
+    {
+      "word": "shock absorber",
+      "meaning": ""
+    },
+    {
+      "word": "shoemaker",
+      "meaning": ""
+    },
+    {
+      "word": "silversmith",
+      "meaning": ""
+    },
+    {
+      "word": "skateboarding",
+      "meaning": ""
+    },
+    {
+      "word": "sledgehammer",
+      "meaning": ""
+    },
+    {
+      "word": "snowboarding",
+      "meaning": ""
+    },
+    {
+      "word": "software",
+      "meaning": ""
+    },
+    {
+      "word": "solar system",
+      "meaning": ""
+    },
+    {
+      "word": "sometimes",
+      "meaning": ""
+    },
+    {
+      "word": "sorcerer",
+      "meaning": ""
+    },
+    {
+      "word": "speedometer",
+      "meaning": ""
+    },
+    {
+      "word": "steering wheel",
+      "meaning": ""
+    },
+    {
+      "word": "strangle",
+      "meaning": ""
+    },
+    {
+      "word": "stubborn",
+      "meaning": ""
+    },
+    {
+      "word": "succulent",
+      "meaning": ""
+    },
+    {
+      "word": "suffocate",
+      "meaning": ""
+    },
+    {
+      "word": "sunflower",
+      "meaning": ""
+    },
+    {
+      "word": "supermarket",
+      "meaning": ""
+    },
+    {
+      "word": "supernova",
+      "meaning": ""
+    },
+    {
+      "word": "supervisor",
+      "meaning": ""
+    },
+    {
+      "word": "surprise",
+      "meaning": ""
+    },
+    {
+      "word": "suspicion",
+      "meaning": ""
+    },
+    {
+      "word": "symbiosis",
+      "meaning": ""
+    },
+    {
+      "word": "table tennis",
+      "meaning": ""
+    },
+    {
+      "word": "taekwondo",
+      "meaning": ""
+    },
+    {
+      "word": "tape measure",
+      "meaning": ""
+    },
+    {
+      "word": "teddy bear",
+      "meaning": ""
+    },
+    {
+      "word": "television",
+      "meaning": ""
+    },
+    {
+      "word": "temperature",
+      "meaning": ""
+    },
+    {
+      "word": "temporary",
+      "meaning": ""
+    },
+    {
+      "word": "terrified",
+      "meaning": ""
+    },
+    {
+      "word": "test tube",
+      "meaning": ""
+    },
+    {
+      "word": "therapist",
+      "meaning": ""
+    },
+    {
+      "word": "thermometer",
+      "meaning": ""
+    },
+    {
+      "word": "thursday",
+      "meaning": ""
+    },
+    {
+      "word": "tomorrow",
+      "meaning": ""
+    },
+    {
+      "word": "trampoline",
+      "meaning": ""
+    },
+    {
+      "word": "transient",
+      "meaning": ""
+    },
+    {
+      "word": "transistor",
+      "meaning": ""
+    },
+    {
+      "word": "transmission",
+      "meaning": ""
+    },
+    {
+      "word": "tug of war",
+      "meaning": ""
+    },
+    {
+      "word": "turn signal",
+      "meaning": ""
+    },
+    {
+      "word": "twilight",
+      "meaning": ""
+    },
+    {
+      "word": "ultimate frisbee",
+      "meaning": ""
+    },
+    {
+      "word": "underground",
+      "meaning": ""
+    },
+    {
+      "word": "university",
+      "meaning": ""
+    },
+    {
+      "word": "vacation",
+      "meaning": ""
+    },
+    {
+      "word": "veterinarian",
+      "meaning": ""
+    },
+    {
+      "word": "video game",
+      "meaning": ""
+    },
+    {
+      "word": "vitamin",
+      "meaning": ""
+    },
+    {
+      "word": "vocalist",
+      "meaning": ""
+    },
+    {
+      "word": "volleyball",
+      "meaning": ""
+    },
+    {
+      "word": "walking stick",
+      "meaning": ""
+    },
+    {
+      "word": "water polo",
+      "meaning": ""
+    },
+    {
+      "word": "waterfall",
+      "meaning": ""
+    },
+    {
+      "word": "watering can",
+      "meaning": ""
+    },
+    {
+      "word": "wavelength",
+      "meaning": ""
+    },
+    {
+      "word": "wednesday",
+      "meaning": ""
+    },
+    {
+      "word": "weightlifting",
+      "meaning": ""
+    },
+    {
+      "word": "wheelbarrow",
+      "meaning": ""
+    },
+    {
+      "word": "yesterday",
+      "meaning": ""
+    },
+    {
+      "word": "zoology",
+      "meaning": ""
+    }
   ]
 }

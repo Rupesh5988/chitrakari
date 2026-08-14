@@ -1,0 +1,19 @@
+[
+  "head", "hair", "face", "forehead", "eyebrow", "eye", "eyelash", "ear", "nose", "nostril",
+  "cheek", "mouth", "lip", "tooth", "teeth", "tongue", "jaw", "chin", "beard", "mustache",
+  "neck", "throat", "shoulder", "arm", "elbow", "forearm", "wrist", "hand", "palm", "finger",
+  "thumb", "knuckle", "nail", "chest", "breast", "torso", "stomach", "belly", "navel", "back",
+  "spine", "waist", "hip", "pelvis", "bottom", "butt", "leg", "thigh", "knee", "calf",
+  "shin", "ankle", "foot", "heel", "arch", "toe", "skin", "muscle", "bone", "skeleton",
+  "skull", "rib", "vein", "artery", "blood", "heart", "lung", "stomach", "liver", "kidney",
+  "brain", "nerve", "sweat", "tear", "saliva", "spit", "breath", "voice", "freckle", "mole",
+  "wrinkle", "scar", "tattoo", "piercing", "health", "disease", "illness", "sickness", "fever", "cold",
+  "flu", "cough", "sneeze", "hiccup", "yawn", "burp", "fart", "snore", "sleep", "dream",
+  "wake", "rest", "tired", "fatigue", "exhaustion", "pain", "ache", "sore", "injury", "wound",
+  "cut", "scrape", "bruise", "burn", "blister", "rash", "itch", "allergy", "infection", "virus",
+  "bacteria", "germ", "medicine", "pill", "tablet", "capsule", "syrup", "injection", "shot", "vaccine",
+  "bandage", "plaster", "cast", "crutch", "wheelchair", "hospital", "clinic", "pharmacy", "doctor", "nurse",
+  "patient", "surgeon", "dentist", "xray", "scan", "mri", "blood test", "surgery", "operation", "treatment",
+  "therapy", "cure", "heal", "recover", "healthy", "fit", "strong", "weak", "frail", "blind",
+  "deaf", "mute", "dumb", "lame", "paralyzed", "disabled", "handicapped", "pregnant", "birth", "death"
+]

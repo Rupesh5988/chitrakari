@@ -1,0 +1,23 @@
+[
+  "chair", "table", "desk", "sofa", "couch", "bed", "mattress", "pillow", "blanket", "quilt",
+  "sheet", "towel", "rug", "carpet", "curtain", "blind", "window", "door", "wall", "floor",
+  "ceiling", "roof", "chimney", "fireplace", "stove", "oven", "microwave", "fridge", "refrigerator", "freezer",
+  "dishwasher", "sink", "faucet", "tap", "toilet", "bathtub", "shower", "mirror", "cabinet", "cupboard",
+  "drawer", "shelf", "bookcase", "wardrobe", "closet", "dresser", "lamp", "light", "bulb", "chandelier",
+  "fan", "heater", "radiator", "thermostat", "clock", "watch", "alarm", "timer", "calendar", "picture",
+  "painting", "frame", "poster", "photograph", "camera", "television", "tv", "remote", "radio", "stereo",
+  "speaker", "headphone", "earphone", "microphone", "computer", "laptop", "tablet", "phone", "smartphone", "keyboard",
+  "mouse", "monitor", "screen", "printer", "scanner", "router", "modem", "cable", "wire", "plug",
+  "socket", "switch", "battery", "charger", "book", "magazine", "newspaper", "journal", "diary", "notebook",
+  "paper", "page", "envelope", "letter", "stamp", "card", "box", "carton", "crate", "basket",
+  "bag", "sack", "backpack", "purse", "wallet", "suitcase", "luggage", "trunk", "key", "lock",
+  "padlock", "chain", "rope", "string", "thread", "yarn", "needle", "pin", "scissors", "tape",
+  "glue", "ruler", "eraser", "pencil", "pen", "marker", "crayon", "chalk", "paint", "brush",
+  "canvas", "easel", "palette", "clay", "dough", "tool", "hammer", "nail", "screw", "screwdriver",
+  "wrench", "pliers", "saw", "drill", "axe", "shovel", "spade", "hoe", "rake", "fork",
+  "spoon", "knife", "plate", "bowl", "cup", "mug", "glass", "bottle", "jug", "pitcher",
+  "pot", "pan", "skillet", "wok", "kettle", "teapot", "tray", "platter", "cutting board", "whisk",
+  "spatula", "tongs", "ladle", "peeler", "grater", "strainer", "colander", "funnel", "measuring cup", "scale",
+  "thermometer", "broom", "mop", "dustpan", "bucket", "sponge", "cloth", "rag", "duster", "vacuum",
+  "iron", "board", "hanger", "basket", "bin", "trash", "garbage", "waste", "recycle", "compost"
+]

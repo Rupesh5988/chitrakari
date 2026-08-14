@@ -1,0 +1,21 @@
+[
+  "umbrella", "cane", "walking stick", "backpack", "satchel", "briefcase", "suitcase", "luggage", "trunk", "chest",
+  "box", "crate", "barrel", "bucket", "pail", "tub", "basin", "bowl", "plate", "dish",
+  "saucer", "cup", "mug", "glass", "tumbler", "goblet", "chalice", "pitcher", "jug", "carafe",
+  "bottle", "flask", "jar", "can", "tin", "pot", "pan", "skillet", "wok", "cauldron",
+  "kettle", "teapot", "urn", "vase", "flowerpot", "planter", "basket", "hamper", "sack", "bag",
+  "purse", "wallet", "pouch", "pocket", "envelope", "folder", "binder", "notebook", "notepad", "journal",
+  "diary", "book", "tome", "volume", "novel", "magazine", "newspaper", "pamphlet", "brochure", "leaflet",
+  "flyer", "poster", "banner", "flag", "pennant", "sign", "billboard", "placard", "label", "tag",
+  "sticker", "stamp", "ticket", "coupon", "voucher", "receipt", "invoice", "bill", "check", "cheque",
+  "money", "cash", "coin", "currency", "banknote", "card", "credit card", "debit card", "id card", "passport",
+  "visa", "license", "permit", "certificate", "diploma", "degree", "award", "prize", "trophy", "medal",
+  "ribbon", "badge", "pin", "brooch", "ring", "necklace", "bracelet", "earring", "pendant", "charm",
+  "watch", "clock", "timer", "stopwatch", "compass", "thermometer", "barometer", "scale", "ruler", "tape measure",
+  "caliper", "protractor", "square", "level", "plumb bob", "magnifying glass", "microscope", "telescope", "binoculars", "camera",
+  "lens", "tripod", "flash", "projector", "screen", "monitor", "television", "radio", "speaker", "headphone",
+  "earphone", "microphone", "telephone", "cellphone", "smartphone", "tablet", "laptop", "computer", "keyboard", "mouse",
+  "printer", "scanner", "router", "modem", "cable", "wire", "plug", "socket", "switch", "bulb",
+  "lamp", "lantern", "flashlight", "torch", "candle", "match", "lighter", "fire", "flame", "spark",
+  "smoke", "ash", "dust", "dirt", "mud", "clay", "sand", "gravel", "pebble", "stone"
+]

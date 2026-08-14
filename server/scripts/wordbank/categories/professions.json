@@ -1,0 +1,20 @@
+[
+  "doctor", "nurse", "surgeon", "dentist", "paramedic", "pharmacist", "vet", "veterinarian", "therapist", "psychologist",
+  "teacher", "professor", "tutor", "student", "principal", "librarian", "scientist", "researcher", "engineer", "architect",
+  "designer", "artist", "painter", "sculptor", "photographer", "writer", "author", "poet", "journalist", "reporter",
+  "editor", "publisher", "musician", "singer", "composer", "conductor", "dancer", "actor", "actress", "director",
+  "producer", "lawyer", "attorney", "judge", "police", "officer", "cop", "detective", "inspector", "guard",
+  "security", "soldier", "sailor", "pilot", "captain", "commander", "general", "admiral", "firefighter", "paramedic",
+  "mechanic", "plumber", "electrician", "carpenter", "builder", "mason", "welder", "painter", "decorator", "roofer",
+  "farmer", "gardener", "landscaper", "florist", "chef", "cook", "baker", "butcher", "waiter", "waitress",
+  "bartender", "barista", "cashier", "clerk", "salesperson", "manager", "boss", "supervisor", "executive", "ceo",
+  "president", "politician", "mayor", "governor", "senator", "diplomat", "ambassador", "spy", "agent", "assassin",
+  "thief", "robber", "burglar", "pirate", "smuggler", "criminal", "prisoner", "inmate", "warden", "jailer",
+  "priest", "pastor", "minister", "rabbi", "imam", "monk", "nun", "pope", "bishop", "cardinal",
+  "king", "queen", "prince", "princess", "emperor", "empress", "duke", "duchess", "lord", "lady",
+  "knight", "squire", "wizard", "witch", "sorcerer", "magician", "illusionist", "clown", "jester", "acrobat",
+  "athlete", "player", "coach", "umpire", "referee", "gymnast", "swimmer", "runner", "cyclist", "driver",
+  "pilot", "astronaut", "cosmonaut", "explorer", "adventurer", "guide", "scout", "ranger", "hunter", "trapper",
+  "fisherman", "miner", "logger", "lumberjack", "blacksmith", "goldsmith", "silversmith", "tailor", "seamstress", "cobbler",
+  "shoemaker", "barber", "hairdresser", "stylist", "beautician", "manicurist", "masseuse", "janitor", "cleaner", "maid"
+]

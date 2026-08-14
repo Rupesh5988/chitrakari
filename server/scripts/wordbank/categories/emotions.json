@@ -1,0 +1,20 @@
+[
+  "happy", "sad", "angry", "mad", "glad", "joy", "sorrow", "grief", "rage", "fury",
+  "fear", "scared", "terrified", "panic", "anxious", "nervous", "worry", "stress", "calm", "peace",
+  "relax", "content", "satisfied", "proud", "shame", "guilt", "embarrassed", "shy", "timid", "bold",
+  "brave", "courage", "coward", "love", "hate", "like", "dislike", "fond", "adore", "despise",
+  "jealous", "envy", "greed", "lust", "desire", "hope", "despair", "optimism", "pessimism", "trust",
+  "doubt", "suspicion", "belief", "faith", "surprise", "shock", "amaze", "astonish", "stun", "confuse",
+  "baffle", "bewilder", "puzzle", "perplex", "curious", "inquisitive", "nosy", "bored", "apathy", "indifferent",
+  "tired", "exhausted", "fatigue", "weary", "sleepy", "drowsy", "awake", "alert", "lively", "energetic",
+  "enthusiasm", "eager", "keen", "reluctant", "hesitant", "willing", "stubborn", "obstinate", "flexible", "adaptable",
+  "friendly", "hostile", "warm", "cold", "kind", "cruel", "mean", "nasty", "nice", "sweet",
+  "bitter", "sour", "resent", "forgive", "pardon", "excuse", "blame", "accuse", "defend", "protect",
+  "attack", "assault", "hurt", "pain", "agony", "ache", "sore", "tender", "sensitive", "numb",
+  "itch", "scratch", "tickle", "laugh", "cry", "weep", "sob", "smile", "frown", "scowl",
+  "glare", "stare", "blink", "wink", "nod", "shake", "shrug", "shiver", "tremble", "sweat",
+  "blush", "flush", "pale", "faint", "dizzy", "sick", "ill", "nausea", "vomit", "cough",
+  "sneeze", "hiccup", "yawn", "sigh", "groan", "moan", "gasp", "pant", "breathe", "choke",
+  "suffocate", "smother", "strangle", "drown", "burn", "freeze", "melt", "thaw", "boil", "simmer",
+  "roast", "bake", "fry", "grill", "toast", "warm", "cool", "chill", "heat", "temperature"
+]

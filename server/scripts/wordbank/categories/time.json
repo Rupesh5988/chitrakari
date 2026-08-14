@@ -1,0 +1,20 @@
+[
+  "time", "second", "minute", "hour", "day", "night", "week", "month", "year", "decade",
+  "century", "millennium", "morning", "afternoon", "evening", "dusk", "dawn", "sunrise", "sunset", "twilight",
+  "midnight", "noon", "midday", "today", "tomorrow", "yesterday", "now", "then", "soon", "later",
+  "early", "late", "always", "never", "sometimes", "often", "rarely", "seldom", "frequent", "occasional",
+  "past", "present", "future", "history", "ancient", "modern", "recent", "current", "new", "old",
+  "young", "age", "era", "epoch", "period", "phase", "stage", "moment", "instant", "flash",
+  "calendar", "clock", "watch", "timer", "stopwatch", "hourglass", "sundial", "pendulum", "tick", "tock",
+  "alarm", "schedule", "diary", "journal", "planner", "date", "appointment", "meeting", "deadline", "duration",
+  "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday", "weekend", "weekday", "january",
+  "february", "march", "april", "may", "june", "july", "august", "september", "october", "november",
+  "december", "spring", "summer", "autumn", "fall", "winter", "season", "holiday", "vacation", "break",
+  "festival", "celebration", "anniversary", "birthday", "wedding", "funeral", "party", "graduation", "ceremony", "ritual",
+  "fast", "slow", "quick", "rapid", "swift", "speed", "velocity", "pace", "rate", "tempo",
+  "rush", "hurry", "delay", "wait", "pause", "stop", "halt", "start", "begin", "end",
+  "finish", "complete", "continue", "resume", "repeat", "again", "once", "twice", "thrice", "multiple",
+  "single", "double", "triple", "quadruple", "half", "quarter", "fraction", "part", "whole", "total",
+  "forever", "eternity", "infinite", "endless", "boundless", "limitless", "temporary", "permanent", "brief", "short",
+  "long", "extended", "prolonged", "brief", "fleeting", "passing", "transient", "ephemeral", "momentary", "instantaneous"
+]
