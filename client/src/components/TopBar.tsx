@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
-import { Volume2, VolumeX, Moon, Sun, LogOut } from 'lucide-react';
+import { Volume2, VolumeX, Moon, Sun, LogOut, Copy, Check } from 'lucide-react';
 import { CircularTimer } from './CircularTimer';
 import { useTheme } from '../context/ThemeContext';
 import { audioEngine } from '../utils/AudioEngine';
+import { toast } from 'sonner';
 
 export function TopBar() {
    const { roomState, socket, me } = useSocket();
@@ -11,6 +12,15 @@ export function TopBar() {
    const [hint, setHint] = useState(roomState?.hiddenWord || '');
    const { theme, toggleTheme } = useTheme();
    const [isMuted, setIsMuted] = useState(audioEngine.isMuted);
+   const [copied, setCopied] = useState(false);
+
+   const copyCode = () => {
+      if (!roomState?.id) return;
+      navigator.clipboard.writeText(roomState.id);
+      setCopied(true);
+      toast.success(`Room Code ${roomState.id} copied!`);
+      setTimeout(() => setCopied(false), 2000);
+   };
 
    const handleExit = () => {
       if (window.confirm('Are you sure you want to leave the room?')) {
@@ -90,11 +100,24 @@ export function TopBar() {
 
    return (
       <div className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700/50 rounded-2xl sm:rounded-3xl shadow-soft dark:shadow-soft-dark p-2 sm:p-3 md:p-4 flex items-center justify-between transition-colors gap-2">
-         {/* Left: Round info */}
-         <div className="flex items-center gap-2 flex-shrink-0">
-            <div className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-sm font-bold tracking-widest uppercase bg-slate-100 dark:bg-paper-900 px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl whitespace-nowrap">
+         {/* Left: Round info & Room Code */}
+         <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+            <div className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-sm font-bold tracking-widest uppercase bg-slate-100 dark:bg-paper-900 px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl whitespace-nowrap">
                R{roomState.roundNumber}/{roomState.settings.rounds}
             </div>
+            <button
+               onClick={copyCode}
+               title="Click to copy Room Code"
+               className="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-mono font-bold tracking-wider text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950/50 hover:bg-primary-100 dark:hover:bg-primary-900/50 border border-primary-200 dark:border-primary-800/50 px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl transition-all group shadow-sm active:scale-95"
+            >
+               <span className="text-[9px] sm:text-[11px] uppercase text-slate-400 dark:text-slate-500 font-sans tracking-normal font-semibold">CODE:</span>
+               <span>{roomState.id}</span>
+               {copied ? (
+                  <Check className="w-3.5 h-3.5 text-emerald-500" />
+               ) : (
+                  <Copy className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
+               )}
+            </button>
          </div>
 
          {/* Center: Word hint */}

@@ -164,7 +164,37 @@ export function RoomManager() {
 
             {/* Center Column: Settings & Actions */}
             <div className="flex-1 bg-white dark:bg-paper-800 rounded-3xl p-4 sm:p-6 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex flex-col overflow-y-auto">
-               <div className="flex items-center justify-between mb-6">
+               
+               {/* Prominent Room Code Card */}
+               <div className="bg-gradient-to-r from-primary-500/10 via-primary-500/5 to-transparent border-2 border-primary-500/20 dark:border-primary-500/30 rounded-2xl p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+                  <div className="text-center sm:text-left">
+                     <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">Room Invite Code</span>
+                     <div className="text-3xl font-mono font-black tracking-[0.2em] text-primary-600 dark:text-primary-400 mt-0.5">
+                        {roomState.id}
+                     </div>
+                  </div>
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
+                     <button
+                        onClick={copyRoomCode}
+                        className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-white dark:bg-paper-800 hover:bg-slate-50 dark:hover:bg-paper-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl font-bold text-sm shadow-sm transition-all active:scale-95"
+                     >
+                        {copied ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-slate-400" />}
+                        <span>{copied ? 'Copied!' : 'Copy Code'}</span>
+                     </button>
+                     <button
+                        onClick={() => {
+                           const link = `${window.location.origin}/room/${roomState.id}`;
+                           navigator.clipboard.writeText(link);
+                           toast.success("Invite link copied to clipboard!");
+                        }}
+                        className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow-sm transition-all active:scale-95"
+                     >
+                        <span>Copy Link</span>
+                     </button>
+                  </div>
+               </div>
+
+               <div className="flex items-center justify-between mb-4">
                   <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2">
                      <Settings className="w-4 h-4" /> Settings
                   </h2>
