@@ -446,7 +446,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
                 <button
                   key={t.id}
                   onClick={() => setTool(t.id as ToolType)}
-                  className={`flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg transition-all ${tool === t.id
+                  className={`flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-lg transition-all ${tool === t.id
                       ? 'bg-primary-500 text-white shadow-md scale-105'
                       : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-paper-700 hover:text-slate-700 dark:hover:text-slate-200'
                     }`}
@@ -463,7 +463,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
                 <button
                   key={p.label}
                   onClick={() => setSize(p.size)}
-                  className={`flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg transition-all ${size === p.size
+                  className={`flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-lg transition-all ${size === p.size
                       ? 'bg-primary-500 text-white shadow-md font-bold'
                       : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-paper-700'
                     }`}
@@ -480,7 +480,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               {/* Active Color Preview & Custom Color input */}
               <div className="relative flex-shrink-0 mr-1">
                 <div
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg border-2 border-slate-400 shadow-inner"
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg border-2 border-slate-400 shadow-inner"
                   style={{ backgroundColor: color }}
                   title="Current Color"
                 />
@@ -494,13 +494,13 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               </div>
 
               {/* 2 Rows of Swatches */}
-              <div className="grid grid-rows-2 grid-flow-col gap-1">
+              <div className="grid grid-rows-2 grid-flow-col gap-1.5 sm:gap-2">
                 {QUICK_COLORS.map(c => (
                   <button
                     key={c}
                     type="button"
                     onClick={() => setColor(c)}
-                    className={`w-5 h-5 sm:w-6 sm:h-6 rounded-md shadow-sm transition-transform active:scale-90 ${color.toLowerCase() === c.toLowerCase() ? 'ring-2 ring-primary-500 ring-offset-1 scale-110 z-10' : 'hover:scale-105'
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-md shadow-sm transition-transform active:scale-90 ${color.toLowerCase() === c.toLowerCase() ? 'ring-2 ring-primary-500 ring-offset-1 scale-110 z-10' : 'hover:scale-105'
                       }`}
                     style={{ backgroundColor: c }}
                     title={c}
@@ -514,7 +514,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               <button
                 onClick={handleUndo}
                 disabled={historyIndex < 0}
-                className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                className="flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 title="Undo"
               >
                 <IconUndo />
@@ -522,15 +522,16 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               <button
                 onClick={handleRedo}
                 disabled={historyIndex >= history.length - 1}
-                className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                className="flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 title="Redo"
               >
                 <IconRedo />
               </button>
+              <div className="w-px h-8 bg-slate-200 dark:bg-slate-700 mx-1"></div> {/* Spacer */}
               <button
                 onClick={handleClear}
                 onMouseLeave={() => setShowClearConfirm(false)}
-                className={`flex items-center justify-center px-2 h-8 sm:h-9 rounded-lg transition-all ${showClearConfirm ? 'bg-rose-500 text-white font-bold text-xs' : 'text-slate-500 hover:bg-rose-50 dark:hover:bg-rose-900/30 hover:text-rose-500'}`}
+                className={`flex items-center justify-center px-3 h-11 sm:h-12 rounded-lg transition-all ${showClearConfirm ? 'bg-rose-500 text-white font-bold text-xs' : 'text-slate-500 hover:bg-rose-50 dark:hover:bg-rose-900/30 hover:text-rose-500'}`}
                 title="Clear Canvas"
               >
                 {showClearConfirm ? 'CLEAR?' : <IconTrash />}

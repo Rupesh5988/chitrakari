@@ -145,7 +145,7 @@ export function LandingPage() {
             <button
               type="button"
               onClick={() => cycleAvatar('prev')}
-              className="w-10 h-10 sm:w-11 sm:h-11 bg-white/10 hover:bg-white/20 active:scale-95 text-white rounded-xl flex items-center justify-center font-black transition-all shadow-sm"
+              className="w-11 h-11 sm:w-12 sm:h-12 bg-white/10 hover:bg-white/20 active:scale-95 text-white rounded-xl flex items-center justify-center font-black transition-all shadow-sm"
               title="Previous Doodle Avatar"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -160,17 +160,16 @@ export function LandingPage() {
             <button
               type="button"
               onClick={() => cycleAvatar('next')}
-              className="w-10 h-10 sm:w-11 sm:h-11 bg-white/10 hover:bg-white/20 active:scale-95 text-white rounded-xl flex items-center justify-center font-black transition-all shadow-sm"
+              className="w-11 h-11 sm:w-12 sm:h-12 bg-white/10 hover:bg-white/20 active:scale-95 text-white rounded-xl flex items-center justify-center font-black transition-all shadow-sm"
               title="Next Doodle Avatar"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
 
-            {/* Randomize Dice Button */}
             <button
               type="button"
               onClick={randomizeAvatar}
-              className="absolute top-2 right-2 p-1.5 sm:p-2 bg-amber-400 hover:bg-amber-300 active:scale-90 text-slate-900 rounded-xl shadow-md transition-transform flex items-center gap-1 text-xs font-black"
+              className="absolute top-2 right-2 min-w-[44px] min-h-[44px] flex items-center justify-center bg-amber-400 hover:bg-amber-300 active:scale-90 text-slate-900 rounded-xl shadow-md transition-transform gap-1 text-xs font-black"
               title="Roll Random Doodle Avatar"
             >
               <Dice5 className="w-4 h-4" />

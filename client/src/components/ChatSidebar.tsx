@@ -232,7 +232,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                      <button
                         key={emoji}
                         onClick={() => handleReaction(emoji)}
-                        className="text-lg sm:text-xl hover:scale-125 hover:-translate-y-1 transition-all active:scale-95 drop-shadow-md"
+                        className="text-lg sm:text-xl p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:scale-125 hover:-translate-y-1 transition-all active:scale-95 drop-shadow-md rounded-xl hover:bg-slate-200/50 dark:hover:bg-paper-700/50"
                      >
                         {emoji}
                      </button>
@@ -274,9 +274,9 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                      <button
                         type="submit"
                         disabled={!inputValue.trim()}
-                        className="bg-primary-500 text-white p-2.5 sm:p-3 rounded-2xl hover:bg-primary-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm active:scale-95 flex-shrink-0"
+                        className="bg-primary-500 text-white min-w-[48px] min-h-[48px] rounded-2xl hover:bg-primary-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm active:scale-95 flex-shrink-0 flex items-center justify-center"
                      >
-                        <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <Send className="w-5 h-5" />
                      </button>
                   </form>
                )}
