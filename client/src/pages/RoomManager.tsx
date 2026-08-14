@@ -21,6 +21,7 @@ export function RoomManager() {
    const [editRounds, setEditRounds] = useState(3);
    const [editDrawTime, setEditDrawTime] = useState(80);
    const [editWordDifficulty, setEditWordDifficulty] = useState<'easy' | 'medium' | 'hard' | 'mixed'>('medium');
+   const [editMaxPlayers, setEditMaxPlayers] = useState(8);
 
    useEffect(() => {
       if (!socket || !code || hasJoined) return;
@@ -90,6 +91,7 @@ export function RoomManager() {
          customWords: words,
          rounds: editRounds,
          drawTime: editDrawTime,
+         maxPlayers: editMaxPlayers,
          wordDifficulty: editWordDifficulty
       };
       socket.emit('update_settings', { roomId: roomState.id, settings: updatedSettings });
@@ -206,6 +208,7 @@ export function RoomManager() {
                               setCustomWordsStr(roomState.settings.customWords?.join(', ') || '');
                               setEditRounds(roomState.settings.rounds);
                               setEditDrawTime(roomState.settings.drawTime);
+                              setEditMaxPlayers(roomState.settings.maxPlayers || 8);
                               setEditWordDifficulty(roomState.settings.wordDifficulty);
                               setIsEditingSettings(true);
                            }
@@ -218,6 +221,32 @@ export function RoomManager() {
                </div>
 
                <div className="bg-slate-50 dark:bg-paper-900 rounded-2xl p-4 mb-6 border border-slate-200 dark:border-slate-700/50 space-y-3">
+                  
+                  {/* Players / Max Players Setting */}
+                  <div className="flex items-center justify-between">
+                     <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">👥</div>
+                        <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Players</span>
+                     </div>
+                     {isEditingSettings ? (
+                        <select 
+                           value={editMaxPlayers} 
+                           onChange={e => setEditMaxPlayers(parseInt(e.target.value))} 
+                           className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-sm font-bold w-40"
+                        >
+                           <option value="2">2 Players</option>
+                           <option value="4">4 Players</option>
+                           <option value="6">6 Players</option>
+                           <option value="8">8 Players</option>
+                           <option value="10">10 Players</option>
+                           <option value="12">12 Players</option>
+                           <option value="16">16 Players</option>
+                        </select>
+                     ) : (
+                        <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center">{roomState.settings.maxPlayers || 8}</span>
+                     )}
+                  </div>
+
                   <div className="flex items-center justify-between">
                      <div className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">⏱️</div>

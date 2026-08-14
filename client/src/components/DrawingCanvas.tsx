@@ -368,13 +368,26 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
     { id: 'line', icon: <IconLine />, label: 'Line' },
   ];
 
+  const BRUSH_PRESETS = [
+    { label: 'S', size: 4, dot: 'w-1.5 h-1.5' },
+    { label: 'M', size: 10, dot: 'w-2.5 h-2.5' },
+    { label: 'L', size: 22, dot: 'w-3.5 h-3.5' },
+    { label: 'XL', size: 42, dot: 'w-5 h-5' }
+  ];
+
+  const QUICK_COLORS = [
+    '#000000', '#666666', '#FF0000', '#FF6600', '#FFCC00', '#009900', '#0066FF', '#9900FF',
+    '#FFFFFF', '#CCCCCC', '#800000', '#804000', '#FFFF99', '#004000', '#00CCFF', '#FF99CC'
+  ];
+
   return (
     <div className="flex flex-col w-full h-full">
 
       {/* Guesser info bar */}
       {!isDrawer && (
-        <div className="w-full bg-primary-50 dark:bg-primary-500/10 border-b border-primary-200 dark:border-primary-500/30 text-primary-600 dark:text-primary-400 py-2 px-4 font-medium animate-pulse text-center text-sm flex-shrink-0">
-          ✏️ {drawerName} is drawing...
+        <div className="w-full bg-primary-50 dark:bg-primary-500/10 border-b border-primary-200 dark:border-primary-500/30 text-primary-600 dark:text-primary-400 py-1.5 px-3 font-bold animate-pulse text-center text-xs sm:text-sm flex-shrink-0 flex items-center justify-center gap-2">
+          <span>✏️</span>
+          <span><strong>{drawerName}</strong> is drawing now...</span>
         </div>
       )}
 
@@ -382,7 +395,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
       <div className="flex-1 relative min-h-0">
         <div
           ref={containerRef}
-          className={`w-full h-full relative overflow-hidden touch-none select-none ${!isDrawer ? 'pointer-events-none' : 'cursor-none'}`}
+          className={`w-full h-full relative overflow-hidden select-none ${!isDrawer ? 'pointer-events-none' : 'cursor-crosshair'}`}
           style={{ backgroundColor: bgColor, touchAction: 'none' }}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
@@ -422,20 +435,20 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
         </div>
       </div>
 
-      {/* Toolbar (only visible to Drawer) — bottom on mobile, side-integrated */}
+      {/* Toolbar (only visible to Drawer) — Skribbl-style bottom bar */}
       {isDrawer && (
-        <div className="flex-shrink-0 bg-white dark:bg-paper-800 border-t border-slate-200 dark:border-slate-700/50 px-2 py-2 z-10">
-          <div className="flex items-center gap-1 sm:gap-2 justify-between max-w-full overflow-x-auto scrollbar-none">
+        <div className="flex-shrink-0 bg-slate-50 dark:bg-paper-900 border-t border-slate-200 dark:border-slate-700/50 p-1.5 sm:p-2 z-10">
+          <div className="flex flex-wrap items-center justify-between gap-1.5 sm:gap-3 max-w-full">
 
-            {/* Tool buttons */}
-            <div className="flex items-center gap-0.5 sm:gap-1 flex-shrink-0">
+            {/* Left: Tools (Pencil, Eraser, Fill) */}
+            <div className="flex items-center gap-1 bg-white dark:bg-paper-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex-shrink-0">
               {tools.map(t => (
                 <button
                   key={t.id}
                   onClick={() => setTool(t.id as ToolType)}
-                  className={`flex items-center justify-center p-1.5 sm:p-2 rounded-xl transition-all ${tool === t.id
-                      ? 'bg-primary-100 dark:bg-primary-500/20 text-primary-500 shadow-sm border border-primary-200 dark:border-primary-500/50 scale-105'
-                      : 'text-slate-400 dark:text-slate-500 border border-transparent hover:bg-slate-100 dark:hover:bg-paper-700 hover:text-slate-600 dark:hover:text-slate-200'
+                  className={`flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg transition-all ${tool === t.id
+                      ? 'bg-primary-500 text-white shadow-md scale-105'
+                      : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-paper-700 hover:text-slate-700 dark:hover:text-slate-200'
                     }`}
                   title={t.label}
                 >
@@ -444,48 +457,64 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               ))}
             </div>
 
-            {/* Separator */}
-            <div className="w-px h-6 bg-slate-200 dark:bg-slate-700 flex-shrink-0 hidden sm:block" />
-
-            {/* Size slider */}
-            <div className="flex items-center gap-1.5 flex-shrink-0">
-              <span className="text-[10px] font-mono text-slate-400 hidden sm:inline w-5 text-right">{size}</span>
-              <input
-                type="range"
-                min="2" max="100"
-                value={size}
-                onChange={e => setSize(parseInt(e.target.value))}
-                className="w-16 sm:w-20 accent-primary-500 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer"
-              />
+            {/* Brush Size Presets (S, M, L, XL dots) */}
+            <div className="flex items-center gap-1 bg-white dark:bg-paper-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex-shrink-0">
+              {BRUSH_PRESETS.map(p => (
+                <button
+                  key={p.label}
+                  onClick={() => setSize(p.size)}
+                  className={`flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg transition-all ${size === p.size
+                      ? 'bg-primary-500 text-white shadow-md font-bold'
+                      : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-paper-700'
+                    }`}
+                  title={`Size ${p.label}`}
+                >
+                  <div className={`rounded-full ${p.dot} ${size === p.size ? 'bg-white' : 'bg-slate-700 dark:bg-slate-300'}`} />
+                </button>
+              ))}
             </div>
 
-            {/* Separator */}
-            <div className="w-px h-6 bg-slate-200 dark:bg-slate-700 flex-shrink-0 hidden sm:block" />
+            {/* Direct Touch Color Palette (2 Rows) */}
+            <div className="flex items-center gap-1.5 bg-white dark:bg-paper-800 p-1.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex-shrink-0 overflow-x-auto max-w-full">
+              
+              {/* Active Color Preview & Custom Color input */}
+              <div className="relative flex-shrink-0 mr-1">
+                <div
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg border-2 border-slate-400 shadow-inner"
+                  style={{ backgroundColor: color }}
+                  title="Current Color"
+                />
+                <input
+                  type="color"
+                  value={color}
+                  onChange={e => setColor(e.target.value)}
+                  className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
+                  title="Choose custom color"
+                />
+              </div>
 
-            {/* Color: Current color swatch + color picker toggle */}
-            <div className="relative flex-shrink-0">
-              <button
-                onClick={() => setShowColorPicker(!showColorPicker)}
-                className="w-8 h-8 rounded-xl border-2 border-slate-200 dark:border-slate-600 shadow-inner hover:scale-110 transition-transform"
-                style={{ backgroundColor: color }}
-                title="Pick Color"
-              />
-              {showColorPicker && (
-                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 z-50 animate-slide-up">
-                  <ColorPalette selectedColor={color} onColorSelect={(c) => { setColor(c); setShowColorPicker(false); }} />
-                </div>
-              )}
+              {/* 2 Rows of Swatches */}
+              <div className="grid grid-rows-2 grid-flow-col gap-1">
+                {QUICK_COLORS.map(c => (
+                  <button
+                    key={c}
+                    type="button"
+                    onClick={() => setColor(c)}
+                    className={`w-5 h-5 sm:w-6 sm:h-6 rounded-md shadow-sm transition-transform active:scale-90 ${color.toLowerCase() === c.toLowerCase() ? 'ring-2 ring-primary-500 ring-offset-1 scale-110 z-10' : 'hover:scale-105'
+                      }`}
+                    style={{ backgroundColor: c }}
+                    title={c}
+                  />
+                ))}
+              </div>
             </div>
 
-            {/* Separator */}
-            <div className="w-px h-6 bg-slate-200 dark:bg-slate-700 flex-shrink-0 hidden sm:block" />
-
-            {/* Actions: undo, redo, clear */}
-            <div className="flex items-center gap-0.5 sm:gap-1 flex-shrink-0">
+            {/* Right Actions: Undo, Redo, Clear */}
+            <div className="flex items-center gap-1 bg-white dark:bg-paper-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex-shrink-0">
               <button
                 onClick={handleUndo}
                 disabled={historyIndex < 0}
-                className="flex items-center justify-center p-1.5 sm:p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 title="Undo"
               >
                 <IconUndo />
@@ -493,7 +522,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               <button
                 onClick={handleRedo}
                 disabled={historyIndex >= history.length - 1}
-                className="flex items-center justify-center p-1.5 sm:p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-paper-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 title="Redo"
               >
                 <IconRedo />
@@ -501,12 +530,13 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               <button
                 onClick={handleClear}
                 onMouseLeave={() => setShowClearConfirm(false)}
-                className={`flex items-center justify-center p-1.5 sm:p-2 rounded-xl transition-all ${showClearConfirm ? 'bg-rose-100 dark:bg-rose-500/20 text-rose-500 border border-rose-200 dark:border-rose-500/50' : 'text-slate-400 hover:bg-slate-100 dark:hover:bg-paper-700'}`}
+                className={`flex items-center justify-center px-2 h-8 sm:h-9 rounded-lg transition-all ${showClearConfirm ? 'bg-rose-500 text-white font-bold text-xs' : 'text-slate-500 hover:bg-rose-50 dark:hover:bg-rose-900/30 hover:text-rose-500'}`}
                 title="Clear Canvas"
               >
-                {showClearConfirm ? <span className="text-[10px] font-bold">SURE?</span> : <IconTrash />}
+                {showClearConfirm ? 'CLEAR?' : <IconTrash />}
               </button>
             </div>
+
           </div>
         </div>
       )}

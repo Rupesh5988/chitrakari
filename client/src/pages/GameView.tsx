@@ -77,36 +77,48 @@ export function GameView() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="absolute inset-0 z-50 bg-paper-900/80 backdrop-blur-sm flex items-center justify-center rounded-3xl"
+                  className="fixed inset-0 z-[100] bg-black/75 backdrop-blur-sm flex items-center justify-center p-4"
                >
                   {isDrawer ? (
                      <motion.div
-                        initial={{ scale: 0.9, y: 20 }}
+                        initial={{ scale: 0.85, y: 20 }}
                         animate={{ scale: 1, y: 0 }}
-                        className="bg-white dark:bg-paper-800 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark max-w-lg w-[90%] text-center"
+                        className="bg-white dark:bg-paper-800 p-6 sm:p-8 rounded-3xl border-2 border-primary-500 shadow-2xl max-w-lg w-full text-center"
                      >
-                        <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-white mb-2">Choose a Word</h2>
-                        <p className="text-slate-500 dark:text-slate-400 mb-6">You have {roomState.timeRemaining}s to pick</p>
+                        <span className="text-3xl mb-1 block animate-bounce">🎨</span>
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-800 dark:text-white mb-1">Choose a Word to Draw</h2>
+                        <p className="text-sm font-bold text-amber-500 mb-5">⏳ You have {roomState.timeRemaining}s to pick!</p>
+                        
                         <div className="grid gap-3">
-                           {roomState.wordChoices?.map(word => (
-                              <button
-                                 key={word}
-                                 onClick={() => handleWordSelect(word)}
-                                 className="w-full py-3 sm:py-4 bg-primary-50 dark:bg-primary-500/20 text-primary-600 dark:text-primary-400 hover:bg-primary-500 hover:text-white border border-primary-200 dark:border-primary-500/50 rounded-2xl text-lg sm:text-xl font-bold tracking-widest uppercase transition-all hover:scale-105 active:scale-95"
-                              >
-                                 {word}
-                              </button>
-                           ))}
+                           {roomState.wordChoices?.map((word, idx) => {
+                              const btnColors = [
+                                 'bg-blue-500 hover:bg-blue-600 border-blue-600 text-white',
+                                 'bg-emerald-500 hover:bg-emerald-600 border-emerald-600 text-white',
+                                 'bg-purple-500 hover:bg-purple-600 border-purple-600 text-white'
+                              ];
+                              return (
+                                 <button
+                                    key={word}
+                                    onClick={() => handleWordSelect(word)}
+                                    className={`w-full py-4 px-6 ${btnColors[idx % btnColors.length]} rounded-2xl text-xl sm:text-2xl font-black tracking-widest uppercase transition-all shadow-md hover:scale-[1.03] active:scale-95 border-b-4 flex items-center justify-center gap-3`}
+                                 >
+                                    <span className="opacity-70 text-base font-mono">#{idx + 1}</span>
+                                    <span>{word}</span>
+                                 </button>
+                              );
+                           })}
                         </div>
                      </motion.div>
                   ) : (
                      <motion.div
                         initial={{ scale: 0.9 }}
                         animate={{ scale: 1 }}
-                        className="text-center animate-pulse"
+                        className="bg-white/10 dark:bg-paper-800/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/20 text-center max-w-md w-full shadow-2xl"
                      >
-                        <div className="text-3xl sm:text-4xl font-bold text-primary-500 mb-2">{drawerName}</div>
-                        <div className="text-lg sm:text-xl text-slate-200">is choosing a word...</div>
+                        <div className="text-4xl mb-3 animate-bounce">✏️</div>
+                        <div className="text-2xl sm:text-3xl font-black text-primary-400 mb-1">{drawerName}</div>
+                        <div className="text-base text-slate-200 font-medium">is choosing a word to draw...</div>
+                        <div className="text-xs text-slate-400 mt-3">Get your guesses ready!</div>
                      </motion.div>
                   )}
                </motion.div>
@@ -117,18 +129,18 @@ export function GameView() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="absolute inset-0 z-50 bg-paper-900/90 backdrop-blur-md flex items-center justify-center rounded-3xl p-4"
+                  className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
                >
                   <motion.div
-                     initial={{ scale: 0.5, rotate: -5 }}
+                     initial={{ scale: 0.8, rotate: -3 }}
                      animate={{ scale: 1, rotate: 0 }}
-                     transition={{ type: "spring", bounce: 0.5 }}
-                     className="bg-white dark:bg-paper-800 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark max-w-lg w-[90%] text-center"
+                     transition={{ type: "spring", bounce: 0.4 }}
+                     className="bg-white dark:bg-paper-800 p-5 sm:p-8 rounded-3xl border-2 border-slate-300 dark:border-slate-700 shadow-2xl max-w-lg w-full text-center"
                   >
-                     <h2 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-2">The word was</h2>
-                     <div className="text-3xl sm:text-5xl font-black text-secondary-500 uppercase tracking-widest mb-6 sm:mb-8">{roomState.turnSummary.word}</div>
+                     <h2 className="text-xs sm:text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">The word was</h2>
+                     <div className="text-3xl sm:text-5xl font-black text-secondary-500 uppercase tracking-widest mb-4 sm:mb-6">{roomState.turnSummary.word}</div>
 
-                     <div className="grid gap-2 sm:gap-3 mb-6 max-h-48 sm:max-h-64 overflow-y-auto w-full max-w-md mx-auto scrollbar-thin">
+                     <div className="grid gap-2 mb-4 max-h-48 sm:max-h-60 overflow-y-auto w-full scrollbar-thin">
                         {Object.entries(roomState.turnSummary.guesserPoints).length > 0 ? (
                            Object.entries(roomState.turnSummary.guesserPoints).map(([pid, pts]) => {
                               const p = roomState.players.find(x => x.id === pid);
@@ -381,12 +393,12 @@ export function GameView() {
    return (
       <div className="h-[100dvh] overflow-hidden bg-paper-100 dark:bg-paper-950 flex flex-col">
          {/* TopBar: fixed, never scrolls away */}
-         <div className="flex-shrink-0 p-2 pb-0 md:p-3 md:pb-0">
+         <div className="flex-shrink-0 p-1.5 sm:p-2 md:p-3 pb-0">
             <TopBar />
          </div>
 
          {/* Main content area */}
-         <div className="flex-1 flex flex-col md:flex-row gap-2 md:gap-3 p-2 md:p-3 min-h-0 max-w-[1800px] mx-auto w-full">
+         <div className="flex-1 flex flex-col md:flex-row gap-2 md:gap-3 p-1.5 sm:p-2 md:p-3 min-h-0 max-w-[1800px] mx-auto w-full">
 
             {/* Mobile: horizontal player strip */}
             {renderMobilePlayerStrip()}
@@ -395,7 +407,7 @@ export function GameView() {
             {renderPlayerSidebar()}
 
             {/* Center: Canvas area */}
-            <div className="flex-1 relative rounded-3xl overflow-hidden shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-paper-800 min-h-0">
+            <div className={`flex flex-col relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-paper-800 ${!isDrawer ? 'flex-1 md:flex-[2] min-h-[180px]' : 'flex-1'} min-h-0`}>
                <DrawingCanvas isDrawer={isDrawer} drawerName={drawerName} roomId={roomState.id} />
                {renderPhaseOverlay()}
 
@@ -416,14 +428,21 @@ export function GameView() {
                </div>
             </div>
 
+            {/* Guesser Mobile Chat & Guess Box docked beneath Canvas */}
+            {!isDrawer && (
+               <div className="flex md:hidden h-44 sm:h-52 flex-shrink-0 flex-col min-h-0 bg-white dark:bg-paper-800 rounded-2xl border border-slate-200 dark:border-slate-700/50 shadow-soft overflow-hidden">
+                  <ChatSidebar />
+               </div>
+            )}
+
             {/* Desktop: right chat sidebar */}
             <div className="hidden md:flex md:w-72 lg:w-80 min-h-0">
                <ChatSidebar />
             </div>
 
-            {/* Mobile: Chat overlay */}
+            {/* Drawer Mobile Chat overlay toggle */}
             <AnimatePresence>
-               {showMobileChat && (
+               {isDrawer && showMobileChat && (
                   <motion.div
                      initial={{ y: '100%' }}
                      animate={{ y: 0 }}
@@ -432,7 +451,7 @@ export function GameView() {
                      className="md:hidden fixed inset-0 z-[90] bg-paper-100/95 dark:bg-paper-950/95 backdrop-blur-md flex flex-col pt-2"
                   >
                      <div className="flex items-center justify-between px-4 py-2 flex-shrink-0">
-                        <h2 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Chat & Scores</h2>
+                        <h2 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Chat & Guesses</h2>
                         <button
                            onClick={() => setShowMobileChat(false)}
                            className="p-2 bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-xl font-bold text-sm hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
@@ -447,13 +466,14 @@ export function GameView() {
                )}
             </AnimatePresence>
 
-            {/* Mobile: Chat FAB (floating action button) */}
-            {!showMobileChat && (
+            {/* Drawer Mobile Chat FAB (Floating Action Button) */}
+            {isDrawer && !showMobileChat && (
                <button
                   onClick={() => setShowMobileChat(true)}
-                  className="md:hidden fixed bottom-4 right-4 z-[80] bg-primary-500 hover:bg-primary-600 text-white p-4 rounded-full shadow-lg active:scale-95 transition-all animate-pulse-glow"
+                  className="md:hidden fixed bottom-16 right-4 z-[80] bg-primary-500 hover:bg-primary-600 text-white p-3.5 rounded-full shadow-lg active:scale-95 transition-all"
+                  title="View Chat"
                >
-                  <MessageSquare className="w-6 h-6" />
+                  <MessageSquare className="w-5 h-5" />
                   {unreadCount > 0 && (
                      <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] font-bold min-w-[18px] h-[18px] flex items-center justify-center rounded-full px-1">
                         {unreadCount > 99 ? '99+' : unreadCount}
