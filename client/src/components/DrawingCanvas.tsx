@@ -41,8 +41,8 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
   const [isDrawing, setIsDrawing] = useState(false);
   const [currentStroke, setCurrentStroke] = useState<StrokeAction | null>(null);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
-  const [cursorPos, setCursorPos] = useState<Point | null>(null);
   const [showColorPicker, setShowColorPicker] = useState(false);
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   const pointsQueue = useRef<Point[]>([]);
   const throttleTimer = useRef<NodeJS.Timeout | null>(null);
@@ -57,6 +57,26 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
       socket.emit('request_sync', { roomId });
     }
   }, [roomId, socket, roomState?.strokeHistory?.length]);
+
+  // Keyboard Shortcuts for Tools
+  useEffect(() => {
+    if (!isDrawer) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (document.activeElement?.tagName === 'INPUT' || document.activeElement?.tagName === 'TEXTAREA') {
+        return;
+      }
+      const key = e.key.toLowerCase();
+      if (key === 'p') setTool('pencil');
+      else if (key === 'e') setTool('eraser');
+      else if (key === 'f') setTool('fill');
+      else if (key === '[') setSize(s => Math.max(2, s - 2));
+      else if (key === ']') setSize(s => Math.min(100, s + 2));
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isDrawer]);
 
   const getRelativeCoords = (e: React.PointerEvent): Point => {
     const canvas = draftCanvasRef.current;
@@ -219,9 +239,12 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
   };
 
   const handlePointerMove = (e: React.PointerEvent) => {
-    if (isDrawer && containerRef.current) {
+    if (isDrawer && containerRef.current && cursorRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
-      setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      cursorRef.current.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+      cursorRef.current.style.opacity = '0.9';
     }
 
     if (!isDrawer || !isDrawing || !currentStroke || tool === 'fill') return;
@@ -402,7 +425,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
           onPointerUp={handlePointerUp}
           onPointerLeave={() => {
             handlePointerUp();
-            setCursorPos(null);
+            if (cursorRef.current) cursorRef.current.style.opacity = '0';
           }}
         >
           <canvas
@@ -418,17 +441,19 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
             className="absolute inset-0 w-full h-full block"
           />
 
-          {isDrawer && cursorPos && (
+          {isDrawer && (
             <div
-              className="absolute pointer-events-none rounded-full z-50 transition-transform duration-75 shadow-[0_0_8px_rgba(0,0,0,0.6)]"
+              ref={cursorRef}
+              className="absolute pointer-events-none rounded-full z-50 shadow-[0_0_8px_rgba(0,0,0,0.6)]"
               style={{
                 width: Math.max(12, cursorSize),
                 height: Math.max(12, cursorSize),
-                left: cursorPos.x - Math.max(12, cursorSize) / 2,
-                top: cursorPos.y - Math.max(12, cursorSize) / 2,
+                left: 0,
+                top: 0,
                 backgroundColor: tool === 'eraser' ? 'rgba(255,255,255,0.8)' : color,
                 border: '2px solid white',
-                opacity: 0.9
+                opacity: 0,
+                willChange: 'transform'
               }}
             />
           )}

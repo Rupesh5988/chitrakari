@@ -75,6 +75,19 @@ export function GameView() {
       }
    };
 
+   // Keyboard Shortcuts for Word Selection
+   useEffect(() => {
+      if (roomState.phase === 'choosing_word' && isDrawer && roomState.wordChoices) {
+         const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === '1' && roomState.wordChoices![0]) handleWordSelect(roomState.wordChoices![0]);
+            else if (e.key === '2' && roomState.wordChoices![1]) handleWordSelect(roomState.wordChoices![1]);
+            else if (e.key === '3' && roomState.wordChoices![2]) handleWordSelect(roomState.wordChoices![2]);
+         };
+         window.addEventListener('keydown', handleKeyDown);
+         return () => window.removeEventListener('keydown', handleKeyDown);
+      }
+   }, [roomState.phase, isDrawer, roomState.wordChoices]);
+
    const renderPhaseOverlay = () => {
       return (
          <AnimatePresence>
