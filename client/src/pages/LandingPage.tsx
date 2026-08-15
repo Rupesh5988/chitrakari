@@ -5,10 +5,10 @@ import { Avatar } from '../components/Avatar';
 import { Dice5, ChevronLeft, ChevronRight, HelpCircle, BookOpen, PenTool, Sparkles, User } from 'lucide-react';
 
 const AVATAR_SEEDS = [
-  'raja-mooch-1', 'cool-chashma-2', 'happy-wink-3', 'artist-beret-4',
-  'sunny-smile-5', 'toothy-grin-6', 'tilak-star-7', 'tongue-cheeky-8',
-  'mustache-pro-9', 'doodle-cutie-10', 'super-surprised-11', 'doodle-champ-12',
-  'chill-smirk-13', 'festive-glow-14', 'glasses-guru-15', 'star-eyes-16'
+  'Arjun', 'Priya', 'Ravi', 'Kavya',
+  'Dev', 'Ananya', 'Rahul', 'Neha',
+  'Vikram', 'Sneha', 'Aditya', 'Maya',
+  'Rohan', 'Diya', 'Kabir', 'Tara'
 ];
 
 export function LandingPage() {

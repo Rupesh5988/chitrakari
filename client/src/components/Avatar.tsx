@@ -19,9 +19,8 @@ export const Avatar: React.FC<AvatarProps> = ({ seed, size = 48, className = '' 
   const hash = hashString(seed || 'default');
   const floatClass = hash % 3 === 0 ? 'animate-float-slow' : hash % 3 === 1 ? 'animate-float-medium' : 'animate-float-fast';
 
-  // We use DiceBear's Avataaars style for a highly polished, attractive, and varied look!
-  // It guarantees maximum variety up to millions of players while looking complete and professional.
-  const url = `https://api.dicebear.com/9.x/avataaars/svg?seed=${encodeURIComponent(seed)}&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf`;
+  // We use DiceBear's Micah style for a highly polished, creative, and gender-neutral look.
+  const url = `https://api.dicebear.com/9.x/micah/svg?seed=${encodeURIComponent(seed)}&backgroundColor=f97316,f59e0b,10b981,06b6d4,8b5cf6,ec4899`;
 
   return (
     <img
