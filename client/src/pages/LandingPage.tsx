@@ -55,15 +55,7 @@ export function LandingPage() {
     }
   };
 
-  const cycleAvatar = (direction: 'prev' | 'next') => {
-    let nextIdx = direction === 'next' ? seedIndex + 1 : seedIndex - 1;
-    if (nextIdx < 0) nextIdx = AVATAR_SEEDS.length - 1;
-    if (nextIdx >= AVATAR_SEEDS.length) nextIdx = 0;
-    setSeedIndex(nextIdx);
-    const newSeed = AVATAR_SEEDS[nextIdx];
-    setAvatarSeed(newSeed);
-    localStorage.setItem('chitrakari_avatar', newSeed);
-  };
+
 
   const randomizeAvatar = () => {
     const randomSeed = Math.random().toString(36).substring(2, 10);
@@ -103,23 +95,6 @@ export function LandingPage() {
             ))}
             <span className="text-2xl sm:text-5xl ml-1 animate-bounce">✏️</span>
           </div>
-
-          {/* Row of cute mini doodle avatars underneath logo */}
-          <div className="flex items-center justify-center gap-1 sm:gap-2 mt-1.5 sm:mt-2 flex-wrap">
-            {AVATAR_SEEDS.slice(0, 8).map((s, idx) => (
-              <div 
-                key={idx} 
-                onClick={() => {
-                  setAvatarSeed(s);
-                  localStorage.setItem('chitrakari_avatar', s);
-                }}
-                className="hover:-translate-y-1 transition-transform cursor-pointer"
-                title="Click to select this doodle face!"
-              >
-                <Avatar seed={s} size={24} className="sm:w-7 sm:h-7" />
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Center Main Card (Skribbl Play Box) */}
@@ -140,40 +115,44 @@ export function LandingPage() {
             />
           </div>
 
-          {/* Avatar Studio Box with Indian Doodle Expressions */}
-          <div className="bg-[#193766] dark:bg-[#0e1d38] border-2 border-[#12284c] rounded-2xl p-3 sm:p-4 mb-3.5 flex items-center justify-between relative shadow-inner">
-            <button
-              type="button"
-              onClick={() => cycleAvatar('prev')}
-              className="w-11 h-11 sm:w-12 sm:h-12 bg-white/10 hover:bg-white/20 active:scale-95 text-white rounded-xl flex items-center justify-center font-black transition-all shadow-sm"
-              title="Previous Doodle Avatar"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-
-            <div className="flex flex-col items-center">
-              <div className="p-2 bg-white/5 rounded-2xl border border-white/10 shadow-lg">
-                <Avatar seed={avatarSeed} size={80} className="sm:w-24 sm:h-24" />
+          {/* Avatar Studio Box with Grid */}
+          <div className="bg-[#193766] dark:bg-[#0e1d38] border-2 border-[#12284c] rounded-2xl p-4 mb-4 flex flex-col sm:flex-row items-center gap-4 relative shadow-inner">
+            
+            {/* Selected Big Avatar */}
+            <div className="relative flex-shrink-0">
+              <div className="p-2 bg-white/10 rounded-2xl border border-white/20 shadow-lg relative">
+                <Avatar seed={avatarSeed} size={88} className="sm:w-24 sm:h-24" />
+                <button
+                  type="button"
+                  onClick={randomizeAvatar}
+                  className="absolute -top-2 -right-2 w-9 h-9 flex items-center justify-center bg-amber-400 hover:bg-amber-300 active:scale-90 text-slate-900 rounded-full shadow-md transition-transform border-2 border-white/20"
+                  title="Roll Random Avatar"
+                >
+                  <Dice5 className="w-5 h-5" />
+                </button>
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() => cycleAvatar('next')}
-              className="w-11 h-11 sm:w-12 sm:h-12 bg-white/10 hover:bg-white/20 active:scale-95 text-white rounded-xl flex items-center justify-center font-black transition-all shadow-sm"
-              title="Next Doodle Avatar"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-
-            <button
-              type="button"
-              onClick={randomizeAvatar}
-              className="absolute top-2 right-2 min-w-[44px] min-h-[44px] flex items-center justify-center bg-amber-400 hover:bg-amber-300 active:scale-90 text-slate-900 rounded-xl shadow-md transition-transform gap-1 text-xs font-black"
-              title="Roll Random Doodle Avatar"
-            >
-              <Dice5 className="w-4 h-4" />
-            </button>
+            {/* Grid Options */}
+            <div className="flex-1 grid grid-cols-4 sm:grid-cols-4 gap-2 w-full max-w-[240px]">
+              {AVATAR_SEEDS.slice(0, 8).map((s, idx) => (
+                <div 
+                  key={idx} 
+                  onClick={() => {
+                    setAvatarSeed(s);
+                    localStorage.setItem('chitrakari_avatar', s);
+                  }}
+                  className={`cursor-pointer rounded-xl overflow-hidden transition-all duration-200 border-2 ${
+                    avatarSeed === s 
+                      ? 'border-amber-400 scale-110 shadow-[0_0_10px_rgba(251,191,36,0.5)]' 
+                      : 'border-transparent hover:border-white/30 hover:scale-105 opacity-80 hover:opacity-100'
+                  }`}
+                  title="Select this avatar"
+                >
+                  <Avatar seed={s} size={48} className="w-full h-auto aspect-square bg-white/5" />
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Action Buttons */}
