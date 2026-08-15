@@ -104,7 +104,7 @@ export function GameView() {
                      <motion.div
                         initial={{ scale: 0.85, y: 20 }}
                         animate={{ scale: 1, y: 0 }}
-                        className="bg-white dark:bg-paper-800 p-6 sm:p-8 rounded-3xl border-2 border-primary-500 shadow-2xl max-w-lg w-full text-center"
+                        className="bg-white dark:bg-paper-800 p-6 sm:p-8 wonky-border-alt border-2 border-primary-500 wonky-shadow max-w-lg w-full text-center rotate-1"
                      >
                         <span className="text-3xl mb-1 block animate-bounce">🎨</span>
                         <h2 className="text-2xl sm:text-3xl font-black text-slate-800 dark:text-white mb-1">Choose a Word to Draw</h2>
@@ -121,7 +121,7 @@ export function GameView() {
                                  <button
                                     key={word}
                                     onClick={() => handleWordSelect(word)}
-                                    className={`w-full py-4 px-6 ${btnColors[idx % btnColors.length]} rounded-2xl text-xl sm:text-2xl font-black tracking-widest uppercase transition-all shadow-md hover:scale-[1.03] active:scale-95 border-b-4 flex items-center justify-center gap-3`}
+                                    className={`w-full py-4 px-6 ${btnColors[idx % btnColors.length]} wonky-border-button text-xl sm:text-2xl font-black tracking-widest uppercase transition-all shadow-md hover:scale-[1.03] active:scale-95 flex items-center justify-center gap-3`}
                                  >
                                     <span className="opacity-70 text-base font-mono">#{idx + 1}</span>
                                     <span>{word}</span>
@@ -134,7 +134,7 @@ export function GameView() {
                      <motion.div
                         initial={{ scale: 0.9 }}
                         animate={{ scale: 1 }}
-                        className="bg-white/10 dark:bg-paper-800/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/20 text-center max-w-md w-full shadow-2xl"
+                        className="bg-white/10 dark:bg-paper-800/90 backdrop-blur-md p-6 sm:p-8 wonky-border-alt border border-white/20 text-center max-w-md w-full wonky-shadow -rotate-1"
                      >
                         <div className="text-4xl mb-3 animate-bounce">✏️</div>
                         <div className="text-2xl sm:text-3xl font-black text-primary-400 mb-1">{drawerName}</div>
@@ -156,7 +156,7 @@ export function GameView() {
                      initial={{ scale: 0.8, rotate: -3 }}
                      animate={{ scale: 1, rotate: 0 }}
                      transition={{ type: "spring", bounce: 0.4 }}
-                     className="bg-white dark:bg-paper-800 p-5 sm:p-8 rounded-3xl border-2 border-slate-300 dark:border-slate-700 shadow-2xl max-w-lg w-full text-center"
+                     className="bg-white dark:bg-paper-800 p-5 sm:p-8 wonky-border-alt border-2 border-slate-300 dark:border-slate-700 wonky-shadow max-w-lg w-full text-center rotate-1"
                   >
                      <h2 className="text-xs sm:text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">The word was</h2>
                      <div className="text-3xl sm:text-5xl font-black text-secondary-500 uppercase tracking-widest mb-4 sm:mb-6 animate-squiggly inline-block">{roomState.turnSummary.word}</div>
@@ -167,7 +167,7 @@ export function GameView() {
                               const p = roomState.players.find(x => x.id === pid);
                               if (!p) return null;
                               return (
-                                 <div key={pid} className="flex items-center justify-between bg-white dark:bg-paper-800 p-3 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+                                 <div key={pid} className="flex items-center justify-between bg-white dark:bg-paper-800 p-3 wonky-border shadow-sm border border-slate-100 dark:border-slate-700">
                                     <div className="flex items-center gap-3">
                                        <Avatar seed={p.avatarSeed} size={32} />
                                        <span className="font-bold text-slate-700 dark:text-slate-300">{p.name}</span>
@@ -180,7 +180,7 @@ export function GameView() {
                            <div className="text-slate-400 font-bold italic">No one guessed it!</div>
                         )}
                         {roomState.turnSummary.drawerPoints > 0 && (
-                           <div className="flex items-center justify-between bg-amber-50 dark:bg-amber-900/20 p-3 rounded-2xl shadow-sm border border-amber-200 dark:border-amber-700/50 mt-2">
+                           <div className="flex items-center justify-between bg-amber-50 dark:bg-amber-900/20 p-3 wonky-border-alt shadow-sm border border-amber-200 dark:border-amber-700/50 mt-2">
                               <div className="flex items-center gap-3">
                                  <span className="text-xl">🖌️</span>
                                  <span className="font-bold text-amber-700 dark:text-amber-400">Drawer Bonus</span>
@@ -190,7 +190,7 @@ export function GameView() {
                         )}
                         {/* Zero scorers */}
                         {roomState.players.filter(p => !roomState.turnSummary?.guesserPoints[p.id] && p.id !== roomState.turnSummary?.drawerId && p.connected).map(p => (
-                           <div key={p.id} className="flex items-center justify-between bg-white dark:bg-paper-800 p-3 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 opacity-60">
+                           <div key={p.id} className="flex items-center justify-between bg-white dark:bg-paper-800 p-3 wonky-border-alt shadow-sm border border-slate-100 dark:border-slate-700 opacity-60">
                               <div className="flex items-center gap-3">
                                  <Avatar seed={p.avatarSeed} size={32} />
                                  <span className="font-bold text-slate-500 dark:text-slate-400">{p.name}</span>
@@ -203,13 +203,13 @@ export function GameView() {
                      <div className="flex items-center gap-4 justify-center mb-6">
                         <button
                            onClick={() => socket?.emit('rate_drawing', { roomId: roomState.id, like: true })}
-                           className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 ${roomState.turnSummary.likes?.includes(me?.id || '') ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20' : 'bg-slate-100 dark:bg-paper-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-paper-600'}`}
+                           className={`flex items-center gap-2 px-5 py-2.5 wonky-border-button font-bold transition-transform hover:scale-105 active:scale-95 ${roomState.turnSummary.likes?.includes(me?.id || '') ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20' : 'bg-slate-100 dark:bg-paper-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-paper-600'}`}
                         >
                            <span className="text-xl">👍</span> {roomState.turnSummary.likes?.length || 0}
                         </button>
                         <button
                            onClick={() => socket?.emit('rate_drawing', { roomId: roomState.id, like: false })}
-                           className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 ${roomState.turnSummary.dislikes?.includes(me?.id || '') ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-slate-100 dark:bg-paper-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-paper-600'}`}
+                           className={`flex items-center gap-2 px-5 py-2.5 wonky-border-button font-bold transition-transform hover:scale-105 active:scale-95 ${roomState.turnSummary.dislikes?.includes(me?.id || '') ? 'bg-red-500 text-white shadow-lg shadow-red-500/20' : 'bg-slate-100 dark:bg-paper-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-paper-600'}`}
                         >
                            <span className="text-xl">👎</span> {roomState.turnSummary.dislikes?.length || 0}
                         </button>

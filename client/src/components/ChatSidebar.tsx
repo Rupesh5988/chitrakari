@@ -145,7 +145,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   if (msg.type === 'correct_guess') {
                      return (
                         <div key={msg.id} className="text-center animate-pop">
-                           <span className="inline-flex items-center gap-1 bg-emerald-100 dark:bg-emerald-500/20 border border-emerald-300 dark:border-emerald-500/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold px-3 py-1.5 rounded-full">
+                           <span className="inline-flex items-center gap-1 bg-emerald-100 dark:bg-emerald-500/20 border border-emerald-300 dark:border-emerald-500/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold px-3 py-1.5 wonky-border-alt">
                               <Sparkles className="w-3 h-3" />
                               {p?.name} guessed the word!
                            </span>
@@ -156,7 +156,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   if (msg.type === 'close_guess') {
                      return (
                         <div key={msg.id} className="text-center">
-                           <span className="inline-block bg-amber-100 dark:bg-amber-500/20 border border-amber-300 dark:border-amber-500/50 text-amber-600 dark:text-amber-400 text-xs font-bold px-3 py-1.5 rounded-full">
+                           <span className="inline-block bg-amber-100 dark:bg-amber-500/20 border border-amber-300 dark:border-amber-500/50 text-amber-600 dark:text-amber-400 text-xs font-bold px-3 py-1.5 wonky-border">
                               {msg.text}
                            </span>
                         </div>
@@ -166,7 +166,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   if (msg.type === 'leak_blocked') {
                      return (
                         <div key={msg.id} className="text-center">
-                           <span className="inline-block bg-rose-100 dark:bg-rose-500/20 border border-rose-300 dark:border-rose-500/50 text-rose-600 dark:text-rose-400 text-xs font-bold px-3 py-1.5 rounded-full">
+                           <span className="inline-block bg-rose-100 dark:bg-rose-500/20 border border-rose-300 dark:border-rose-500/50 text-rose-600 dark:text-rose-400 text-xs font-bold px-3 py-1.5 wonky-border-alt">
                               ⚠️ {msg.text}
                            </span>
                         </div>
@@ -184,7 +184,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   if (msg.type === 'system_meaning') {
                      return (
                         <div key={msg.id} className="text-center my-2 animate-pop">
-                           <span className="inline-block bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800/50 text-indigo-700 dark:text-indigo-300 text-xs font-bold px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-sm leading-tight max-w-[90%]">
+                           <span className="inline-block bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800/50 text-indigo-700 dark:text-indigo-300 text-xs font-bold px-3 sm:px-4 py-2 sm:py-2.5 wonky-border shadow-sm leading-tight max-w-[90%]">
                               📖 {msg.text}
                            </span>
                         </div>
@@ -198,7 +198,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                      return (
                         <div key={msg.id} className="text-sm break-words leading-relaxed flex flex-col">
                            <span className="font-bold text-emerald-600 dark:text-emerald-400 text-[10px] uppercase tracking-wider">{p?.name}</span>
-                           <span className="text-emerald-800 dark:text-emerald-200 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-2 rounded-xl rounded-tl-sm self-start inline-block shadow-sm border border-emerald-100 dark:border-emerald-800/50">
+                           <span className="text-emerald-800 dark:text-emerald-200 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-2 wonky-border-alt self-start inline-block shadow-sm border border-emerald-100 dark:border-emerald-800/50">
                               {msg.text}
                            </span>
                         </div>
@@ -208,7 +208,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   return (
                      <div key={msg.id} className={`text-sm break-words leading-relaxed flex flex-col animate-float-slow`}>
                         <span className="font-bold text-slate-500 dark:text-slate-400 text-[10px] uppercase tracking-wider">{p?.name}</span>
-                        <span className="text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-paper-900/50 px-3 py-2 rounded-xl rounded-tl-sm self-start inline-block shadow-sm">
+                        <span className="text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-paper-900/50 px-3 py-2 wonky-border self-start inline-block shadow-sm">
                            {msg.text}
                         </span>
                      </div>
@@ -220,7 +220,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
             {hasNewMessages && (
                <button
                   onClick={scrollToBottom}
-                  className="absolute bottom-20 left-1/2 -translate-x-1/2 bg-primary-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2 hover:bg-primary-600 transition-all z-10 animate-bounce"
+                  className="absolute bottom-20 left-1/2 -translate-x-1/2 bg-primary-500 text-white text-xs font-bold px-4 py-2 wonky-border-button shadow-lg flex items-center gap-2 hover:bg-primary-600 transition-all z-10 animate-bounce"
                >
                   <ArrowDown className="w-3 h-3" /> New
                </button>
