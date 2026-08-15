@@ -244,7 +244,7 @@ export function LandingPage() {
 
       {/* Footer copyright */}
       <footer className="text-[11px] sm:text-xs text-blue-200/50 text-center py-2 z-10">
-        Chitrakari Multiplayer &copy; {new Date().getFullYear()} — Made with ❤️ for drawing lovers
+        Chitrakari Multiplayer &copy; {new Date().getFullYear()} — Made with ❤️ by Raren
       </footer>
     </div>
   );
