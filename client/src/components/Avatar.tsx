@@ -39,13 +39,15 @@ export const Avatar: React.FC<AvatarProps> = ({ seed, size = 48, className = '' 
   const accessoryType = (hash >> 8) % 6;
   const hasBlush = (hash >> 3) % 2 === 0;
 
+  const floatClass = hash % 3 === 0 ? 'animate-float-slow' : hash % 3 === 1 ? 'animate-float-medium' : 'animate-float-fast';
+
   return (
     <svg
       width={size}
       height={size}
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
-      className={`rounded-full shadow-inner select-none ${className}`}
+      className={`rounded-full shadow-inner select-none ${floatClass} ${className}`}
       style={{ backgroundColor: bg }}
     >
       {/* Head outline subtle shading */}

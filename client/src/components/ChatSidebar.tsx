@@ -203,7 +203,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   }
 
                   return (
-                     <div key={msg.id} className="text-sm break-words leading-relaxed flex flex-col">
+                     <div key={msg.id} className={`text-sm break-words leading-relaxed flex flex-col ${msg.type === 'system' ? 'animate-float-fast' : 'animate-float-slow'}`}>
                         <span className="font-bold text-slate-500 dark:text-slate-400 text-[10px] uppercase tracking-wider">{p?.name}</span>
                         <span className="text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-paper-900/50 px-3 py-2 rounded-xl rounded-tl-sm self-start inline-block shadow-sm">
                            {msg.text}
@@ -228,11 +228,11 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
 
                {/* Reactions */}
                <div className="flex gap-3 sm:gap-4 justify-center py-0.5">
-                  {['👍', '👎', '😂', '😲', '❤️', '🙏', '🪔', '☕'].map(emoji => (
+                  {['👍', '👎', '😂', '😲', '❤️', '🙏', '🪔', '☕'].map((emoji, idx) => (
                      <button
                         key={emoji}
                         onClick={() => handleReaction(emoji)}
-                        className="text-lg sm:text-xl p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:scale-125 hover:-translate-y-1 transition-all active:scale-95 drop-shadow-md rounded-xl hover:bg-slate-200/50 dark:hover:bg-paper-700/50"
+                        className={`text-lg sm:text-xl p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:scale-125 hover:-translate-y-1 transition-all active:scale-95 drop-shadow-md rounded-xl hover:bg-slate-200/50 dark:hover:bg-paper-700/50 ${idx % 3 === 0 ? 'animate-float-slow' : idx % 3 === 1 ? 'animate-float-medium' : 'animate-float-fast'}`}
                      >
                         {emoji}
                      </button>

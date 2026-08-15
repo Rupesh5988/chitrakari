@@ -52,6 +52,29 @@
     display: inline-block;
     animation: squiggly 2s ease-in-out infinite;
   }
+
+  @keyframes floatOcean {
+    0% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-3px) rotate(1deg); }
+    66% { transform: translateY(2px) rotate(-1deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+  @keyframes floatOceanReverse {
+    0% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(3px) rotate(-1deg); }
+    66% { transform: translateY(-2px) rotate(1deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+
+  .animate-float-slow {
+    animation: floatOcean 6s ease-in-out infinite;
+  }
+  .animate-float-medium {
+    animation: floatOceanReverse 4s ease-in-out infinite;
+  }
+  .animate-float-fast {
+    animation: floatOcean 3s ease-in-out infinite;
+  }
   
   /* Custom scrollbar */
   .scrollbar-thin {

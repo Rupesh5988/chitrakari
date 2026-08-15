@@ -450,7 +450,7 @@ export function GameView() {
             {renderPlayerSidebar()}
 
             {/* Center: Canvas area */}
-            <div className={`flex flex-col relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-paper-800 ${!isDrawer ? 'flex-1 lg:flex-[2] min-h-[180px]' : 'flex-1'} min-h-0`}>
+            <div className={`flex flex-col relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-paper-800 ${!isDrawer ? 'flex-1 lg:flex-[2] min-h-[180px]' : 'flex-1'} min-h-0 animate-float-slow`}>
                <DrawingCanvas isDrawer={isDrawer} drawerName={drawerName} roomId={roomState.id} />
                {renderPhaseOverlay()}
 
@@ -481,7 +481,7 @@ export function GameView() {
             )}
 
             {/* Desktop: right chat sidebar */}
-            <div className="hidden lg:flex lg:w-80 min-h-0">
+            <div className="hidden lg:flex lg:w-80 min-h-0 animate-float-medium">
                <ChatSidebar />
             </div>
 
