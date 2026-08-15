@@ -347,7 +347,6 @@ io.on('connection', (socket) => {
        });
 
        const activeConnectedPlayers = room.players.filter(p => p.connected);
-          if (activeConnectedPlayers.length <= 1 && room.phase !== 'lobby' && room.phase !== 'game_end') {
        if (activeConnectedPlayers.length <= 1 && room.phase !== 'lobby' && room.phase !== 'game_end') {
           room.phase = 'game_end';
        } else if (room.currentDrawerId === target.id && (room.phase === 'drawing' || room.phase === 'choosing_word')) {
