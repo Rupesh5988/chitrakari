@@ -21,6 +21,8 @@ export function LandingPage() {
     return localStorage.getItem('chitrakari_avatar') || AVATAR_SEEDS[0];
   });
 
+  const isInvited = !!searchParams.get('room');
+
   useEffect(() => {
     const roomFromUrl = searchParams.get('room');
     if (roomFromUrl && roomFromUrl.length === 6) {
@@ -149,51 +151,66 @@ export function LandingPage() {
             </div>
           </div>
 
-          {/* Action Buttons */}
-          <div className="space-y-2.5">
-            {/* Play Button (Big Green) */}
-            <button
-              onClick={handlePlayQuick}
-              className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
-            >
-              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
-              Play!
-            </button>
+          {/* Action Buttons & Forms */}
+          {isInvited ? (
+            <div className="space-y-2.5">
+               <button
+                 onClick={handleJoinRoom}
+                 disabled={joinCode.length !== 6}
+                 className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
+               >
+                 <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
+                 Play!
+               </button>
+            </div>
+          ) : (
+            <>
+              <div className="space-y-2.5">
+                {/* Randomly Play Button (Big Green) */}
+                <button
+                  onClick={handlePlayQuick}
+                  className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
+                >
+                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
+                  Randomly Play!
+                </button>
 
-            {/* Create Private Room Button (Big Blue) */}
-            <button
-              onClick={handleCreatePrivateRoom}
-              className="w-full bg-[#1e88e5] hover:bg-[#1976d2] active:scale-[0.98] text-white font-bold text-base sm:text-lg py-2.5 sm:py-3 rounded-2xl shadow-[0_4px_0_#1565c0] transition-all"
-            >
-              Create Private Room
-            </button>
-          </div>
+                {/* Create Private Room Button (Big Blue) */}
+                <button
+                  onClick={handleCreatePrivateRoom}
+                  className="w-full bg-[#1e88e5] hover:bg-[#1976d2] active:scale-[0.98] text-white font-bold text-base sm:text-lg py-2.5 sm:py-3 rounded-2xl shadow-[0_4px_0_#1565c0] transition-all"
+                >
+                  Create Private Room
+                </button>
+              </div>
 
-          {/* Divider */}
-          <div className="relative flex items-center my-3 sm:my-4">
-            <div className="flex-grow border-t border-white/10"></div>
-            <span className="flex-shrink-0 mx-3 text-[11px] font-bold uppercase tracking-widest text-blue-200/60">or join code</span>
-            <div className="flex-grow border-t border-white/10"></div>
-          </div>
+              {/* Divider */}
+              <div className="relative flex items-center my-3 sm:my-4">
+                <div className="flex-grow border-t border-white/10"></div>
+                <span className="flex-shrink-0 mx-3 text-[11px] font-bold uppercase tracking-widest text-blue-200/60">or join code</span>
+                <div className="flex-grow border-t border-white/10"></div>
+              </div>
 
-          {/* Join Room Form */}
-          <form onSubmit={handleJoinRoom} className="flex gap-2">
-            <input
-              type="text"
-              placeholder="ROOM CODE"
-              maxLength={6}
-              value={joinCode}
-              onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
-              className="flex-1 bg-white/10 text-white text-center font-mono font-black tracking-[0.2em] px-3 py-2 sm:py-2.5 rounded-xl border-2 border-white/20 focus:outline-none focus:border-white/60 uppercase text-base sm:text-lg shadow-inner placeholder:font-normal placeholder:tracking-normal placeholder:text-xs placeholder:text-white/50"
-            />
-            <button
-              type="submit"
-              disabled={joinCode.length !== 6}
-              className="bg-[#fb8c00] hover:bg-[#f57c00] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-[0_3px_0_#e65100] active:scale-95 transition-all text-xs sm:text-sm uppercase tracking-wider"
-            >
-              Join
-            </button>
-          </form>
+              {/* Join Room Form */}
+              <form onSubmit={handleJoinRoom} className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="ROOM CODE"
+                  maxLength={6}
+                  value={joinCode}
+                  onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
+                  className="flex-1 bg-white/10 text-white text-center font-mono font-black tracking-[0.2em] px-3 py-2 sm:py-2.5 rounded-xl border-2 border-white/20 focus:outline-none focus:border-white/60 uppercase text-base sm:text-lg shadow-inner placeholder:font-normal placeholder:tracking-normal placeholder:text-xs placeholder:text-white/50"
+                />
+                <button
+                  type="submit"
+                  disabled={joinCode.length !== 6}
+                  className="bg-[#fb8c00] hover:bg-[#f57c00] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-[0_3px_0_#e65100] active:scale-95 transition-all text-xs sm:text-sm uppercase tracking-wider"
+                >
+                  Join
+                </button>
+              </form>
+            </>
+          )}
 
         </div>
 
@@ -244,7 +261,7 @@ export function LandingPage() {
 
       {/* Footer copyright */}
       <footer className="text-[11px] sm:text-xs text-blue-200/50 text-center py-2 z-10">
-        Chitrakari Multiplayer &copy; {new Date().getFullYear()} — Made with ❤️ by Raren
+        Chitrakari Multiplayer &copy; {new Date().getFullYear()} — Made with ❤️ by Raren and team
       </footer>
     </div>
   );
