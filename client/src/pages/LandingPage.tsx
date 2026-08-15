@@ -111,7 +111,7 @@ export function LandingPage() {
         </div>
 
         {/* Center Main Card (Skribbl Play Box) */}
-        <div className="w-full max-w-sm sm:max-w-md bg-transparent border-transparent wonky-border p-4 sm:p-6 shadow-none relative mb-6">
+        <div className="w-full max-w-sm sm:max-w-md bg-transparent border-transparent rounded-3xl p-4 sm:p-6 shadow-none relative mb-6">
           
           {/* Top Row: Clean Full-Width Name Input */}
           <div className="relative mb-3.5">
@@ -155,9 +155,9 @@ export function LandingPage() {
                     setAvatarSeed(s);
                     localStorage.setItem('chitrakari_avatar', s);
                   }}
-                  className={`cursor-pointer wonky-border overflow-hidden transition-all duration-200 border-2 ${
+                  className={`cursor-pointer rounded-xl overflow-hidden transition-all duration-200 border-2 ${
                     avatarSeed === s 
-                      ? 'border-amber-400 scale-110 wonky-shadow' 
+                      ? 'border-amber-400 scale-110 shadow-[0_0_10px_rgba(251,191,36,0.5)]' 
                       : 'border-transparent hover:border-white/30 hover:scale-105 opacity-80 hover:opacity-100'
                   }`}
                   title="Select this avatar"
@@ -174,7 +174,7 @@ export function LandingPage() {
                <button
                  onClick={handleJoinRoom}
                  disabled={joinCode.length !== 6}
-                 className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 wonky-border-button wonky-shadow transition-all flex items-center justify-center gap-2 rotate-1"
+                 className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
                >
                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
                  Play!
@@ -187,7 +187,7 @@ export function LandingPage() {
                 <button
                   onClick={handlePlayQuick}
                   disabled={isFindingMatch}
-                  className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 wonky-border-button wonky-shadow transition-all flex items-center justify-center gap-2 -rotate-1"
+                  className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
                 >
                   {isFindingMatch ? <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin" /> : <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />}
                   {isFindingMatch ? 'Finding Match...' : 'Randomly Play!'}
@@ -196,7 +196,7 @@ export function LandingPage() {
                 {/* Create Private Room Button (Big Blue) */}
                 <button
                   onClick={handleCreatePrivateRoom}
-                  className="w-full bg-[#1e88e5] hover:bg-[#1976d2] active:scale-[0.98] text-white font-bold text-base sm:text-lg py-2.5 sm:py-3 wonky-border-button wonky-shadow transition-all rotate-1"
+                  className="w-full bg-[#1e88e5] hover:bg-[#1976d2] active:scale-[0.98] text-white font-bold text-base sm:text-lg py-2.5 sm:py-3 rounded-2xl shadow-[0_4px_0_#1565c0] transition-all"
                 >
                   Create Private Room
                 </button>
@@ -212,20 +212,20 @@ export function LandingPage() {
               {/* Join Room Form */}
               <form onSubmit={handleJoinRoom} className="flex gap-2">
                 <input
-              type="text"
-              placeholder="ROOM CODE"
-              maxLength={6}
-              value={joinCode}
-              onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
-              className="flex-1 bg-white/10 text-white text-center font-mono font-black tracking-[0.2em] px-3 py-2 sm:py-2.5 wonky-border-alt border-2 border-white/20 focus:outline-none focus:border-white/60 uppercase text-base sm:text-lg shadow-inner placeholder:font-normal placeholder:tracking-normal placeholder:text-xs placeholder:text-white/50"
-            />
-            <button
-              type="submit"
-              disabled={joinCode.length !== 6}
-              className="bg-[#fb8c00] hover:bg-[#f57c00] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold px-4 sm:px-5 py-2 sm:py-2.5 wonky-border-button wonky-shadow active:scale-95 transition-all text-xs sm:text-sm uppercase tracking-wider -rotate-2"
-            >
-              Join
-            </button>
+                  type="text"
+                  placeholder="ROOM CODE"
+                  maxLength={6}
+                  value={joinCode}
+                  onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
+                  className="flex-1 bg-white/10 text-white text-center font-mono font-black tracking-[0.2em] px-3 py-2 sm:py-2.5 rounded-xl border-2 border-white/20 focus:outline-none focus:border-white/60 uppercase text-base sm:text-lg shadow-inner placeholder:font-normal placeholder:tracking-normal placeholder:text-xs placeholder:text-white/50"
+                />
+                <button
+                  type="submit"
+                  disabled={joinCode.length !== 6}
+                  className="bg-[#fb8c00] hover:bg-[#f57c00] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-[0_3px_0_#e65100] active:scale-95 transition-all text-xs sm:text-sm uppercase tracking-wider"
+                >
+                  Join
+                </button>
               </form>
             </>
           )}
@@ -236,7 +236,7 @@ export function LandingPage() {
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 max-w-4xl">
           
           {/* 1. About Card */}
-          <div className="bg-transparent border-transparent wonky-border-alt p-3.5 sm:p-4 shadow-none flex flex-col hover:-translate-y-1 transition-transform">
+          <div className="bg-transparent border-transparent rounded-2xl p-3.5 sm:p-4 shadow-none flex flex-col">
             <div className="flex items-center gap-2 mb-1.5 text-amber-300 font-bold text-sm sm:text-base">
               <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>About</span>
@@ -247,7 +247,7 @@ export function LandingPage() {
           </div>
 
           {/* 2. News Card */}
-          <div className="bg-transparent border-transparent wonky-border p-3.5 sm:p-4 shadow-none flex flex-col hover:-translate-y-1 transition-transform">
+          <div className="bg-transparent border-transparent rounded-2xl p-3.5 sm:p-4 shadow-none flex flex-col">
             <div className="flex items-center gap-2 mb-1.5 text-emerald-300 font-bold text-sm sm:text-base">
               <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>News & Updates</span>
@@ -261,7 +261,7 @@ export function LandingPage() {
           </div>
 
           {/* 3. How to Play Card */}
-          <div className="bg-transparent border-transparent wonky-border-alt p-3.5 sm:p-4 shadow-none flex flex-col hover:-translate-y-1 transition-transform">
+          <div className="bg-transparent border-transparent rounded-2xl p-3.5 sm:p-4 shadow-none flex flex-col">
             <div className="flex items-center gap-2 mb-1.5 text-cyan-300 font-bold text-sm sm:text-base">
               <PenTool className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>How to play</span>

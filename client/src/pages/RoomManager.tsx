@@ -148,7 +148,7 @@ export function RoomManager() {
          <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 flex-1 h-0 min-h-0 relative max-w-[1600px] mx-auto w-full z-10">
 
             {/* Left Column: Players */}
-            <div className="w-full md:w-64 bg-white/80 dark:bg-paper-900/40 backdrop-blur-md wonky-border p-4 border-transparent wonky-shadow flex flex-col h-full overflow-y-auto overflow-x-hidden">
+            <div className="w-full md:w-64 bg-white/80 dark:bg-paper-900/40 backdrop-blur-md rounded-3xl p-4 border-transparent shadow-none flex flex-col h-full overflow-y-auto overflow-x-hidden">
                <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2 mb-4 px-2">
                   <Users className="w-4 h-4" />
                   Players ({roomState.players.length}/{roomState.settings.maxPlayers})
@@ -158,7 +158,7 @@ export function RoomManager() {
                      <div 
                         key={p.id} 
                         onClick={() => p.id !== me?.id && setMenuTarget(menuTarget?.id === p.id ? null : p)}
-                        className={`relative cursor-pointer flex items-center justify-between p-3 wonky-border-alt transition-colors border-transparent hover:bg-slate-100/50 dark:hover:bg-paper-900/50 ${menuTarget?.id === p.id ? 'bg-slate-100/80 dark:bg-paper-900/80' : 'bg-slate-50/50 dark:bg-paper-950/20'} ${p.connected === false ? 'opacity-50' : ''}`}
+                        className={`relative cursor-pointer flex items-center justify-between p-3 rounded-2xl transition-colors border-transparent hover:bg-slate-100/50 dark:hover:bg-paper-900/50 ${menuTarget?.id === p.id ? 'bg-slate-100/80 dark:bg-paper-900/80' : 'bg-slate-50/50 dark:bg-paper-950/20'} ${p.connected === false ? 'opacity-50' : ''}`}
                      >
                         <div className="text-xs font-bold text-slate-400 w-4 text-center">#{index + 1}</div>
                         <Avatar seed={p.avatarSeed} size={40} />
@@ -181,7 +181,7 @@ export function RoomManager() {
 
                   {/* Empty slots */}
                   {Array.from({ length: Math.max(0, roomState.settings.maxPlayers - roomState.players.length) }).map((_, i) => (
-                     <div key={`empty-${i}`} className="flex items-center gap-3 p-3 wonky-border-alt border-transparent bg-slate-50/30 dark:bg-paper-950/10 opacity-50">
+                     <div key={`empty-${i}`} className="flex items-center gap-3 p-3 rounded-2xl border-transparent bg-slate-50/30 dark:bg-paper-950/10 opacity-50">
                         <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-paper-800" />
                         <div className="flex-1">
                            <div className="h-3 w-16 bg-slate-200 dark:bg-paper-800 rounded-full mb-1.5" />
@@ -194,10 +194,10 @@ export function RoomManager() {
             </div>
 
             {/* Center Column: Settings & Actions */}
-            <div className="flex-1 bg-white/80 dark:bg-paper-900/40 backdrop-blur-md wonky-border-alt p-4 sm:p-6 wonky-shadow border-transparent flex flex-col overflow-y-auto">
+            <div className="flex-1 bg-white/80 dark:bg-paper-900/40 backdrop-blur-md rounded-3xl p-4 sm:p-6 shadow-none border-transparent flex flex-col overflow-y-auto">
                
                {/* Prominent Room Code Card */}
-               <div className="bg-gradient-to-r from-primary-500/10 via-primary-500/5 to-transparent border-2 border-primary-500/20 dark:border-primary-500/30 wonky-border p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 wonky-shadow rotate-1">
+               <div className="bg-gradient-to-r from-primary-500/10 via-primary-500/5 to-transparent border-2 border-primary-500/20 dark:border-primary-500/30 rounded-2xl p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
                   <div className="text-center sm:text-left">
                      <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">Room Invite Code</span>
                      <div className="text-3xl font-mono font-black tracking-[0.2em] text-primary-600 dark:text-primary-400 mt-0.5">
@@ -207,7 +207,7 @@ export function RoomManager() {
                   <div className="flex items-center gap-2 w-full sm:w-auto">
                      <button
                         onClick={copyRoomCode}
-                        className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-white dark:bg-paper-800 hover:bg-slate-50 dark:hover:bg-paper-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-4 py-2.5 wonky-border-button font-bold text-sm wonky-shadow transition-all active:scale-95 -rotate-1"
+                        className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-white dark:bg-paper-800 hover:bg-slate-50 dark:hover:bg-paper-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl font-bold text-sm shadow-sm transition-all active:scale-95"
                      >
                         {copied ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-slate-400" />}
                         <span>{copied ? 'Copied!' : 'Copy Code'}</span>
@@ -218,7 +218,7 @@ export function RoomManager() {
                            navigator.clipboard.writeText(link);
                            toast.success("Invite link copied to clipboard!");
                         }}
-                        className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-4 py-2.5 wonky-border-button font-bold text-sm wonky-shadow transition-all active:scale-95 rotate-1"
+                        className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow-sm transition-all active:scale-95"
                      >
                         <span>Copy Link</span>
                      </button>
@@ -243,14 +243,14 @@ export function RoomManager() {
                               setIsEditingSettings(true);
                            }
                         }}
-                        className="text-sm font-bold text-primary-500 hover:text-primary-600 bg-primary-50 hover:bg-primary-100 dark:bg-primary-900/20 dark:hover:bg-primary-900/40 px-4 py-2 wonky-border-button wonky-shadow transition-colors"
+                        className="text-sm font-bold text-primary-500 hover:text-primary-600 bg-primary-50 hover:bg-primary-100 dark:bg-primary-900/20 dark:hover:bg-primary-900/40 px-4 py-2 rounded-xl transition-colors"
                      >
                         {isEditingSettings ? 'Save Settings' : 'Edit'}
                      </button>
                   )}
                </div>
 
-               <div className="bg-slate-50/80 dark:bg-paper-950/30 wonky-border p-4 mb-6 border-transparent space-y-3">
+               <div className="bg-slate-50/80 dark:bg-paper-950/30 rounded-2xl p-4 mb-6 border-transparent space-y-3">
                   
                   {/* Players / Max Players Setting */}
                   <div className="flex items-center justify-between">

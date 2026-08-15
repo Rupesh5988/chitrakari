@@ -100,27 +100,6 @@
     background-color: theme('colors.slate.700');
   }
 
-  /* Human Touch / Organic Shapes */
-  .wonky-border {
-    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px !important;
-  }
-  
-  .wonky-border-alt {
-    border-radius: 15px 255px 15px 225px / 225px 15px 255px 15px !important;
-  }
-
-  .wonky-border-button {
-    border-radius: 255px 20px 225px 20px / 20px 225px 20px 255px !important;
-  }
-  
-  .wonky-shadow {
-    box-shadow: 4px 6px 0px rgba(0, 0, 0, 0.15) !important;
-  }
-  
-  .dark .wonky-shadow {
-    box-shadow: 4px 6px 0px rgba(0, 0, 0, 0.4) !important;
-  }
-
   /* Hide scrollbar but keep scrolling */
   .scrollbar-none {
     -ms-overflow-style: none;
