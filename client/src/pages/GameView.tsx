@@ -450,7 +450,7 @@ export function GameView() {
             {renderPlayerSidebar()}
 
             {/* Center: Canvas area */}
-            <div className={`flex flex-col relative overflow-hidden bg-transparent border-transparent shadow-none ${!isDrawer ? 'flex-1 lg:flex-[2] min-h-[180px]' : 'flex-1'} min-h-0 animate-float-slow`}>
+            <div className={`flex flex-col relative overflow-hidden bg-transparent border-transparent shadow-none ${!isDrawer ? 'flex-1 lg:flex-[2] min-h-[180px]' : 'flex-1'} min-h-0`}>
                <DrawingCanvas isDrawer={isDrawer} drawerName={drawerName} roomId={roomState.id} />
                {renderPhaseOverlay()}
 
@@ -475,13 +475,13 @@ export function GameView() {
 
             {/* Guesser Mobile Chat & Guess Box docked beneath Canvas */}
             {!isDrawer && (
-               <div className="flex lg:hidden h-44 sm:h-52 flex-shrink-0 flex-col min-h-0 bg-transparent border-transparent shadow-none overflow-hidden animate-float-medium">
+               <div className="flex lg:hidden h-44 sm:h-52 flex-shrink-0 flex-col min-h-0 bg-transparent border-transparent shadow-none overflow-hidden">
                   <ChatSidebar />
                </div>
             )}
 
             {/* Desktop: right chat sidebar */}
-            <div className="hidden lg:flex lg:w-80 min-h-0 animate-float-medium">
+            <div className="hidden lg:flex lg:w-80 min-h-0">
                <ChatSidebar />
             </div>
 

@@ -106,7 +106,7 @@ export function TopBar() {
             : formatWord(hint));
 
    return (
-      <div className="bg-transparent border-transparent shadow-none p-2 sm:p-3 md:p-4 flex items-center justify-between transition-colors gap-2 animate-float-fast">
+      <div className="bg-transparent border-transparent shadow-none p-2 sm:p-3 md:p-4 flex items-center justify-between transition-colors gap-2">
          {/* Left: Round info & Room Code */}
          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
             <div className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-sm font-bold tracking-widest uppercase bg-slate-100 dark:bg-paper-900 px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl whitespace-nowrap">
