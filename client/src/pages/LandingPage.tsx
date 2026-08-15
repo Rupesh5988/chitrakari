@@ -182,13 +182,10 @@ export function LandingPage() {
             </div>
           ) : (
             <>
-              <div className="space-y-2.5 flex flex-col items-center">
-                
-                {/* Only show these if they aren't typing a room code */}
-                {joinCode.length !== 6 && (
-                  <div className="w-full space-y-2.5 mb-2">
+              {joinCode.length !== 6 && (
+                <>
+                  <div className="space-y-2.5">
                     {/* Randomly Play Button (Big Green) */}
-
                     <button
                       onClick={handlePlayQuick}
                       disabled={isFindingMatch}
@@ -206,14 +203,15 @@ export function LandingPage() {
                       Create Private Room
                     </button>
                   </div>
-                )}
 
-              {/* Divider */}
-              <div className="relative flex items-center my-3 sm:my-4">
-                <div className="flex-grow border-t border-white/10"></div>
-                <span className="flex-shrink-0 mx-3 text-[11px] font-bold uppercase tracking-widest text-blue-200/60">or join code</span>
-                <div className="flex-grow border-t border-white/10"></div>
-              </div>
+                  {/* Divider */}
+                  <div className="relative flex items-center my-3 sm:my-4">
+                    <div className="flex-grow border-t border-white/10"></div>
+                    <span className="flex-shrink-0 mx-3 text-[11px] font-bold uppercase tracking-widest text-blue-200/60">or join code</span>
+                    <div className="flex-grow border-t border-white/10"></div>
+                  </div>
+                </>
+              )}
 
               {/* Join Room Form */}
               <form onSubmit={handleJoinRoom} className="flex gap-2">
