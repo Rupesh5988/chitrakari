@@ -203,7 +203,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   }
 
                   return (
-                     <div key={msg.id} className={`text-sm break-words leading-relaxed flex flex-col ${msg.type === 'system' ? 'animate-float-fast' : 'animate-float-slow'}`}>
+                     <div key={msg.id} className={`text-sm break-words leading-relaxed flex flex-col animate-float-slow`}>
                         <span className="font-bold text-slate-500 dark:text-slate-400 text-[10px] uppercase tracking-wider">{p?.name}</span>
                         <span className="text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-paper-900/50 px-3 py-2 rounded-xl rounded-tl-sm self-start inline-block shadow-sm">
                            {msg.text}

@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
+import { Pencil, Eraser, PaintBucket, Circle, Square, Minus, Undo2, MousePointer2, Trash2 } from 'lucide-react';
 import { Point, ToolType, StrokeAction, DrawProgressPayload, StrokeCompletePayload, CanvasUndoPayload } from '@chitrakari/shared';
 import { drawSmoothLine, drawShape } from '../utils/canvasDrawing';
 import { floodFill } from '../utils/floodFill';
@@ -177,7 +178,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
     const handleCanvasCleared = () => {
       setHistory([]);
       setHistoryIndex(0);
-      setGuesserDraftStroke(null);
+      guesserDraftStrokeRef.current = null;
       const mainCtx = mainCanvasRef.current?.getContext('2d');
       const draftCtx = draftCanvasRef.current?.getContext('2d');
       mainCtx?.clearRect(0, 0, INTERNAL_WIDTH, INTERNAL_HEIGHT);
