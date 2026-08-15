@@ -310,24 +310,37 @@ export function GameView() {
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 2 }}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-3"
+                        className="flex flex-col items-center justify-center gap-4 mt-6"
                      >
-                        {me.isHost && (
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                           {roomState.playAgainVotes?.includes(me.id) ? (
+                              <button
+                                 disabled
+                                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-primary-500/50 cursor-not-allowed text-white font-bold rounded-2xl shadow-lg text-base sm:text-lg min-w-[200px]"
+                              >
+                                 <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                                 Waiting for others...
+                              </button>
+                           ) : (
+                              <button
+                                 onClick={() => socket?.emit('play_again_vote', { roomId: roomState.id })}
+                                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-primary-500 text-white font-bold rounded-2xl shadow-lg hover:bg-primary-600 hover:scale-105 active:scale-95 transition-all text-lg sm:text-xl min-w-[200px]"
+                              >
+                                 Play Again ({roomState.timeRemaining}s)
+                                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                              </button>
+                           )}
                            <button
-                              onClick={() => socket?.emit('return_to_lobby', { roomId: roomState.id })}
-                              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-primary-500 text-white font-bold rounded-2xl shadow-lg hover:bg-primary-600 hover:scale-105 active:scale-95 transition-all text-lg sm:text-xl"
+                              onClick={() => window.location.href = '/'}
+                              className="inline-flex items-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all text-sm sm:text-base h-full"
                            >
-                              Play Again
-                              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                              <Home className="w-4 h-4 sm:w-5 sm:h-5" />
+                              Leave Room
                            </button>
-                        )}
-                        <button
-                           onClick={() => window.location.href = '/'}
-                           className="inline-flex items-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-slate-200 font-bold rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all"
-                        >
-                           <Home className="w-5 h-5" />
-                           Back to Home
-                        </button>
+                        </div>
+                        <div className="text-xs text-slate-400 font-medium">
+                           Game will automatically restart in {roomState.timeRemaining} seconds if no action is taken.
+                        </div>
                      </motion.div>
                   </div>
                </motion.div>
@@ -433,7 +446,7 @@ export function GameView() {
    );
 
    return (
-      <div className="h-[100dvh] overflow-hidden bg-space text-white flex flex-col pb-[max(env(safe-area-inset-bottom),0.5rem)] sm:pb-[max(env(safe-area-inset-bottom),1rem)]">
+      <div className="h-[100dvh] overflow-hidden text-white flex flex-col pb-[max(env(safe-area-inset-bottom),0.5rem)] sm:pb-[max(env(safe-area-inset-bottom),1rem)]">
          {/* TopBar: fixed, never scrolls away */}
          <div className="flex-shrink-0 p-1.5 sm:p-2 md:p-3 pb-0">
             <TopBar />

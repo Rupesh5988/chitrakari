@@ -447,6 +447,26 @@ io.on('connection', (socket) => {
     gameManager.spendHint(data.roomId, player.id);
   });
 
+  socket.on('play_again_vote', (data: { roomId: string }) => {
+    const room = rooms.get(data.roomId);
+    if (!room || room.phase !== 'game_end') return;
+    const player = room.players.find(p => p.socketId === socket.id);
+    if (!player) return;
+
+    if (!room.playAgainVotes) room.playAgainVotes = [];
+    if (!room.playAgainVotes.includes(player.id)) {
+      room.playAgainVotes.push(player.id);
+    }
+    
+    io.to(data.roomId).emit('room_updated', room);
+    
+    // Check if everyone voted
+    const activeConnectedPlayers = room.players.filter(p => p.connected);
+    if (room.playAgainVotes.length >= activeConnectedPlayers.length) {
+       gameManager.returnToLobby(data.roomId);
+    }
+  });
+
 
   // --- DRAWING SYNC EVENTS ---
   socket.on('draw_progress', (data: DrawProgressPayload) => {

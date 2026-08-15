@@ -56,6 +56,7 @@ export interface RoomState {
   wordChoices?: string[];
   turnSummary?: TurnSummary;
   kickVotes?: Record<string, string[]>;
+  playAgainVotes?: string[];
   usedWords: string[];
   bannedIds: string[];
 }

@@ -79,6 +79,14 @@ export default {
         pulseGlow: {
           '0%, 100%': { boxShadow: '0 0 0 0 rgba(59, 130, 246, 0.4)' },
           '50%': { boxShadow: '0 0 0 8px rgba(59, 130, 246, 0)' }
+        },
+        pulseSlow: {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '1' }
+        },
+        pulseFast: {
+          '0%, 100%': { opacity: '0.4' },
+          '50%': { opacity: '1' }
         }
       },
       animation: {
@@ -87,6 +95,8 @@ export default {
         'slide-up': 'slideUp 0.3s ease-out',
         'fade-in': 'fadeIn 0.2s ease-out',
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        'pulse-slow': 'pulseSlow 4s ease-in-out infinite',
+        'pulse-fast': 'pulseFast 2s ease-in-out infinite',
       }
     },
   },

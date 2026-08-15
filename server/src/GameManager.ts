@@ -368,7 +368,12 @@ export class GameManager {
 
       if (room.roundNumber > room.settings.rounds) {
         room.phase = 'game_end';
+        room.playAgainVotes = [];
+        room.timeRemaining = 15;
         this.emitRoomUpdate(roomId);
+        this.startTimer(roomId, () => {
+           this.returnToLobby(roomId);
+        });
       } else {
         this.startTurn(roomId);
       }
@@ -444,6 +449,7 @@ export class GameManager {
     room.historyIndex = -1;
     room.turnSummary = undefined;
     room.usedWords = [];
+    room.playAgainVotes = [];
     
     room.players.forEach(p => {
        p.score = 0;

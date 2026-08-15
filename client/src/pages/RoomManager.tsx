@@ -119,7 +119,7 @@ export function RoomManager() {
    };
 
    return (
-      <div className="h-[100dvh] overflow-hidden bg-paper-100 dark:bg-paper-950 p-2 lg:p-4 pb-[max(env(safe-area-inset-bottom),0.5rem)] lg:pb-[max(env(safe-area-inset-bottom),1rem)] flex flex-col gap-3 lg:gap-4 relative">
+      <div className="h-[100dvh] overflow-hidden p-2 lg:p-4 pb-[max(env(safe-area-inset-bottom),0.5rem)] lg:pb-[max(env(safe-area-inset-bottom),1rem)] flex flex-col gap-3 lg:gap-4 relative">
          {/* Rangoli / Block print subtle background */}
          <div 
            className="absolute inset-0 opacity-[0.04] pointer-events-none" 

@@ -71,7 +71,7 @@ export function LandingPage() {
   const logoTitle = "chitrakari.io!".split('');
 
   return (
-    <div className="h-[100dvh] overflow-y-auto overflow-x-hidden bg-space text-white flex flex-col items-center justify-between p-2.5 sm:p-6 pb-[max(env(safe-area-inset-bottom),1rem)] select-none relative">
+    <div className="h-[100dvh] overflow-y-auto overflow-x-hidden text-white flex flex-col items-center justify-between p-2.5 sm:p-6 pb-[max(env(safe-area-inset-bottom),1rem)] select-none relative">
 
       <div className="max-w-4xl w-full flex flex-col items-center z-10 flex-1 justify-center py-2 sm:py-4">
 
