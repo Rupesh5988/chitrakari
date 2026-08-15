@@ -188,10 +188,7 @@ export function LandingPage() {
                 {joinCode.length !== 6 && (
                   <div className="w-full space-y-2.5 mb-2">
                     {/* Randomly Play Button (Big Green) */}
-                <button
-                  onClick={handlePlayQuick}
-                  disabled={isFindingMatch}
-                  className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
+
                     <button
                       onClick={handlePlayQuick}
                       disabled={isFindingMatch}
