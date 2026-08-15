@@ -182,25 +182,34 @@ export function LandingPage() {
             </div>
           ) : (
             <>
-              <div className="space-y-2.5">
-                {/* Randomly Play Button (Big Green) */}
+              <div className="space-y-2.5 flex flex-col items-center">
+                
+                {/* Only show these if they aren't typing a room code */}
+                {joinCode.length !== 6 && (
+                  <div className="w-full space-y-2.5 mb-2">
+                    {/* Randomly Play Button (Big Green) */}
                 <button
                   onClick={handlePlayQuick}
                   disabled={isFindingMatch}
                   className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
-                >
-                  {isFindingMatch ? <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin" /> : <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />}
-                  {isFindingMatch ? 'Finding Match...' : 'Randomly Play!'}
-                </button>
+                    <button
+                      onClick={handlePlayQuick}
+                      disabled={isFindingMatch}
+                      className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
+                    >
+                      {isFindingMatch ? <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin" /> : <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />}
+                      {isFindingMatch ? 'Finding Match...' : 'Randomly Play!'}
+                    </button>
 
-                {/* Create Private Room Button (Big Blue) */}
-                <button
-                  onClick={handleCreatePrivateRoom}
-                  className="w-full bg-[#1e88e5] hover:bg-[#1976d2] active:scale-[0.98] text-white font-bold text-base sm:text-lg py-2.5 sm:py-3 rounded-2xl shadow-[0_4px_0_#1565c0] transition-all"
-                >
-                  Create Private Room
-                </button>
-              </div>
+                    {/* Create Private Room Button (Big Blue) */}
+                    <button
+                      onClick={handleCreatePrivateRoom}
+                      className="w-full bg-[#1e88e5] hover:bg-[#1976d2] active:scale-[0.98] text-white font-bold text-base sm:text-lg py-2.5 sm:py-3 rounded-2xl shadow-[0_4px_0_#1565c0] transition-all"
+                    >
+                      Create Private Room
+                    </button>
+                  </div>
+                )}
 
               {/* Divider */}
               <div className="relative flex items-center my-3 sm:my-4">
