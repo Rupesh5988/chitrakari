@@ -69,7 +69,7 @@ export function GameView() {
    const drawerName = roomState.players.find(p => p.id === roomState.currentDrawerId)?.name || 'Someone';
    const sortedPlayers = React.useMemo(() => {
       return [...roomState.players].sort((a, b) => b.score - a.score);
-   }, [roomState.roundNumber, roomState.players.length]);
+   }, [roomState.players]);
 
    const handleWordSelect = (word: string) => {
       if (socket) {

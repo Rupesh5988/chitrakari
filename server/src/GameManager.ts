@@ -255,6 +255,8 @@ export class GameManager {
              setTimeout(() => this.endTurn(roomId), 1000);
           }
           
+          this.emitRoomUpdate(roomId);
+
           return outMsg; // Broadcast publicly
           
         } else {
