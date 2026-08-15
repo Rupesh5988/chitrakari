@@ -5,6 +5,7 @@ import { CircularTimer } from './CircularTimer';
 import { useTheme } from '../context/ThemeContext';
 import { audioEngine } from '../utils/AudioEngine';
 import { WavyText } from './WavyText';
+import { MiniDoodleBoard } from './MiniDoodleBoard';
 import { toast } from 'sonner';
 import { HelpModal } from './HelpModal';
 
@@ -148,10 +149,19 @@ export function TopBar() {
          </div>
 
          {/* Center: Word hint */}
-         <div className="flex-1 flex justify-center text-lg sm:text-2xl md:text-3xl font-display tracking-widest uppercase text-slate-800 dark:text-white min-w-0 overflow-hidden text-center">
-            {typeof showWord === 'string' ? (
-               <WavyText text={showWord} className="text-sm sm:text-xl truncate" />
-            ) : showWord}
+         <div className="flex-1 flex justify-center text-lg sm:text-2xl md:text-3xl font-display tracking-widest uppercase text-slate-800 dark:text-white min-w-0 overflow-hidden text-center relative h-full min-h-[48px] rounded-xl bg-slate-100/50 dark:bg-slate-900/30 border border-transparent dark:border-slate-800/30 group transition-all">
+            {roomState.phase === 'lobby' ? (
+               <>
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 group-hover:opacity-10 transition-opacity">
+                     <WavyText text={showWord} className="text-sm sm:text-xl truncate" />
+                  </div>
+                  <MiniDoodleBoard />
+               </>
+            ) : typeof showWord === 'string' ? (
+               <WavyText text={showWord} className="text-sm sm:text-xl truncate my-auto" />
+            ) : (
+               <div className="my-auto">{showWord}</div>
+            )}
          </div>
 
          {/* Right: Controls + Timer */}

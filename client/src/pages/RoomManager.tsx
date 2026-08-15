@@ -7,7 +7,7 @@ import { PlayerContextMenu } from '../components/PlayerContextMenu';
 import { TopBar } from '../components/TopBar';
 import { ChatSidebar } from '../components/ChatSidebar';
 import { Avatar } from '../components/Avatar';
-import { Player } from '@chitrakari/shared';
+import { Player, ReactionPayload } from '@chitrakari/shared';
 import { toast } from 'sonner';
 
 export function RoomManager() {
@@ -26,6 +26,23 @@ export function RoomManager() {
    const [editWordSelectTime, setEditWordSelectTime] = useState(15);
    const [editMaxPlayers, setEditMaxPlayers] = useState(8);
    const [menuTarget, setMenuTarget] = useState<Player | null>(null);
+   const [activeReactions, setActiveReactions] = useState<(ReactionPayload & { id: string })[]>([]);
+
+   useEffect(() => {
+      if (!socket) return;
+      const handleReaction = (payload: ReactionPayload) => {
+         const reactionObj = { ...payload, id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString() };
+         setActiveReactions(prev => [...prev, reactionObj]);
+         setTimeout(() => {
+            setActiveReactions(prev => prev.filter(r => r.id !== reactionObj.id));
+         }, 2000);
+      };
+
+      socket.on('reaction_received', handleReaction);
+      return () => {
+         socket.off('reaction_received', handleReaction);
+      };
+   }, [socket]);
 
    useEffect(() => {
       if (!socket || !code || hasJoined) return;
@@ -360,6 +377,24 @@ export function RoomManager() {
                <ChatSidebar />
             </div>
 
+         </div>
+         
+         {/* Floating Reactions Layer */}
+         <div className="absolute bottom-0 right-4 md:right-80 lg:right-96 pointer-events-none z-40 w-16 h-full overflow-visible">
+            {activeReactions.map((r) => (
+               <div
+                  key={r.id}
+                  className="absolute bottom-0 animate-float z-50 pointer-events-none"
+                  style={{
+                     left: `${Math.random() * 40 - 20}px`,
+                     animationDelay: `${Math.random() * 0.2}s`
+                  }}
+               >
+                  <div className="animate-squiggly text-4xl sm:text-5xl drop-shadow-lg">
+                     {r.emoji}
+                  </div>
+               </div>
+            ))}
          </div>
       </div>
    );
