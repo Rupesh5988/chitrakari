@@ -71,13 +71,7 @@ export function LandingPage() {
   const logoTitle = "chitrakari.io!".split('');
 
   return (
-    <div className="h-[100dvh] overflow-y-auto overflow-x-hidden bg-[#1a3a6b] dark:bg-[#0c1a33] text-white flex flex-col items-center justify-between p-2.5 sm:p-6 pb-[max(env(safe-area-inset-bottom),1rem)] select-none relative">
-      
-      {/* Rangoli / Block print subtle background */}
-      <div 
-        className="absolute inset-0 opacity-[0.04] pointer-events-none" 
-        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0C40 22.0914 22.0914 40 0 40C22.0914 40 40 57.9086 40 80C40 57.9086 57.9086 40 80 40C57.9086 40 40 22.0914 40 0Z' fill='%23ffffff' fill-rule='evenodd'/%3E%3Cpath d='M40 20C40 31.0457 31.0457 40 20 40C31.0457 40 40 48.9543 40 60C40 48.9543 48.9543 40 60 40C48.9543 40 40 31.0457 40 20Z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")` }} 
-      />
+    <div className="h-[100dvh] overflow-y-auto overflow-x-hidden bg-space text-white flex flex-col items-center justify-between p-2.5 sm:p-6 pb-[max(env(safe-area-inset-bottom),1rem)] select-none relative">
 
       <div className="max-w-4xl w-full flex flex-col items-center z-10 flex-1 justify-center py-2 sm:py-4">
 
@@ -98,7 +92,7 @@ export function LandingPage() {
         </div>
 
         {/* Center Main Card (Skribbl Play Box) */}
-        <div className="w-full max-w-sm sm:max-w-md bg-[#254b85] dark:bg-[#152747] border-4 border-[#142e57] dark:border-[#09152b] rounded-3xl p-4 sm:p-6 shadow-2xl relative mb-6">
+        <div className="w-full max-w-sm sm:max-w-md bg-transparent border-transparent rounded-3xl p-4 sm:p-6 shadow-none relative mb-6">
           
           {/* Top Row: Clean Full-Width Name Input */}
           <div className="relative mb-3.5">
@@ -111,12 +105,12 @@ export function LandingPage() {
               maxLength={16}
               value={playerName}
               onChange={(e) => setPlayerName(e.target.value)}
-              className="w-full bg-white text-slate-900 placeholder-slate-400 font-bold pl-10 pr-4 py-2.5 sm:py-3 rounded-xl border-2 border-slate-300 focus:outline-none focus:border-blue-400 text-base sm:text-lg shadow-inner"
+              className="w-full bg-white/10 text-white placeholder-white/50 font-bold pl-10 pr-4 py-2.5 sm:py-3 rounded-xl border-2 border-white/20 focus:outline-none focus:border-white/60 text-base sm:text-lg shadow-inner"
             />
           </div>
 
           {/* Avatar Studio Box with Grid */}
-          <div className="bg-[#193766] dark:bg-[#0e1d38] border-2 border-[#12284c] rounded-2xl p-4 mb-4 flex flex-col sm:flex-row items-center gap-4 relative shadow-inner">
+          <div className="bg-transparent border-transparent rounded-2xl p-4 mb-4 flex flex-col sm:flex-row items-center gap-4 relative shadow-none">
             
             {/* Selected Big Avatar */}
             <div className="relative flex-shrink-0">
@@ -190,7 +184,7 @@ export function LandingPage() {
               maxLength={6}
               value={joinCode}
               onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
-              className="flex-1 bg-white text-slate-900 text-center font-mono font-black tracking-[0.2em] px-3 py-2 sm:py-2.5 rounded-xl border-2 border-slate-300 focus:outline-none uppercase text-base sm:text-lg shadow-inner placeholder:font-normal placeholder:tracking-normal placeholder:text-xs placeholder:text-slate-400"
+              className="flex-1 bg-white/10 text-white text-center font-mono font-black tracking-[0.2em] px-3 py-2 sm:py-2.5 rounded-xl border-2 border-white/20 focus:outline-none focus:border-white/60 uppercase text-base sm:text-lg shadow-inner placeholder:font-normal placeholder:tracking-normal placeholder:text-xs placeholder:text-white/50"
             />
             <button
               type="submit"
@@ -207,7 +201,7 @@ export function LandingPage() {
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 max-w-4xl">
           
           {/* 1. About Card */}
-          <div className="bg-[#204277] dark:bg-[#122340] border-2 border-[#122c54] rounded-2xl p-3.5 sm:p-4 shadow-lg flex flex-col">
+          <div className="bg-transparent border-transparent rounded-2xl p-3.5 sm:p-4 shadow-none flex flex-col">
             <div className="flex items-center gap-2 mb-1.5 text-amber-300 font-bold text-sm sm:text-base">
               <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>About</span>
@@ -218,7 +212,7 @@ export function LandingPage() {
           </div>
 
           {/* 2. News Card */}
-          <div className="bg-[#204277] dark:bg-[#122340] border-2 border-[#122c54] rounded-2xl p-3.5 sm:p-4 shadow-lg flex flex-col">
+          <div className="bg-transparent border-transparent rounded-2xl p-3.5 sm:p-4 shadow-none flex flex-col">
             <div className="flex items-center gap-2 mb-1.5 text-emerald-300 font-bold text-sm sm:text-base">
               <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>News & Updates</span>
@@ -232,7 +226,7 @@ export function LandingPage() {
           </div>
 
           {/* 3. How to Play Card */}
-          <div className="bg-[#204277] dark:bg-[#122340] border-2 border-[#122c54] rounded-2xl p-3.5 sm:p-4 shadow-lg flex flex-col">
+          <div className="bg-transparent border-transparent rounded-2xl p-3.5 sm:p-4 shadow-none flex flex-col">
             <div className="flex items-center gap-2 mb-1.5 text-cyan-300 font-bold text-sm sm:text-base">
               <PenTool className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>How to play</span>
