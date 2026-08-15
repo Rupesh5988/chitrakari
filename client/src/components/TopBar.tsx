@@ -153,7 +153,7 @@ export function TopBar() {
             {roomState.phase === 'lobby' ? (
                <>
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30 group-hover:opacity-10 transition-opacity">
-                     <WavyText text={showWord} className="text-sm sm:text-xl truncate" />
+                     <WavyText text={lobbyPhrase} className="text-sm sm:text-xl truncate" />
                   </div>
                   <MiniDoodleBoard />
                </>
