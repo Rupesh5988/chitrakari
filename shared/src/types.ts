@@ -41,6 +41,7 @@ export interface Player {
 export interface RoomState {
   id: string;
   hostId: string;
+  isPublic?: boolean;
   phase: GamePhase;
   players: Player[];
   settings: RoomSettings;

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { generateRoomCode } from '@chitrakari/shared';
 import { Avatar } from '../components/Avatar';
-import { Dice5, ChevronLeft, ChevronRight, HelpCircle, BookOpen, PenTool, Sparkles, User } from 'lucide-react';
+import { Dice5, ChevronLeft, ChevronRight, HelpCircle, BookOpen, PenTool, Sparkles, User, Loader2 } from 'lucide-react';
+import { useSocket } from '../context/SocketContext';
+import { toast } from 'sonner';
 
 const AVATAR_SEEDS = [
   'Arjun', 'Priya', 'Ravi', 'Kavya',
@@ -21,6 +23,8 @@ export function LandingPage() {
     return localStorage.getItem('chitrakari_avatar') || AVATAR_SEEDS[0];
   });
 
+  const { socket, connected } = useSocket();
+  const [isFindingMatch, setIsFindingMatch] = useState(false);
   const isInvited = !!searchParams.get('room');
 
   useEffect(() => {
@@ -44,9 +48,22 @@ export function LandingPage() {
   };
 
   const handlePlayQuick = () => {
-    savePlayerInfo();
-    const code = generateRoomCode();
-    navigate(`/room/${code}`);
+    if (!socket || !connected) {
+      toast.error('Not connected to server');
+      return;
+    }
+    
+    setIsFindingMatch(true);
+    const finalName = savePlayerInfo();
+    
+    socket.emit('join_random_room', { name: finalName, avatarSeed }, (response: any) => {
+      setIsFindingMatch(false);
+      if (response && response.success) {
+        navigate(`/room/${response.roomId}`);
+      } else {
+        toast.error('Failed to find or create a match');
+      }
+    });
   };
 
   const handleJoinRoom = (e: React.FormEvent) => {
@@ -169,10 +186,11 @@ export function LandingPage() {
                 {/* Randomly Play Button (Big Green) */}
                 <button
                   onClick={handlePlayQuick}
-                  className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
+                  disabled={isFindingMatch}
+                  className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
                 >
-                  <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
-                  Randomly Play!
+                  {isFindingMatch ? <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin" /> : <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />}
+                  {isFindingMatch ? 'Finding Match...' : 'Randomly Play!'}
                 </button>
 
                 {/* Create Private Room Button (Big Blue) */}

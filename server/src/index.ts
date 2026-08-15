@@ -77,6 +77,7 @@ io.on('connection', (socket) => {
     const newRoom: RoomState = {
       id: roomId,
       hostId: hostPlayer.id,
+      isPublic: false,
       phase: 'lobby',
       players: [hostPlayer],
       settings: data.settings,
@@ -95,6 +96,64 @@ io.on('connection', (socket) => {
 
     logger.info(`Room created`, { roomId, hostName: hostPlayer.name });
     if (callback) callback({ success: true, room: newRoom });
+  });
+
+  socket.on('join_random_room', (data: { name: string; avatarSeed: string; playerId?: string }, callback) => {
+    let targetRoomId: string | null = null;
+    
+    // Find an available public room
+    for (const [id, room] of rooms.entries()) {
+      if (room.isPublic && room.phase === 'lobby' && room.players.length < room.settings.maxPlayers) {
+        targetRoomId = id;
+        break;
+      }
+    }
+
+    if (targetRoomId) {
+      if (callback) callback({ success: true, roomId: targetRoomId });
+      return;
+    }
+
+    // No room found, create a new public room
+    const roomId = generateRoomCode();
+    const safeName = data.name ? data.name.substring(0, 15) : 'Player';
+    const hostPlayer: Player = {
+      id: data.playerId || (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString()),
+      socketId: socket.id,
+      name: safeName,
+      avatarSeed: data.avatarSeed,
+      score: 0,
+      hasGuessedCorrectly: false,
+      isHost: true,
+      hintTokens: 2,
+      connected: true
+    };
+
+    const newRoom: RoomState = {
+      id: roomId,
+      hostId: hostPlayer.id,
+      isPublic: true,
+      phase: 'lobby',
+      players: [hostPlayer],
+      settings: {
+        rounds: 3,
+        drawTime: 80,
+        maxPlayers: 8,
+        wordDifficulty: 'medium',
+        wordSelectTime: 15,
+        customWords: []
+      },
+      roundNumber: 0,
+      currentPlayerIndex: 0,
+      strokeHistory: [],
+      historyIndex: -1,
+      timeRemaining: 0,
+      usedWords: [],
+      bannedIds: []
+    };
+
+    rooms.set(roomId, newRoom);
+    if (callback) callback({ success: true, roomId });
   });
 
   socket.on('join_room', (data: { roomId: string; name: string; avatarSeed: string; playerId?: string }, callback) => {
@@ -123,6 +182,7 @@ io.on('connection', (socket) => {
       const newRoom: RoomState = {
         id: roomId,
         hostId: hostPlayer.id,
+        isPublic: false,
         phase: 'lobby',
         players: [hostPlayer],
         settings: {
