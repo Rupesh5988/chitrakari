@@ -367,8 +367,8 @@ export function GameView() {
 
    // --- Desktop player sidebar ---
    const renderPlayerSidebar = () => (
-      <div className="hidden lg:flex lg:w-64 flex-col bg-white/30 dark:bg-paper-800/30 backdrop-blur-lg rounded-3xl border border-white/60 dark:border-slate-700/50 shadow-soft dark:shadow-soft-dark flex-shrink-0 overflow-hidden">
-         <div className="p-3 border-b border-white/20 dark:border-slate-700/50">
+      <div className="hidden lg:flex lg:w-64 flex-col bg-transparent border-transparent shadow-none flex-shrink-0 overflow-hidden">
+         <div className="p-3 border-b border-transparent">
             <h2 className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center gap-1.5">
                <span>👥</span> Players · R{roomState.roundNumber}/{roomState.settings.rounds}
             </h2>
@@ -434,7 +434,7 @@ export function GameView() {
    );
 
    return (
-      <div className="h-[100dvh] overflow-hidden bg-gradient-to-br from-blue-100 via-indigo-50 to-purple-100 dark:from-slate-900 dark:via-[#131b2e] dark:to-indigo-950 flex flex-col pb-[max(env(safe-area-inset-bottom),0.5rem)] sm:pb-[max(env(safe-area-inset-bottom),1rem)]">
+      <div className="h-[100dvh] overflow-hidden bg-space text-white flex flex-col pb-[max(env(safe-area-inset-bottom),0.5rem)] sm:pb-[max(env(safe-area-inset-bottom),1rem)]">
          {/* TopBar: fixed, never scrolls away */}
          <div className="flex-shrink-0 p-1.5 sm:p-2 md:p-3 pb-0">
             <TopBar />
@@ -450,7 +450,7 @@ export function GameView() {
             {renderPlayerSidebar()}
 
             {/* Center: Canvas area */}
-            <div className={`flex flex-col relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-glass dark:shadow-glass-dark border border-white/40 dark:border-white/10 bg-white/30 dark:bg-slate-900/40 backdrop-blur-lg ${!isDrawer ? 'flex-1 lg:flex-[2] min-h-[180px]' : 'flex-1'} min-h-0 animate-float-slow`}>
+            <div className={`flex flex-col relative overflow-hidden bg-transparent border-transparent shadow-none ${!isDrawer ? 'flex-1 lg:flex-[2] min-h-[180px]' : 'flex-1'} min-h-0 animate-float-slow`}>
                <DrawingCanvas isDrawer={isDrawer} drawerName={drawerName} roomId={roomState.id} />
                {renderPhaseOverlay()}
 
@@ -475,7 +475,7 @@ export function GameView() {
 
             {/* Guesser Mobile Chat & Guess Box docked beneath Canvas */}
             {!isDrawer && (
-               <div className="flex lg:hidden h-44 sm:h-52 flex-shrink-0 flex-col min-h-0 bg-white/30 dark:bg-slate-900/40 backdrop-blur-lg rounded-2xl border border-white/40 dark:border-white/10 shadow-glass dark:shadow-glass-dark overflow-hidden animate-float-medium">
+               <div className="flex lg:hidden h-44 sm:h-52 flex-shrink-0 flex-col min-h-0 bg-transparent border-transparent shadow-none overflow-hidden animate-float-medium">
                   <ChatSidebar />
                </div>
             )}

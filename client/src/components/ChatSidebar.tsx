@@ -124,7 +124,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
       <div className="w-full flex flex-col h-full relative">
 
          {/* Chat Box */}
-         <div className="bg-white/30 dark:bg-slate-900/30 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-3xl shadow-glass dark:shadow-glass-dark flex-1 flex flex-col overflow-hidden relative transition-colors min-h-0">
+         <div className="bg-transparent border-transparent shadow-none flex-1 flex flex-col overflow-hidden relative transition-colors min-h-0">
             <div
                className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 scrollbar-thin"
                ref={chatContainerRef}
