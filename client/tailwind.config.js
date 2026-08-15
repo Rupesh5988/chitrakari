@@ -54,6 +54,7 @@ export default {
         'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
         'soft-dark': '0 10px 40px -10px rgba(0,0,0,0.3)',
         'glass': '0 8px 32px rgba(0,0,0,0.12)',
+        'glass-dark': '0 8px 32px rgba(0,0,0,0.4)',
       },
       keyframes: {
         float: {

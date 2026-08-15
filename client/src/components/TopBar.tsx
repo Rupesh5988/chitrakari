@@ -4,6 +4,7 @@ import { Volume2, VolumeX, Moon, Sun, LogOut, Copy, Check } from 'lucide-react';
 import { CircularTimer } from './CircularTimer';
 import { useTheme } from '../context/ThemeContext';
 import { audioEngine } from '../utils/AudioEngine';
+import { WavyText } from './WavyText';
 import { toast } from 'sonner';
 import { HelpModal } from './HelpModal';
 
@@ -72,7 +73,11 @@ export function TopBar() {
 
    const formatWord = (word: string) => {
       const letters = word.split('').map((char, i) => (
-         <span key={i} className={`mx-0.5 sm:mx-1 ${char === '_' ? 'opacity-30 dark:opacity-50' : 'text-primary-500 font-bold'}`}>
+         <span 
+            key={i} 
+            className={`mx-0.5 sm:mx-1 inline-block animate-float-medium ${char === '_' ? 'opacity-30 dark:opacity-50' : 'text-primary-500 font-bold'}`}
+            style={{ animationDelay: `${i * 0.05}s` }}
+         >
             {char}
          </span>
       ));
@@ -81,7 +86,7 @@ export function TopBar() {
          <div className="flex items-center flex-wrap justify-center">
             {letters}
             {wordLength > 0 && (
-               <span className="ml-2 sm:ml-3 text-sm sm:text-lg text-slate-400 dark:text-slate-500 font-bold tracking-normal opacity-70">
+               <span className="ml-2 sm:ml-3 text-sm sm:text-lg text-slate-400 dark:text-slate-500 font-bold tracking-normal opacity-70 animate-pulse">
                   ({wordLength})
                </span>
             )}
@@ -89,7 +94,7 @@ export function TopBar() {
       );
    };
 
-   const totalTime = roomState.phase === 'choosing_word' ? 15 : roomState.settings.drawTime;
+   const totalTime = roomState.phase === 'choosing_word' ? (roomState.settings.wordSelectTime || 15) : roomState.settings.drawTime;
 
    const isDrawer = me?.id === roomState.currentDrawerId;
    const showWord = roomState.phase === 'lobby'
@@ -101,7 +106,7 @@ export function TopBar() {
             : formatWord(hint));
 
    return (
-      <div className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700/50 rounded-2xl sm:rounded-3xl shadow-soft dark:shadow-soft-dark p-2 sm:p-3 md:p-4 flex items-center justify-between transition-colors gap-2 animate-float-fast">
+      <div className="bg-white/30 dark:bg-slate-900/30 backdrop-blur-md border border-white/20 dark:border-white/10 rounded-2xl sm:rounded-3xl shadow-glass dark:shadow-glass-dark p-2 sm:p-3 md:p-4 flex items-center justify-between transition-colors gap-2 animate-float-fast">
          {/* Left: Round info & Room Code */}
          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
             <div className="text-slate-500 dark:text-slate-400 text-[10px] sm:text-sm font-bold tracking-widest uppercase bg-slate-100 dark:bg-paper-900 px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl whitespace-nowrap">
@@ -125,7 +130,7 @@ export function TopBar() {
          {/* Center: Word hint */}
          <div className="flex-1 flex justify-center text-lg sm:text-2xl md:text-3xl font-display tracking-widest uppercase text-slate-800 dark:text-white min-w-0 overflow-hidden text-center">
             {typeof showWord === 'string' ? (
-               <span className="text-sm sm:text-xl truncate">{showWord}</span>
+               <WavyText text={showWord} className="text-sm sm:text-xl truncate" />
             ) : showWord}
          </div>
 

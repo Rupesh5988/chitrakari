@@ -22,6 +22,7 @@ export interface RoomSettings {
   drawTime: number;
   maxPlayers: number;
   wordDifficulty: WordDifficulty;
+  wordSelectTime: number;
   customWords: string[];
 }
 

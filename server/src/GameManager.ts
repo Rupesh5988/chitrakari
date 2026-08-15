@@ -101,7 +101,7 @@ export class GameManager {
     room.strokeHistory = [];
     room.historyIndex = -1;
     this.io.to(roomId).emit('canvas_cleared');
-    room.timeRemaining = 15; // 15 seconds to choose
+    room.timeRemaining = room.settings.wordSelectTime || 15; // User-defined or 15s to choose
     room.currentWord = undefined;
     room.hiddenWord = undefined;
     

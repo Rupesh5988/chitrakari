@@ -129,6 +129,7 @@ io.on('connection', (socket) => {
           drawTime: 80,
           maxPlayers: 8,
           wordDifficulty: 'medium',
+          wordSelectTime: 15,
           customWords: []
         },
         roundNumber: 0,

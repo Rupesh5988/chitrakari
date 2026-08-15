@@ -21,10 +21,18 @@ export function RoomManager() {
    const [editRounds, setEditRounds] = useState(3);
    const [editDrawTime, setEditDrawTime] = useState(80);
    const [editWordDifficulty, setEditWordDifficulty] = useState<'easy' | 'medium' | 'hard' | 'mixed'>('medium');
+   const [editWordSelectTime, setEditWordSelectTime] = useState(15);
    const [editMaxPlayers, setEditMaxPlayers] = useState(8);
 
    useEffect(() => {
       if (!socket || !code || hasJoined) return;
+
+      // Redirect to Landing Page if no name is set
+      const savedName = localStorage.getItem('chitrakari_name');
+      if (!savedName || savedName.trim() === '') {
+         navigate(`/?room=${code}`);
+         return;
+      }
 
       // Auto-join room on mount
       const seed = localStorage.getItem('chitrakari_avatar') || Math.random().toString(36).substring(7);
@@ -32,7 +40,7 @@ export function RoomManager() {
 
       socket.emit('join_room', {
          roomId: code,
-         name: localStorage.getItem('chitrakari_name') || `Player_${Math.floor(Math.random() * 1000)}`,
+         name: savedName,
          avatarSeed: seed,
          playerId: localStorage.getItem('chitrakari_playerId') || undefined
       }, (response: any) => {
@@ -92,7 +100,8 @@ export function RoomManager() {
          rounds: editRounds,
          drawTime: editDrawTime,
          maxPlayers: editMaxPlayers,
-         wordDifficulty: editWordDifficulty
+         wordDifficulty: editWordDifficulty,
+         wordSelectTime: editWordSelectTime
       };
       socket.emit('update_settings', { roomId: roomState.id, settings: updatedSettings });
       setIsEditingSettings(false);
@@ -203,6 +212,7 @@ export function RoomManager() {
                               setEditDrawTime(roomState.settings.drawTime);
                               setEditMaxPlayers(roomState.settings.maxPlayers || 8);
                               setEditWordDifficulty(roomState.settings.wordDifficulty);
+                              setEditWordSelectTime(roomState.settings.wordSelectTime || 15);
                               setIsEditingSettings(true);
                            }
                         }}
@@ -253,7 +263,24 @@ export function RoomManager() {
                            <option value="120">120 seconds</option>
                         </select>
                      ) : (
-                        <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center">{roomState.settings.drawTime}</span>
+                        <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center">{roomState.settings.drawTime}s</span>
+                     )}
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                     <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">⌛</div>
+                        <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Word Select Time</span>
+                     </div>
+                     {isEditingSettings ? (
+                        <select value={editWordSelectTime} onChange={e => setEditWordSelectTime(parseInt(e.target.value))} className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-sm font-bold w-40">
+                           <option value="5">5 seconds</option>
+                           <option value="10">10 seconds</option>
+                           <option value="15">15 seconds</option>
+                           <option value="20">20 seconds</option>
+                        </select>
+                     ) : (
+                        <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center">{roomState.settings.wordSelectTime || 15}s</span>
                      )}
                   </div>
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Palette, MessageSquare, Trophy, MousePointer2 } from 'lucide-react';
 
@@ -17,7 +18,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
       return () => window.removeEventListener('keydown', handleKeyDown);
    }, [isOpen, onClose]);
 
-   return (
+   return createPortal(
       <AnimatePresence>
          {isOpen && (
             <div className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm">
@@ -112,6 +113,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
                </motion.div>
             </div>
          )}
-      </AnimatePresence>
+      </AnimatePresence>,
+      document.body
    );
 };
