@@ -57,6 +57,7 @@ export interface RoomState {
   turnSummary?: TurnSummary;
   kickVotes?: Record<string, string[]>;
   usedWords: string[];
+  bannedIds: string[];
 }
 
 export interface TurnSummary {

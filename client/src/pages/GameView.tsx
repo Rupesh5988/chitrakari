@@ -5,16 +5,18 @@ import { TopBar } from '../components/TopBar';
 import { ChatSidebar } from '../components/ChatSidebar';
 import { Trophy, ArrowRight, MessageSquare, Home, CheckCircle2, Pencil, Ban } from 'lucide-react';
 import { Avatar } from '../components/Avatar';
-import { ReactionPayload } from '@chitrakari/shared';
+import { Player, ReactionPayload } from '@chitrakari/shared';
 import { motion, AnimatePresence } from 'framer-motion';
 import { audioEngine } from '../utils/AudioEngine';
 import { Confetti } from '../components/Confetti';
+import { PlayerContextMenu } from '../components/PlayerContextMenu';
 
 export function GameView() {
    const { roomState, socket, me } = useSocket();
    const [activeReactions, setActiveReactions] = useState<(ReactionPayload & { id: string })[]>([]);
    const [showMobileChat, setShowMobileChat] = useState(false);
    const [unreadCount, setUnreadCount] = useState(0);
+   const [menuTarget, setMenuTarget] = useState<Player | null>(null);
 
    useEffect(() => {
       if (!socket) return;
@@ -379,12 +381,13 @@ export function GameView() {
                return (
                   <div
                      key={p.id}
-                     className={`group flex items-center gap-2 p-2 rounded-2xl transition-all ${p.id === me.id
+                     onClick={() => p.id !== me.id && setMenuTarget(menuTarget?.id === p.id ? null : p)}
+                     className={`group relative cursor-pointer flex items-center gap-2 p-2 rounded-2xl transition-all ${p.id === me.id
                            ? 'bg-primary-50 dark:bg-primary-500/10 border border-primary-200 dark:border-primary-500/30'
                            : isCurrentDrawer
                               ? 'bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/30'
-                              : 'bg-slate-50 dark:bg-paper-900/50 border border-transparent'
-                        } ${p.connected === false ? 'opacity-40 grayscale' : ''}`}
+                              : 'bg-slate-50 dark:bg-paper-900/50 border border-transparent hover:bg-slate-100 dark:hover:bg-paper-800'
+                        } ${menuTarget?.id === p.id ? 'bg-slate-100 dark:bg-paper-800' : ''} ${p.connected === false ? 'opacity-40 grayscale' : ''}`}
                   >
                      <div className="text-slate-400 dark:text-slate-500 font-mono text-[10px] w-3 text-right">
                         #{idx + 1}
@@ -417,14 +420,10 @@ export function GameView() {
                      {p.connected === false && (
                         <div className="text-[8px] font-bold text-slate-400 bg-slate-200 dark:bg-slate-700 px-1 py-0.5 rounded leading-none">OFF</div>
                      )}
-                     {p.id !== me.id && !p.isHost && (
-                        <button
-                           onClick={() => socket?.emit('vote_kick', { roomId: roomState.id, targetId: p.id })}
-                           className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 hover:bg-red-100 dark:hover:bg-red-500/20 text-red-500 rounded-lg flex items-center justify-center"
-                           title={roomState.kickVotes?.[p.id]?.includes(me.id) ? "Voted to kick" : "Vote to kick"}
-                        >
-                           <Ban className={`w-3.5 h-3.5 ${roomState.kickVotes?.[p.id]?.includes(me.id) ? 'fill-red-500/20' : ''}`} />
-                        </button>
+                     {menuTarget?.id === p.id && (
+                        <div className="absolute right-2 top-8 z-50">
+                           <PlayerContextMenu target={p} onClose={() => setMenuTarget(null)} />
+                        </div>
                      )}
                   </div>
                );

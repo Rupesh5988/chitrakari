@@ -85,7 +85,8 @@ io.on('connection', (socket) => {
       strokeHistory: [],
       historyIndex: -1,
       timeRemaining: 0,
-      usedWords: []
+      usedWords: [],
+      bannedIds: []
     };
 
     rooms.set(roomId, newRoom);
@@ -137,7 +138,8 @@ io.on('connection', (socket) => {
         strokeHistory: [],
         historyIndex: -1,
         timeRemaining: 0,
-        usedWords: []
+        usedWords: [],
+        bannedIds: []
       };
 
       rooms.set(roomId, newRoom);
@@ -162,6 +164,11 @@ io.on('connection', (socket) => {
     if (roomTimeouts.has(roomId)) {
       clearTimeout(roomTimeouts.get(roomId)!);
       roomTimeouts.delete(roomId);
+    }
+
+    if (room.bannedIds?.includes(data.playerId || '')) {
+       if (callback) callback({ success: false, message: 'You have been banned from this room.' });
+       return;
     }
 
     const existingPlayerIndex = room.players.findIndex(p => p.id === data.playerId);
@@ -248,6 +255,38 @@ io.on('connection', (socket) => {
     io.to(data.roomId).emit('room_updated', room);
   });
 
+  socket.on('ban_player', (data: { roomId: string; playerId: string }) => {
+    const room = rooms.get(data.roomId);
+    if (!room) return;
+
+    const caller = room.players.find(p => p.socketId === socket.id);
+    if (!caller || !caller.isHost) return;
+
+    const targetIndex = room.players.findIndex(p => p.id === data.playerId);
+    if (targetIndex === -1) return;
+    
+    const target = room.players[targetIndex];
+    if (target.isHost) return;
+
+    if (!room.bannedIds) room.bannedIds = [];
+    room.bannedIds.push(target.id);
+
+    room.players.splice(targetIndex, 1);
+    io.to(target.socketId).emit('kicked');
+    const targetSocket = io.sockets.sockets.get(target.socketId);
+    if (targetSocket) {
+       targetSocket.leave(data.roomId);
+       socketRoomMap.delete(target.socketId);
+    }
+    const activeConnectedPlayers = room.players.filter(p => p.connected);
+    if (activeConnectedPlayers.length <= 1 && room.phase !== 'lobby' && room.phase !== 'game_end') {
+       room.phase = 'game_end';
+    } else if (room.currentDrawerId === target.id && (room.phase === 'drawing' || room.phase === 'choosing_word')) {
+       gameManager.startTurn(data.roomId);
+    }
+    io.to(data.roomId).emit('room_updated', room);
+  });
+
   socket.on('vote_kick', (data: { roomId: string; targetId: string }) => {
     const room = rooms.get(data.roomId);
     if (!room) return;
@@ -255,30 +294,59 @@ io.on('connection', (socket) => {
     const voter = room.players.find(p => p.socketId === socket.id);
     if (!voter) return;
 
+    const targetIndex = room.players.findIndex(p => p.id === data.targetId);
+    if (targetIndex === -1) return;
+    const target = room.players[targetIndex];
+    if (target.isHost || target.id === voter.id) return; // Cannot kick host or self
+
     if (!room.kickVotes) room.kickVotes = {};
     if (!room.kickVotes[data.targetId]) room.kickVotes[data.targetId] = [];
 
     const targetVotes = room.kickVotes[data.targetId];
-    if (!targetVotes.includes(voter.id)) {
-       targetVotes.push(voter.id);
-    }
-
     const activePlayers = gameManager.getActiveConnectedPlayers(room);
     const votesNeeded = Math.max(2, Math.ceil(activePlayers.length / 2));
 
+    if (!targetVotes.includes(voter.id)) {
+       targetVotes.push(voter.id);
+       
+       if (targetVotes.length === 1) {
+          io.to(data.roomId).emit('chat_message_received', {
+             id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
+             playerId: 'system',
+             text: `${voter.name} started a vote to kick ${target.name}.`,
+             type: 'system',
+             timestamp: Date.now()
+          });
+       } else if (targetVotes.length < votesNeeded) {
+          io.to(data.roomId).emit('chat_message_received', {
+             id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
+             playerId: 'system',
+             text: `${targetVotes.length}/${votesNeeded} votes to kick ${target.name}`,
+             type: 'system',
+             timestamp: Date.now()
+          });
+       }
+    }
+
     if (targetVotes.length >= votesNeeded) {
-       const targetIndex = room.players.findIndex(p => p.id === data.targetId);
-       if (targetIndex !== -1 && !room.players[targetIndex].isHost) {
-          const target = room.players[targetIndex];
-          room.players.splice(targetIndex, 1);
-          io.to(target.socketId).emit('kicked');
-          const targetSocket = io.sockets.sockets.get(target.socketId);
-          if (targetSocket) {
-             targetSocket.leave(data.roomId);
-             socketRoomMap.delete(target.socketId);
-          }
-          delete room.kickVotes[data.targetId];
-          const activeConnectedPlayers = room.players.filter(p => p.connected);
+       room.players.splice(targetIndex, 1);
+       io.to(target.socketId).emit('kicked');
+       const targetSocket = io.sockets.sockets.get(target.socketId);
+       if (targetSocket) {
+          targetSocket.leave(data.roomId);
+          socketRoomMap.delete(target.socketId);
+       }
+       delete room.kickVotes[data.targetId];
+       
+       io.to(data.roomId).emit('chat_message_received', {
+          id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
+          playerId: 'system',
+          text: `${target.name} was voted out.`,
+          type: 'system',
+          timestamp: Date.now()
+       });
+
+       const activeConnectedPlayers = room.players.filter(p => p.connected);
           if (activeConnectedPlayers.length <= 1 && room.phase !== 'lobby' && room.phase !== 'game_end') {
              room.phase = 'game_end';
           } else if (room.currentDrawerId === target.id && (room.phase === 'drawing' || room.phase === 'choosing_word')) {
@@ -461,10 +529,31 @@ function handleLeave(socket: any) {
        gameManager.startTurn(roomId);
     }
     
+    // Host Migration: if host leaves, promote next oldest connected player
+    if (player.isHost) {
+       player.isHost = false;
+       const nextHost = room.players.find(p => p.connected);
+       if (nextHost) {
+          nextHost.isHost = true;
+          room.hostId = nextHost.id;
+          // Send system chat message
+          io.to(roomId).emit('chat_message_received', {
+             id: crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
+             playerId: 'system',
+             text: `${nextHost.name} is now the host`,
+             type: 'system',
+             timestamp: Date.now()
+          });
+       }
+    }
+    
     // Broadcast disconnect immediately
     io.to(roomId).emit('room_updated', room);
     
     const timeout = setTimeout(() => {
+      if (room.bannedIds?.includes(player.id)) {
+        return;
+      }
       // Clean up player after 60 seconds
       const pIdx = room.players.findIndex(p => p.id === player.id);
       if (pIdx !== -1) {
@@ -478,10 +567,6 @@ function handleLeave(socket: any) {
           }, CLEANUP_DELAY);
           roomTimeouts.set(roomId, roomTimeout);
         } else {
-          if (player.isHost) {
-            room.players[0].isHost = true;
-            room.hostId = room.players[0].id;
-          }
           io.to(roomId).emit('room_updated', room);
         }
       }

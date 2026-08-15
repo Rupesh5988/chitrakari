@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSocket } from '../context/SocketContext';
 import { GameView } from './GameView';
-import { Users, Settings, Play, Copy, CheckCircle2 } from 'lucide-react';
+import { Trophy, Users, Settings, Play, Link as LinkIcon, Edit2, Copy, CheckCircle2, Shield, AlertTriangle } from 'lucide-react';
+import { PlayerContextMenu } from '../components/PlayerContextMenu';
 import { TopBar } from '../components/TopBar';
 import { ChatSidebar } from '../components/ChatSidebar';
 import { Avatar } from '../components/Avatar';
+import { Player } from '@chitrakari/shared';
 import { toast } from 'sonner';
 
 export function RoomManager() {
@@ -23,6 +25,7 @@ export function RoomManager() {
    const [editWordDifficulty, setEditWordDifficulty] = useState<'easy' | 'medium' | 'hard' | 'mixed'>('medium');
    const [editWordSelectTime, setEditWordSelectTime] = useState(15);
    const [editMaxPlayers, setEditMaxPlayers] = useState(8);
+   const [menuTarget, setMenuTarget] = useState<Player | null>(null);
 
    useEffect(() => {
       if (!socket || !code || hasJoined) return;
@@ -127,18 +130,22 @@ export function RoomManager() {
 
          <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 flex-1 h-0 min-h-0 relative max-w-[1600px] mx-auto w-full z-10">
 
-            {/* Left Column: Players List */}
-            <div className="w-full lg:w-72 bg-white dark:bg-paper-800 rounded-3xl p-4 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex flex-col overflow-y-auto overflow-x-hidden">
+            {/* Left Column: Players */}
+            <div className="w-full md:w-64 bg-white/80 dark:bg-paper-900/40 backdrop-blur-md rounded-3xl p-4 border-transparent shadow-none flex flex-col h-full overflow-y-auto overflow-x-hidden">
                <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2 mb-4 px-2">
                   <Users className="w-4 h-4" />
                   Players ({roomState.players.length}/{roomState.settings.maxPlayers})
                </h2>
                <div className="flex flex-col gap-2">
                   {roomState.players.map((p, index) => (
-                     <div key={p.id} className={`flex items-center gap-3 p-3 rounded-2xl transition-all ${p.id === me?.id ? 'bg-primary-50 dark:bg-primary-500/10' : 'bg-slate-50 dark:bg-paper-900'} ${p.connected === false ? 'opacity-50 grayscale' : ''}`}>
+                     <div 
+                        key={p.id} 
+                        onClick={() => p.id !== me?.id && setMenuTarget(menuTarget?.id === p.id ? null : p)}
+                        className={`relative cursor-pointer flex items-center justify-between p-3 rounded-2xl transition-colors border-transparent hover:bg-slate-100/50 dark:hover:bg-paper-900/50 ${menuTarget?.id === p.id ? 'bg-slate-100/80 dark:bg-paper-900/80' : 'bg-slate-50/50 dark:bg-paper-950/20'} ${p.connected === false ? 'opacity-50' : ''}`}
+                     >
                         <div className="text-xs font-bold text-slate-400 w-4 text-center">#{index + 1}</div>
                         <Avatar seed={p.avatarSeed} size={40} />
-                        <div className="flex-1 min-w-0">
+                        <div className="flex-1 min-w-0 px-3">
                            <div className="font-bold text-sm text-slate-700 dark:text-slate-200 truncate flex items-center gap-1">
                               {p.name}
                            </div>
@@ -149,12 +156,15 @@ export function RoomManager() {
                            {p.id === me?.id && <div className="text-[10px] font-bold uppercase tracking-widest text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-1.5 py-0.5 rounded-md leading-none">You</div>}
                            {p.connected === false && <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 bg-slate-200 dark:bg-slate-700 px-1.5 py-0.5 rounded-md leading-none">Offline</div>}
                         </div>
+                        {menuTarget?.id === p.id && (
+                           <PlayerContextMenu target={p} onClose={() => setMenuTarget(null)} />
+                        )}
                      </div>
                   ))}
 
                   {/* Empty slots */}
                   {Array.from({ length: Math.max(0, roomState.settings.maxPlayers - roomState.players.length) }).map((_, i) => (
-                     <div key={`empty-${i}`} className="flex items-center gap-3 p-3 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-paper-900/50 opacity-50">
+                     <div key={`empty-${i}`} className="flex items-center gap-3 p-3 rounded-2xl border-transparent bg-slate-50/30 dark:bg-paper-950/10 opacity-50">
                         <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-paper-800" />
                         <div className="flex-1">
                            <div className="h-3 w-16 bg-slate-200 dark:bg-paper-800 rounded-full mb-1.5" />
@@ -167,7 +177,7 @@ export function RoomManager() {
             </div>
 
             {/* Center Column: Settings & Actions */}
-            <div className="flex-1 bg-white dark:bg-paper-800 rounded-3xl p-4 sm:p-6 shadow-soft dark:shadow-soft-dark border border-slate-200 dark:border-slate-700/50 flex flex-col overflow-y-auto">
+            <div className="flex-1 bg-white/80 dark:bg-paper-900/40 backdrop-blur-md rounded-3xl p-4 sm:p-6 shadow-none border-transparent flex flex-col overflow-y-auto">
                
                {/* Prominent Room Code Card */}
                <div className="bg-gradient-to-r from-primary-500/10 via-primary-500/5 to-transparent border-2 border-primary-500/20 dark:border-primary-500/30 rounded-2xl p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
@@ -223,7 +233,7 @@ export function RoomManager() {
                   )}
                </div>
 
-               <div className="bg-slate-50 dark:bg-paper-900 rounded-2xl p-4 mb-6 border border-slate-200 dark:border-slate-700/50 space-y-3">
+               <div className="bg-slate-50/80 dark:bg-paper-950/30 rounded-2xl p-4 mb-6 border-transparent space-y-3">
                   
                   {/* Players / Max Players Setting */}
                   <div className="flex items-center justify-between">
@@ -314,7 +324,7 @@ export function RoomManager() {
                   </div>
                </div>
 
-               <div className="flex-1 flex flex-col bg-slate-50 dark:bg-paper-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-700/50">
+               <div className="flex-1 flex flex-col bg-slate-50/80 dark:bg-paper-950/30 rounded-2xl p-4 border-transparent">
                   <div className="flex items-center justify-between mb-3">
                      <div className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">✏️</div>
@@ -330,20 +340,13 @@ export function RoomManager() {
                   />
                </div>
 
-               <div className="flex flex-col sm:flex-row gap-3 mt-6">
+               <div className="mt-6 flex justify-center">
                   <button
                      onClick={handleStart}
                      disabled={!me?.isHost || roomState.players.length < 2}
-                     className="flex-[2] bg-emerald-500 hover:bg-emerald-600 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white font-black text-xl py-4 rounded-2xl shadow-sm transition-all disabled:transform-none disabled:shadow-none"
+                     className="w-full sm:w-2/3 bg-emerald-500 hover:bg-emerald-600 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white font-black text-xl py-4 rounded-2xl shadow-sm transition-all disabled:transform-none disabled:shadow-none"
                   >
                      {me?.isHost ? 'Start!' : 'Waiting for Host...'}
-                  </button>
-                  <button
-                     onClick={copyRoomCode}
-                     className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 rounded-2xl shadow-sm transition-all flex items-center justify-center gap-2"
-                  >
-                     <Copy className="w-5 h-5" />
-                     {copied ? 'Copied!' : 'Invite'}
                   </button>
                </div>
 
@@ -353,7 +356,7 @@ export function RoomManager() {
             </div>
 
             {/* Right Column: Chat */}
-            <div className="w-full md:w-80 bg-paper-100/95 dark:bg-paper-950/95 rounded-3xl flex flex-col overflow-hidden">
+            <div className="w-full md:w-80 bg-white/80 dark:bg-paper-900/40 backdrop-blur-md rounded-3xl flex flex-col overflow-hidden shadow-none border-transparent">
                <ChatSidebar />
             </div>
 

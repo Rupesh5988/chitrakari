@@ -8,6 +8,16 @@ import { WavyText } from './WavyText';
 import { toast } from 'sonner';
 import { HelpModal } from './HelpModal';
 
+const LOBBY_PHRASES = [
+   "Vibing in the lobby rn",
+   "Spitballing ideas, hold tight!",
+   "We are cooking something good...",
+   "Awaiting the next Picasso.",
+   "Just hanging out basically.",
+   "Prepare your best doodles!",
+   "Drawing skills loading... please wait."
+];
+
 export function TopBar() {
    const { roomState, socket, me } = useSocket();
    const [timer, setTimer] = useState(roomState?.timeRemaining || 0);
@@ -16,6 +26,14 @@ export function TopBar() {
    const [isMuted, setIsMuted] = useState(audioEngine.isMuted);
    const [copied, setCopied] = useState(false);
    const [isHelpOpen, setIsHelpOpen] = useState(false);
+   const [lobbyPhrase, setLobbyPhrase] = useState(LOBBY_PHRASES[0]);
+
+   useEffect(() => {
+      if (roomState?.phase === 'lobby') {
+         const randomIndex = Math.floor(Math.random() * LOBBY_PHRASES.length);
+         setLobbyPhrase(LOBBY_PHRASES[randomIndex]);
+      }
+   }, [roomState?.phase]);
 
    const copyCode = () => {
       if (!roomState?.id) return;
@@ -60,9 +78,11 @@ export function TopBar() {
 
    if (!roomState) return null;
 
-   const toggleMute = () => {
+   const toggleMute = (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.currentTarget.blur();
       audioEngine.isMuted = !audioEngine.isMuted;
       setIsMuted(audioEngine.isMuted);
+      localStorage.setItem('chitrakari_muted', String(audioEngine.isMuted));
 
       if (!audioEngine.isMuted && 'speechSynthesis' in window) {
          const unlockUtterance = new SpeechSynthesisUtterance('');
@@ -98,7 +118,7 @@ export function TopBar() {
 
    const isDrawer = me?.id === roomState.currentDrawerId;
    const showWord = roomState.phase === 'lobby'
-      ? 'Chai break while we wait?'
+      ? lobbyPhrase
       : roomState.phase === 'choosing_word'
          ? (isDrawer ? 'Pick a word...' : 'Waiting for Drawer...')
          : (isDrawer && roomState.currentWord

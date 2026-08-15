@@ -31,6 +31,9 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
       if (!socket) return;
 
       const handleChat = (msg: ChatMessage) => {
+         const mutedPlayers: string[] = JSON.parse(localStorage.getItem('chitrakari_muted_players') || '[]');
+         if (mutedPlayers.includes(msg.playerId)) return;
+
          setMessages(prev => [...prev, msg]);
          if (isAutoScrollPaused) {
             setHasNewMessages(true);
@@ -240,14 +243,14 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                </div>
 
                {/* Input Form */}
-               {isDrawer ? (
+               {isDrawer && roomState.phase === 'drawing' ? (
                   <button
                      onClick={handleSpendHint}
-                     disabled={!myPlayerState || myPlayerState.hintTokens <= 0 || roomState.phase !== 'drawing'}
+                     disabled={!roomState.hiddenWord || roomState.hiddenWord.split('').filter(c => c === '_').length <= 1 || roomState.phase !== 'drawing'}
                      className="w-full bg-amber-100 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-300 dark:border-amber-500/50 p-2.5 sm:p-3 rounded-2xl text-sm font-bold flex items-center justify-center gap-2 hover:bg-amber-200 dark:hover:bg-amber-500/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm"
                   >
                      <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
-                     Hint Token ({myPlayerState?.hintTokens || 0})
+                     Give Hint
                   </button>
                ) : (
                   <form onSubmit={handleSubmit} className="flex gap-2">

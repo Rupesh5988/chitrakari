@@ -307,9 +307,11 @@ export class GameManager {
      const room = this.rooms.get(roomId);
      if (!room || room.phase !== 'drawing' || room.currentDrawerId !== playerId) return;
      
-     const player = room.players.find(p => p.id === playerId);
-     if (player && player.hintTokens > 0) {
-        player.hintTokens--;
+     if (!room.currentWord || !room.hiddenWord) return;
+     
+     const unrevealed = room.hiddenWord.split('').filter(c => c === '_').length;
+     // Maximum number of hints allowed per turn = the number of letters in the word minus 1
+     if (unrevealed > 1) {
         this.revealHint(room);
         this.emitRoomUpdate(roomId);
      }
@@ -388,14 +390,7 @@ export class GameManager {
       r.timeRemaining--;
       this.io.to(roomId).emit('timer_tick', r.timeRemaining);
 
-      if (r.phase === 'drawing' && r.currentWord && r.hiddenWord) {
-         const halfTime = Math.floor(r.settings.drawTime / 2);
-         const quarterTime = Math.floor(r.settings.drawTime / 4);
-         
-         if (r.timeRemaining === halfTime || r.timeRemaining === quarterTime) {
-           this.revealHint(r);
-         }
-      }
+      // Timer-based automatic hints have been removed per user request.
 
       if (r.timeRemaining <= 0) {
         this.clearTimer(roomId);

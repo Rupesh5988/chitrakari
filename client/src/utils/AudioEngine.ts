@@ -1,6 +1,6 @@
 class AudioEngine {
   private ctx: AudioContext | null = null;
-  public isMuted: boolean = true;
+  public isMuted: boolean = localStorage.getItem('chitrakari_muted') !== 'false';
 
   constructor() {
     // We defer creation until a user interaction to satisfy browser auto-play policies
