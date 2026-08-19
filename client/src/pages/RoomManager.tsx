@@ -329,13 +329,42 @@ export function RoomManager() {
                </div>
 
                <div className="flex-1 flex flex-col p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                  <span className="text-xs font-semibold text-slate-300 mb-2">Custom Word List</span>
+                  <div className="flex items-center justify-between mb-2">
+                     <span className="text-xs font-semibold text-slate-300">Custom Word Packs</span>
+                     <span className="text-[10px] text-slate-400">Click a pack to quick-load</span>
+                  </div>
+
+                  {/* 1-Click Theme Pack Chips */}
+                  <div className="flex flex-wrap gap-1.5 mb-2.5">
+                     {[
+                        { name: '🍕 Food & Snacks', words: 'Pizza, Burger, Biryani, Chai, Dosa, Sushi, Taco, Ice Cream, Pasta, Coffee, Pancakes, Chocolate' },
+                        { name: '🐾 Animals', words: 'Tiger, Elephant, Dolphin, Kangaroo, Penguin, Chameleon, Octopus, Peacock, Lion, Panda, Giraffe, Koala' },
+                        { name: '🎬 Movies & Heroes', words: 'Batman, Harry Potter, Spider-Man, Star Wars, Iron Man, Titanic, Matrix, Shrek, Avatar, Jurassic Park, Joker, Thor' },
+                        { name: '💻 Tech & Gaming', words: 'Laptop, Robot, Keyboard, Smartphone, VR Headset, Bitcoin, Minecraft, Rocket, Satellite, Controller, Mario, Pokemon' },
+                        { name: '🇮🇳 Desi Culture', words: 'Rickshaw, Gulab Jamun, Cricket, Taj Mahal, Samosa, Bollywood, Diya, Auto, Lassi, Garba, Dholak, Kurta' }
+                     ].map(pack => (
+                        <button
+                           key={pack.name}
+                           type="button"
+                           disabled={!me?.isHost}
+                           onClick={() => {
+                              setIsEditingSettings(true);
+                              setCustomWordsStr(pack.words);
+                              toast.success(`Loaded "${pack.name}" pack!`);
+                           }}
+                           className="text-[11px] font-semibold text-slate-300 hover:text-white bg-white/[0.04] hover:bg-emerald-500/20 hover:border-emerald-500/40 border border-white/[0.08] px-2.5 py-1 rounded-lg transition-all active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed"
+                        >
+                           {pack.name}
+                        </button>
+                     ))}
+                  </div>
+
                   <textarea
                      readOnly={!isEditingSettings}
                      value={isEditingSettings ? customWordsStr : (roomState.settings.customWords?.join(', ') || '')}
                      onChange={(e) => setCustomWordsStr(e.target.value)}
                      placeholder="Minimum of 10 custom words, comma-separated (e.g. Samosa, Taj Mahal, Cricket)"
-                     className="flex-1 glass-input rounded-xl p-3 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400 resize-none min-h-[90px]"
+                     className="flex-1 glass-input rounded-xl p-3 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400 resize-none min-h-[85px]"
                   />
                </div>
 

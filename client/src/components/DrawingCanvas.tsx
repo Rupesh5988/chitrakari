@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { Pencil, Eraser, PaintBucket, Circle, Square, Minus, Undo2, MousePointer2, Trash2 } from 'lucide-react';
+import { Pencil, Eraser, PaintBucket, Circle, Square, Minus, Undo2, MousePointer2, Trash2, Download } from 'lucide-react';
 import { Point, ToolType, StrokeAction, DrawProgressPayload, StrokeCompletePayload, CanvasUndoPayload } from '@chitrakari/shared';
 import { drawSmoothLine, drawShape } from '../utils/canvasDrawing';
 import { floodFill } from '../utils/floodFill';
 import { ColorPalette } from './ColorPalette';
 import { useSocket } from '../context/SocketContext';
+import { audioEngine } from '../utils/AudioEngine';
+import { toast } from 'sonner';
 
 interface DrawingCanvasProps {
   isDrawer?: boolean;
@@ -177,7 +179,7 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
 
     const handleCanvasCleared = () => {
       setHistory([]);
-      setHistoryIndex(0);
+      setHistoryIndex(-1);
       guesserDraftStrokeRef.current = null;
       const mainCtx = mainCanvasRef.current?.getContext('2d');
       const draftCtx = draftCanvasRef.current?.getContext('2d');
@@ -199,6 +201,58 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
       socket.off('canvas_cleared', handleCanvasCleared);
     };
   }, [socket, roomId, drawAction, redrawHistory]);
+
+  // Drawer Keyboard Shortcuts
+  useEffect(() => {
+    if (!isDrawer) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const activeEl = document.activeElement;
+      if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA')) return;
+      
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && !e.shiftKey) {
+        e.preventDefault();
+        handleUndo();
+        return;
+      }
+      if (((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && e.shiftKey)) {
+        e.preventDefault();
+        handleRedo();
+        return;
+      }
+      const k = e.key.toLowerCase();
+      if (k === 'b' || k === 'p') { setTool('pencil'); audioEngine.playPop(); }
+      else if (k === 'e') { setTool('eraser'); audioEngine.playPop(); }
+      else if (k === 'f') { setTool('fill'); audioEngine.playPop(); }
+      else if (k === '1') { setSize(4); audioEngine.playPop(); }
+      else if (k === '2') { setSize(10); audioEngine.playPop(); }
+      else if (k === '3') { setSize(22); audioEngine.playPop(); }
+      else if (k === '4') { setSize(42); audioEngine.playPop(); }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isDrawer, historyIndex, history.length]);
+
+  const handleDownloadArtwork = () => {
+    const mainCanvas = mainCanvasRef.current;
+    if (!mainCanvas) return;
+    
+    const exportCanvas = document.createElement('canvas');
+    exportCanvas.width = INTERNAL_WIDTH;
+    exportCanvas.height = INTERNAL_HEIGHT;
+    const expCtx = exportCanvas.getContext('2d');
+    if (!expCtx) return;
+    
+    expCtx.fillStyle = bgColor || '#FFFFFF';
+    expCtx.fillRect(0, 0, INTERNAL_WIDTH, INTERNAL_HEIGHT);
+    expCtx.drawImage(mainCanvas, 0, 0);
+    
+    const link = document.createElement('a');
+    link.download = `Chitrakari-Artwork-${Date.now()}.png`;
+    link.href = exportCanvas.toDataURL('image/png');
+    link.click();
+    toast.success("Artwork snapshot saved!");
+    audioEngine.playPop();
+  };
 
 
   const startThrottler = (strokeId: string) => {
@@ -413,9 +467,19 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
 
       {/* Guesser info bar */}
       {!isDrawer && (
-        <div className="w-full bg-cyan-500/10 border-b border-cyan-500/20 text-cyan-300 py-1.5 px-3 font-semibold text-center text-xs sm:text-sm flex-shrink-0 flex items-center justify-center gap-2">
-          <span>✏️</span>
-          <span><strong className="text-white">{drawerName}</strong> is sketching now...</span>
+        <div className="w-full bg-cyan-500/10 border-b border-cyan-500/20 text-cyan-300 py-1.5 px-3 font-semibold text-center text-xs sm:text-sm flex-shrink-0 flex items-center justify-between">
+          <div className="flex items-center gap-2 mx-auto">
+            <span>✏️</span>
+            <span><strong className="text-white">{drawerName}</strong> is sketching now...</span>
+          </div>
+          <button
+            onClick={handleDownloadArtwork}
+            title="Download current artwork (PNG)"
+            className="flex items-center gap-1 text-[11px] font-bold text-slate-300 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] px-2 py-1 rounded-lg border border-white/10 transition-all active:scale-95 flex-shrink-0"
+          >
+            <Download className="w-3 h-3" />
+            <span className="hidden sm:inline">Save</span>
+          </button>
         </div>
       )}
 
@@ -475,8 +539,11 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               {tools.map(t => (
                 <button
                   key={t.id}
-                  onClick={() => setTool(t.id as ToolType)}
-                  className={`flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-lg transition-all ${tool === t.id
+                  onClick={() => {
+                    setTool(t.id as ToolType);
+                    audioEngine.playPop();
+                  }}
+                  className={`flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg transition-all ${tool === t.id
                       ? 'bg-emerald-500 text-slate-950 shadow-md scale-105 font-bold glow-emerald'
                       : 'text-slate-400 hover:bg-white/[0.08] hover:text-white'
                     }`}
@@ -492,8 +559,11 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               {BRUSH_PRESETS.map(p => (
                 <button
                   key={p.label}
-                  onClick={() => setSize(p.size)}
-                  className={`flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg transition-all ${size === p.size
+                  onClick={() => {
+                    setSize(p.size);
+                    audioEngine.playPop();
+                  }}
+                  className={`flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg transition-all ${size === p.size
                       ? 'bg-emerald-500 text-slate-950 shadow-md font-bold'
                       : 'text-slate-400 hover:bg-white/[0.08] hover:text-white'
                     }`}
@@ -510,14 +580,17 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               {/* Active Color Preview & Custom Color input */}
               <div className="relative flex-shrink-0">
                 <div
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg border-2 border-white/40 shadow-inner"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg border-2 border-white/40 shadow-inner"
                   style={{ backgroundColor: color }}
                   title="Current Color (click for color picker)"
                 />
                 <input
                   type="color"
                   value={color}
-                  onChange={e => setColor(e.target.value)}
+                  onChange={e => {
+                    setColor(e.target.value);
+                    audioEngine.playPop();
+                  }}
                   className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
                   title="Choose custom color"
                 />
@@ -529,8 +602,11 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
                   <button
                     key={c}
                     type="button"
-                    onClick={() => setColor(c)}
-                    className={`w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-sm transition-transform active:scale-90 ${color.toLowerCase() === c.toLowerCase() ? 'ring-2 ring-emerald-400 scale-125 z-10' : 'hover:scale-110 opacity-80 hover:opacity-100'
+                    onClick={() => {
+                      setColor(c);
+                      audioEngine.playPop();
+                    }}
+                    className={`w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-sm transition-transform active:scale-90 ${color.toLowerCase() === c.toLowerCase() ? 'ring-2 ring-emerald-400 scale-125 z-10' : 'hover:scale-110 opacity-80 hover:opacity-100'
                       }`}
                     style={{ backgroundColor: c }}
                     title={c}
@@ -539,29 +615,45 @@ export function DrawingCanvas({ isDrawer = true, drawerName = 'Someone', roomId 
               </div>
             </div>
 
-            {/* Right Actions: Undo, Redo, Clear */}
+            {/* Right Actions: Undo, Redo, Clear, Download */}
             <div className="flex items-center gap-1 bg-white/[0.04] p-1 rounded-xl border border-white/[0.08] flex-shrink-0">
               <button
-                onClick={handleUndo}
+                onClick={() => {
+                  handleUndo();
+                  audioEngine.playPop();
+                }}
                 disabled={historyIndex < 0}
-                className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-slate-300 hover:bg-white/[0.08] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-                title="Undo"
+                className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-slate-300 hover:bg-white/[0.08] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                title="Undo (Ctrl+Z)"
               >
                 <IconUndo />
               </button>
               <button
-                onClick={handleRedo}
+                onClick={() => {
+                  handleRedo();
+                  audioEngine.playPop();
+                }}
                 disabled={historyIndex >= history.length - 1}
-                className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg text-slate-300 hover:bg-white/[0.08] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-                title="Redo"
+                className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-slate-300 hover:bg-white/[0.08] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                title="Redo (Ctrl+Y)"
               >
                 <IconRedo />
               </button>
-              <div className="w-px h-6 bg-white/[0.1] mx-0.5" />
+              <div className="w-px h-5 bg-white/[0.1] mx-0.5" />
               <button
-                onClick={handleClear}
+                onClick={handleDownloadArtwork}
+                className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-slate-300 hover:bg-white/[0.08] hover:text-emerald-400 transition-all"
+                title="Save Artwork (PNG)"
+              >
+                <Download className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => {
+                  handleClear();
+                  if (showClearConfirm) audioEngine.playClear();
+                }}
                 onMouseLeave={() => setShowClearConfirm(false)}
-                className={`flex items-center justify-center px-2.5 h-8 sm:h-9 rounded-lg transition-all ${showClearConfirm ? 'bg-rose-500 text-white font-bold text-xs' : 'text-slate-400 hover:bg-rose-500/20 hover:text-rose-400'}`}
+                className={`flex items-center justify-center px-2 h-7 sm:h-8 rounded-lg transition-all ${showClearConfirm ? 'bg-rose-500 text-white font-bold text-[10px]' : 'text-slate-400 hover:bg-rose-500/20 hover:text-rose-400'}`}
                 title="Clear Canvas"
               >
                 {showClearConfirm ? 'SURE?' : <IconTrash />}

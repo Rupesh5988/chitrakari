@@ -193,14 +193,20 @@ export function GameView() {
 
                      <div className="flex items-center gap-3 justify-center mb-4">
                         <button
-                           onClick={() => socket?.emit('rate_drawing', { roomId: roomState.id, like: true })}
-                           className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all ${roomState.turnSummary.likes?.includes(me?.id || '') ? 'bg-emerald-500 text-slate-950 glow-emerald' : 'bg-white/[0.05] text-slate-300 hover:bg-white/[0.1]'}`}
+                           onClick={() => {
+                              socket?.emit('rate_drawing', { roomId: roomState.id, like: true });
+                              audioEngine.playPop();
+                           }}
+                           className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all active:scale-95 ${roomState.turnSummary.likes?.includes(me?.id || '') ? 'bg-emerald-500 text-slate-950 glow-emerald font-extrabold' : 'bg-white/[0.05] text-slate-300 hover:bg-white/[0.1]'}`}
                         >
                            <span>👍</span> {roomState.turnSummary.likes?.length || 0}
                         </button>
                         <button
-                           onClick={() => socket?.emit('rate_drawing', { roomId: roomState.id, like: false })}
-                           className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all ${roomState.turnSummary.dislikes?.includes(me?.id || '') ? 'bg-rose-500 text-white glow-amber' : 'bg-white/[0.05] text-slate-300 hover:bg-white/[0.1]'}`}
+                           onClick={() => {
+                              socket?.emit('rate_drawing', { roomId: roomState.id, like: false });
+                              audioEngine.playPop();
+                           }}
+                           className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all active:scale-95 ${roomState.turnSummary.dislikes?.includes(me?.id || '') ? 'bg-rose-500 text-white glow-amber font-extrabold' : 'bg-white/[0.05] text-slate-300 hover:bg-white/[0.1]'}`}
                         >
                            <span>👎</span> {roomState.turnSummary.dislikes?.length || 0}
                         </button>

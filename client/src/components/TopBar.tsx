@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSocket } from '../context/SocketContext';
-import { Volume2, VolumeX, Moon, Sun, LogOut, Copy, Check } from 'lucide-react';
+import { Volume2, VolumeX, Moon, Sun, LogOut, Copy, Check, HelpCircle } from 'lucide-react';
 import { CircularTimer } from './CircularTimer';
 import { useTheme } from '../context/ThemeContext';
 import { audioEngine } from '../utils/AudioEngine';
@@ -28,6 +28,8 @@ export function TopBar() {
    const [copied, setCopied] = useState(false);
    const [isHelpOpen, setIsHelpOpen] = useState(false);
    const [lobbyPhrase, setLobbyPhrase] = useState(LOBBY_PHRASES[0]);
+
+   const drawerName = roomState?.players.find(p => p.id === roomState.currentDrawerId)?.name || 'Drawer';
 
    useEffect(() => {
       if (roomState?.phase === 'lobby') {
@@ -92,23 +94,34 @@ export function TopBar() {
       }
    };
 
-   const formatWord = (word: string) => {
-      const letters = word.split('').map((char, i) => (
-         <span 
-            key={i} 
-            className={`mx-0.5 sm:mx-1 inline-block animate-float-medium ${char === '_' ? 'opacity-30 dark:opacity-50' : 'text-primary-500 font-bold'}`}
-            style={{ animationDelay: `${i * 0.05}s` }}
-         >
-            {char}
-         </span>
-      ));
-      const wordLength = word.replace(/ /g, '').length;
+   const formatWord = (word: string, isSecret = false) => {
+      const words = word.split(' ');
+      const totalLetters = word.replace(/ /g, '').length;
+
       return (
-         <div className="flex items-center flex-wrap justify-center">
-            {letters}
-            {wordLength > 0 && (
-               <span className="ml-2 sm:ml-3 text-sm sm:text-lg text-slate-400 dark:text-slate-500 font-bold tracking-normal opacity-70 animate-pulse">
-                  ({wordLength})
+         <div className="flex items-center flex-wrap justify-center gap-2 sm:gap-3 py-0.5">
+            {words.map((w, wIdx) => (
+               <div key={wIdx} className="flex items-center gap-1 sm:gap-1.5">
+                  {w.split('').map((char, i) => {
+                     const isBlank = char === '_';
+                     return (
+                        <div
+                           key={i}
+                           className={`w-6 h-8 sm:w-7 sm:h-9 rounded-lg flex items-center justify-center font-mono font-bold text-xs sm:text-sm uppercase transition-all ${
+                              isBlank
+                                 ? 'bg-white/[0.03] border border-white/10 border-b-2 border-b-emerald-400/60 text-transparent'
+                                 : 'bg-emerald-500/15 border border-emerald-500/30 border-b-2 border-b-emerald-400 text-emerald-300 shadow-sm glow-emerald'
+                           }`}
+                        >
+                           {!isBlank && char}
+                        </div>
+                     );
+                  })}
+               </div>
+            ))}
+            {totalLetters > 0 && (
+               <span className="text-[10px] sm:text-xs text-slate-400 font-mono font-bold px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] ml-1">
+                  {totalLetters} {totalLetters === 1 ? 'letter' : 'letters'}
                </span>
             )}
          </div>
@@ -119,12 +132,12 @@ export function TopBar() {
 
    const isDrawer = me?.id === roomState.currentDrawerId;
    const showWord = roomState.phase === 'lobby'
-      ? lobbyPhrase
+      ? <span className="font-heading font-extrabold text-xs sm:text-sm text-slate-300">{lobbyPhrase}</span>
       : roomState.phase === 'choosing_word'
-         ? (isDrawer ? 'Pick a word...' : 'Waiting for Drawer...')
+         ? <span className="font-heading font-bold text-xs sm:text-sm text-cyan-300 animate-pulse">{isDrawer ? 'Pick your word to draw...' : `${drawerName} is picking a word...`}</span>
          : (isDrawer && roomState.currentWord
             ? formatWord(roomState.currentWord)
-            : formatWord(hint));
+            : formatWord(hint, true));
 
    return (
       <div className="w-full glass-dock rounded-2xl px-3 sm:px-4 py-2 flex items-center justify-between transition-all gap-2 sm:gap-4 shadow-xl">

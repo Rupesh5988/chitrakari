@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSocket } from '../context/SocketContext';
 import { ChatMessage } from '@chitrakari/shared';
-import { Avatar } from './Avatar';
-import { Send, CheckCircle2, ArrowDown, Sparkles, X } from 'lucide-react';
+import { Send, CheckCircle2, ArrowDown, Sparkles } from 'lucide-react';
 import { audioEngine } from '../utils/AudioEngine';
 
 interface ChatSidebarProps {
@@ -13,6 +12,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
    const { roomState, socket, me } = useSocket();
    const [messages, setMessages] = useState<ChatMessage[]>([]);
    const [inputValue, setInputValue] = useState('');
+   const inputRef = useRef<HTMLInputElement>(null);
 
    const roomStateRef = useRef(roomState);
    useEffect(() => {
@@ -26,6 +26,13 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
    // Proximity Meter State
    const [proximity, setProximity] = useState<'hot' | 'warm' | 'cold' | null>(null);
    const proximityTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+   // Auto focus input when drawing starts for guessers
+   useEffect(() => {
+      if (roomState?.phase === 'drawing' && me && roomState.currentDrawerId !== me.id) {
+         inputRef.current?.focus();
+      }
+   }, [roomState?.phase, roomState?.currentDrawerId, me?.id]);
 
    useEffect(() => {
       if (!socket) return;
@@ -46,6 +53,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                audioEngine.speak(`${player.name} has guessed the word!`);
             }
          } else if (msg.type === 'normal') {
+            audioEngine.playChatBlip();
             const player = roomStateRef.current?.players.find(p => p.id === msg.playerId);
             if (player && me && player.id !== me.id) {
                audioEngine.speak(`${player.name} says ${msg.text}`);
@@ -55,6 +63,9 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
 
       const handleProximity = (data: { status: 'hot' | 'warm' | 'cold' }) => {
          setProximity(data.status);
+         if (data.status === 'hot' || data.status === 'warm') {
+            audioEngine.playProximity(data.status);
+         }
          if (proximityTimeoutRef.current) clearTimeout(proximityTimeoutRef.current);
          proximityTimeoutRef.current = setTimeout(() => {
             setProximity(null);
@@ -114,19 +125,19 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
    const handleReaction = (emoji: string) => {
       if (socket) {
          socket.emit('send_reaction', { roomId: roomState.id, emoji });
+         audioEngine.playPop();
       }
    };
 
    const handleSpendHint = () => {
       if (socket && isDrawer) {
          socket.emit('spend_hint', { roomId: roomState.id });
+         audioEngine.playPop();
       }
    };
 
    return (
       <div className="w-full flex flex-col h-full relative select-none">
-
-         {/* Chat Box */}
          <div className="flex-1 flex flex-col overflow-hidden relative transition-colors min-h-0">
             <div
                className="flex-1 overflow-y-auto p-3 sm:p-3.5 space-y-2.5 scrollbar-thin"
@@ -246,6 +257,7 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   <form onSubmit={handleSubmit} className="flex gap-1.5">
                      <div className="relative flex-1">
                         <input
+                           ref={inputRef}
                            type="text"
                            value={inputValue}
                            onChange={e => setInputValue(e.target.value)}
