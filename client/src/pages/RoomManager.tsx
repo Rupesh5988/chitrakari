@@ -136,42 +136,43 @@ export function RoomManager() {
    };
 
    return (
-      <div className="h-[100dvh] overflow-hidden p-2 lg:p-4 pb-[max(env(safe-area-inset-bottom),0.5rem)] lg:pb-[max(env(safe-area-inset-bottom),1rem)] flex flex-col gap-3 lg:gap-4 relative">
-         {/* Rangoli / Block print subtle background */}
-         <div 
-           className="absolute inset-0 opacity-[0.04] pointer-events-none" 
-           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0C40 22.0914 22.0914 40 0 40C22.0914 40 40 57.9086 40 80C40 57.9086 57.9086 40 80 40C57.9086 40 40 22.0914 40 0Z' fill='%231e293b' fill-rule='evenodd'/%3E%3Cpath d='M40 20C40 31.0457 31.0457 40 20 40C31.0457 40 40 48.9543 40 60C40 48.9543 48.9543 40 60 40C48.9543 40 40 31.0457 40 20Z' fill='%231e293b' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")` }} 
-         />
+      <div className="h-[100dvh] overflow-hidden p-2.5 sm:p-4 pb-[max(env(safe-area-inset-bottom),0.5rem)] lg:pb-[max(env(safe-area-inset-bottom),1rem)] flex flex-col gap-2.5 sm:gap-4 relative select-none">
+         
+         <div className="z-10 w-full max-w-[1600px] mx-auto"><TopBar /></div>
 
-         <div className="z-10 w-full"><TopBar /></div>
-
-         <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 flex-1 h-0 min-h-0 relative max-w-[1600px] mx-auto w-full z-10">
+         <div className="flex flex-col lg:flex-row gap-2.5 sm:gap-4 flex-1 h-0 min-h-0 relative max-w-[1600px] mx-auto w-full z-10">
 
             {/* Left Column: Players */}
-            <div className="w-full md:w-64 bg-white/80 dark:bg-paper-900/40 backdrop-blur-md rounded-3xl p-4 border-transparent shadow-none flex flex-col h-full overflow-y-auto overflow-x-hidden">
-               <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2 mb-4 px-2">
-                  <Users className="w-4 h-4" />
-                  Players ({roomState.players.length}/{roomState.settings.maxPlayers})
+            <div className="w-full md:w-64 glass-card rounded-2xl p-3.5 flex flex-col h-full overflow-hidden">
+               <h2 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2 mb-3 px-1">
+                  <Users className="w-4 h-4 text-emerald-400" />
+                  <span>Artists ({roomState.players.length}/{roomState.settings.maxPlayers})</span>
                </h2>
-               <div className="flex flex-col gap-2">
+               <div className="flex-1 overflow-y-auto scrollbar-thin space-y-1.5 pr-0.5">
                   {roomState.players.map((p, index) => (
                      <div 
                         key={p.id} 
                         onClick={() => p.id !== me?.id && setMenuTarget(menuTarget?.id === p.id ? null : p)}
-                        className={`relative cursor-pointer flex items-center justify-between p-3 rounded-2xl transition-colors border-transparent hover:bg-slate-100/50 dark:hover:bg-paper-900/50 ${menuTarget?.id === p.id ? 'bg-slate-100/80 dark:bg-paper-900/80' : 'bg-slate-50/50 dark:bg-paper-950/20'} ${p.connected === false ? 'opacity-50' : ''}`}
+                        className={`relative cursor-pointer flex items-center justify-between p-2.5 rounded-xl transition-all border ${
+                           menuTarget?.id === p.id 
+                              ? 'bg-white/10 border-white/20' 
+                              : 'bg-white/[0.02] hover:bg-white/[0.05] border-white/[0.05]'
+                        } ${p.connected === false ? 'opacity-40 grayscale' : ''}`}
                      >
-                        <div className="text-xs font-bold text-slate-400 w-4 text-center">#{index + 1}</div>
-                        <Avatar seed={p.avatarSeed} size={40} />
-                        <div className="flex-1 min-w-0 px-3">
-                           <div className="font-bold text-sm text-slate-700 dark:text-slate-200 truncate flex items-center gap-1">
+                        <div className="text-[10px] font-mono font-bold text-slate-500 w-3.5 text-center">#{index + 1}</div>
+                        <div className="relative flex-shrink-0">
+                           <Avatar seed={p.avatarSeed} size={36} />
+                           <span className={`absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full border-2 border-slate-900 ${p.connected ? 'bg-emerald-400' : 'bg-slate-500'}`} />
+                        </div>
+                        <div className="flex-1 min-w-0 px-2.5">
+                           <div className="font-bold text-xs text-white truncate flex items-center gap-1">
                               {p.name}
                            </div>
-                           <div className="text-xs text-slate-500">{p.score} points</div>
+                           <div className="text-[10px] text-slate-400 font-mono">{p.score} pts</div>
                         </div>
                         <div className="flex flex-col gap-1 items-end">
-                           {p.isHost && <div className="text-[10px] font-bold uppercase tracking-widest text-amber-500 bg-amber-50 dark:bg-amber-500/10 px-1.5 py-0.5 rounded-md leading-none">Host</div>}
-                           {p.id === me?.id && <div className="text-[10px] font-bold uppercase tracking-widest text-primary-500 bg-primary-50 dark:bg-primary-500/10 px-1.5 py-0.5 rounded-md leading-none">You</div>}
-                           {p.connected === false && <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 bg-slate-200 dark:bg-slate-700 px-1.5 py-0.5 rounded-md leading-none">Offline</div>}
+                           {p.isHost && <span className="text-[9px] font-extrabold uppercase tracking-wider text-amber-400 bg-amber-400/10 border border-amber-400/20 px-1.5 py-0.5 rounded-md leading-none">Host</span>}
+                           {p.id === me?.id && <span className="text-[9px] font-extrabold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-1.5 py-0.5 rounded-md leading-none">You</span>}
                         </div>
                         {menuTarget?.id === p.id && (
                            <PlayerContextMenu target={p} onClose={() => setMenuTarget(null)} />
@@ -181,11 +182,11 @@ export function RoomManager() {
 
                   {/* Empty slots */}
                   {Array.from({ length: Math.max(0, roomState.settings.maxPlayers - roomState.players.length) }).map((_, i) => (
-                     <div key={`empty-${i}`} className="flex items-center gap-3 p-3 rounded-2xl border-transparent bg-slate-50/30 dark:bg-paper-950/10 opacity-50">
-                        <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-paper-800" />
+                     <div key={`empty-${i}`} className="flex items-center gap-2.5 p-2.5 rounded-xl border border-dashed border-white/[0.05] bg-white/[0.01] opacity-40">
+                        <div className="w-8 h-8 rounded-full bg-white/[0.05]" />
                         <div className="flex-1">
-                           <div className="h-3 w-16 bg-slate-200 dark:bg-paper-800 rounded-full mb-1.5" />
-                           <div className="h-2 w-10 bg-slate-200 dark:bg-paper-800 rounded-full" />
+                           <div className="h-2.5 w-16 bg-white/[0.05] rounded-full mb-1" />
+                           <div className="h-2 w-10 bg-white/[0.03] rounded-full" />
                         </div>
                      </div>
                   ))}
@@ -194,22 +195,22 @@ export function RoomManager() {
             </div>
 
             {/* Center Column: Settings & Actions */}
-            <div className="flex-1 bg-white/80 dark:bg-paper-900/40 backdrop-blur-md rounded-3xl p-4 sm:p-6 shadow-none border-transparent flex flex-col overflow-y-auto">
+            <div className="flex-1 glass-card rounded-2xl p-4 sm:p-5 flex flex-col overflow-y-auto scrollbar-thin">
                
-               {/* Prominent Room Code Card */}
-               <div className="bg-gradient-to-r from-primary-500/10 via-primary-500/5 to-transparent border-2 border-primary-500/20 dark:border-primary-500/30 rounded-2xl p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+               {/* Minimalist Room Invite Card */}
+               <div className="p-3.5 rounded-xl bg-gradient-to-r from-emerald-500/10 via-cyan-500/5 to-transparent border border-emerald-500/20 mb-4 flex flex-col sm:flex-row items-center justify-between gap-3">
                   <div className="text-center sm:text-left">
-                     <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block">Room Invite Code</span>
-                     <div className="text-3xl font-mono font-black tracking-[0.2em] text-primary-600 dark:text-primary-400 mt-0.5">
+                     <span className="text-[10px] font-bold text-emerald-400/80 uppercase tracking-widest block">Room Invite Code</span>
+                     <div className="text-2xl sm:text-3xl font-mono font-black tracking-[0.2em] text-white mt-0.5">
                         {roomState.id}
                      </div>
                   </div>
                   <div className="flex items-center gap-2 w-full sm:w-auto">
                      <button
                         onClick={copyRoomCode}
-                        className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-white dark:bg-paper-800 hover:bg-slate-50 dark:hover:bg-paper-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl font-bold text-sm shadow-sm transition-all active:scale-95"
+                        className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 bg-white/[0.05] hover:bg-white/[0.1] text-slate-200 border border-white/10 px-3.5 py-2 rounded-xl font-bold text-xs transition-all active:scale-95"
                      >
-                        {copied ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-slate-400" />}
+                        {copied ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-slate-400" />}
                         <span>{copied ? 'Copied!' : 'Copy Code'}</span>
                      </button>
                      <button
@@ -218,16 +219,17 @@ export function RoomManager() {
                            navigator.clipboard.writeText(link);
                            toast.success("Invite link copied to clipboard!");
                         }}
-                        className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-4 py-2.5 rounded-xl font-bold text-sm shadow-sm transition-all active:scale-95"
+                        className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-4 py-2 rounded-xl font-bold text-xs glow-emerald transition-all active:scale-95"
                      >
-                        <span>Copy Link</span>
+                        <span>Share Link</span>
                      </button>
                   </div>
                </div>
 
-               <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-sm font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2">
-                     <Settings className="w-4 h-4" /> Settings
+               <div className="flex items-center justify-between mb-3">
+                  <h2 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                     <Settings className="w-3.5 h-3.5 text-cyan-400" /> 
+                     <span>Match Settings</span>
                   </h2>
                   {me?.isHost && (
                      <button
@@ -243,26 +245,23 @@ export function RoomManager() {
                               setIsEditingSettings(true);
                            }
                         }}
-                        className="text-sm font-bold text-primary-500 hover:text-primary-600 bg-primary-50 hover:bg-primary-100 dark:bg-primary-900/20 dark:hover:bg-primary-900/40 px-4 py-2 rounded-xl transition-colors"
+                        className="text-xs font-bold text-cyan-400 hover:text-cyan-300 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 px-3 py-1.5 rounded-lg transition-colors"
                      >
                         {isEditingSettings ? 'Save Settings' : 'Edit'}
                      </button>
                   )}
                </div>
 
-               <div className="bg-slate-50/80 dark:bg-paper-950/30 rounded-2xl p-4 mb-6 border-transparent space-y-3">
+               <div className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05] space-y-2.5 mb-4 text-xs">
                   
                   {/* Players / Max Players Setting */}
-                  <div className="flex items-center justify-between">
-                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">👥</div>
-                        <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Players</span>
-                     </div>
+                  <div className="flex items-center justify-between py-1">
+                     <span className="font-semibold text-slate-300">Max Players</span>
                      {isEditingSettings ? (
                         <select 
                            value={editMaxPlayers} 
                            onChange={e => setEditMaxPlayers(parseInt(e.target.value))} 
-                           className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-sm font-bold w-40"
+                           className="glass-input rounded-lg px-3 py-1 text-xs font-bold text-white outline-none w-36"
                         >
                            <option value="2">2 Players</option>
                            <option value="4">4 Players</option>
@@ -273,107 +272,93 @@ export function RoomManager() {
                            <option value="16">16 Players</option>
                         </select>
                      ) : (
-                        <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center">{roomState.settings.maxPlayers || 8}</span>
+                        <span className="font-mono font-bold text-emerald-400 bg-white/[0.04] px-2.5 py-1 rounded-md border border-white/[0.05]">{roomState.settings.maxPlayers || 8}</span>
                      )}
                   </div>
 
-                  <div className="flex items-center justify-between">
-                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">⏱️</div>
-                        <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Draw Time</span>
-                     </div>
+                  <div className="flex items-center justify-between py-1">
+                     <span className="font-semibold text-slate-300">Draw Time</span>
                      {isEditingSettings ? (
-                        <select value={editDrawTime} onChange={e => setEditDrawTime(parseInt(e.target.value))} className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-sm font-bold w-40">
+                        <select value={editDrawTime} onChange={e => setEditDrawTime(parseInt(e.target.value))} className="glass-input rounded-lg px-3 py-1 text-xs font-bold text-white outline-none w-36">
                            <option value="40">40 seconds</option>
                            <option value="60">60 seconds</option>
                            <option value="80">80 seconds</option>
                            <option value="120">120 seconds</option>
                         </select>
                      ) : (
-                        <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center">{roomState.settings.drawTime}s</span>
+                        <span className="font-mono font-bold text-cyan-400 bg-white/[0.04] px-2.5 py-1 rounded-md border border-white/[0.05]">{roomState.settings.drawTime}s</span>
                      )}
                   </div>
 
-                  <div className="flex items-center justify-between">
-                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">⌛</div>
-                        <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Word Select Time</span>
-                     </div>
+                  <div className="flex items-center justify-between py-1">
+                     <span className="font-semibold text-slate-300">Word Select Time</span>
                      {isEditingSettings ? (
-                        <select value={editWordSelectTime} onChange={e => setEditWordSelectTime(parseInt(e.target.value))} className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-sm font-bold w-40">
+                        <select value={editWordSelectTime} onChange={e => setEditWordSelectTime(parseInt(e.target.value))} className="glass-input rounded-lg px-3 py-1 text-xs font-bold text-white outline-none w-36">
                            <option value="5">5 seconds</option>
                            <option value="10">10 seconds</option>
                            <option value="15">15 seconds</option>
                            <option value="20">20 seconds</option>
                         </select>
                      ) : (
-                        <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center">{roomState.settings.wordSelectTime || 15}s</span>
+                        <span className="font-mono font-bold text-indigo-400 bg-white/[0.04] px-2.5 py-1 rounded-md border border-white/[0.05]">{roomState.settings.wordSelectTime || 15}s</span>
                      )}
                   </div>
 
-                  <div className="flex items-center justify-between">
-                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">🔄</div>
-                        <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Rounds</span>
-                     </div>
+                  <div className="flex items-center justify-between py-1">
+                     <span className="font-semibold text-slate-300">Total Rounds</span>
                      {isEditingSettings ? (
-                        <input type="number" min="1" max="10" value={editRounds} onChange={e => setEditRounds(parseInt(e.target.value) || 3)} className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-sm font-bold w-40" />
+                        <input type="number" min="1" max="10" value={editRounds} onChange={e => setEditRounds(parseInt(e.target.value) || 3)} className="glass-input rounded-lg px-3 py-1 text-xs font-bold text-white outline-none w-36" />
                      ) : (
-                        <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center">{roomState.settings.rounds}</span>
+                        <span className="font-mono font-bold text-amber-400 bg-white/[0.04] px-2.5 py-1 rounded-md border border-white/[0.05]">{roomState.settings.rounds}</span>
                      )}
                   </div>
 
-                  <div className="flex items-center justify-between">
-                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">📝</div>
-                        <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Difficulty</span>
-                     </div>
+                  <div className="flex items-center justify-between py-1">
+                     <span className="font-semibold text-slate-300">Difficulty</span>
                      {isEditingSettings ? (
-                        <select value={editWordDifficulty} onChange={e => setEditWordDifficulty(e.target.value as any)} className="bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2 text-sm font-bold w-40 capitalize">
+                        <select value={editWordDifficulty} onChange={e => setEditWordDifficulty(e.target.value as any)} className="glass-input rounded-lg px-3 py-1 text-xs font-bold text-white outline-none w-36 capitalize">
                            <option value="easy">Easy</option>
                            <option value="medium">Medium</option>
                            <option value="hard">Hard</option>
                            <option value="mixed">Mixed</option>
                         </select>
                      ) : (
-                        <span className="text-sm font-bold bg-white dark:bg-paper-800 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-700 min-w-[100px] text-center capitalize">{roomState.settings.wordDifficulty}</span>
+                        <span className="font-bold text-white capitalize bg-white/[0.04] px-2.5 py-1 rounded-md border border-white/[0.05]">{roomState.settings.wordDifficulty}</span>
                      )}
                   </div>
                </div>
 
-               <div className="flex-1 flex flex-col bg-slate-50/80 dark:bg-paper-950/30 rounded-2xl p-4 border-transparent">
-                  <div className="flex items-center justify-between mb-3">
-                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-paper-800 flex items-center justify-center text-slate-500 dark:text-slate-400">✏️</div>
-                        <span className="text-sm font-bold text-slate-600 dark:text-slate-300">Custom words</span>
-                     </div>
-                  </div>
+               <div className="flex-1 flex flex-col p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                  <span className="text-xs font-semibold text-slate-300 mb-2">Custom Word List</span>
                   <textarea
                      readOnly={!isEditingSettings}
                      value={isEditingSettings ? customWordsStr : (roomState.settings.customWords?.join(', ') || '')}
                      onChange={(e) => setCustomWordsStr(e.target.value)}
-                     placeholder="Minimum of 10 words. Separated by a , (comma)"
-                     className="flex-1 bg-white dark:bg-paper-800 border border-slate-200 dark:border-slate-700 rounded-xl p-4 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:border-primary-500 resize-none min-h-[120px]"
+                     placeholder="Minimum of 10 custom words, comma-separated (e.g. Samosa, Taj Mahal, Cricket)"
+                     className="flex-1 glass-input rounded-xl p-3 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400 resize-none min-h-[90px]"
                   />
                </div>
 
-               <div className="mt-6 flex justify-center">
+               {/* Start Button */}
+               <div className="mt-4 flex flex-col items-center">
                   <button
                      onClick={handleStart}
                      disabled={!me?.isHost || roomState.players.length < 2}
-                     className="w-full sm:w-2/3 bg-emerald-500 hover:bg-emerald-600 disabled:bg-slate-300 dark:disabled:bg-slate-700 text-white font-black text-xl py-4 rounded-2xl shadow-sm transition-all disabled:transform-none disabled:shadow-none"
+                     className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 disabled:opacity-40 disabled:hover:from-emerald-500 disabled:hover:to-cyan-500 text-slate-950 font-heading font-extrabold text-lg py-3 rounded-xl shadow-lg glow-emerald transition-all active:scale-[0.98]"
                   >
-                     {me?.isHost ? 'Start!' : 'Waiting for Host...'}
+                     {me?.isHost ? 'Start Match!' : 'Waiting for Host to start...'}
                   </button>
-               </div>
 
-               {me?.isHost && roomState.players.length < 2 && (
-                  <p className="text-rose-500 text-xs font-bold text-center mt-3">Need at least 2 players to start.</p>
-               )}
+                  {me?.isHost && roomState.players.length < 2 && (
+                     <p className="text-amber-400/90 text-xs font-medium text-center mt-2 flex items-center gap-1">
+                        <span>⏳</span> Need at least 2 players in the room to begin.
+                     </p>
+                  )}
+               </div>
             </div>
 
             {/* Right Column: Chat */}
-            <div className="w-full md:w-80 bg-white/80 dark:bg-paper-900/40 backdrop-blur-md rounded-3xl flex flex-col overflow-hidden shadow-none border-transparent">
+            <div className="w-full md:w-80 glass-card rounded-2xl flex flex-col overflow-hidden">
                <ChatSidebar />
             </div>
 

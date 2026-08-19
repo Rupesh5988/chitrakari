@@ -25,7 +25,7 @@ export function CircularTimer({ timeRemaining, totalTime, size = 48, strokeWidth
       <svg className="transform -rotate-90 w-full h-full">
         {/* Background circle */}
         <circle
-          className="text-slate-700/50 dark:text-slate-800/50"
+          className="text-white/[0.08]"
           strokeWidth={strokeWidth}
           stroke="currentColor"
           fill="transparent"

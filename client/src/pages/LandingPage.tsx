@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { generateRoomCode } from '@chitrakari/shared';
 import { Avatar } from '../components/Avatar';
-import { Dice5, ChevronLeft, ChevronRight, HelpCircle, BookOpen, PenTool, Sparkles, User, Loader2 } from 'lucide-react';
+import { Dice5, Sparkles, User, Loader2, Palette, Users, Zap, HelpCircle, ChevronRight, BookOpen } from 'lucide-react';
 import { useSocket } from '../context/SocketContext';
 import { toast } from 'sonner';
 
@@ -18,10 +18,10 @@ export function LandingPage() {
   const [searchParams] = useSearchParams();
   const [joinCode, setJoinCode] = useState('');
   const [playerName, setPlayerName] = useState(() => localStorage.getItem('chitrakari_name') || '');
-  const [seedIndex, setSeedIndex] = useState(0);
   const [avatarSeed, setAvatarSeed] = useState(() => {
     return localStorage.getItem('chitrakari_avatar') || AVATAR_SEEDS[0];
   });
+  const [activeTab, setActiveTab] = useState<'how' | 'about' | null>(null);
 
   const { socket, connected } = useSocket();
   const [isFindingMatch, setIsFindingMatch] = useState(false);
@@ -49,7 +49,7 @@ export function LandingPage() {
 
   const handlePlayQuick = () => {
     if (!socket || !connected) {
-      toast.error('Not connected to server');
+      toast.error('Connecting to server... Please try in a second');
       return;
     }
     
@@ -74,217 +74,232 @@ export function LandingPage() {
     }
   };
 
-
-
   const randomizeAvatar = () => {
     const randomSeed = Math.random().toString(36).substring(2, 10);
     setAvatarSeed(randomSeed);
     localStorage.setItem('chitrakari_avatar', randomSeed);
   };
 
-  // Color array for Chitrakari logo letters
-  const logoColors = [
-    '#EF4444', '#F97316', '#F59E0B', '#10B981', '#06B6D4',
-    '#3B82F6', '#6366F1', '#8B5CF6', '#EC4899', '#14B8A6', '#F43F5E'
-  ];
-  const logoTitle = "chitrakari.io!".split('');
-
   return (
-    <div className="h-[100dvh] overflow-y-auto overflow-x-hidden text-white flex flex-col items-center justify-between p-2.5 sm:p-6 pb-[max(env(safe-area-inset-bottom),1rem)] select-none relative">
-
-      <div className="max-w-4xl w-full flex flex-col items-center z-10 flex-1 justify-center py-2 sm:py-4">
-
-        {/* Skribbl Style Colorful Logo */}
-        <div className="flex flex-col items-center mb-3 sm:mb-6 text-center">
-          <div className="flex items-center justify-center flex-wrap text-4xl sm:text-7xl md:text-8xl font-black tracking-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)] font-display">
-            {logoTitle.map((letter, i) => (
-              <span 
-                key={i} 
-                style={{ color: logoColors[i % logoColors.length] }}
-                className="inline-block hover:scale-125 hover:-rotate-6 transition-transform cursor-pointer drop-shadow-md"
-              >
-                {letter}
-              </span>
-            ))}
-            <span className="text-2xl sm:text-5xl ml-1 animate-bounce">✏️</span>
+    <div className="min-h-[100dvh] w-full flex flex-col items-center justify-between p-4 sm:p-8 select-none relative overflow-y-auto">
+      
+      {/* Top Header / Brand Badge */}
+      <header className="w-full max-w-5xl flex items-center justify-between py-2 z-10">
+        <div className="flex items-center gap-2">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-400 via-cyan-400 to-indigo-500 flex items-center justify-center shadow-md glow-cyan">
+            <Palette className="w-5 h-5 text-slate-950 stroke-[2.5]" />
+          </div>
+          <span className="font-heading font-extrabold text-xl tracking-tight text-white">
+            Chitrakari<span className="text-emerald-400">.io</span>
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-medium text-slate-300">
+            <span className={`w-2 h-2 rounded-full ${connected ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`} />
+            <span>{connected ? 'Live Multiplay' : 'Connecting...'}</span>
           </div>
         </div>
+      </header>
 
-        {/* Center Main Card (Skribbl Play Box) */}
-        <div className="w-full max-w-sm sm:max-w-md bg-transparent border-transparent rounded-3xl p-4 sm:p-6 shadow-none relative mb-6">
+      {/* Center Main Stage */}
+      <main className="w-full max-w-md my-auto py-6 z-10 flex flex-col items-center">
+        
+        {/* Title Tagline */}
+        <div className="text-center mb-6">
+          <h1 className="text-4xl sm:text-5xl font-heading font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400">
+            Draw. Guess. Win.
+          </h1>
+          <p className="text-sm font-medium text-slate-400 mt-1.5">
+            The lightweight real-time multiplayer sketching game
+          </p>
+        </div>
+
+        {/* Minimalist Glass Card */}
+        <div className="w-full glass-card rounded-3xl p-6 sm:p-7 backdrop-blur-2xl">
           
-          {/* Top Row: Clean Full-Width Name Input */}
-          <div className="relative mb-3.5">
-            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-              <User className="w-5 h-5" />
+          {/* Player Identity Input */}
+          <div className="space-y-4 mb-5">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <User className="w-4 h-4" />
+              </div>
+              <input
+                type="text"
+                placeholder="Enter your artist name"
+                maxLength={16}
+                value={playerName}
+                onChange={(e) => setPlayerName(e.target.value)}
+                className="w-full glass-input text-white placeholder-slate-400 font-semibold pl-10 pr-4 py-3 rounded-2xl text-sm sm:text-base outline-none"
+              />
             </div>
-            <input
-              type="text"
-              placeholder="Enter your name"
-              maxLength={16}
-              value={playerName}
-              onChange={(e) => setPlayerName(e.target.value)}
-              className="w-full bg-white/10 text-white placeholder-white/50 font-bold pl-10 pr-4 py-2.5 sm:py-3 rounded-xl border-2 border-white/20 focus:outline-none focus:border-white/60 text-base sm:text-lg shadow-inner"
-            />
-          </div>
 
-          {/* Avatar Studio Box with Grid */}
-          <div className="bg-transparent border-transparent rounded-2xl p-4 mb-4 flex flex-col sm:flex-row items-center gap-4 relative shadow-none">
-            
-            {/* Selected Big Avatar */}
-            <div className="relative flex-shrink-0">
-              <div className="p-2 bg-white/10 rounded-2xl border border-white/20 shadow-lg relative">
-                <Avatar seed={avatarSeed} size={88} className="sm:w-24 sm:h-24" />
+            {/* Avatar Selector Dock */}
+            <div className="flex items-center gap-3 p-2.5 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
+              {/* Active Avatar */}
+              <div className="relative flex-shrink-0">
+                <div className="w-14 h-14 rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border-2 border-emerald-400/80 p-0.5 glow-emerald flex items-center justify-center">
+                  <Avatar seed={avatarSeed} size={50} />
+                </div>
                 <button
                   type="button"
                   onClick={randomizeAvatar}
-                  className="absolute -top-2 -right-2 w-9 h-9 flex items-center justify-center bg-amber-400 hover:bg-amber-300 active:scale-90 text-slate-900 rounded-full shadow-md transition-transform border-2 border-white/20"
-                  title="Roll Random Avatar"
+                  className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-emerald-400 hover:bg-emerald-300 text-slate-950 flex items-center justify-center shadow-md transition-transform active:scale-90"
+                  title="Randomize avatar"
                 >
-                  <Dice5 className="w-5 h-5" />
+                  <Dice5 className="w-3.5 h-3.5" />
                 </button>
               </div>
-            </div>
 
-            {/* Grid Options */}
-            <div className="flex-1 grid grid-cols-4 sm:grid-cols-4 gap-2 w-full max-w-[240px]">
-              {AVATAR_SEEDS.slice(0, 8).map((s, idx) => (
-                <div 
-                  key={idx} 
-                  onClick={() => {
-                    setAvatarSeed(s);
-                    localStorage.setItem('chitrakari_avatar', s);
-                  }}
-                  className={`cursor-pointer rounded-xl overflow-hidden transition-all duration-200 border-2 ${
-                    avatarSeed === s 
-                      ? 'border-amber-400 scale-110 shadow-[0_0_10px_rgba(251,191,36,0.5)]' 
-                      : 'border-transparent hover:border-white/30 hover:scale-105 opacity-80 hover:opacity-100'
-                  }`}
-                  title="Select this avatar"
-                >
-                  <Avatar seed={s} size={48} className="w-full h-auto aspect-square bg-white/5" />
-                </div>
-              ))}
+              {/* Quick Pick Palette */}
+              <div className="flex-1 overflow-x-auto scrollbar-none flex items-center gap-1.5 py-1">
+                {AVATAR_SEEDS.slice(0, 10).map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => {
+                      setAvatarSeed(s);
+                      localStorage.setItem('chitrakari_avatar', s);
+                    }}
+                    className={`w-9 h-9 flex-shrink-0 rounded-xl overflow-hidden p-0.5 transition-all ${
+                      avatarSeed === s
+                        ? 'ring-2 ring-emerald-400 scale-105 bg-white/10'
+                        : 'opacity-60 hover:opacity-100 hover:scale-105 bg-white/[0.03]'
+                    }`}
+                  >
+                    <Avatar seed={s} size={32} />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Action Buttons & Forms */}
+          {/* Action CTAs */}
           {isInvited ? (
-            <div className="space-y-2.5">
-               <button
-                 onClick={handleJoinRoom}
-                 disabled={joinCode.length !== 6}
-                 className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
-               >
-                 <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
-                 Play!
-               </button>
-            </div>
+            <button
+              onClick={handleJoinRoom}
+              disabled={joinCode.length !== 6}
+              className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 active:scale-[0.98] text-slate-950 font-heading font-extrabold text-base sm:text-lg py-3.5 rounded-2xl shadow-lg glow-emerald transition-all flex items-center justify-center gap-2"
+            >
+              <Sparkles className="w-5 h-5 stroke-[2.5]" />
+              <span>Join Room & Play!</span>
+            </button>
           ) : (
-            <>
+            <div className="space-y-3">
               {joinCode.length !== 6 && (
                 <>
-                  <div className="space-y-2.5">
-                    {/* Randomly Play Button (Big Green) */}
-                    <button
-                      onClick={handlePlayQuick}
-                      disabled={isFindingMatch}
-                      className="w-full bg-[#53b827] hover:bg-[#469e20] active:scale-[0.98] disabled:opacity-50 disabled:scale-100 disabled:cursor-not-allowed text-white font-black text-xl sm:text-2xl py-3 sm:py-3.5 rounded-2xl shadow-[0_4px_0_#2e7011] transition-all flex items-center justify-center gap-2"
-                    >
-                      {isFindingMatch ? <Loader2 className="w-5 h-5 sm:w-6 sm:h-6 animate-spin" /> : <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />}
-                      {isFindingMatch ? 'Finding Match...' : 'Randomly Play!'}
-                    </button>
+                  {/* Primary Play Button */}
+                  <button
+                    onClick={handlePlayQuick}
+                    disabled={isFindingMatch}
+                    className="w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 active:scale-[0.98] disabled:opacity-50 text-slate-950 font-heading font-extrabold text-base sm:text-lg py-3.5 rounded-2xl shadow-lg glow-emerald transition-all flex items-center justify-center gap-2"
+                  >
+                    {isFindingMatch ? <Loader2 className="w-5 h-5 animate-spin" /> : <Sparkles className="w-5 h-5 stroke-[2.5]" />}
+                    <span>{isFindingMatch ? 'Finding Match...' : 'Random Matchplay'}</span>
+                  </button>
 
-                    {/* Create Private Room Button (Big Blue) */}
-                    <button
-                      onClick={handleCreatePrivateRoom}
-                      className="w-full bg-[#1e88e5] hover:bg-[#1976d2] active:scale-[0.98] text-white font-bold text-base sm:text-lg py-2.5 sm:py-3 rounded-2xl shadow-[0_4px_0_#1565c0] transition-all"
-                    >
-                      Create Private Room
-                    </button>
-                  </div>
+                  {/* Secondary Create Room Button */}
+                  <button
+                    onClick={handleCreatePrivateRoom}
+                    className="w-full bg-white/[0.04] hover:bg-white/[0.08] active:scale-[0.98] text-slate-200 border border-white/[0.08] font-semibold text-sm sm:text-base py-3 rounded-2xl transition-all flex items-center justify-center gap-2"
+                  >
+                    <Users className="w-4 h-4 text-slate-400" />
+                    <span>Create Private Room</span>
+                  </button>
 
                   {/* Divider */}
-                  <div className="relative flex items-center my-3 sm:my-4">
-                    <div className="flex-grow border-t border-white/10"></div>
-                    <span className="flex-shrink-0 mx-3 text-[11px] font-bold uppercase tracking-widest text-blue-200/60">or join code</span>
-                    <div className="flex-grow border-t border-white/10"></div>
+                  <div className="relative flex items-center my-2">
+                    <div className="flex-grow border-t border-white/[0.06]"></div>
+                    <span className="flex-shrink-0 mx-3 text-[10px] font-bold uppercase tracking-widest text-slate-400">or room code</span>
+                    <div className="flex-grow border-t border-white/[0.06]"></div>
                   </div>
                 </>
               )}
 
-              {/* Join Room Form */}
+              {/* Join Code Form */}
               <form onSubmit={handleJoinRoom} className="flex gap-2">
                 <input
                   type="text"
-                  placeholder="ROOM CODE"
+                  placeholder="ENTER 6-CHAR CODE"
                   maxLength={6}
                   value={joinCode}
                   onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
-                  className="flex-1 bg-white/10 text-white text-center font-mono font-black tracking-[0.2em] px-3 py-2 sm:py-2.5 rounded-xl border-2 border-white/20 focus:outline-none focus:border-white/60 uppercase text-base sm:text-lg shadow-inner placeholder:font-normal placeholder:tracking-normal placeholder:text-xs placeholder:text-white/50"
+                  className="flex-1 glass-input text-white text-center font-mono font-bold tracking-[0.25em] px-4 py-2.5 rounded-xl uppercase text-sm placeholder:font-sans placeholder:tracking-normal placeholder:text-xs placeholder:text-slate-400 outline-none"
                 />
                 <button
                   type="submit"
                   disabled={joinCode.length !== 6}
-                  className="bg-[#fb8c00] hover:bg-[#f57c00] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-[0_3px_0_#e65100] active:scale-95 transition-all text-xs sm:text-sm uppercase tracking-wider"
+                  className="bg-indigo-500 hover:bg-indigo-400 disabled:opacity-40 disabled:hover:bg-indigo-500 text-white font-bold px-5 py-2.5 rounded-xl transition-all text-xs uppercase tracking-wider flex items-center gap-1 glow-indigo"
                 >
-                  Join
+                  <span>Join</span>
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               </form>
-            </>
+            </div>
           )}
 
         </div>
 
-        {/* Bottom 3-Card Information Grid (About, News, How to Play) */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 max-w-4xl">
-          
-          {/* 1. About Card */}
-          <div className="bg-transparent border-transparent rounded-2xl p-3.5 sm:p-4 shadow-none flex flex-col">
-            <div className="flex items-center gap-2 mb-1.5 text-amber-300 font-bold text-sm sm:text-base">
-              <HelpCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>About</span>
-            </div>
-            <p className="text-xs text-blue-100/80 leading-relaxed">
-              <strong className="text-white">Chitrakari</strong> is a free online multiplayer drawing and guessing pictionary game. Every round a player sketches their chosen word while others race to guess it in chat to score points!
-            </p>
-          </div>
+        {/* Minimalist Info Chips */}
+        <div className="flex items-center gap-2 mt-4">
+          <button
+            onClick={() => setActiveTab(activeTab === 'how' ? null : 'how')}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all flex items-center gap-1.5 ${
+              activeTab === 'how'
+                ? 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30'
+                : 'bg-white/[0.03] text-slate-400 border-white/[0.06] hover:text-slate-200'
+            }`}
+          >
+            <Zap className="w-3.5 h-3.5" />
+            <span>How to play</span>
+          </button>
 
-          {/* 2. News Card */}
-          <div className="bg-transparent border-transparent rounded-2xl p-3.5 sm:p-4 shadow-none flex flex-col">
-            <div className="flex items-center gap-2 mb-1.5 text-emerald-300 font-bold text-sm sm:text-base">
-              <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>News & Updates</span>
-            </div>
-            <ul className="text-xs text-blue-100/80 space-y-1 list-disc list-inside">
-              <li>Smart dictionary with word definitions</li>
-              <li>New Indian doodle avatars & expressions</li>
-              <li>Revamped mobile touch drawing & guessing</li>
-              <li>Instant 1-click room invite codes</li>
-            </ul>
-          </div>
-
-          {/* 3. How to Play Card */}
-          <div className="bg-transparent border-transparent rounded-2xl p-3.5 sm:p-4 shadow-none flex flex-col">
-            <div className="flex items-center gap-2 mb-1.5 text-cyan-300 font-bold text-sm sm:text-base">
-              <PenTool className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>How to play</span>
-            </div>
-            <ol className="text-xs text-blue-100/80 space-y-1 list-decimal list-inside">
-              <li>When it is your turn, pick a word and draw it!</li>
-              <li>When others draw, type your guesses in the chat.</li>
-              <li>Guess faster to score highest points and win!</li>
-            </ol>
-          </div>
-
+          <button
+            onClick={() => setActiveTab(activeTab === 'about' ? null : 'about')}
+            className={`px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all flex items-center gap-1.5 ${
+              activeTab === 'about'
+                ? 'bg-cyan-500/10 text-cyan-300 border-cyan-500/30'
+                : 'bg-white/[0.03] text-slate-400 border-white/[0.06] hover:text-slate-200'
+            }`}
+          >
+            <HelpCircle className="w-3.5 h-3.5" />
+            <span>About Chitrakari</span>
+          </button>
         </div>
 
-      </div>
+        {/* Expandable Info Cards */}
+        {activeTab === 'how' && (
+          <div className="w-full mt-3 p-4 rounded-2xl glass-card text-xs text-slate-300 space-y-2 animate-float-slow">
+            <div className="font-bold text-emerald-400 flex items-center gap-1.5">
+              <Zap className="w-4 h-4" /> Quick Rules
+            </div>
+            <ol className="list-decimal list-inside space-y-1 text-slate-400 leading-relaxed">
+              <li>When it is your turn to draw, pick 1 of 3 words and sketch it on the canvas.</li>
+              <li>When other players are drawing, guess the word in the chat box.</li>
+              <li>The faster you guess correctly, the more points you score!</li>
+            </ol>
+          </div>
+        )}
 
-      {/* Footer copyright */}
-      <footer className="text-[11px] sm:text-xs text-blue-200/50 text-center py-2 z-10">
-        Chitrakari Multiplayer &copy; {new Date().getFullYear()} — Made with ❤️ by Raren and team
+        {activeTab === 'about' && (
+          <div className="w-full mt-3 p-4 rounded-2xl glass-card text-xs text-slate-300 space-y-2 animate-float-slow">
+            <div className="font-bold text-cyan-400 flex items-center gap-1.5">
+              <BookOpen className="w-4 h-4" /> About the Studio
+            </div>
+            <p className="text-slate-400 leading-relaxed">
+              Chitrakari is an artistic multiplayer pictionary studio with smart dictionary meanings, Indian doodle expressions, and high-precision brush tools.
+            </p>
+          </div>
+        )}
+
+      </main>
+
+      {/* Sleek Minimalist Footer */}
+      <footer className="w-full max-w-5xl py-2 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 border-t border-white/[0.04] z-10 gap-1">
+        <span>Chitrakari &copy; {new Date().getFullYear()}</span>
+        <span className="text-slate-400">Crafted with ❤️ by Raren and team</span>
       </footer>
+
     </div>
   );
 }
+

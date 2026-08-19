@@ -124,19 +124,19 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
    };
 
    return (
-      <div className="w-full flex flex-col h-full relative">
+      <div className="w-full flex flex-col h-full relative select-none">
 
          {/* Chat Box */}
-         <div className="bg-transparent border-transparent shadow-none flex-1 flex flex-col overflow-hidden relative transition-colors min-h-0">
+         <div className="flex-1 flex flex-col overflow-hidden relative transition-colors min-h-0">
             <div
-               className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 scrollbar-thin"
+               className="flex-1 overflow-y-auto p-3 sm:p-3.5 space-y-2.5 scrollbar-thin"
                ref={chatContainerRef}
                onScroll={handleScroll}
             >
                {messages.length === 0 && (
-                  <div className="flex flex-col items-center justify-center h-full text-center py-8 opacity-50">
-                     <span className="text-3xl mb-2">💬</span>
-                     <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Chat messages will appear here</p>
+                  <div className="flex flex-col items-center justify-center h-full text-center py-8 opacity-40">
+                     <span className="text-2xl mb-1.5">💬</span>
+                     <p className="text-xs text-slate-400 font-medium">Type your guesses in the box below!</p>
                   </div>
                )}
                {messages.map(msg => {
@@ -144,10 +144,10 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
 
                   if (msg.type === 'correct_guess') {
                      return (
-                        <div key={msg.id} className="text-center animate-pop">
-                           <span className="inline-flex items-center gap-1 bg-emerald-100 dark:bg-emerald-500/20 border border-emerald-300 dark:border-emerald-500/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold px-3 py-1.5 rounded-full">
-                              <Sparkles className="w-3 h-3" />
-                              {p?.name} guessed the word!
+                        <div key={msg.id} className="text-center animate-pop my-1">
+                           <span className="inline-flex items-center gap-1.5 bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full glow-emerald">
+                              <Sparkles className="w-3 h-3 text-emerald-400" />
+                              <span>{p?.name} guessed the word!</span>
                            </span>
                         </div>
                      );
@@ -155,50 +155,40 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
 
                   if (msg.type === 'close_guess') {
                      return (
-                        <div key={msg.id} className="text-center">
-                           <span className="inline-block bg-amber-100 dark:bg-amber-500/20 border border-amber-300 dark:border-amber-500/50 text-amber-600 dark:text-amber-400 text-xs font-bold px-3 py-1.5 rounded-full">
+                        <div key={msg.id} className="text-center my-0.5">
+                           <span className="inline-block bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[11px] font-bold px-3 py-1 rounded-full glow-amber">
                               {msg.text}
                            </span>
                         </div>
                      );
                   }
 
-                  if (msg.type === 'leak_blocked') {
-                     return (
-                        <div key={msg.id} className="text-center">
-                           <span className="inline-block bg-rose-100 dark:bg-rose-500/20 border border-rose-300 dark:border-rose-500/50 text-rose-600 dark:text-rose-400 text-xs font-bold px-3 py-1.5 rounded-full">
-                              ⚠️ {msg.text}
-                           </span>
-                        </div>
-                     );
-                  }
-
-                  if (msg.type === 'system') {
-                     return (
-                        <div key={msg.id} className="text-center text-xs text-slate-500 italic">
-                           {msg.text}
-                        </div>
-                     );
-                  }
-
                   if (msg.type === 'system_meaning') {
                      return (
-                        <div key={msg.id} className="text-center my-2 animate-pop">
-                           <span className="inline-block bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800/50 text-indigo-700 dark:text-indigo-300 text-xs font-bold px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-sm leading-tight max-w-[90%]">
-                              📖 {msg.text}
+                        <div key={msg.id} className="text-center my-1.5">
+                           <div className="bg-indigo-500/15 border border-indigo-500/30 text-indigo-200 text-xs p-2.5 rounded-xl text-left leading-relaxed">
+                              <div className="font-bold text-indigo-400 text-[10px] uppercase tracking-wider mb-0.5">Dictionary Definition</div>
+                              {msg.text}
+                           </div>
+                        </div>
+                     );
+                  }
+
+                  if (msg.type === 'leak_blocked') {
+                     return (
+                        <div key={msg.id} className="text-center my-0.5">
+                           <span className="inline-block bg-rose-500/15 border border-rose-500/30 text-rose-300 text-[11px] font-medium px-2.5 py-1 rounded-lg">
+                              {msg.text}
                            </span>
                         </div>
                      );
                   }
 
                   if (msg.type === 'guessed_chat') {
-                     if (!isDrawer && !myPlayerState?.hasGuessedCorrectly) {
-                        return null;
-                     }
                      return (
-                        <div key={msg.id} className="text-sm break-words leading-relaxed flex flex-col">
-                           <span className="font-bold text-emerald-600 dark:text-emerald-400 text-[10px] uppercase tracking-wider">{p?.name}</span>
-                           <span className="text-emerald-800 dark:text-emerald-200 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-2 rounded-xl rounded-tl-sm self-start inline-block shadow-sm border border-emerald-100 dark:border-emerald-800/50">
+                        <div key={msg.id} className="text-xs break-words leading-relaxed flex flex-col items-start">
+                           <span className="font-bold text-emerald-400 text-[10px] uppercase tracking-wider mb-0.5">{p?.name}</span>
+                           <span className="text-emerald-200 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1.5 rounded-xl rounded-tl-sm inline-block shadow-sm">
                               {msg.text}
                            </span>
                         </div>
@@ -206,9 +196,9 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   }
 
                   return (
-                     <div key={msg.id} className={`text-sm break-words leading-relaxed flex flex-col animate-float-slow`}>
-                        <span className="font-bold text-slate-500 dark:text-slate-400 text-[10px] uppercase tracking-wider">{p?.name}</span>
-                        <span className="text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-paper-900/50 px-3 py-2 rounded-xl rounded-tl-sm self-start inline-block shadow-sm">
+                     <div key={msg.id} className="text-xs break-words leading-relaxed flex flex-col items-start">
+                        <span className="font-bold text-slate-400 text-[10px] uppercase tracking-wider mb-0.5">{p?.name}</span>
+                        <span className="text-slate-200 bg-white/[0.04] border border-white/[0.06] px-2.5 py-1.5 rounded-xl rounded-tl-sm inline-block">
                            {msg.text}
                         </span>
                      </div>
@@ -220,22 +210,22 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
             {hasNewMessages && (
                <button
                   onClick={scrollToBottom}
-                  className="absolute bottom-20 left-1/2 -translate-x-1/2 bg-primary-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2 hover:bg-primary-600 transition-all z-10 animate-bounce"
+                  className="absolute bottom-16 left-1/2 -translate-x-1/2 bg-emerald-500 text-slate-950 text-xs font-bold px-3.5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 hover:bg-emerald-400 transition-all z-10 animate-bounce glow-emerald"
                >
-                  <ArrowDown className="w-3 h-3" /> New
+                  <ArrowDown className="w-3.5 h-3.5" /> <span>New</span>
                </button>
             )}
 
             {/* Input / Actions Area */}
-            <div className="p-2 sm:p-3 bg-slate-50 dark:bg-paper-900/80 border-t border-slate-200 dark:border-slate-700/50 flex flex-col gap-2 transition-colors flex-shrink-0">
+            <div className="p-2.5 bg-slate-950/40 border-t border-white/[0.06] flex flex-col gap-2 flex-shrink-0">
 
-               {/* Reactions */}
-               <div className="flex gap-3 sm:gap-4 justify-center py-0.5">
-                  {['👍', '👎', '😂', '😲', '❤️', '🙏', '🪔', '☕'].map((emoji, idx) => (
+               {/* Quick Reactions */}
+               <div className="flex gap-1.5 justify-center py-0.5">
+                  {['👍', '😂', '😲', '❤️', '👏', '🪔', '☕'].map((emoji) => (
                      <button
                         key={emoji}
                         onClick={() => handleReaction(emoji)}
-                        className={`text-lg sm:text-xl p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:scale-125 hover:-translate-y-1 transition-all active:scale-95 drop-shadow-md rounded-xl hover:bg-slate-200/50 dark:hover:bg-paper-700/50 ${idx % 3 === 0 ? 'animate-float-slow' : idx % 3 === 1 ? 'animate-float-medium' : 'animate-float-fast'}`}
+                        className="text-base p-1.5 rounded-lg hover:bg-white/[0.08] hover:scale-125 active:scale-95 transition-transform"
                      >
                         {emoji}
                      </button>
@@ -247,29 +237,29 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                   <button
                      onClick={handleSpendHint}
                      disabled={!roomState.hiddenWord || roomState.hiddenWord.split('').filter(c => c === '_').length <= 1 || roomState.phase !== 'drawing'}
-                     className="w-full bg-amber-100 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-300 dark:border-amber-500/50 p-2.5 sm:p-3 rounded-2xl text-sm font-bold flex items-center justify-center gap-2 hover:bg-amber-200 dark:hover:bg-amber-500/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm"
+                     className="w-full bg-amber-500/15 text-amber-300 border border-amber-500/30 p-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 hover:bg-amber-500/25 disabled:opacity-40 disabled:cursor-not-allowed transition-all glow-amber"
                   >
-                     <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
-                     Give Hint
+                     <Sparkles className="w-4 h-4 text-amber-400" />
+                     <span>Reveal Letter Hint</span>
                   </button>
                ) : (
-                  <form onSubmit={handleSubmit} className="flex gap-2">
+                  <form onSubmit={handleSubmit} className="flex gap-1.5">
                      <div className="relative flex-1">
                         <input
                            type="text"
                            value={inputValue}
                            onChange={e => setInputValue(e.target.value)}
                            placeholder={myPlayerState?.hasGuessedCorrectly ? "You guessed it!" : "Type guess here..."}
-                           className={`w-full bg-white dark:bg-paper-800 border ${proximity === 'hot' ? 'border-red-500 dark:border-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]' :
-                                 proximity === 'warm' ? 'border-orange-500 dark:border-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.5)]' :
-                                    'border-slate-200 dark:border-slate-700'
-                              } rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500 pr-10 transition-all`}
+                           className={`w-full glass-input rounded-xl px-3 py-2 text-xs text-white placeholder-slate-400 pr-8 outline-none ${
+                              proximity === 'hot' ? 'border-red-400 shadow-[0_0_10px_rgba(239,68,68,0.3)]' :
+                              proximity === 'warm' ? 'border-orange-400 shadow-[0_0_10px_rgba(249,115,22,0.3)]' : ''
+                           }`}
                         />
                         {myPlayerState?.hasGuessedCorrectly && (
-                           <CheckCircle2 className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-emerald-500 pointer-events-none" />
+                           <CheckCircle2 className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-emerald-400 pointer-events-none" />
                         )}
                         {proximity && !myPlayerState?.hasGuessedCorrectly && (
-                           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none animate-pulse">
+                           <div className="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center pointer-events-none animate-pulse text-xs">
                               {proximity === 'hot' ? '🔥' : proximity === 'warm' ? '🌡️' : '❄️'}
                            </div>
                         )}
@@ -277,9 +267,9 @@ export function ChatSidebar({ onMobileClose }: ChatSidebarProps) {
                      <button
                         type="submit"
                         disabled={!inputValue.trim()}
-                        className="bg-primary-500 text-white min-w-[48px] min-h-[48px] rounded-2xl hover:bg-primary-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm active:scale-95 flex-shrink-0 flex items-center justify-center"
+                        className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-3 py-2 rounded-xl disabled:opacity-30 disabled:hover:bg-emerald-500 transition-all shadow-sm active:scale-95 flex-shrink-0 flex items-center justify-center glow-emerald"
                      >
-                        <Send className="w-5 h-5" />
+                        <Send className="w-3.5 h-3.5 stroke-[2.5]" />
                      </button>
                   </form>
                )}
